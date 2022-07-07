@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0D1083A0-90D3-43B9-8482-066E4794B7B5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LibrartDataManagementSystem</RootNamespace>
+    <AssemblyName>LibrartDataManagementSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BooksAddLayoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BooksAddLayoutForm.Designer.cs">
+      <DependentUpon>BooksAddLayoutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BooksLayoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BooksLayoutForm.Designer.cs">
+      <DependentUpon>BooksLayoutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BooksSearchLayoutFormcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BooksSearchLayoutFormcs.Designer.cs">
+      <DependentUpon>BooksSearchLayoutFormcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BorrowersLayOutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrowersLayOutForm.Designer.cs">
+      <DependentUpon>BorrowersLayOutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BorrowersSearchLayoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrowersSearchLayoutForm.Designer.cs">
+      <DependentUpon>BorrowersSearchLayoutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TriggeredBorrowLayoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TriggeredBorrowLayoutForm.Designer.cs">
+      <DependentUpon>TriggeredBorrowLayoutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogsLayoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogsLayoutForm.Designer.cs">
+      <DependentUpon>LogsLayoutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogsSearchLayoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogsSearchLayoutForm.Designer.cs">
+      <DependentUpon>LogsSearchLayoutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainLayout.Designer.cs">
+      <DependentUpon>MainLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainLayoutController.cs" />
+    <Compile Include="MemberAddLayoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemberAddLayoutForm.Designer.cs">
+      <DependentUpon>MemberAddLayoutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MemberSearchLayoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemberSearchLayoutForm.Designer.cs">
+      <DependentUpon>MemberSearchLayoutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MembersLayoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MembersLayoutForm.Designer.cs">
+      <DependentUpon>MembersLayoutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BooksAddLayoutForm.resx">
+      <DependentUpon>BooksAddLayoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BooksLayoutForm.resx">
+      <DependentUpon>BooksLayoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BooksSearchLayoutFormcs.resx">
+      <DependentUpon>BooksSearchLayoutFormcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BorrowersLayOutForm.resx">
+      <DependentUpon>BorrowersLayOutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BorrowersSearchLayoutForm.resx">
+      <DependentUpon>BorrowersSearchLayoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TriggeredBorrowLayoutForm.resx">
+      <DependentUpon>TriggeredBorrowLayoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogsLayoutForm.resx">
+      <DependentUpon>LogsLayoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogsSearchLayoutForm.resx">
+      <DependentUpon>LogsSearchLayoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainLayout.resx">
+      <DependentUpon>MainLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberAddLayoutForm.resx">
+      <DependentUpon>MemberAddLayoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberSearchLayoutForm.resx">
+      <DependentUpon>MemberSearchLayoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MembersLayoutForm.resx">
+      <DependentUpon>MembersLayoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
