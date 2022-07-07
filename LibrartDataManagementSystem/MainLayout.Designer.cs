@@ -30,17 +30,19 @@ namespace LibrartDataManagementSystem
         private void InitializeComponent()
         {
             this.pnl_Navigation = new System.Windows.Forms.Panel();
+            this.btn_Members = new System.Windows.Forms.Button();
             this.btn_Logs = new System.Windows.Forms.Button();
             this.btn_Borrowers = new System.Windows.Forms.Button();
             this.btn_Books = new System.Windows.Forms.Button();
             this.pnl_Main = new System.Windows.Forms.Panel();
-            this.btn_Members = new System.Windows.Forms.Button();
+            this.btn_BorrowTransation = new System.Windows.Forms.Button();
             this.pnl_Navigation.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_Navigation
             // 
             this.pnl_Navigation.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnl_Navigation.Controls.Add(this.btn_BorrowTransation);
             this.pnl_Navigation.Controls.Add(this.btn_Members);
             this.pnl_Navigation.Controls.Add(this.btn_Logs);
             this.pnl_Navigation.Controls.Add(this.btn_Borrowers);
@@ -48,8 +50,18 @@ namespace LibrartDataManagementSystem
             this.pnl_Navigation.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_Navigation.Location = new System.Drawing.Point(0, 0);
             this.pnl_Navigation.Name = "pnl_Navigation";
-            this.pnl_Navigation.Size = new System.Drawing.Size(1125, 100);
+            this.pnl_Navigation.Size = new System.Drawing.Size(1378, 100);
             this.pnl_Navigation.TabIndex = 0;
+            // 
+            // btn_Members
+            // 
+            this.btn_Members.Location = new System.Drawing.Point(87, 33);
+            this.btn_Members.Name = "btn_Members";
+            this.btn_Members.Size = new System.Drawing.Size(75, 23);
+            this.btn_Members.TabIndex = 3;
+            this.btn_Members.Text = "Members";
+            this.btn_Members.UseVisualStyleBackColor = true;
+            this.btn_Members.Click += new System.EventHandler(this.btn_Members_Click);
             // 
             // btn_Logs
             // 
@@ -63,7 +75,7 @@ namespace LibrartDataManagementSystem
             // 
             // btn_Borrowers
             // 
-            this.btn_Borrowers.Location = new System.Drawing.Point(342, 33);
+            this.btn_Borrowers.Location = new System.Drawing.Point(397, 33);
             this.btn_Borrowers.Name = "btn_Borrowers";
             this.btn_Borrowers.Size = new System.Drawing.Size(75, 23);
             this.btn_Borrowers.TabIndex = 1;
@@ -73,7 +85,7 @@ namespace LibrartDataManagementSystem
             // 
             // btn_Books
             // 
-            this.btn_Books.Location = new System.Drawing.Point(231, 33);
+            this.btn_Books.Location = new System.Drawing.Point(180, 33);
             this.btn_Books.Name = "btn_Books";
             this.btn_Books.Size = new System.Drawing.Size(75, 23);
             this.btn_Books.TabIndex = 0;
@@ -87,25 +99,25 @@ namespace LibrartDataManagementSystem
             this.pnl_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_Main.Location = new System.Drawing.Point(0, 100);
             this.pnl_Main.Name = "pnl_Main";
-            this.pnl_Main.Size = new System.Drawing.Size(1125, 548);
+            this.pnl_Main.Size = new System.Drawing.Size(1378, 632);
             this.pnl_Main.TabIndex = 1;
             this.pnl_Main.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_Main_Paint);
             // 
-            // btn_Members
+            // btn_BorrowTransation
             // 
-            this.btn_Members.Location = new System.Drawing.Point(87, 33);
-            this.btn_Members.Name = "btn_Members";
-            this.btn_Members.Size = new System.Drawing.Size(75, 23);
-            this.btn_Members.TabIndex = 3;
-            this.btn_Members.Text = "Members";
-            this.btn_Members.UseVisualStyleBackColor = true;
-            this.btn_Members.Click += new System.EventHandler(this.btn_Members_Click);
+            this.btn_BorrowTransation.Location = new System.Drawing.Point(272, 33);
+            this.btn_BorrowTransation.Name = "btn_BorrowTransation";
+            this.btn_BorrowTransation.Size = new System.Drawing.Size(119, 23);
+            this.btn_BorrowTransation.TabIndex = 4;
+            this.btn_BorrowTransation.Text = "Borrow Transation";
+            this.btn_BorrowTransation.UseVisualStyleBackColor = true;
+            this.btn_BorrowTransation.Click += new System.EventHandler(this.btn_BorrowTransation_Click);
             // 
             // MainLayout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1125, 648);
+            this.ClientSize = new System.Drawing.Size(1378, 732);
             this.Controls.Add(this.pnl_Main);
             this.Controls.Add(this.pnl_Navigation);
             this.Name = "MainLayout";
@@ -124,5 +136,6 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.Button btn_Books;
         private System.Windows.Forms.Panel pnl_Main;
         private System.Windows.Forms.Button btn_Members;
+        private System.Windows.Forms.Button btn_BorrowTransation;
     }
 }

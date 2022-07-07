@@ -72,7 +72,7 @@ namespace LibrartDataManagementSystem
 
         private void btn_Borrow_Btn_Click(object sender, EventArgs e)
         {
-            TriggeredBorrowLayoutForm triggeredBorrowLayoutForm = new TriggeredBorrowLayoutForm();
+            TransactionBorrowLayoutForm triggeredBorrowLayoutForm = new TransactionBorrowLayoutForm();
 
             triggeredBorrowLayoutForm.Show();
         }

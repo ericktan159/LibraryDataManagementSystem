@@ -76,11 +76,11 @@
     <Compile Include="BorrowersSearchLayoutForm.Designer.cs">
       <DependentUpon>BorrowersSearchLayoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TriggeredBorrowLayoutForm.cs">
+    <Compile Include="TransactionBorrowLayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TriggeredBorrowLayoutForm.Designer.cs">
-      <DependentUpon>TriggeredBorrowLayoutForm.cs</DependentUpon>
+    <Compile Include="TransactionBorrowLayoutForm.Designer.cs">
+      <DependentUpon>TransactionBorrowLayoutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LogsLayoutForm.cs">
       <SubType>Form</SubType>
@@ -136,8 +136,8 @@
     <EmbeddedResource Include="BorrowersSearchLayoutForm.resx">
       <DependentUpon>BorrowersSearchLayoutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TriggeredBorrowLayoutForm.resx">
-      <DependentUpon>TriggeredBorrowLayoutForm.cs</DependentUpon>
+    <EmbeddedResource Include="TransactionBorrowLayoutForm.resx">
+      <DependentUpon>TransactionBorrowLayoutForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogsLayoutForm.resx">
       <DependentUpon>LogsLayoutForm.cs</DependentUpon>

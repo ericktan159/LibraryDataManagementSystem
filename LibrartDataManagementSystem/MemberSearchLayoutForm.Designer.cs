@@ -32,13 +32,6 @@ namespace LibrartDataManagementSystem
             this.btn_DeleteMemberSearch = new System.Windows.Forms.Button();
             this.btn_EditMemberSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_Member_Search = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.combBx_Borrower_First_Name_MemberSearch = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.combBx_Borrower_Last_Name_MemberSearch = new System.Windows.Forms.ComboBox();
-            this.txtBx_MemberSearch = new System.Windows.Forms.TextBox();
             this.dtGrdVw_MemberSearch = new System.Windows.Forms.DataGridView();
             this.Column_Borrower_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Borrower_Last_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,7 +41,13 @@ namespace LibrartDataManagementSystem
             this.Column_Borrower_Conatact_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Borrower_Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Borrower_Type_Valid_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_Borrow_Btn = new System.Windows.Forms.Button();
+            this.btn_Member_Search = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.combBx_Borrower_First_Name_MemberSearch = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.combBx_Borrower_Last_Name_MemberSearch = new System.Windows.Forms.ComboBox();
+            this.txtBx_MemberSearch = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_MemberSearch)).BeginInit();
             this.SuspendLayout();
@@ -73,7 +72,6 @@ namespace LibrartDataManagementSystem
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btn_Borrow_Btn);
             this.panel1.Controls.Add(this.dtGrdVw_MemberSearch);
             this.panel1.Controls.Add(this.btn_DeleteMemberSearch);
             this.panel1.Controls.Add(this.btn_EditMemberSearch);
@@ -82,65 +80,6 @@ namespace LibrartDataManagementSystem
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(927, 378);
             this.panel1.TabIndex = 14;
-            // 
-            // btn_Member_Search
-            // 
-            this.btn_Member_Search.Location = new System.Drawing.Point(503, 27);
-            this.btn_Member_Search.Name = "btn_Member_Search";
-            this.btn_Member_Search.Size = new System.Drawing.Size(75, 23);
-            this.btn_Member_Search.TabIndex = 31;
-            this.btn_Member_Search.Text = "Search";
-            this.btn_Member_Search.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(265, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "First Name";
-            // 
-            // combBx_Borrower_First_Name_MemberSearch
-            // 
-            this.combBx_Borrower_First_Name_MemberSearch.FormattingEnabled = true;
-            this.combBx_Borrower_First_Name_MemberSearch.Location = new System.Drawing.Point(268, 74);
-            this.combBx_Borrower_First_Name_MemberSearch.Name = "combBx_Borrower_First_Name_MemberSearch";
-            this.combBx_Borrower_First_Name_MemberSearch.Size = new System.Drawing.Size(121, 21);
-            this.combBx_Borrower_First_Name_MemberSearch.TabIndex = 27;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(193, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Last Name";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(127, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 13);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Search Member ID";
-            // 
-            // combBx_Borrower_Last_Name_MemberSearch
-            // 
-            this.combBx_Borrower_Last_Name_MemberSearch.FormattingEnabled = true;
-            this.combBx_Borrower_Last_Name_MemberSearch.Location = new System.Drawing.Point(130, 74);
-            this.combBx_Borrower_Last_Name_MemberSearch.Name = "combBx_Borrower_Last_Name_MemberSearch";
-            this.combBx_Borrower_Last_Name_MemberSearch.Size = new System.Drawing.Size(121, 21);
-            this.combBx_Borrower_Last_Name_MemberSearch.TabIndex = 24;
-            // 
-            // txtBx_MemberSearch
-            // 
-            this.txtBx_MemberSearch.Location = new System.Drawing.Point(237, 30);
-            this.txtBx_MemberSearch.Name = "txtBx_MemberSearch";
-            this.txtBx_MemberSearch.Size = new System.Drawing.Size(260, 20);
-            this.txtBx_MemberSearch.TabIndex = 23;
             // 
             // dtGrdVw_MemberSearch
             // 
@@ -213,15 +152,64 @@ namespace LibrartDataManagementSystem
             this.Column_Borrower_Type_Valid_ID.Name = "Column_Borrower_Type_Valid_ID";
             this.Column_Borrower_Type_Valid_ID.ReadOnly = true;
             // 
-            // btn_Borrow_Btn
+            // btn_Member_Search
             // 
-            this.btn_Borrow_Btn.Location = new System.Drawing.Point(516, 308);
-            this.btn_Borrow_Btn.Name = "btn_Borrow_Btn";
-            this.btn_Borrow_Btn.Size = new System.Drawing.Size(75, 23);
-            this.btn_Borrow_Btn.TabIndex = 7;
-            this.btn_Borrow_Btn.Text = "Borrow";
-            this.btn_Borrow_Btn.UseVisualStyleBackColor = true;
-            this.btn_Borrow_Btn.Click += new System.EventHandler(this.btn_Borrow_Btn_Click);
+            this.btn_Member_Search.Location = new System.Drawing.Point(503, 27);
+            this.btn_Member_Search.Name = "btn_Member_Search";
+            this.btn_Member_Search.Size = new System.Drawing.Size(75, 23);
+            this.btn_Member_Search.TabIndex = 31;
+            this.btn_Member_Search.Text = "Search";
+            this.btn_Member_Search.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(265, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "First Name";
+            // 
+            // combBx_Borrower_First_Name_MemberSearch
+            // 
+            this.combBx_Borrower_First_Name_MemberSearch.FormattingEnabled = true;
+            this.combBx_Borrower_First_Name_MemberSearch.Location = new System.Drawing.Point(268, 74);
+            this.combBx_Borrower_First_Name_MemberSearch.Name = "combBx_Borrower_First_Name_MemberSearch";
+            this.combBx_Borrower_First_Name_MemberSearch.Size = new System.Drawing.Size(121, 21);
+            this.combBx_Borrower_First_Name_MemberSearch.TabIndex = 27;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(193, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Last Name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(127, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Search Member ID";
+            // 
+            // combBx_Borrower_Last_Name_MemberSearch
+            // 
+            this.combBx_Borrower_Last_Name_MemberSearch.FormattingEnabled = true;
+            this.combBx_Borrower_Last_Name_MemberSearch.Location = new System.Drawing.Point(130, 74);
+            this.combBx_Borrower_Last_Name_MemberSearch.Name = "combBx_Borrower_Last_Name_MemberSearch";
+            this.combBx_Borrower_Last_Name_MemberSearch.Size = new System.Drawing.Size(121, 21);
+            this.combBx_Borrower_Last_Name_MemberSearch.TabIndex = 24;
+            // 
+            // txtBx_MemberSearch
+            // 
+            this.txtBx_MemberSearch.Location = new System.Drawing.Point(237, 30);
+            this.txtBx_MemberSearch.Name = "txtBx_MemberSearch";
+            this.txtBx_MemberSearch.Size = new System.Drawing.Size(260, 20);
+            this.txtBx_MemberSearch.TabIndex = 23;
             // 
             // MemberSearchLayoutForm
             // 
@@ -267,6 +255,5 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrower_Conatact_Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrower_Age;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrower_Type_Valid_ID;
-        private System.Windows.Forms.Button btn_Borrow_Btn;
     }
 }

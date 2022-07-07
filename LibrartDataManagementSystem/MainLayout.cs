@@ -19,6 +19,10 @@ namespace LibrartDataManagementSystem
         BooksLayoutForm booksLayoutForm = new BooksLayoutForm();
         BorrowersLayOutForm borrowersLayOutForm = new BorrowersLayOutForm();
         LogsLayoutForm logsLayoutForm = new LogsLayoutForm();
+        TransactionBorrowLayoutForm transactionBorrowLayoutForm = new TransactionBorrowLayoutForm();
+
+
+
         public MainLayout()
         {
             InitializeComponent();
@@ -56,6 +60,11 @@ namespace LibrartDataManagementSystem
         private void btn_Logs_Click(object sender, EventArgs e)
         {
             myLayoutController.LoadForm(logsLayoutForm, this);
+        }
+
+        private void btn_BorrowTransation_Click(object sender, EventArgs e)
+        {
+            myLayoutController.LoadForm(transactionBorrowLayoutForm, this);
         }
     }
 }
