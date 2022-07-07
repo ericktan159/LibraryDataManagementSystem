@@ -75,10 +75,41 @@ namespace LibrartDataManagementSystem
 
 
 
-        public string sql__StateMent_For_Table_Borrower()
+        public void insert_To_tbl_borrower(string Borrower_Last_Name, string Borrower_First_Name, string Borrower_Middle_Name, string Borrower_Address, string Borrower_Contact_Number, int Borrower_Age, string Borrower_Type_of_Valid_ID)
         {
+            string Borrower_Name = Borrower_First_Name + " " + Borrower_Middle_Name + " " + Borrower_Last_Name;
 
-            return "";
+
+            /*
+            string sqlStrCommand = "Insert into main (Name, age, address, Gender, isTraveled, isCloseContact, symptomsList, celNumber, eMailAddress) values " +
+                    "('" + myCTInfo.name + "', " + myCTInfo.age + ", '" + myCTInfo.address + "', '" + myCTInfo.gender + "', '" + myCTInfo.isTraveledStr + "', '" + myCTInfo.isClosedContact +
+                    "', '" + myCTInfo.symptomList + "', '" + myCTInfo.cellNumber + "', '" + myCTInfo.eMail + "')";
+
+            */
+
+            ////////
+
+            string singleQuoteChar = "'";
+
+            string table_Name = "tbl_borrower";
+            string table_Columns = "(Borrower_Last_Name, Borrower_First_Name, Borrower_Middle_Name, Borrower_Name, Borrower_Address, Borrower_Contact_Number, Borrower_Age, Borrower_Type_of_Valid_ID)";
+            string table_Column_Values = "(" +
+                singleQuoteChar + Borrower_Last_Name + singleQuoteChar + ", " +
+                singleQuoteChar + Borrower_First_Name + singleQuoteChar + ", " +
+                singleQuoteChar + Borrower_Middle_Name + singleQuoteChar + ", " +
+                singleQuoteChar + Borrower_Name + singleQuoteChar + ", " +
+                singleQuoteChar + Borrower_Address + singleQuoteChar + ", " +
+                singleQuoteChar + Borrower_Contact_Number + singleQuoteChar + ", " +
+                Borrower_Age + ", " +
+                singleQuoteChar + Borrower_Type_of_Valid_ID + singleQuoteChar + 
+                ")";
+            
+            ///////////
+
+            string insert_SQL_StateMent_For_Table_ = "Insert into "+ table_Name + " " + table_Columns +"  values " + table_Column_Values;
+
+            insertRecordtoTable(insert_SQL_StateMent_For_Table_);
+
 
         }
 

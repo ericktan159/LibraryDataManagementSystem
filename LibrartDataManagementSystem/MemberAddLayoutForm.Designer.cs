@@ -186,6 +186,7 @@ namespace LibrartDataManagementSystem
             this.btn_MemberAdd.TabIndex = 49;
             this.btn_MemberAdd.Text = "Add Member";
             this.btn_MemberAdd.UseVisualStyleBackColor = true;
+            this.btn_MemberAdd.Click += new System.EventHandler(this.btn_MemberAdd_Click);
             // 
             // MemberAddLayoutForm
             // 
