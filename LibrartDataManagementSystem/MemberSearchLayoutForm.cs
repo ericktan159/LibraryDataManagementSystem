@@ -30,8 +30,8 @@ namespace LibrartDataManagementSystem
 
         private void MemberSearchLayoutForm_Load(object sender, EventArgs e)
         {
-            demoLang_select_ALL_Form_tbl_borrower();
-            //testDemolang();
+            //demoLang_select_ALL_Form_tbl_borrower();
+            testDemolang();
         }
 
 

@@ -26,17 +26,27 @@ namespace LibrartDataManagementSystem
         }
         private void demodemolang()
         {
+            //DateTime.Parse(date).ToString("yyyy-MM-dd")
+
 
             string Book_Tittle = "Physics";
             string Book_Author = "Einstein"; 
             string Book_Genre = "Scifi";
-            string Book_Year_Published = DateTime.Now.ToString();//DateTime Book_Year_Published = DateTime.Now.GetDateTimeFormats();
+            string Book_Year_Published = dtp_BookYearPublishe_BookAdd.Value.ToString();//DateTime.Now;//DateTime Book_Year_Published = DateTime.Now.GetDateTimeFormats();
             string Book_Publisher = "Dr. Tan";
             int Book_Number_Of_Quantity = 5;
+
+            //DateTime.Parse(date).ToString("yyyy-MM-dd");
+            //Book_Year_Published.
 
             my_LDMS_DataBaseController.insert_To_tbl_book(Book_Tittle, Book_Author, Book_Genre, Book_Year_Published, Book_Publisher, Book_Number_Of_Quantity);
             
             MessageBox.Show("Gumana!!!");
+        }
+
+        private void BooksAddLayoutForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
