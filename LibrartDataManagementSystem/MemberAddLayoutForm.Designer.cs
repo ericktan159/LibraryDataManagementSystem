@@ -67,7 +67,7 @@ namespace LibrartDataManagementSystem
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(152, 94);
+            this.label10.Location = new System.Drawing.Point(195, 94);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(58, 13);
             this.label10.TabIndex = 65;
@@ -76,7 +76,7 @@ namespace LibrartDataManagementSystem
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(285, 94);
+            this.label9.Location = new System.Drawing.Point(388, 94);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(57, 13);
             this.label9.TabIndex = 64;
@@ -85,7 +85,7 @@ namespace LibrartDataManagementSystem
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(408, 97);
+            this.label7.Location = new System.Drawing.Point(559, 94);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 13);
             this.label7.TabIndex = 63;
@@ -93,16 +93,16 @@ namespace LibrartDataManagementSystem
             // 
             // txtBx_FirstName_BorrowLayout
             // 
-            this.txtBx_FirstName_BorrowLayout.Location = new System.Drawing.Point(267, 71);
+            this.txtBx_FirstName_BorrowLayout.Location = new System.Drawing.Point(312, 71);
             this.txtBx_FirstName_BorrowLayout.Name = "txtBx_FirstName_BorrowLayout";
-            this.txtBx_FirstName_BorrowLayout.Size = new System.Drawing.Size(100, 20);
+            this.txtBx_FirstName_BorrowLayout.Size = new System.Drawing.Size(179, 20);
             this.txtBx_FirstName_BorrowLayout.TabIndex = 62;
             // 
             // txtBx_MiddleName_BorrowLayout
             // 
-            this.txtBx_MiddleName_BorrowLayout.Location = new System.Drawing.Point(395, 74);
+            this.txtBx_MiddleName_BorrowLayout.Location = new System.Drawing.Point(497, 71);
             this.txtBx_MiddleName_BorrowLayout.Name = "txtBx_MiddleName_BorrowLayout";
-            this.txtBx_MiddleName_BorrowLayout.Size = new System.Drawing.Size(100, 20);
+            this.txtBx_MiddleName_BorrowLayout.Size = new System.Drawing.Size(151, 20);
             this.txtBx_MiddleName_BorrowLayout.TabIndex = 61;
             // 
             // label6
@@ -118,7 +118,7 @@ namespace LibrartDataManagementSystem
             // 
             this.txtBx_TypeValidID_BorrowLayout.Location = new System.Drawing.Point(140, 216);
             this.txtBx_TypeValidID_BorrowLayout.Name = "txtBx_TypeValidID_BorrowLayout";
-            this.txtBx_TypeValidID_BorrowLayout.Size = new System.Drawing.Size(100, 20);
+            this.txtBx_TypeValidID_BorrowLayout.Size = new System.Drawing.Size(227, 20);
             this.txtBx_TypeValidID_BorrowLayout.TabIndex = 57;
             // 
             // label4
@@ -134,7 +134,7 @@ namespace LibrartDataManagementSystem
             // 
             this.txtBx_ContactNumber_BorrowLayout.Location = new System.Drawing.Point(140, 142);
             this.txtBx_ContactNumber_BorrowLayout.Name = "txtBx_ContactNumber_BorrowLayout";
-            this.txtBx_ContactNumber_BorrowLayout.Size = new System.Drawing.Size(100, 20);
+            this.txtBx_ContactNumber_BorrowLayout.Size = new System.Drawing.Size(227, 20);
             this.txtBx_ContactNumber_BorrowLayout.TabIndex = 55;
             // 
             // label3
@@ -148,9 +148,11 @@ namespace LibrartDataManagementSystem
             // 
             // txtBx_Address_BorrowLayout
             // 
+            this.txtBx_Address_BorrowLayout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBx_Address_BorrowLayout.Location = new System.Drawing.Point(140, 110);
             this.txtBx_Address_BorrowLayout.Name = "txtBx_Address_BorrowLayout";
-            this.txtBx_Address_BorrowLayout.Size = new System.Drawing.Size(355, 20);
+            this.txtBx_Address_BorrowLayout.Size = new System.Drawing.Size(508, 20);
             this.txtBx_Address_BorrowLayout.TabIndex = 53;
             // 
             // label2
@@ -175,7 +177,7 @@ namespace LibrartDataManagementSystem
             // 
             this.txtBx_LastName_BorrowLayout.Location = new System.Drawing.Point(140, 71);
             this.txtBx_LastName_BorrowLayout.Name = "txtBx_LastName_BorrowLayout";
-            this.txtBx_LastName_BorrowLayout.Size = new System.Drawing.Size(100, 20);
+            this.txtBx_LastName_BorrowLayout.Size = new System.Drawing.Size(166, 20);
             this.txtBx_LastName_BorrowLayout.TabIndex = 50;
             // 
             // btn_MemberAdd
@@ -192,7 +194,7 @@ namespace LibrartDataManagementSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 308);
+            this.ClientSize = new System.Drawing.Size(661, 308);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtBx_Age_BorrowLayout);
             this.Controls.Add(this.label10);

@@ -31,7 +31,6 @@ namespace LibrartDataManagementSystem
         {
             this.btn_DeleteMemberSearch = new System.Windows.Forms.Button();
             this.btn_EditMemberSearch = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.dtGrdVw_MemberSearch = new System.Windows.Forms.DataGridView();
             this.Column_Borrower_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Borrower_Last_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,13 +47,13 @@ namespace LibrartDataManagementSystem
             this.label1 = new System.Windows.Forms.Label();
             this.combBx_Borrower_Last_Name_MemberSearch = new System.Windows.Forms.ComboBox();
             this.txtBx_MemberSearch = new System.Windows.Forms.TextBox();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_MemberSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_DeleteMemberSearch
             // 
-            this.btn_DeleteMemberSearch.Location = new System.Drawing.Point(370, 308);
+            this.btn_DeleteMemberSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_DeleteMemberSearch.Location = new System.Drawing.Point(840, 486);
             this.btn_DeleteMemberSearch.Name = "btn_DeleteMemberSearch";
             this.btn_DeleteMemberSearch.Size = new System.Drawing.Size(75, 23);
             this.btn_DeleteMemberSearch.TabIndex = 5;
@@ -63,30 +62,22 @@ namespace LibrartDataManagementSystem
             // 
             // btn_EditMemberSearch
             // 
-            this.btn_EditMemberSearch.Location = new System.Drawing.Point(260, 308);
+            this.btn_EditMemberSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_EditMemberSearch.Location = new System.Drawing.Point(759, 486);
             this.btn_EditMemberSearch.Name = "btn_EditMemberSearch";
             this.btn_EditMemberSearch.Size = new System.Drawing.Size(75, 23);
             this.btn_EditMemberSearch.TabIndex = 4;
             this.btn_EditMemberSearch.Text = "Edit";
             this.btn_EditMemberSearch.UseVisualStyleBackColor = true;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dtGrdVw_MemberSearch);
-            this.panel1.Controls.Add(this.btn_DeleteMemberSearch);
-            this.panel1.Controls.Add(this.btn_EditMemberSearch);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 143);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(927, 378);
-            this.panel1.TabIndex = 14;
-            // 
             // dtGrdVw_MemberSearch
             // 
             this.dtGrdVw_MemberSearch.AllowUserToAddRows = false;
             this.dtGrdVw_MemberSearch.AllowUserToDeleteRows = false;
-            this.dtGrdVw_MemberSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dtGrdVw_MemberSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtGrdVw_MemberSearch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtGrdVw_MemberSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGrdVw_MemberSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column_Borrower_ID,
@@ -97,10 +88,10 @@ namespace LibrartDataManagementSystem
             this.Column_Borrower_Conatact_Number,
             this.Column_Borrower_Age,
             this.Column_Borrower_Type_Valid_ID});
-            this.dtGrdVw_MemberSearch.Location = new System.Drawing.Point(31, 30);
+            this.dtGrdVw_MemberSearch.Location = new System.Drawing.Point(12, 101);
             this.dtGrdVw_MemberSearch.Name = "dtGrdVw_MemberSearch";
             this.dtGrdVw_MemberSearch.ReadOnly = true;
-            this.dtGrdVw_MemberSearch.Size = new System.Drawing.Size(843, 235);
+            this.dtGrdVw_MemberSearch.Size = new System.Drawing.Size(903, 379);
             this.dtGrdVw_MemberSearch.TabIndex = 6;
             this.dtGrdVw_MemberSearch.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdVw_MemberSearch_CellContentClick);
             // 
@@ -215,8 +206,11 @@ namespace LibrartDataManagementSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(927, 521);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btn_DeleteMemberSearch);
+            this.Controls.Add(this.dtGrdVw_MemberSearch);
+            this.Controls.Add(this.btn_EditMemberSearch);
             this.Controls.Add(this.txtBx_MemberSearch);
             this.Controls.Add(this.btn_Member_Search);
             this.Controls.Add(this.combBx_Borrower_Last_Name_MemberSearch);
@@ -228,7 +222,6 @@ namespace LibrartDataManagementSystem
             this.Name = "MemberSearchLayoutForm";
             this.Text = "MemberSearchLayoutForm";
             this.Load += new System.EventHandler(this.MemberSearchLayoutForm_Load);
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_MemberSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -238,7 +231,6 @@ namespace LibrartDataManagementSystem
         #endregion
         private System.Windows.Forms.Button btn_DeleteMemberSearch;
         private System.Windows.Forms.Button btn_EditMemberSearch;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_Member_Search;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox combBx_Borrower_First_Name_MemberSearch;

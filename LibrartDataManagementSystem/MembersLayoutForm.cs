@@ -22,7 +22,7 @@ namespace LibrartDataManagementSystem
         }
         private void MembersLayoutForm_Load(object sender, EventArgs e)
         {
-            btn_AddMembers.PerformClick();
+            btn_BrowseMembers.PerformClick();
         }
 
         private void btn_BrowseMembers_Click(object sender, EventArgs e)
