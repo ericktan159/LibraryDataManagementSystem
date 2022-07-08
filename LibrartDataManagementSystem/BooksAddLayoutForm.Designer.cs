@@ -53,6 +53,7 @@ namespace LibrartDataManagementSystem
             this.btn_BookAdd.TabIndex = 0;
             this.btn_BookAdd.Text = "Add Book";
             this.btn_BookAdd.UseVisualStyleBackColor = true;
+            this.btn_BookAdd.Click += new System.EventHandler(this.btn_BookAdd_Click);
             // 
             // txtBx_BookTitle_BookAdd
             // 
@@ -154,6 +155,9 @@ namespace LibrartDataManagementSystem
             // 
             // dtp_BookYearPublishe_BookAdd
             // 
+            this.dtp_BookYearPublishe_BookAdd.CalendarTrailingForeColor = System.Drawing.SystemColors.Highlight;
+            this.dtp_BookYearPublishe_BookAdd.CustomFormat = "YYYY-MM-DD";
+            this.dtp_BookYearPublishe_BookAdd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.dtp_BookYearPublishe_BookAdd.Location = new System.Drawing.Point(136, 189);
             this.dtp_BookYearPublishe_BookAdd.Name = "dtp_BookYearPublishe_BookAdd";
             this.dtp_BookYearPublishe_BookAdd.Size = new System.Drawing.Size(200, 20);

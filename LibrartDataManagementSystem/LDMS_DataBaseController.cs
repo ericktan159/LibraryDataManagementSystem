@@ -110,9 +110,36 @@ namespace LibrartDataManagementSystem
 
             insertRecordtoTable(insert_SQL_StateMent_For_Table_);
 
-
+            return;
         }
 
+        public void insert_To_tbl_book(string Book_Tittle, string Book_Author, string Book_Genre, /*DateTime*/ string Book_Year_Published, string Book_Publisher, int Book_Number_Of_Quantity)
+        {
+
+            ////////
+
+            string singleQuoteChar = "'";
+
+            string table_Name = "tbl_book";
+            string table_Columns = "(Book_Tittle, Book_Author, Book_Genre, Book_Year_Published, Book_Publisher, Book_Number_Of_Quantity)";
+            //string table_Columns = "(Book_Tittle, Book_Author, Book_Genre,  Book_Publisher, Book_Number_Of_Quantity)";
+            string table_Column_Values = "(" +
+                singleQuoteChar + Book_Tittle + singleQuoteChar + ", " +
+                singleQuoteChar + Book_Author + singleQuoteChar + ", " +
+                singleQuoteChar + Book_Genre + singleQuoteChar + ", " +
+                singleQuoteChar + Book_Year_Published + singleQuoteChar + ", " +
+                singleQuoteChar + Book_Publisher + singleQuoteChar + ", " +
+                Book_Number_Of_Quantity +
+                ")";
+
+            ///////////
+
+            string insert_SQL_StateMent_For_Table_ = "Insert into " + table_Name + " " + table_Columns + "  values " + table_Column_Values;
+
+            insertRecordtoTable(insert_SQL_StateMent_For_Table_);
+
+            return;
+        }
 
 
 
