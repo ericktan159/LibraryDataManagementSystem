@@ -15,6 +15,8 @@ namespace LibrartDataManagementSystem
 
         List<List<string>> demoListOfListOfString;
 
+        LDMS_DataBaseController myLDMS_DataBaseController = new LDMS_DataBaseController();
+
 
         public MemberSearchLayoutForm()
         {
@@ -28,8 +30,32 @@ namespace LibrartDataManagementSystem
 
         private void MemberSearchLayoutForm_Load(object sender, EventArgs e)
         {
-            testDemolang();
+            demoLang_select_ALL_Form_tbl_borrower();
+            //testDemolang();
         }
+
+
+        private void demoLang_select_ALL_Form_tbl_borrower()
+        {
+            List<List<string>> selectItems_2DList = new List<List<string>>();
+
+            selectItems_2DList = myLDMS_DataBaseController.select_ALL_Form_tbl_borrower();
+
+            string msgFormat = "";
+
+            foreach (List<string> row in selectItems_2DList)
+            {
+                foreach (string item in row)
+                {
+                    msgFormat += item + "\t";
+                }
+                msgFormat += "\n";
+            }
+
+            MessageBox.Show(msgFormat);
+        }
+
+
 
         private void testDemolang()
         {

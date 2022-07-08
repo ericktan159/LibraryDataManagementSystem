@@ -19,11 +19,10 @@ namespace LibrartDataManagementSystem
 
         public DataTable dt;
         int result;
-        string sqlStrCommand;
-
+        
         //*
 
-        public void insertRecordtoTable(string insert_SQL_StateMent_For_Table_)
+        public void insert_DBMethod(string insert_SQL_StateMent)
         {
             /*
             string sqlStrCommand = "Insert into main (Name, age, address, Gender, isTraveled, isCloseContact, symptomsList, celNumber, eMailAddress) values " +
@@ -40,7 +39,7 @@ namespace LibrartDataManagementSystem
             try
             {
                 connectDB.Open();
-                cmd = new MySqlCommand(insert_SQL_StateMent_For_Table_, connectDB);
+                cmd = new MySqlCommand(insert_SQL_StateMent, connectDB);
                 //cmd.Connection = connectDB;
                 //cmd.CommandText = sqlStrCommand;
                 result = cmd.ExecuteNonQuery();
@@ -106,9 +105,9 @@ namespace LibrartDataManagementSystem
             
             ///////////
 
-            string insert_SQL_StateMent_For_Table_ = "Insert into "+ table_Name + " " + table_Columns +"  values " + table_Column_Values;
+            string insert_SQL_StateMent = "Insert into "+ table_Name + " " + table_Columns +"  values " + table_Column_Values;
 
-            insertRecordtoTable(insert_SQL_StateMent_For_Table_);
+            insert_DBMethod(insert_SQL_StateMent);
 
             return;
         }
@@ -134,55 +133,36 @@ namespace LibrartDataManagementSystem
 
             ///////////
 
-            string insert_SQL_StateMent_For_Table_ = "Insert into " + table_Name + " " + table_Columns + "  values " + table_Column_Values;
+            string insert_SQL_StateMent = "Insert into " + table_Name + " " + table_Columns + "  values " + table_Column_Values;
 
-            insertRecordtoTable(insert_SQL_StateMent_For_Table_);
+            insert_DBMethod(insert_SQL_StateMent);
 
             return;
         }
 
 
-             
-        /*
-        /// <summary>
-        /// Get all data in the database
-        /// </summary>
-        /// <param name="date">select specific date to check</param>
-        /// <returns>return data on the specific date if date is null return all data</returns>
-        public List<List<string>> GetAll(string date = null)
+        public List<List<string>> select_DBMethod(string select_SQL_StateMent)
         {
-            string sqlStrCommand;
             connectDB = new MySqlConnection(ConnectString);
-            if (date != null)
-            {
-                sqlStrCommand = $"Select * From main where time REGEXP '{date}.*'";
-            }
-            else
-            {
-                sqlStrCommand = "Select * From main";
-            }
-            List<List<string>> myCTInfos = new List<List<string>>();
+
+            List<List<string>> select_Query_Result_2D_Liist = new List<List<string>>();
             try
             {
                 connectDB.Open();
-                cmd = new MySqlCommand(sqlStrCommand, connectDB);
-                MySqlDataReader reader = cmd.ExecuteReader();
+                cmd = new MySqlCommand(select_SQL_StateMent, connectDB);
+                MySqlDataReader tableReader = cmd.ExecuteReader();
 
-                while (reader.Read())
+                while (tableReader.Read())
                 {
-                    myCTInfos.Add(new List<string>{
-                        reader.GetValue(1).ToString(),
-                        reader.GetValue(2).ToString(),
-                        reader.GetValue(3).ToString(),
-                        reader.GetValue(4).ToString(),
-                        reader.GetValue(5).ToString(),
-                        reader.GetValue(6).ToString(),
-                        reader.GetValue(7).ToString(),
-                        reader.GetValue(8).ToString(),
-                        reader.GetValue(9).ToString(),
-                        reader.GetValue(10).ToString()});
+                    List<string> rowRecord_StrList = new List<string>();
+
+                    for (int i = 0; i < tableReader.FieldCount; i++)
+                    {
+                        rowRecord_StrList.Add(tableReader.GetValue(i).ToString());
+                    }
+                 
+                    select_Query_Result_2D_Liist.Add(rowRecord_StrList);
                 }
-                return myCTInfos;
             }
             catch (Exception e)
             {
@@ -193,11 +173,39 @@ namespace LibrartDataManagementSystem
             {
                 connectDB.Close();
             }
+
+            return select_Query_Result_2D_Liist;
         }
 
-        //*/
+        public List<List<string>> select_ALL_Form_tbl_borrower()
+        {
+
+            //sqlStrCommand = "Select * From main";
+            
+            
+            string singleQuoteChar = "'";
+
+            string table_Name = "tbl_borrower";
+            /*
+            string table_Columns = "(Borrower_Last_Name, Borrower_First_Name, Borrower_Middle_Name, Borrower_Name, Borrower_Address, Borrower_Contact_Number, Borrower_Age, Borrower_Type_of_Valid_ID)";
+            string table_Column_Values = "(" +
+                singleQuoteChar + Borrower_Last_Name + singleQuoteChar + ", " +
+                singleQuoteChar + Borrower_First_Name + singleQuoteChar + ", " +
+                singleQuoteChar + Borrower_Middle_Name + singleQuoteChar + ", " +
+                singleQuoteChar + Borrower_Name + singleQuoteChar + ", " +
+                singleQuoteChar + Borrower_Address + singleQuoteChar + ", " +
+                singleQuoteChar + Borrower_Contact_Number + singleQuoteChar + ", " +
+                Borrower_Age + ", " +
+                singleQuoteChar + Borrower_Type_of_Valid_ID + singleQuoteChar +
+                ")";
+            //*/
+            ///////////
+
+            string select_SQL_StateMent = "Select * From " + table_Name;
 
 
+            return select_DBMethod(select_SQL_StateMent);
+        }
 
 
 
