@@ -16,8 +16,8 @@ namespace LibrartDataManagementSystem
         List<List<string>> demoListOfListOfString;
 
         LDMS_DataBaseController myLDMS_DataBaseController = new LDMS_DataBaseController();
-
-
+            
+                
         public MemberSearchLayoutForm()
         {
             InitializeComponent();
