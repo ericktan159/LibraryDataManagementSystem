@@ -62,7 +62,6 @@ namespace LibrartDataManagementSystem
             this.pnl_ContentBorrowers.Name = "pnl_ContentBorrowers";
             this.pnl_ContentBorrowers.Size = new System.Drawing.Size(600, 450);
             this.pnl_ContentBorrowers.TabIndex = 1;
-            this.pnl_ContentBorrowers.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_ContentBorrowers_Paint);
             // 
             // BorrowersLayOutForm
             // 
@@ -74,6 +73,7 @@ namespace LibrartDataManagementSystem
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BorrowersLayOutForm";
             this.Text = "BorrowersLayOutForm";
+            this.Load += new System.EventHandler(this.BorrowersLayOutForm_Load);
             this.pnl_sideNavigationBarBorrowers.ResumeLayout(false);
             this.ResumeLayout(false);
 

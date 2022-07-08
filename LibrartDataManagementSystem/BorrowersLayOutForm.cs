@@ -22,21 +22,19 @@ namespace LibrartDataManagementSystem
             InitializeComponent();
         }
 
-        private void btn_SearchBorrowers_Click(object sender, EventArgs e)
+        private void BorrowersLayOutForm_Load(object sender, EventArgs e)
         {
-
-            pnl_ContentBorrowers = myLayoutController.processThisPanel(pnl_ContentBorrowers);
-            borrowersSearchLayoutForm = (BorrowersSearchLayoutForm)myLayoutController.proccessThisForm(borrowersSearchLayoutForm);
-
-            pnl_ContentBorrowers.Controls.Add(borrowersSearchLayoutForm);
-            pnl_ContentBorrowers.Tag = borrowersSearchLayoutForm;
-            borrowersSearchLayoutForm.Show();
-
+            btn_SearchBorrowers.PerformClick();
         }
 
-        private void pnl_ContentBorrowers_Paint(object sender, PaintEventArgs e)
+        private void btn_SearchBorrowers_Click(object sender, EventArgs e)
         {
+            myLayoutController.LoadForm(borrowersSearchLayoutForm, this);
+        }
 
+        public Panel GetMainPanel()
+        {
+            return pnl_ContentBorrowers;
         }
     }
 }

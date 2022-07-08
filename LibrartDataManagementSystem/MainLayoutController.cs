@@ -65,7 +65,25 @@ namespace LibrartDataManagementSystem
             originalForm.GetMainPanel().Tag = f;
             f.Show();
         }
-        
+        /// <summary>
+        /// loadform for borrowers
+        /// </summary>
+        /// <param name="form">content form</param>
+        /// <param name="originalForm">borrowers layout form</param>
+        public void LoadForm(Form form, BorrowersLayOutForm originalForm)
+        {
+            if (originalForm.GetMainPanel().Controls.Count > 0)
+            {
+                originalForm.GetMainPanel().Controls.RemoveAt(0);
+            }
+            Form f = form;
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            originalForm.GetMainPanel().Controls.Add(f);
+            originalForm.GetMainPanel().Tag = f;
+            f.Show();
+        }
+
         /// <summary>
         /// will check if the form is open
         /// </summary>
