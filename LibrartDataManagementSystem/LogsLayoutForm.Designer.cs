@@ -62,7 +62,6 @@ namespace LibrartDataManagementSystem
             this.pnl_ContentLogs.Name = "pnl_ContentLogs";
             this.pnl_ContentLogs.Size = new System.Drawing.Size(600, 450);
             this.pnl_ContentLogs.TabIndex = 1;
-            this.pnl_ContentLogs.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_ContentLogs_Paint);
             // 
             // LogsLayoutForm
             // 
@@ -74,6 +73,7 @@ namespace LibrartDataManagementSystem
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LogsLayoutForm";
             this.Text = "LogsLayoutForm";
+            this.Load += new System.EventHandler(this.LogsLayoutForm_Load);
             this.pnl_sideNavigationBarLogs.ResumeLayout(false);
             this.ResumeLayout(false);
 

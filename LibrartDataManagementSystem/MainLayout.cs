@@ -30,7 +30,7 @@ namespace LibrartDataManagementSystem
 
         private void MainLayout_Load(object sender, EventArgs e)
         {
-
+            myLayoutController.LoadForm(booksLayoutForm, this);
         }
 
         public Panel  GetMainPanel()

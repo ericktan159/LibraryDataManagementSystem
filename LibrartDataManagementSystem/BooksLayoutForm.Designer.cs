@@ -85,6 +85,7 @@ namespace LibrartDataManagementSystem
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BooksLayoutForm";
             this.Text = "BooksLayoutForm";
+            this.Load += new System.EventHandler(this.BooksLayoutForm_Load);
             this.pnl_sideNavigationBarBooks.ResumeLayout(false);
             this.ResumeLayout(false);
 

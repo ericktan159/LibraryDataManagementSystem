@@ -20,27 +20,23 @@ namespace LibrartDataManagementSystem
         {
             InitializeComponent();
         }
+        private void MembersLayoutForm_Load(object sender, EventArgs e)
+        {
+            btn_BrowseMembers.PerformClick();
+        }
 
         private void btn_BrowseMembers_Click(object sender, EventArgs e)
         {
-            pnl_ContentMembers = myLayoutController.processThisPanel(pnl_ContentMembers);
-            memberSearchLayoutForm = (MemberSearchLayoutForm)myLayoutController.proccessThisForm(memberSearchLayoutForm);
-            
-
-            pnl_ContentMembers.Controls.Add(memberSearchLayoutForm);
-            pnl_ContentMembers.Tag = memberSearchLayoutForm;
-            memberSearchLayoutForm.Show();
+            myLayoutController.LoadForm(memberSearchLayoutForm, this);
         }
 
         private void btn_AddMembers_Click(object sender, EventArgs e)
         {
-            pnl_ContentMembers = myLayoutController.processThisPanel(pnl_ContentMembers);
-            memberAddLayoutForm = (MemberAddLayoutForm)myLayoutController.proccessThisForm(memberAddLayoutForm);
-
-
-            pnl_ContentMembers.Controls.Add(memberAddLayoutForm);
-            pnl_ContentMembers.Tag = memberAddLayoutForm;
-            memberAddLayoutForm.Show();
+            myLayoutController.LoadForm(memberAddLayoutForm, this);
+        }
+        public Panel GetMainPanel()
+        {
+            return pnl_ContentMembers;
         }
     }
 }

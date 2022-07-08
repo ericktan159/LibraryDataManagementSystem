@@ -22,24 +22,27 @@ namespace LibrartDataManagementSystem
             InitializeComponent();
         }
 
+        private void BooksLayoutForm_Load(object sender, EventArgs e)
+        {
+            btn_BrowseBooks.PerformClick();
+        }
+
+        /// <summary>
+        /// closes the 
+        /// </summary>
         private void btn_BrowseBooks_Click(object sender, EventArgs e)
         {
-            pnl_ContentBooks = myLayoutController.processThisPanel(pnl_ContentBooks);
-            booksSearchLayoutFormcs = (BooksSearchLayoutFormcs)myLayoutController.proccessThisForm(booksSearchLayoutFormcs);
-
-            pnl_ContentBooks.Controls.Add(booksSearchLayoutFormcs);
-            pnl_ContentBooks.Tag = booksSearchLayoutFormcs;
-            booksSearchLayoutFormcs.Show();
+            myLayoutController.LoadForm(booksSearchLayoutFormcs, this);
         }
 
         private void btn_AddBooks_Click(object sender, EventArgs e)
         {
-            pnl_ContentBooks = myLayoutController.processThisPanel(pnl_ContentBooks);
-            booksAddLayoutForm = (BooksAddLayoutForm)myLayoutController.proccessThisForm(booksAddLayoutForm);
+            myLayoutController.LoadForm(booksAddLayoutForm, this);
+        }
 
-            pnl_ContentBooks.Controls.Add(booksAddLayoutForm);
-            pnl_ContentBooks.Tag = booksAddLayoutForm;
-            booksAddLayoutForm.Show();
+        public Panel GetMainPanel()
+        {
+            return pnl_ContentBooks;
         }
     }
 }

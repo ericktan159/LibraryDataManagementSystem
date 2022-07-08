@@ -32,16 +32,13 @@ namespace LibrartDataManagementSystem
             this.txtBx_BookSearch = new System.Windows.Forms.TextBox();
             this.combBx_Book_Author = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtGrdVw_BookSearch = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.combBx_Book_Genre = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.combBx_Book_Year_Published = new System.Windows.Forms.ComboBox();
             this.btn_Book_Search = new System.Windows.Forms.Button();
-            this.btn_EditBookSearch = new System.Windows.Forms.Button();
-            this.btn_DeleteBookSerach = new System.Windows.Forms.Button();
+            this.dtGrdVw_BookSearch = new System.Windows.Forms.DataGridView();
             this.Column_Book_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Book_Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Book_Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,8 +46,11 @@ namespace LibrartDataManagementSystem
             this.Column_Book_Year_published = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Book_Publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Book_Number_Of_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grp_Books = new System.Windows.Forms.GroupBox();
+            this.btn_DeleteBooks = new System.Windows.Forms.Button();
+            this.btn_EditBooks = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_BookSearch)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.grp_Books.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtBx_BookSearch
@@ -76,39 +76,6 @@ namespace LibrartDataManagementSystem
             this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Search";
-            // 
-            // dtGrdVw_BookSearch
-            // 
-            this.dtGrdVw_BookSearch.AllowUserToAddRows = false;
-            this.dtGrdVw_BookSearch.AllowUserToDeleteRows = false;
-            this.dtGrdVw_BookSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtGrdVw_BookSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGrdVw_BookSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column_Book_ID,
-            this.Column_Book_Title,
-            this.Column_Book_Author,
-            this.Column_Book_Genre,
-            this.Column_Book_Year_published,
-            this.Column_Book_Publisher,
-            this.Column_Book_Number_Of_Quantity});
-            this.dtGrdVw_BookSearch.Location = new System.Drawing.Point(21, 29);
-            this.dtGrdVw_BookSearch.Name = "dtGrdVw_BookSearch";
-            this.dtGrdVw_BookSearch.ReadOnly = true;
-            this.dtGrdVw_BookSearch.Size = new System.Drawing.Size(745, 235);
-            this.dtGrdVw_BookSearch.TabIndex = 3;
-            this.dtGrdVw_BookSearch.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdVw_BookSearch_CellContentClick);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btn_DeleteBookSerach);
-            this.panel1.Controls.Add(this.btn_EditBookSearch);
-            this.panel1.Controls.Add(this.dtGrdVw_BookSearch);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 147);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(874, 378);
-            this.panel1.TabIndex = 4;
             // 
             // label2
             // 
@@ -162,23 +129,29 @@ namespace LibrartDataManagementSystem
             this.btn_Book_Search.Text = "Search";
             this.btn_Book_Search.UseVisualStyleBackColor = true;
             // 
-            // btn_EditBookSearch
+            // dtGrdVw_BookSearch
             // 
-            this.btn_EditBookSearch.Location = new System.Drawing.Point(260, 308);
-            this.btn_EditBookSearch.Name = "btn_EditBookSearch";
-            this.btn_EditBookSearch.Size = new System.Drawing.Size(75, 23);
-            this.btn_EditBookSearch.TabIndex = 4;
-            this.btn_EditBookSearch.Text = "Edit";
-            this.btn_EditBookSearch.UseVisualStyleBackColor = true;
-            // 
-            // btn_DeleteBookSerach
-            // 
-            this.btn_DeleteBookSerach.Location = new System.Drawing.Point(370, 308);
-            this.btn_DeleteBookSerach.Name = "btn_DeleteBookSerach";
-            this.btn_DeleteBookSerach.Size = new System.Drawing.Size(75, 23);
-            this.btn_DeleteBookSerach.TabIndex = 5;
-            this.btn_DeleteBookSerach.Text = "Delete";
-            this.btn_DeleteBookSerach.UseVisualStyleBackColor = true;
+            this.dtGrdVw_BookSearch.AllowUserToAddRows = false;
+            this.dtGrdVw_BookSearch.AllowUserToDeleteRows = false;
+            this.dtGrdVw_BookSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtGrdVw_BookSearch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGrdVw_BookSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGrdVw_BookSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column_Book_ID,
+            this.Column_Book_Title,
+            this.Column_Book_Author,
+            this.Column_Book_Genre,
+            this.Column_Book_Year_published,
+            this.Column_Book_Publisher,
+            this.Column_Book_Number_Of_Quantity});
+            this.dtGrdVw_BookSearch.Location = new System.Drawing.Point(6, 19);
+            this.dtGrdVw_BookSearch.Name = "dtGrdVw_BookSearch";
+            this.dtGrdVw_BookSearch.ReadOnly = true;
+            this.dtGrdVw_BookSearch.Size = new System.Drawing.Size(838, 347);
+            this.dtGrdVw_BookSearch.TabIndex = 3;
+            this.dtGrdVw_BookSearch.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdVw_BookSearch_CellContentClick);
             // 
             // Column_Book_ID
             // 
@@ -222,18 +195,55 @@ namespace LibrartDataManagementSystem
             this.Column_Book_Number_Of_Quantity.Name = "Column_Book_Number_Of_Quantity";
             this.Column_Book_Number_Of_Quantity.ReadOnly = true;
             // 
+            // grp_Books
+            // 
+            this.grp_Books.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grp_Books.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.grp_Books.Controls.Add(this.dtGrdVw_BookSearch);
+            this.grp_Books.Location = new System.Drawing.Point(12, 112);
+            this.grp_Books.Name = "grp_Books";
+            this.grp_Books.Size = new System.Drawing.Size(850, 372);
+            this.grp_Books.TabIndex = 11;
+            this.grp_Books.TabStop = false;
+            this.grp_Books.Text = "Books List";
+            // 
+            // btn_DeleteBooks
+            // 
+            this.btn_DeleteBooks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_DeleteBooks.Location = new System.Drawing.Point(787, 490);
+            this.btn_DeleteBooks.Name = "btn_DeleteBooks";
+            this.btn_DeleteBooks.Size = new System.Drawing.Size(75, 23);
+            this.btn_DeleteBooks.TabIndex = 12;
+            this.btn_DeleteBooks.Text = "Delete";
+            this.btn_DeleteBooks.UseVisualStyleBackColor = true;
+            // 
+            // btn_EditBooks
+            // 
+            this.btn_EditBooks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_EditBooks.Location = new System.Drawing.Point(706, 490);
+            this.btn_EditBooks.Name = "btn_EditBooks";
+            this.btn_EditBooks.Size = new System.Drawing.Size(75, 23);
+            this.btn_EditBooks.TabIndex = 13;
+            this.btn_EditBooks.Text = "Edit";
+            this.btn_EditBooks.UseVisualStyleBackColor = true;
+            // 
             // BooksSearchLayoutFormcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(874, 525);
+            this.Controls.Add(this.btn_EditBooks);
+            this.Controls.Add(this.btn_DeleteBooks);
+            this.Controls.Add(this.grp_Books);
             this.Controls.Add(this.btn_Book_Search);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.combBx_Book_Year_Published);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.combBx_Book_Genre);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.combBx_Book_Author);
             this.Controls.Add(this.txtBx_BookSearch);
@@ -241,7 +251,7 @@ namespace LibrartDataManagementSystem
             this.Name = "BooksSearchLayoutFormcs";
             this.Text = "BooksSearchLayoutFormcs";
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_BookSearch)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.grp_Books.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,16 +262,13 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.TextBox txtBx_BookSearch;
         private System.Windows.Forms.ComboBox combBx_Book_Author;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dtGrdVw_BookSearch;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox combBx_Book_Genre;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox combBx_Book_Year_Published;
         private System.Windows.Forms.Button btn_Book_Search;
-        private System.Windows.Forms.Button btn_DeleteBookSerach;
-        private System.Windows.Forms.Button btn_EditBookSearch;
+        private System.Windows.Forms.DataGridView dtGrdVw_BookSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Author;
@@ -269,5 +276,8 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Year_published;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Publisher;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Number_Of_Quantity;
+        private System.Windows.Forms.GroupBox grp_Books;
+        private System.Windows.Forms.Button btn_DeleteBooks;
+        private System.Windows.Forms.Button btn_EditBooks;
     }
 }

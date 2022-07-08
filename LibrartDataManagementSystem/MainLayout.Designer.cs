@@ -30,12 +30,12 @@ namespace LibrartDataManagementSystem
         private void InitializeComponent()
         {
             this.pnl_Navigation = new System.Windows.Forms.Panel();
+            this.btn_BorrowTransation = new System.Windows.Forms.Button();
             this.btn_Members = new System.Windows.Forms.Button();
             this.btn_Logs = new System.Windows.Forms.Button();
             this.btn_Borrowers = new System.Windows.Forms.Button();
             this.btn_Books = new System.Windows.Forms.Button();
             this.pnl_Main = new System.Windows.Forms.Panel();
-            this.btn_BorrowTransation = new System.Windows.Forms.Button();
             this.pnl_Navigation.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,8 +50,18 @@ namespace LibrartDataManagementSystem
             this.pnl_Navigation.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_Navigation.Location = new System.Drawing.Point(0, 0);
             this.pnl_Navigation.Name = "pnl_Navigation";
-            this.pnl_Navigation.Size = new System.Drawing.Size(1378, 100);
+            this.pnl_Navigation.Size = new System.Drawing.Size(884, 100);
             this.pnl_Navigation.TabIndex = 0;
+            // 
+            // btn_BorrowTransation
+            // 
+            this.btn_BorrowTransation.Location = new System.Drawing.Point(272, 33);
+            this.btn_BorrowTransation.Name = "btn_BorrowTransation";
+            this.btn_BorrowTransation.Size = new System.Drawing.Size(119, 23);
+            this.btn_BorrowTransation.TabIndex = 4;
+            this.btn_BorrowTransation.Text = "Borrow Transation";
+            this.btn_BorrowTransation.UseVisualStyleBackColor = true;
+            this.btn_BorrowTransation.Click += new System.EventHandler(this.btn_BorrowTransation_Click);
             // 
             // btn_Members
             // 
@@ -99,27 +109,18 @@ namespace LibrartDataManagementSystem
             this.pnl_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_Main.Location = new System.Drawing.Point(0, 100);
             this.pnl_Main.Name = "pnl_Main";
-            this.pnl_Main.Size = new System.Drawing.Size(1378, 632);
+            this.pnl_Main.Size = new System.Drawing.Size(884, 461);
             this.pnl_Main.TabIndex = 1;
             this.pnl_Main.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_Main_Paint);
-            // 
-            // btn_BorrowTransation
-            // 
-            this.btn_BorrowTransation.Location = new System.Drawing.Point(272, 33);
-            this.btn_BorrowTransation.Name = "btn_BorrowTransation";
-            this.btn_BorrowTransation.Size = new System.Drawing.Size(119, 23);
-            this.btn_BorrowTransation.TabIndex = 4;
-            this.btn_BorrowTransation.Text = "Borrow Transation";
-            this.btn_BorrowTransation.UseVisualStyleBackColor = true;
-            this.btn_BorrowTransation.Click += new System.EventHandler(this.btn_BorrowTransation_Click);
             // 
             // MainLayout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1378, 732);
+            this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.pnl_Main);
             this.Controls.Add(this.pnl_Navigation);
+            this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "MainLayout";
             this.Text = "MainLayout";
             this.Load += new System.EventHandler(this.MainLayout_Load);
