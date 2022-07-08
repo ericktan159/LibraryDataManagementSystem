@@ -64,6 +64,5 @@ C:\Users\User\Desktop\Kitts Things 1-1\5-2nd sem\Elective 4\Proj\LibrartDataMana
 C:\Users\User\Desktop\Kitts Things 1-1\5-2nd sem\Elective 4\Proj\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.Properties.Resources.resources
 C:\Users\User\Desktop\Kitts Things 1-1\5-2nd sem\Elective 4\Proj\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.csproj.GenerateResource.cache
 C:\Users\User\Desktop\Kitts Things 1-1\5-2nd sem\Elective 4\Proj\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.csproj.CoreCompileInputs.cache
-C:\Users\User\Desktop\Kitts Things 1-1\5-2nd sem\Elective 4\Proj\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.csproj.CopyComplete
 C:\Users\User\Desktop\Kitts Things 1-1\5-2nd sem\Elective 4\Proj\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.exe
 C:\Users\User\Desktop\Kitts Things 1-1\5-2nd sem\Elective 4\Proj\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.pdb

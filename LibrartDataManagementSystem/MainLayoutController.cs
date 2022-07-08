@@ -46,6 +46,16 @@ namespace LibrartDataManagementSystem
             originalForm.GetMainPanel().Tag = f;
             f.Show();
         }
+        
+        /// <summary>
+        /// will check if the form is open
+        /// </summary>
+        /// <param name="formType">what form to check</param>
+        /// <returns>return true if the form is open</returns>
+        public bool IsFormOpen(Type formType)
+        {
+            return Application.OpenForms.Cast<Form>().Any(openForm => openForm.GetType() == formType);
+        }
 
         public Form proccessThisForm(Form myForm)
         {
