@@ -112,23 +112,5 @@ namespace LibrartDataManagementSystem
         {
             return Application.OpenForms.Cast<Form>().Any(openForm => openForm.GetType() == formType);
         }
-
-        public Form proccessThisForm(Form myForm)
-        {
-            Form proccessedForm = myForm;
-            proccessedForm.TopLevel = false;
-
-            return proccessedForm;
-
-        }
-
-        public Panel processThisPanel(Panel myPanel)
-        {
-            if (myPanel.Controls.Count > 0)
-            {
-                myPanel.Controls.RemoveAt(0);
-            }
-            return myPanel;
-        }
     }
 }
