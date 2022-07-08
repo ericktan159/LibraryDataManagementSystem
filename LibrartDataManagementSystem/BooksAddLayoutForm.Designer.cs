@@ -47,7 +47,8 @@ namespace LibrartDataManagementSystem
             // 
             // btn_BookAdd
             // 
-            this.btn_BookAdd.Location = new System.Drawing.Point(352, 395);
+            this.btn_BookAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_BookAdd.Location = new System.Drawing.Point(368, 415);
             this.btn_BookAdd.Name = "btn_BookAdd";
             this.btn_BookAdd.Size = new System.Drawing.Size(141, 23);
             this.btn_BookAdd.TabIndex = 0;
@@ -57,9 +58,11 @@ namespace LibrartDataManagementSystem
             // 
             // txtBx_BookTitle_BookAdd
             // 
+            this.txtBx_BookTitle_BookAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBx_BookTitle_BookAdd.Location = new System.Drawing.Point(136, 80);
             this.txtBx_BookTitle_BookAdd.Name = "txtBx_BookTitle_BookAdd";
-            this.txtBx_BookTitle_BookAdd.Size = new System.Drawing.Size(100, 20);
+            this.txtBx_BookTitle_BookAdd.Size = new System.Drawing.Size(652, 20);
             this.txtBx_BookTitle_BookAdd.TabIndex = 1;
             // 
             // label1
@@ -74,7 +77,7 @@ namespace LibrartDataManagementSystem
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(360, 39);
+            this.label2.Location = new System.Drawing.Point(398, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 3;
@@ -91,9 +94,11 @@ namespace LibrartDataManagementSystem
             // 
             // txtBx_BookAuthor_BookAdd
             // 
+            this.txtBx_BookAuthor_BookAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBx_BookAuthor_BookAdd.Location = new System.Drawing.Point(136, 119);
             this.txtBx_BookAuthor_BookAdd.Name = "txtBx_BookAuthor_BookAdd";
-            this.txtBx_BookAuthor_BookAdd.Size = new System.Drawing.Size(100, 20);
+            this.txtBx_BookAuthor_BookAdd.Size = new System.Drawing.Size(652, 20);
             this.txtBx_BookAuthor_BookAdd.TabIndex = 4;
             // 
             // label4
@@ -107,9 +112,11 @@ namespace LibrartDataManagementSystem
             // 
             // txtBx_BookGenre_BookAdd
             // 
+            this.txtBx_BookGenre_BookAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBx_BookGenre_BookAdd.Location = new System.Drawing.Point(136, 151);
             this.txtBx_BookGenre_BookAdd.Name = "txtBx_BookGenre_BookAdd";
-            this.txtBx_BookGenre_BookAdd.Size = new System.Drawing.Size(100, 20);
+            this.txtBx_BookGenre_BookAdd.Size = new System.Drawing.Size(652, 20);
             this.txtBx_BookGenre_BookAdd.TabIndex = 6;
             // 
             // label5
@@ -132,9 +139,11 @@ namespace LibrartDataManagementSystem
             // 
             // txtBx_BookPublisher_BookAdd
             // 
+            this.txtBx_BookPublisher_BookAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBx_BookPublisher_BookAdd.Location = new System.Drawing.Point(136, 225);
             this.txtBx_BookPublisher_BookAdd.Name = "txtBx_BookPublisher_BookAdd";
-            this.txtBx_BookPublisher_BookAdd.Size = new System.Drawing.Size(100, 20);
+            this.txtBx_BookPublisher_BookAdd.Size = new System.Drawing.Size(652, 20);
             this.txtBx_BookPublisher_BookAdd.TabIndex = 10;
             // 
             // label8
@@ -148,9 +157,11 @@ namespace LibrartDataManagementSystem
             // 
             // txtBx_NumOfQuantity_BookAdd
             // 
+            this.txtBx_NumOfQuantity_BookAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBx_NumOfQuantity_BookAdd.Location = new System.Drawing.Point(136, 262);
             this.txtBx_NumOfQuantity_BookAdd.Name = "txtBx_NumOfQuantity_BookAdd";
-            this.txtBx_NumOfQuantity_BookAdd.Size = new System.Drawing.Size(100, 20);
+            this.txtBx_NumOfQuantity_BookAdd.Size = new System.Drawing.Size(652, 20);
             this.txtBx_NumOfQuantity_BookAdd.TabIndex = 14;
             // 
             // dtp_BookYearPublishe_BookAdd
@@ -160,13 +171,14 @@ namespace LibrartDataManagementSystem
             this.dtp_BookYearPublishe_BookAdd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.dtp_BookYearPublishe_BookAdd.Location = new System.Drawing.Point(136, 189);
             this.dtp_BookYearPublishe_BookAdd.Name = "dtp_BookYearPublishe_BookAdd";
-            this.dtp_BookYearPublishe_BookAdd.Size = new System.Drawing.Size(200, 20);
+            this.dtp_BookYearPublishe_BookAdd.Size = new System.Drawing.Size(185, 20);
             this.dtp_BookYearPublishe_BookAdd.TabIndex = 16;
             // 
             // BooksAddLayoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dtp_BookYearPublishe_BookAdd);
             this.Controls.Add(this.label8);
