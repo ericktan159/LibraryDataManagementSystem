@@ -141,7 +141,7 @@ namespace LibrartDataManagementSystem
         }
 
 
-        public List<List<string>> select_DBMethod(string select_SQL_StateMent)
+        public List<List<string>> select_DBMethod_return_2DList_Table_Records(string select_SQL_StateMent)
         {
             connectDB = new MySqlConnection(ConnectString);
 
@@ -204,7 +204,7 @@ namespace LibrartDataManagementSystem
             string select_SQL_StateMent = "Select * From " + table_Name;
 
 
-            return select_DBMethod(select_SQL_StateMent);
+            return select_DBMethod_return_2DList_Table_Records(select_SQL_StateMent);
         }
 
 

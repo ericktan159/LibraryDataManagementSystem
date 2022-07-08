@@ -41,6 +41,37 @@ namespace LibrartDataManagementSystem
 
             selectItems_2DList = myLDMS_DataBaseController.select_ALL_Form_tbl_borrower();
 
+
+            dtGrdVw_MemberSearch.Rows.Clear();
+
+            /*
+            foreach (List<string> rowIinfos in selectItems_2DList)
+            {
+                int outerIndex = dtGrdVw_MemberSearch.Rows.Add();
+                int innerIndex = 0;
+
+                /*
+                foreach (string info in rowIinfos)
+                {
+                    if(innerIndex < (rowIinfos.Count-2))
+                    {
+                        dtGrdVw_MemberSearch.Rows[outerIndex].Cells[innerIndex].Value = info;
+                        innerIndex++;
+                    }
+                    
+                }
+                
+                
+                /*
+                for (int i = 1; i < (rowIinfos.Count-1); i++)
+                {
+                    dtGrdVw_MemberSearch.Rows[outerIndex].Cells[i].Value = rowIinfos[i];
+
+                }
+                /////
+            }
+            //*/
+            //*
             string msgFormat = "";
 
             foreach (List<string> row in selectItems_2DList)
@@ -53,6 +84,7 @@ namespace LibrartDataManagementSystem
             }
 
             MessageBox.Show(msgFormat);
+            //*/
         }
 
 
