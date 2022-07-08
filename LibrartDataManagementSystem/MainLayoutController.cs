@@ -112,5 +112,7 @@ namespace LibrartDataManagementSystem
         {
             return Application.OpenForms.Cast<Form>().Any(openForm => openForm.GetType() == formType);
         }
+
+        ////////////
     }
 }
