@@ -85,6 +85,7 @@ namespace LibrartDataManagementSystem
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MembersLayoutForm";
             this.Text = "MembersLayoutForm";
+            this.Load += new System.EventHandler(this.MembersLayoutForm_Load);
             this.pnl_sideNavigationBarMembers.ResumeLayout(false);
             this.ResumeLayout(false);
 

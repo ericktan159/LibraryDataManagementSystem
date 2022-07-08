@@ -46,6 +46,25 @@ namespace LibrartDataManagementSystem
             originalForm.GetMainPanel().Tag = f;
             f.Show();
         }
+
+        /// <summary>
+        /// loadform for Members
+        /// </summary>
+        /// <param name="form">content form</param>
+        /// <param name="originalForm">membersearchlayoutform</param>
+        public void LoadForm(Form form, MembersLayoutForm originalForm)
+        {
+            if (originalForm.GetMainPanel().Controls.Count > 0)
+            {
+                originalForm.GetMainPanel().Controls.RemoveAt(0);
+            }
+            Form f = form;
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            originalForm.GetMainPanel().Controls.Add(f);
+            originalForm.GetMainPanel().Tag = f;
+            f.Show();
+        }
         
         /// <summary>
         /// will check if the form is open
