@@ -111,7 +111,7 @@ namespace LibrartDataManagementSystem
 
             return;
         }
-
+           
         public void insert_To_tbl_book(string Book_Tittle, string Book_Author, string Book_Genre, /*DateTime*/ string Book_Year_Published, string Book_Publisher, int Book_Number_Of_Quantity)
         {
 
@@ -208,7 +208,15 @@ namespace LibrartDataManagementSystem
         }
 
 
+        public List<List<string>> selectbakalla()
+        {
+            string table_Name = "tbl_borrower";
 
+            string select_SQL_StateMent = "Select Borrower_Last_Name from " + table_Name + "where Borrower_Last_Name = Tan";
+
+            return select_DBMethod_return_2DList_Table_Records(select_SQL_StateMent);
+
+        }
 
     }
 

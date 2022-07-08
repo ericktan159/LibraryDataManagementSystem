@@ -16,13 +16,13 @@ namespace LibrartDataManagementSystem
         List<List<string>> demoListOfListOfString;
 
         LDMS_DataBaseController myLDMS_DataBaseController = new LDMS_DataBaseController();
-
-
+            
+                
         public MemberSearchLayoutForm()
         {
             InitializeComponent();
         }
-
+           
         private void dtGrdVw_MemberSearch_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             MessageBox.Show("Hi");
@@ -30,8 +30,8 @@ namespace LibrartDataManagementSystem
 
         private void MemberSearchLayoutForm_Load(object sender, EventArgs e)
         {
-            demoLang_select_ALL_Form_tbl_borrower();
-            //testDemolang();
+            //demoLang_select_ALL_Form_tbl_borrower();
+            testDemolang();
         }
 
 
