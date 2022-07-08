@@ -22,7 +22,7 @@ namespace LibrartDataManagementSystem
         {
             InitializeComponent();
         }
-
+           
         private void dtGrdVw_MemberSearch_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             MessageBox.Show("Hi");
