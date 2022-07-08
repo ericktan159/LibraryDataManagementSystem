@@ -20,20 +20,19 @@ namespace LibrartDataManagementSystem
             InitializeComponent();
         }
 
-        private void btn_ViewLogs_Click(object sender, EventArgs e)
+        private void LogsLayoutForm_Load(object sender, EventArgs e)
         {
-
-            pnl_ContentLogs = myLayoutController.processThisPanel(pnl_ContentLogs);
-            logsSearchLayoutForm = (LogsSearchLayoutForm)myLayoutController.proccessThisForm(logsSearchLayoutForm);
-            pnl_ContentLogs.Controls.Add(logsSearchLayoutForm);
-            pnl_ContentLogs.Tag = logsSearchLayoutForm;
-            logsSearchLayoutForm.Show();
-
+            btn_ViewLogs.PerformClick();
         }
 
-        private void pnl_ContentLogs_Paint(object sender, PaintEventArgs e)
+        private void btn_ViewLogs_Click(object sender, EventArgs e)
         {
+            myLayoutController.LoadForm(logsSearchLayoutForm, this);
+        }
 
+        public Panel GetMainPanel()
+        {
+            return pnl_ContentLogs;
         }
     }
 }

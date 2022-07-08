@@ -85,6 +85,25 @@ namespace LibrartDataManagementSystem
         }
 
         /// <summary>
+        /// loadform for logs
+        /// </summary>
+        /// <param name="form"></param>
+        /// <param name="originalForm"></param>
+        public void LoadForm(Form form, LogsLayoutForm originalForm)
+        {
+            if (originalForm.GetMainPanel().Controls.Count > 0)
+            {
+                originalForm.GetMainPanel().Controls.RemoveAt(0);
+            }
+            Form f = form;
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            originalForm.GetMainPanel().Controls.Add(f);
+            originalForm.GetMainPanel().Tag = f;
+            f.Show();
+        }
+
+        /// <summary>
         /// will check if the form is open
         /// </summary>
         /// <param name="formType">what form to check</param>
