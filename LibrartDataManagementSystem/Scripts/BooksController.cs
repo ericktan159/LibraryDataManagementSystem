@@ -191,10 +191,12 @@ namespace LibrartDataManagementSystem.Scripts
         /// </summary>
         /// <param name="bookTitle">title of book</param>
         /// <returns>return list of the existing books</returns>
-        public List<string> CheckIfBookExist(string bookTitle, string bookAuthor)
+        public List<string> CheckIfBookExist(string bookTitle, string bookAuthor, string bookGenre,
+            string bookPublisher, string yearPublished)
         {
             string query = $"SELECT * FROM `tbl_book` WHERE `Book_Title` = \"{bookTitle}\" AND " +
-                $"`Book_Author` = \"{bookAuthor}\"";
+                $"`Book_Author` = \"{bookAuthor}\" AND `Book_Genre` = \"{bookGenre}\" AND " +
+                $"`Book_Publisher` = \"{bookPublisher}\" AND `Book_Year_Published` = \"{yearPublished}\"";
             List<List<string>> books = dbController.select_DBMethod_return_2DList_Table_Records(query);
             List<string> result = new List<string>();
             foreach (List<string> book in books)

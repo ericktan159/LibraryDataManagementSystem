@@ -43,10 +43,17 @@ namespace LibrartDataManagementSystem
         /// </summary>
         private void txtBx_NumOfQuantity_BookAdd_KeyUp(object sender, KeyEventArgs e)
         {
-            if ((int.Parse(txtBx_NumOfQuantity_BookAdd.Text) > 99) &&
-                txtBx_NumOfQuantity_BookAdd.Text.Length > 0)
+            try
             {
-                txtBx_NumOfQuantity_BookAdd.Text = "99";
+                if ((int.Parse(txtBx_NumOfQuantity_BookAdd.Text) > 99) &&
+                    txtBx_NumOfQuantity_BookAdd.Text.Length > 0)
+                {
+                    txtBx_NumOfQuantity_BookAdd.Text = "99";
+                }
+            }
+            catch
+            {
+                txtBx_NumOfQuantity_BookAdd.Text = "1";
             }
         }
 
@@ -59,22 +66,28 @@ namespace LibrartDataManagementSystem
             {
                 bool confirmedAdd = false;
                 List<string> existingBooks = _bookController.CheckIfBookExist(txtBx_BookTitle_BookAdd.Text, 
-                    txtBx_BookAuthor_BookAdd.Text);
+                    txtBx_BookAuthor_BookAdd.Text, txtBx_BookGenre_BookAdd.Text, txtBx_BookPublisher_BookAdd.Text,
+                    dtp_BookYearPublishe_BookAdd.Text);
                 if (existingBooks.Count > 0)
                 {
                     foreach (string book in existingBooks)
                     {
                         if (!confirmedAdd)
                         {
-                            string prompt = $"{_bookController.GetBookTitleByID(book)} is existing with the id of " +
-                                $"{book} do you wish to add this book to existing one? By pressing No " +
+                            string prompt = $"{_bookController.GetBookTitleByID(book)} " +
+                                $"Is existing with the same Author, Genre, Publisher, & Year Published.\n" +
+                                $"Do you wish to add this book to existing one? By pressing No " +
                                 $"the inputted books will be added as a new book.";
-                            if (MessageBox.Show(prompt, "Confirm",
-                                MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
-                                System.Windows.Forms.DialogResult.Yes)
+                            DialogResult dialog = MessageBox.Show(prompt, "Confirm",
+                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                            if (dialog == DialogResult.Yes)
                             {
                                 // update method here
                                 MessageBox.Show("Updated Message Here");
+                                confirmedAdd = true;
+                            }
+                            else if (dialog == DialogResult.Cancel)
+                            {
                                 confirmedAdd = true;
                             }
                         }
@@ -82,7 +95,8 @@ namespace LibrartDataManagementSystem
                 }
                 if(!confirmedAdd)
                 {
-                    bool success = _bookController.AddBooks(txtBx_BookTitle_BookAdd.Text, txtBx_BookAuthor_BookAdd.Text,
+                    bool success = _bookController.AddBooks(txtBx_BookTitle_BookAdd.Text,
+                        txtBx_BookAuthor_BookAdd.Text,
                         txtBx_BookGenre_BookAdd.Text, dtp_BookYearPublishe_BookAdd.Text,
                         txtBx_BookPublisher_BookAdd.Text, txtBx_NumOfQuantity_BookAdd.Text);
                     if (success)

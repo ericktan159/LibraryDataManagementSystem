@@ -49,6 +49,7 @@ namespace LibrartDataManagementSystem
             this.grp_Books = new System.Windows.Forms.GroupBox();
             this.btn_DeleteBooks = new System.Windows.Forms.Button();
             this.btn_EditBooks = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_BookSearch)).BeginInit();
             this.grp_Books.SuspendLayout();
             this.SuspendLayout();
@@ -235,12 +236,23 @@ namespace LibrartDataManagementSystem
             this.btn_EditBooks.Text = "Edit";
             this.btn_EditBooks.UseVisualStyleBackColor = true;
             // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.Location = new System.Drawing.Point(12, 12);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
+            this.buttonRefresh.TabIndex = 14;
+            this.buttonRefresh.Text = "Refresh";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
             // BooksSearchLayoutFormcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(874, 525);
+            this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.btn_EditBooks);
             this.Controls.Add(this.btn_DeleteBooks);
             this.Controls.Add(this.grp_Books);
@@ -286,5 +298,6 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.GroupBox grp_Books;
         private System.Windows.Forms.Button btn_DeleteBooks;
         private System.Windows.Forms.Button btn_EditBooks;
+        private System.Windows.Forms.Button buttonRefresh;
     }
 }
