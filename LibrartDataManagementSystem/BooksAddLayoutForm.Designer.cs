@@ -241,7 +241,6 @@ namespace LibrartDataManagementSystem
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BooksAddLayoutForm";
             this.Text = "BooksAddLayoutForm";
-            this.Load += new System.EventHandler(this.BooksAddLayoutForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

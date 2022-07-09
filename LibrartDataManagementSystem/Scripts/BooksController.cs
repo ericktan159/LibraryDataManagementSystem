@@ -185,5 +185,30 @@ namespace LibrartDataManagementSystem.Scripts
             query += whereQuery + searchQuery + authorQuery + genreQuery + yearPublishedQuery;
             return query;
         }
+
+        /// <summary>
+        /// Check if the book exist
+        /// </summary>
+        /// <param name="bookTitle">title of book</param>
+        /// <returns>return list of the existing books</returns>
+        public List<string> CheckIfBookExist(string bookTitle, string bookAuthor)
+        {
+            string query = $"SELECT * FROM `tbl_book` WHERE `Book_Title` = \"{bookTitle}\" AND " +
+                $"`Book_Author` = \"{bookAuthor}\"";
+            List<List<string>> books = dbController.select_DBMethod_return_2DList_Table_Records(query);
+            List<string> result = new List<string>();
+            foreach (List<string> book in books)
+            {
+                result.Add(book[0]);
+            }
+            return result;
+        }
+
+        public string GetBookTitleByID(string id)
+        {
+            string query = $"SELECT * FROM `tbl_book` WHERE `Book_ID` = \"{id}\"";
+            List<List<string>> book = dbController.select_DBMethod_return_2DList_Table_Records(query);
+            return book[0][1];
+        }
     }
 }
