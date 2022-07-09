@@ -38,7 +38,7 @@ namespace LibrartDataManagementSystem.Scripts
         /// <param name="yearPublished">what year does the book has been published</param>
         /// <param name="publisher">publisher of book</param>
         /// <param name="numberOfQuantity">number of quantity of book</param>
-        public void AddBooks(string title, string author, string genre, string yearPublished,
+        public bool AddBooks(string title, string author, string genre, string yearPublished,
             string publisher, string numberOfQuantity)
         {
             string query = "" +
@@ -46,7 +46,8 @@ namespace LibrartDataManagementSystem.Scripts
                     "`Book_Year_Published`, `Book_Publisher`, `Book_Number_Of_Quantity` " +
                     $") VALUES ('{title}','{author}','{genre}'" +
                     $",'{yearPublished}','{publisher}','{numberOfQuantity}')";
-            dbController.insert_DBMethod(query);
+            bool success = dbController.insert_DBMethod(query);
+            return success;
         }
     }
 }
