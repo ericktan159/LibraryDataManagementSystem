@@ -49,5 +49,13 @@ namespace LibrartDataManagementSystem.Scripts
             bool success = dbController.insert_DBMethod(query);
             return success;
         }
+
+        public void ClearInputs(TextBox[] inputs)
+        {
+            foreach (TextBox input in inputs)
+            {
+                input.Text = "";
+            }
+        }
     }
 }

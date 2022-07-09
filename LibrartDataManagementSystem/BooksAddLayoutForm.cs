@@ -54,6 +54,9 @@ namespace LibrartDataManagementSystem
             }
         }
 
+        /// <summary>
+        /// add the inputted details of book to database
+        /// </summary>
         private void btn_BookAdd_Click(object sender, EventArgs e)
         {
             if(_bookController.isInputComplete(_requiredInputs))
@@ -64,8 +67,20 @@ namespace LibrartDataManagementSystem
                 if(success)
                 {
                     MessageBox.Show($"{txtBx_BookTitle_BookAdd.Text} is successfully added!", "Success!");
+                    if(checkResetAfterSubmit.Checked)
+                    {
+                        _bookController.ClearInputs(_requiredInputs);
+                    }
                 }
             }
+        }
+
+        /// <summary>
+        /// clear all the inputs
+        /// </summary>
+        private void btn_Reset_Click(object sender, EventArgs e)
+        {
+            _bookController.ClearInputs(_requiredInputs);
         }
     }
 }

@@ -44,17 +44,21 @@ namespace LibrartDataManagementSystem
             this.txtBx_NumOfQuantity_BookAdd = new System.Windows.Forms.TextBox();
             this.dtp_BookYearPublishe_BookAdd = new System.Windows.Forms.DateTimePicker();
             this.label_maxBooks = new System.Windows.Forms.Label();
+            this.checkResetAfterSubmit = new System.Windows.Forms.CheckBox();
+            this.btn_Reset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_BookAdd
             // 
             this.btn_BookAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_BookAdd.BackColor = System.Drawing.Color.Aqua;
+            this.btn_BookAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_BookAdd.Location = new System.Drawing.Point(374, 426);
             this.btn_BookAdd.Name = "btn_BookAdd";
             this.btn_BookAdd.Size = new System.Drawing.Size(141, 23);
             this.btn_BookAdd.TabIndex = 7;
             this.btn_BookAdd.Text = "Add Book";
-            this.btn_BookAdd.UseVisualStyleBackColor = true;
+            this.btn_BookAdd.UseVisualStyleBackColor = false;
             this.btn_BookAdd.Click += new System.EventHandler(this.btn_BookAdd_Click);
             // 
             // txtBx_BookTitle_BookAdd
@@ -188,12 +192,37 @@ namespace LibrartDataManagementSystem
             this.label_maxBooks.TabIndex = 16;
             this.label_maxBooks.Text = "99 max";
             // 
+            // checkResetAfterSubmit
+            // 
+            this.checkResetAfterSubmit.AutoSize = true;
+            this.checkResetAfterSubmit.Location = new System.Drawing.Point(24, 314);
+            this.checkResetAfterSubmit.Name = "checkResetAfterSubmit";
+            this.checkResetAfterSubmit.Size = new System.Drawing.Size(155, 17);
+            this.checkResetAfterSubmit.TabIndex = 17;
+            this.checkResetAfterSubmit.Text = "Clear inputs after submitting";
+            this.checkResetAfterSubmit.UseVisualStyleBackColor = true;
+            // 
+            // btn_Reset
+            // 
+            this.btn_Reset.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_Reset.BackColor = System.Drawing.Color.Red;
+            this.btn_Reset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Reset.Location = new System.Drawing.Point(24, 426);
+            this.btn_Reset.Name = "btn_Reset";
+            this.btn_Reset.Size = new System.Drawing.Size(95, 23);
+            this.btn_Reset.TabIndex = 18;
+            this.btn_Reset.Text = "Clear Inputs";
+            this.btn_Reset.UseVisualStyleBackColor = false;
+            this.btn_Reset.Click += new System.EventHandler(this.btn_Reset_Click);
+            // 
             // BooksAddLayoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(813, 461);
+            this.Controls.Add(this.btn_Reset);
+            this.Controls.Add(this.checkResetAfterSubmit);
             this.Controls.Add(this.label_maxBooks);
             this.Controls.Add(this.dtp_BookYearPublishe_BookAdd);
             this.Controls.Add(this.label8);
@@ -235,5 +264,7 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.TextBox txtBx_NumOfQuantity_BookAdd;
         private System.Windows.Forms.DateTimePicker dtp_BookYearPublishe_BookAdd;
         private System.Windows.Forms.Label label_maxBooks;
+        private System.Windows.Forms.CheckBox checkResetAfterSubmit;
+        private System.Windows.Forms.Button btn_Reset;
     }
 }
