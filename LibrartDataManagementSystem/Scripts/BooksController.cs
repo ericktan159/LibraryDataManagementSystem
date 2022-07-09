@@ -50,11 +50,34 @@ namespace LibrartDataManagementSystem.Scripts
             return success;
         }
 
+        /// <summary>
+        /// clear the inputs text
+        /// </summary>
+        /// <param name="inputs">the list of inputs to clear</param>
         public void ClearInputs(TextBox[] inputs)
         {
             foreach (TextBox input in inputs)
             {
                 input.Text = "";
+            }
+        }
+
+        public void FillTable(DataGridView table, string search, string author, string genre,
+            string yearPublished)
+        {
+            table.Rows.Clear(); // clear datagridview table
+
+            // initialize all needed query
+            string query = "SELECT * FROM `tbl_book` ";
+            string whereQuery = "";
+            string searchQuery = "";
+            string authorQuery = "";
+            string genreQuery = "";
+            string yearPublishedQuery = "";
+
+            if(search.Trim() != "")
+            {
+                whereQuery = "WHERE ";
             }
         }
     }
