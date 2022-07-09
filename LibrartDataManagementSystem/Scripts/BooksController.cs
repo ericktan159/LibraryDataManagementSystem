@@ -206,11 +206,34 @@ namespace LibrartDataManagementSystem.Scripts
             return result;
         }
 
-        public string GetBookTitleByID(string id)
+        /// <summary>
+        /// get the title of book by using id
+        /// </summary>
+        /// <param name="id">get the id of book</param>
+        /// <returns></returns>
+        public string GetBookTitle(string id)
         {
             string query = $"SELECT * FROM `tbl_book` WHERE `Book_ID` = \"{id}\"";
             List<List<string>> book = dbController.select_DBMethod_return_2DList_Table_Records(query);
             return book[0][1];
+        }
+
+        /// <summary>
+        /// add a quantity to the existing books
+        /// </summary>
+        /// <param name="bookID">reference to the id of database</param>
+        /// <param name="quantity">quantity to add</param>
+        /// <returns>return true if success</returns>
+        public bool AddBookQuantity(string bookID, int quantity)
+        {
+            int currentQuantity =
+                int.Parse(dbController.select_DBMethod_return_2DList_Table_Records("SELECT " +
+                $"`Book_Number_Of_Quantity` FROM `tbl_book` WHERE `Book_ID` = " +
+                $"\"{bookID}\"")[0][0]);
+            string query = $"UPDATE `tbl_book` SET `Book_Number_Of_Quantity`='{currentQuantity + quantity}' " +
+                $"WHERE `Book_ID` = \"{bookID}\"";
+            bool success = dbController.insert_DBMethod(query);
+            return success;
         }
     }
 }

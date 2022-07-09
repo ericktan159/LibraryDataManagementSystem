@@ -62,28 +62,34 @@ namespace LibrartDataManagementSystem
         /// </summary>
         private void btn_BookAdd_Click(object sender, EventArgs e)
         {
-            if(_bookController.isInputComplete(_requiredInputs))
+            if(_bookController.isInputComplete(_requiredInputs)) // check if input is complete
             {
                 bool confirmedAdd = false;
                 List<string> existingBooks = _bookController.CheckIfBookExist(txtBx_BookTitle_BookAdd.Text, 
                     txtBx_BookAuthor_BookAdd.Text, txtBx_BookGenre_BookAdd.Text, txtBx_BookPublisher_BookAdd.Text,
                     dtp_BookYearPublishe_BookAdd.Text);
-                if (existingBooks.Count > 0)
+                if (existingBooks.Count > 0) // check if any book with the inputted value existed
                 {
-                    foreach (string book in existingBooks)
+                    foreach (string book in existingBooks) // iterate too all existed book
                     {
                         if (!confirmedAdd)
                         {
-                            string prompt = $"{_bookController.GetBookTitleByID(book)} " +
+                            string prompt = $"{_bookController.GetBookTitle(book)} " +
                                 $"Is existing with the same Author, Genre, Publisher, & Year Published.\n" +
                                 $"Do you wish to add this book to existing one? By pressing No " +
                                 $"the inputted books will be added as a new book.";
                             DialogResult dialog = MessageBox.Show(prompt, "Confirm",
                                 MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-                            if (dialog == DialogResult.Yes)
+                            if (dialog == DialogResult.Yes) // update the books quantity
                             {
                                 // update method here
-                                MessageBox.Show("Updated Message Here");
+                                bool success = _bookController.AddBookQuantity(book,
+                                    int.Parse(txtBx_NumOfQuantity_BookAdd.Text));
+                                if(success)
+                                {
+                                    MessageBox.Show($"Successfully added {txtBx_BookTitle_BookAdd.Text} " +
+                                        $"to an existing book!", "Success");
+                                }
                                 confirmedAdd = true;
                             }
                             else if (dialog == DialogResult.Cancel)
@@ -93,18 +99,24 @@ namespace LibrartDataManagementSystem
                         }
                     }
                 }
+
+                // if the book does not exist or it isn't add to the existing one
                 if(!confirmedAdd)
                 {
-                    bool success = _bookController.AddBooks(txtBx_BookTitle_BookAdd.Text,
-                        txtBx_BookAuthor_BookAdd.Text,
-                        txtBx_BookGenre_BookAdd.Text, dtp_BookYearPublishe_BookAdd.Text,
-                        txtBx_BookPublisher_BookAdd.Text, txtBx_NumOfQuantity_BookAdd.Text);
-                    if (success)
+                    if (MessageBox.Show("Do you wish to add this book?", "Confirm",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        MessageBox.Show($"{txtBx_BookTitle_BookAdd.Text} is successfully added!", "Success!");
-                        if (checkResetAfterSubmit.Checked)
+                        bool success = _bookController.AddBooks(txtBx_BookTitle_BookAdd.Text,
+                            txtBx_BookAuthor_BookAdd.Text,
+                            txtBx_BookGenre_BookAdd.Text, dtp_BookYearPublishe_BookAdd.Text,
+                            txtBx_BookPublisher_BookAdd.Text, txtBx_NumOfQuantity_BookAdd.Text);
+                        if (success)
                         {
-                            _bookController.ClearInputs(_requiredInputs);
+                            MessageBox.Show($"{txtBx_BookTitle_BookAdd.Text} is successfully added!", "Success!");
+                            if (checkResetAfterSubmit.Checked)
+                            {
+                                _bookController.ClearInputs(_requiredInputs);
+                            }
                         }
                     }
                 }
