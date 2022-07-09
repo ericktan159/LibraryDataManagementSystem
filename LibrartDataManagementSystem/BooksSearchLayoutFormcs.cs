@@ -24,6 +24,8 @@ namespace LibrartDataManagementSystem
         private void BooksSearchLayoutFormcs_Load(object sender, EventArgs e)
         {
             _booksController.FillDropdown(combBx_Book_Author, "Book_Author");
+            _booksController.FillDropdown(combBx_Book_Genre, "Book_Genre");
+            _booksController.FillDropdown(combBx_Book_Year_Published, "Book_Year_Published");
             // set all dropdownlist to "All"
             combBx_Book_Author.SelectedIndex = 0;
             combBx_Book_Genre.SelectedIndex = 0;
