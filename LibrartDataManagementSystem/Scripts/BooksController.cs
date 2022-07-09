@@ -98,6 +98,29 @@ namespace LibrartDataManagementSystem.Scripts
         }
 
         /// <summary>
+        /// fill the dropdownobject by the value of what they seachfor
+        /// </summary>
+        /// <param name="dropDownObject">reference of dropdownobject</param>
+        /// <param name="searchFor">what to search for</param>
+        public void FillDropdown(ComboBox dropDownObject, string searchFor)
+        {
+            dropDownObject.Items.Clear();
+            dropDownObject.Items.Add("All");
+            string query = $"SELECT {searchFor} FROM `tbl_book` ORDER BY {searchFor} ASC";
+            List<List<string>> resultListList = dbController.select_DBMethod_return_2DList_Table_Records(query);
+            List<string> resultList = new List<string>();
+            foreach (List<string> result in resultListList)
+            {
+                resultList.Add(result[0]);
+            }
+            resultList = resultList.Distinct().ToList();
+            foreach (string result in resultList)
+            {
+                dropDownObject.Items.Add(result);
+            }
+        }
+
+        /// <summary>
         /// fill the query for searching
         /// </summary>
         /// <param name="search">search text</param>
