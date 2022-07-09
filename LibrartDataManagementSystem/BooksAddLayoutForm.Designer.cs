@@ -43,15 +43,16 @@ namespace LibrartDataManagementSystem
             this.label8 = new System.Windows.Forms.Label();
             this.txtBx_NumOfQuantity_BookAdd = new System.Windows.Forms.TextBox();
             this.dtp_BookYearPublishe_BookAdd = new System.Windows.Forms.DateTimePicker();
+            this.label_maxBooks = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_BookAdd
             // 
             this.btn_BookAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_BookAdd.Location = new System.Drawing.Point(368, 415);
+            this.btn_BookAdd.Location = new System.Drawing.Point(374, 426);
             this.btn_BookAdd.Name = "btn_BookAdd";
             this.btn_BookAdd.Size = new System.Drawing.Size(141, 23);
-            this.btn_BookAdd.TabIndex = 0;
+            this.btn_BookAdd.TabIndex = 7;
             this.btn_BookAdd.Text = "Add Book";
             this.btn_BookAdd.UseVisualStyleBackColor = true;
             this.btn_BookAdd.Click += new System.EventHandler(this.btn_BookAdd_Click);
@@ -62,7 +63,7 @@ namespace LibrartDataManagementSystem
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBx_BookTitle_BookAdd.Location = new System.Drawing.Point(136, 80);
             this.txtBx_BookTitle_BookAdd.Name = "txtBx_BookTitle_BookAdd";
-            this.txtBx_BookTitle_BookAdd.Size = new System.Drawing.Size(652, 20);
+            this.txtBx_BookTitle_BookAdd.Size = new System.Drawing.Size(665, 20);
             this.txtBx_BookTitle_BookAdd.TabIndex = 1;
             // 
             // label1
@@ -98,8 +99,8 @@ namespace LibrartDataManagementSystem
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBx_BookAuthor_BookAdd.Location = new System.Drawing.Point(136, 119);
             this.txtBx_BookAuthor_BookAdd.Name = "txtBx_BookAuthor_BookAdd";
-            this.txtBx_BookAuthor_BookAdd.Size = new System.Drawing.Size(652, 20);
-            this.txtBx_BookAuthor_BookAdd.TabIndex = 4;
+            this.txtBx_BookAuthor_BookAdd.Size = new System.Drawing.Size(665, 20);
+            this.txtBx_BookAuthor_BookAdd.TabIndex = 2;
             // 
             // label4
             // 
@@ -116,8 +117,8 @@ namespace LibrartDataManagementSystem
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBx_BookGenre_BookAdd.Location = new System.Drawing.Point(136, 151);
             this.txtBx_BookGenre_BookAdd.Name = "txtBx_BookGenre_BookAdd";
-            this.txtBx_BookGenre_BookAdd.Size = new System.Drawing.Size(652, 20);
-            this.txtBx_BookGenre_BookAdd.TabIndex = 6;
+            this.txtBx_BookGenre_BookAdd.Size = new System.Drawing.Size(665, 20);
+            this.txtBx_BookGenre_BookAdd.TabIndex = 3;
             // 
             // label5
             // 
@@ -143,8 +144,8 @@ namespace LibrartDataManagementSystem
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBx_BookPublisher_BookAdd.Location = new System.Drawing.Point(136, 225);
             this.txtBx_BookPublisher_BookAdd.Name = "txtBx_BookPublisher_BookAdd";
-            this.txtBx_BookPublisher_BookAdd.Size = new System.Drawing.Size(652, 20);
-            this.txtBx_BookPublisher_BookAdd.TabIndex = 10;
+            this.txtBx_BookPublisher_BookAdd.Size = new System.Drawing.Size(665, 20);
+            this.txtBx_BookPublisher_BookAdd.TabIndex = 5;
             // 
             // label8
             // 
@@ -157,29 +158,43 @@ namespace LibrartDataManagementSystem
             // 
             // txtBx_NumOfQuantity_BookAdd
             // 
-            this.txtBx_NumOfQuantity_BookAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBx_NumOfQuantity_BookAdd.Location = new System.Drawing.Point(136, 262);
             this.txtBx_NumOfQuantity_BookAdd.Name = "txtBx_NumOfQuantity_BookAdd";
-            this.txtBx_NumOfQuantity_BookAdd.Size = new System.Drawing.Size(652, 20);
-            this.txtBx_NumOfQuantity_BookAdd.TabIndex = 14;
+            this.txtBx_NumOfQuantity_BookAdd.Size = new System.Drawing.Size(54, 20);
+            this.txtBx_NumOfQuantity_BookAdd.TabIndex = 6;
+            this.txtBx_NumOfQuantity_BookAdd.Text = "1";
+            this.txtBx_NumOfQuantity_BookAdd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBx_NumOfQuantity_BookAdd_KeyPress);
+            this.txtBx_NumOfQuantity_BookAdd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBx_NumOfQuantity_BookAdd_KeyUp);
             // 
             // dtp_BookYearPublishe_BookAdd
             // 
             this.dtp_BookYearPublishe_BookAdd.CalendarTrailingForeColor = System.Drawing.SystemColors.Highlight;
-            this.dtp_BookYearPublishe_BookAdd.CustomFormat = "YYYY-MM-DD";
+            this.dtp_BookYearPublishe_BookAdd.CustomFormat = "yyyy";
             this.dtp_BookYearPublishe_BookAdd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dtp_BookYearPublishe_BookAdd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_BookYearPublishe_BookAdd.Location = new System.Drawing.Point(136, 189);
             this.dtp_BookYearPublishe_BookAdd.Name = "dtp_BookYearPublishe_BookAdd";
-            this.dtp_BookYearPublishe_BookAdd.Size = new System.Drawing.Size(185, 20);
-            this.dtp_BookYearPublishe_BookAdd.TabIndex = 16;
+            this.dtp_BookYearPublishe_BookAdd.ShowUpDown = true;
+            this.dtp_BookYearPublishe_BookAdd.Size = new System.Drawing.Size(54, 20);
+            this.dtp_BookYearPublishe_BookAdd.TabIndex = 4;
+            // 
+            // label_maxBooks
+            // 
+            this.label_maxBooks.AutoSize = true;
+            this.label_maxBooks.ForeColor = System.Drawing.Color.Red;
+            this.label_maxBooks.Location = new System.Drawing.Point(141, 285);
+            this.label_maxBooks.Name = "label_maxBooks";
+            this.label_maxBooks.Size = new System.Drawing.Size(41, 13);
+            this.label_maxBooks.TabIndex = 16;
+            this.label_maxBooks.Text = "99 max";
             // 
             // BooksAddLayoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(813, 461);
+            this.Controls.Add(this.label_maxBooks);
             this.Controls.Add(this.dtp_BookYearPublishe_BookAdd);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtBx_NumOfQuantity_BookAdd);
@@ -219,5 +234,6 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtBx_NumOfQuantity_BookAdd;
         private System.Windows.Forms.DateTimePicker dtp_BookYearPublishe_BookAdd;
+        private System.Windows.Forms.Label label_maxBooks;
     }
 }

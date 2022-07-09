@@ -7,46 +7,59 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibrartDataManagementSystem.Scripts;
 
 namespace LibrartDataManagementSystem
 {
     public partial class BooksAddLayoutForm : Form
     {
-        LDMS_DataBaseController my_LDMS_DataBaseController = new LDMS_DataBaseController();
-
+        private LDMS_DataBaseController _dabaBasecontroller = new LDMS_DataBaseController();
+        private TextBox[] _requiredInputs;
+        private BooksController _bookController = new BooksController();
 
         public BooksAddLayoutForm()
         {
             InitializeComponent();
+            // initialize require input list
+            _requiredInputs = new TextBox[5] {
+                txtBx_BookTitle_BookAdd, txtBx_BookAuthor_BookAdd, txtBx_BookGenre_BookAdd,
+                txtBx_BookPublisher_BookAdd, txtBx_NumOfQuantity_BookAdd };
+        }
+        private void BooksAddLayoutForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        // Validations method
+        /// <summary>
+        /// check if the pressed key is not a digit or backspace then ignore the key
+        /// and dont put in the input
+        /// </summary>
+        private void txtBx_NumOfQuantity_BookAdd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        /// <summary>
+        /// keep the value at 99 max
+        /// </summary>
+        private void txtBx_NumOfQuantity_BookAdd_KeyUp(object sender, KeyEventArgs e)
+        {
+            if ((int.Parse(txtBx_NumOfQuantity_BookAdd.Text) > 99) &&
+                txtBx_NumOfQuantity_BookAdd.Text.Length > 0)
+            {
+                txtBx_NumOfQuantity_BookAdd.Text = "99";
+            }
         }
 
         private void btn_BookAdd_Click(object sender, EventArgs e)
         {
-            demodemolang();
-        }
-        private void demodemolang()
-        {
-            //DateTime.Parse(date).ToString("yyyy-MM-dd")
-
-
-            string Book_Tittle = "Physics";
-            string Book_Author = "Einstein"; 
-            string Book_Genre = "Scifi";
-            string Book_Year_Published = dtp_BookYearPublishe_BookAdd.Value.ToString();//DateTime.Now;//DateTime Book_Year_Published = DateTime.Now.GetDateTimeFormats();
-            string Book_Publisher = "Dr. Tan";
-            int Book_Number_Of_Quantity = 5;
-
-            //DateTime.Parse(date).ToString("yyyy-MM-dd");
-            //Book_Year_Published.
-
-            my_LDMS_DataBaseController.insert_To_tbl_book(Book_Tittle, Book_Author, Book_Genre, Book_Year_Published, Book_Publisher, Book_Number_Of_Quantity);
-            
-            MessageBox.Show("Gumana!!!");
-        }
-
-        private void BooksAddLayoutForm_Load(object sender, EventArgs e)
-        {
-
+            if(_bookController.isInputComplete(_requiredInputs))
+            {
+                
+            }
         }
     }
 }

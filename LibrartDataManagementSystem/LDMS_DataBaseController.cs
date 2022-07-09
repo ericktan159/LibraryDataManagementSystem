@@ -20,8 +20,11 @@ namespace LibrartDataManagementSystem
         public DataTable dt;
         int result;
         
-        //*
-
+        
+        /// <summary>
+        /// insert method base on the statement
+        /// </summary>
+        /// <param name="insert_SQL_StateMent">sql statement to use</param>
         public void insert_DBMethod(string insert_SQL_StateMent)
         {
             /*
@@ -30,9 +33,6 @@ namespace LibrartDataManagementSystem
                     "', '" + myCTInfo.symptomList + "', '" + myCTInfo.cellNumber + "', '" + myCTInfo.eMail + "')";
 
             */
-
-            string msg_false = "Failure!!!";
-            string msg_true = "Succes!!";
 
             connectDB = new MySqlConnection(ConnectString);
 
@@ -217,7 +217,6 @@ namespace LibrartDataManagementSystem
             return select_DBMethod_return_2DList_Table_Records(select_SQL_StateMent);
 
         }
-
     }
 
 }
