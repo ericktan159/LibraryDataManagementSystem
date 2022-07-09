@@ -33,5 +33,13 @@ namespace LibrartDataManagementSystem
                 dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
                 combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
         }
+
+        //
+        private void btn_Book_Search_Click(object sender, EventArgs e)
+        {
+            _booksController.FillTable(
+                dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
+                combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
+        }
     }
 }

@@ -137,6 +137,7 @@ namespace LibrartDataManagementSystem
             this.btn_Book_Search.TabIndex = 10;
             this.btn_Book_Search.Text = "Search";
             this.btn_Book_Search.UseVisualStyleBackColor = true;
+            this.btn_Book_Search.Click += new System.EventHandler(this.btn_Book_Search_Click);
             // 
             // dtGrdVw_BookSearch
             // 
