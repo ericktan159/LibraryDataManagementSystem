@@ -64,12 +64,11 @@ namespace LibrartDataManagementSystem
             // 
             this.combBx_Book_Author.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Book_Author.FormattingEnabled = true;
-            this.combBx_Book_Author.Items.AddRange(new object[] {
-            "All"});
             this.combBx_Book_Author.Location = new System.Drawing.Point(95, 85);
             this.combBx_Book_Author.Name = "combBx_Book_Author";
             this.combBx_Book_Author.Size = new System.Drawing.Size(193, 21);
             this.combBx_Book_Author.TabIndex = 1;
+            this.combBx_Book_Author.SelectedIndexChanged += new System.EventHandler(this.combBx_Book_Author_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -102,12 +101,11 @@ namespace LibrartDataManagementSystem
             // 
             this.combBx_Book_Genre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Book_Genre.FormattingEnabled = true;
-            this.combBx_Book_Genre.Items.AddRange(new object[] {
-            "All"});
             this.combBx_Book_Genre.Location = new System.Drawing.Point(345, 85);
             this.combBx_Book_Genre.Name = "combBx_Book_Genre";
             this.combBx_Book_Genre.Size = new System.Drawing.Size(130, 21);
             this.combBx_Book_Genre.TabIndex = 6;
+            this.combBx_Book_Genre.SelectedIndexChanged += new System.EventHandler(this.combBx_Book_Genre_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -122,12 +120,11 @@ namespace LibrartDataManagementSystem
             // 
             this.combBx_Book_Year_Published.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Book_Year_Published.FormattingEnabled = true;
-            this.combBx_Book_Year_Published.Items.AddRange(new object[] {
-            "All"});
             this.combBx_Book_Year_Published.Location = new System.Drawing.Point(557, 85);
             this.combBx_Book_Year_Published.Name = "combBx_Book_Year_Published";
             this.combBx_Book_Year_Published.Size = new System.Drawing.Size(86, 21);
             this.combBx_Book_Year_Published.TabIndex = 8;
+            this.combBx_Book_Year_Published.SelectedIndexChanged += new System.EventHandler(this.combBx_Book_Year_Published_SelectedIndexChanged);
             // 
             // btn_Book_Search
             // 
