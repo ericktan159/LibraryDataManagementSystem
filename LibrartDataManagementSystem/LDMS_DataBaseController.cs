@@ -21,12 +21,14 @@ namespace LibrartDataManagementSystem
         int result;
         
         
+        
         /// <summary>
         /// insert method base on the statement
         /// </summary>
         /// <param name="insert_SQL_StateMent">sql statement to use</param>
-        public void insert_DBMethod(string insert_SQL_StateMent)
+        public bool insert_DBMethod(string insert_SQL_StateMent)
         {
+            bool success;
             /*
             string sqlStrCommand = "Insert into main (Name, age, address, Gender, isTraveled, isCloseContact, symptomsList, celNumber, eMailAddress) values " +
                     "('" + myCTInfo.name + "', " + myCTInfo.age + ", '" + myCTInfo.address + "', '" + myCTInfo.gender + "', '" + myCTInfo.isTraveledStr + "', '" + myCTInfo.isClosedContact +
@@ -56,16 +58,19 @@ namespace LibrartDataManagementSystem
                 //*/
 
                 //MessageBox.Show("Succes!");
+                success = true;
             }
             catch (Exception e)
             {
 
                 MessageBox.Show("Failed! " + e.Message);
+                success = false;
             }
             finally
             {
                 connectDB.Close();
             }
+            return success;
 
             //sqlCommandDB(sqlStrCommand);
 

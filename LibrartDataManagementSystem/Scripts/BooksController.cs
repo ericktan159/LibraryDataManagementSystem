@@ -10,8 +10,6 @@ namespace LibrartDataManagementSystem.Scripts
     class BooksController
     {
         LDMS_DataBaseController dbController = new LDMS_DataBaseController();
-        public BooksAddLayoutForm addForm;
-        public BooksSearchLayoutFormcs searchForm;
 
         /// <summary>
         /// Check if the input is complete
@@ -29,6 +27,26 @@ namespace LibrartDataManagementSystem.Scripts
                 }
             }
             return true;
+        }
+
+        /// <summary>
+        /// add books to the database
+        /// </summary>
+        /// <param name="title">title of book</param>
+        /// <param name="author">author of book</param>
+        /// <param name="genre">genre of book</param>
+        /// <param name="yearPublished">what year does the book has been published</param>
+        /// <param name="publisher">publisher of book</param>
+        /// <param name="numberOfQuantity">number of quantity of book</param>
+        public void AddBooks(string title, string author, string genre, string yearPublished,
+            string publisher, string numberOfQuantity)
+        {
+            string query = "" +
+                    "INSERT INTO `tbl_book`(`Book_Tittle`, `Book_Author`, `Book_Genre`, " +
+                    "`Book_Year_Published`, `Book_Publisher`, `Book_Number_Of_Quantity` " +
+                    $") VALUES ('{title}','{author}','{genre}'" +
+                    $",'{yearPublished}','{publisher}','{numberOfQuantity}')";
+            dbController.insert_DBMethod(query);
         }
     }
 }

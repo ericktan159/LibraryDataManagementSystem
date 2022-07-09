@@ -58,7 +58,9 @@ namespace LibrartDataManagementSystem
         {
             if(_bookController.isInputComplete(_requiredInputs))
             {
-                
+                _bookController.AddBooks(txtBx_BookTitle_BookAdd.Text, txtBx_BookAuthor_BookAdd.Text,
+                    txtBx_BookGenre_BookAdd.Text, dtp_BookYearPublishe_BookAdd.Text,
+                    txtBx_BookPublisher_BookAdd.Text, txtBx_NumOfQuantity_BookAdd.Text);
             }
         }
     }
