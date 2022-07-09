@@ -25,10 +25,6 @@ namespace LibrartDataManagementSystem
                 txtBx_BookTitle_BookAdd, txtBx_BookAuthor_BookAdd, txtBx_BookGenre_BookAdd,
                 txtBx_BookPublisher_BookAdd, txtBx_NumOfQuantity_BookAdd };
         }
-        private void BooksAddLayoutForm_Load(object sender, EventArgs e)
-        {
-
-        }
 
         // Validations method
         /// <summary>
@@ -81,6 +77,11 @@ namespace LibrartDataManagementSystem
         private void btn_Reset_Click(object sender, EventArgs e)
         {
             _bookController.ClearInputs(_requiredInputs);
+        }
+
+        private void BooksAddLayoutForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

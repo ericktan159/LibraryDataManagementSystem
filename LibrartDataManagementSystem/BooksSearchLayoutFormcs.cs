@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibrartDataManagementSystem.Scripts;
 
 namespace LibrartDataManagementSystem
 {
     public partial class BooksSearchLayoutFormcs : Form
     {
+        private BooksController _booksController = new BooksController();
+
+
         public BooksSearchLayoutFormcs()
         {
             InitializeComponent();
@@ -23,6 +27,11 @@ namespace LibrartDataManagementSystem
             combBx_Book_Author.SelectedIndex = 0;
             combBx_Book_Genre.SelectedIndex = 0;
             combBx_Book_Year_Published.SelectedIndex = 0;
+
+            // fill the table
+            _booksController.FillTable(
+                dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
+                combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
         }
     }
 }

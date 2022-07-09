@@ -42,7 +42,7 @@ namespace LibrartDataManagementSystem.Scripts
             string publisher, string numberOfQuantity)
         {
             string query = "" +
-                    "INSERT INTO `tbl_book`(`Book_Tittle`, `Book_Author`, `Book_Genre`, " +
+                    "INSERT INTO `tbl_book`(`Book_Title`, `Book_Author`, `Book_Genre`, " +
                     "`Book_Year_Published`, `Book_Publisher`, `Book_Number_Of_Quantity` " +
                     $") VALUES ('{title}','{author}','{genre}'" +
                     $",'{yearPublished}','{publisher}','{numberOfQuantity}')";
@@ -62,11 +62,52 @@ namespace LibrartDataManagementSystem.Scripts
             }
         }
 
+        /// <summary>
+        /// fill the table of books
+        /// </summary>
+        /// <param name="table">table to fill</param>
+        /// <param name="search">search for what title, author, genre</param>
+        /// <param name="author">author dropdown text</param>
+        /// <param name="genre">genre dropdown text</param>
+        /// <param name="yearPublished">yearpublished dropdown text</param>
         public void FillTable(DataGridView table, string search, string author, string genre,
             string yearPublished)
         {
             table.Rows.Clear(); // clear datagridview table
 
+            search = search.Trim(); // remove unecessary spaces
+
+            // get the correct query
+            string query = QuerySelectFill(search, author, genre, yearPublished);
+
+            // get the database list
+            List<List<string>> booksDetails = dbController.select_DBMethod_return_2DList_Table_Records(query);
+
+            // fill the table
+            foreach (List<string> bookDetails in booksDetails)
+            {
+                int outerIndex = table.Rows.Add();
+                table.Rows[outerIndex].Cells["Column_Book_ID"].Value = bookDetails[0];
+                table.Rows[outerIndex].Cells["Column_Book_Title"].Value = bookDetails[1];
+                table.Rows[outerIndex].Cells["Column_Book_Author"].Value = bookDetails[2];
+                table.Rows[outerIndex].Cells["Column_Book_Genre"].Value = bookDetails[3];
+                table.Rows[outerIndex].Cells["Column_Book_Year_published"].Value = bookDetails[4];
+                table.Rows[outerIndex].Cells["Column_Book_Publisher"].Value = bookDetails[5];
+                table.Rows[outerIndex].Cells["Column_Book_Number_Of_Quantity"].Value = bookDetails[6];
+            }
+        }
+
+        /// <summary>
+        /// fill the query for searching
+        /// </summary>
+        /// <param name="search">search text</param>
+        /// <param name="author">author text</param>
+        /// <param name="genre">genre text</param>
+        /// <param name="yearPublished">year published text</param>
+        /// <returns>refine query</returns>
+        public string QuerySelectFill(string search, string author, string genre,
+            string yearPublished)
+        {
             // initialize all needed query
             string query = "SELECT * FROM `tbl_book` ";
             string whereQuery = "";
@@ -75,10 +116,51 @@ namespace LibrartDataManagementSystem.Scripts
             string genreQuery = "";
             string yearPublishedQuery = "";
 
-            if(search.Trim() != "")
+            // fill the query
+            if (search != "")
             {
                 whereQuery = "WHERE ";
+                searchQuery = $"`Book_Title` REGEXP \".*{search}.*\" OR `Book_Author` REGEXP \".*{search}.*\" " +
+                    $"OR `Book_Genre` REGEXP \".*{search}.*\" ";
             }
+            if (author != "All")
+            {
+                if (whereQuery != "")
+                {
+                    authorQuery = $"AND `Book_Author` = \"{author}\" ";
+                }
+                else
+                {
+                    whereQuery = "WHERE ";
+                    authorQuery = $"`Book_Author` = \"{author}\" ";
+                }
+            }
+            if (genre != "All")
+            {
+                if (whereQuery != "")
+                {
+                    genreQuery = $"AND `Book_Genre` = \"{genre}\" ";
+                }
+                else
+                {
+                    whereQuery = "WHERE ";
+                    genreQuery = $"`Book_Genre` = \"{genre}\" ";
+                }
+            }
+            if (yearPublished != "All")
+            {
+                if (whereQuery != "")
+                {
+                    yearPublishedQuery = $"AND `Book_Genre` = \"{yearPublished}\" ";
+                }
+                else
+                {
+                    whereQuery = "WHERE ";
+                    yearPublishedQuery = $"`Book_Genre` = \"{yearPublished}\" ";
+                }
+            }
+            query += whereQuery + searchQuery + authorQuery + genreQuery + yearPublishedQuery;
+            return query;
         }
     }
 }
