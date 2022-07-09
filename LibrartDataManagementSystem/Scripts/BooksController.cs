@@ -174,12 +174,12 @@ namespace LibrartDataManagementSystem.Scripts
             {
                 if (whereQuery != "")
                 {
-                    yearPublishedQuery = $"AND `Book_Genre` = \"{yearPublished}\" ";
+                    yearPublishedQuery = $"AND `Book_Year_Published` = \"{yearPublished}\" ";
                 }
                 else
                 {
                     whereQuery = "WHERE ";
-                    yearPublishedQuery = $"`Book_Genre` = \"{yearPublished}\" ";
+                    yearPublishedQuery = $"`Book_Year_Published` = \"{yearPublished}\" ";
                 }
             }
             query += whereQuery + searchQuery + authorQuery + genreQuery + yearPublishedQuery;
