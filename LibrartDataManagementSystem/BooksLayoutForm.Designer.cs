@@ -44,7 +44,7 @@ namespace LibrartDataManagementSystem
             this.pnl_sideNavigationBarBooks.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_sideNavigationBarBooks.Location = new System.Drawing.Point(0, 0);
             this.pnl_sideNavigationBarBooks.Name = "pnl_sideNavigationBarBooks";
-            this.pnl_sideNavigationBarBooks.Size = new System.Drawing.Size(200, 450);
+            this.pnl_sideNavigationBarBooks.Size = new System.Drawing.Size(200, 461);
             this.pnl_sideNavigationBarBooks.TabIndex = 0;
             // 
             // btn_AddBooks
@@ -72,14 +72,14 @@ namespace LibrartDataManagementSystem
             this.pnl_ContentBooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_ContentBooks.Location = new System.Drawing.Point(200, 0);
             this.pnl_ContentBooks.Name = "pnl_ContentBooks";
-            this.pnl_ContentBooks.Size = new System.Drawing.Size(600, 450);
+            this.pnl_ContentBooks.Size = new System.Drawing.Size(813, 461);
             this.pnl_ContentBooks.TabIndex = 1;
             // 
             // BooksLayoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1013, 461);
             this.Controls.Add(this.pnl_ContentBooks);
             this.Controls.Add(this.pnl_sideNavigationBarBooks);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

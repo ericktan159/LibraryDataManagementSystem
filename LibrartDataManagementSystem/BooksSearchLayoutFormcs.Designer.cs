@@ -49,6 +49,7 @@ namespace LibrartDataManagementSystem
             this.grp_Books = new System.Windows.Forms.GroupBox();
             this.btn_DeleteBooks = new System.Windows.Forms.Button();
             this.btn_EditBooks = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_BookSearch)).BeginInit();
             this.grp_Books.SuspendLayout();
             this.SuspendLayout();
@@ -62,11 +63,13 @@ namespace LibrartDataManagementSystem
             // 
             // combBx_Book_Author
             // 
+            this.combBx_Book_Author.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Book_Author.FormattingEnabled = true;
-            this.combBx_Book_Author.Location = new System.Drawing.Point(155, 85);
+            this.combBx_Book_Author.Location = new System.Drawing.Point(95, 85);
             this.combBx_Book_Author.Name = "combBx_Book_Author";
-            this.combBx_Book_Author.Size = new System.Drawing.Size(121, 21);
+            this.combBx_Book_Author.Size = new System.Drawing.Size(193, 21);
             this.combBx_Book_Author.TabIndex = 1;
+            this.combBx_Book_Author.SelectedIndexChanged += new System.EventHandler(this.combBx_Book_Author_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -80,7 +83,7 @@ namespace LibrartDataManagementSystem
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(203, 68);
+            this.label2.Location = new System.Drawing.Point(179, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 5;
@@ -89,7 +92,7 @@ namespace LibrartDataManagementSystem
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(342, 67);
+            this.label3.Location = new System.Drawing.Point(393, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 13);
             this.label3.TabIndex = 7;
@@ -97,16 +100,18 @@ namespace LibrartDataManagementSystem
             // 
             // combBx_Book_Genre
             // 
+            this.combBx_Book_Genre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Book_Genre.FormattingEnabled = true;
-            this.combBx_Book_Genre.Location = new System.Drawing.Point(294, 84);
+            this.combBx_Book_Genre.Location = new System.Drawing.Point(345, 85);
             this.combBx_Book_Genre.Name = "combBx_Book_Genre";
-            this.combBx_Book_Genre.Size = new System.Drawing.Size(121, 21);
+            this.combBx_Book_Genre.Size = new System.Drawing.Size(130, 21);
             this.combBx_Book_Genre.TabIndex = 6;
+            this.combBx_Book_Genre.SelectedIndexChanged += new System.EventHandler(this.combBx_Book_Genre_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(469, 68);
+            this.label4.Location = new System.Drawing.Point(565, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 13);
             this.label4.TabIndex = 9;
@@ -114,11 +119,13 @@ namespace LibrartDataManagementSystem
             // 
             // combBx_Book_Year_Published
             // 
+            this.combBx_Book_Year_Published.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Book_Year_Published.FormattingEnabled = true;
-            this.combBx_Book_Year_Published.Location = new System.Drawing.Point(421, 85);
+            this.combBx_Book_Year_Published.Location = new System.Drawing.Point(557, 85);
             this.combBx_Book_Year_Published.Name = "combBx_Book_Year_Published";
-            this.combBx_Book_Year_Published.Size = new System.Drawing.Size(121, 21);
+            this.combBx_Book_Year_Published.Size = new System.Drawing.Size(86, 21);
             this.combBx_Book_Year_Published.TabIndex = 8;
+            this.combBx_Book_Year_Published.SelectedIndexChanged += new System.EventHandler(this.combBx_Book_Year_Published_SelectedIndexChanged);
             // 
             // btn_Book_Search
             // 
@@ -128,6 +135,7 @@ namespace LibrartDataManagementSystem
             this.btn_Book_Search.TabIndex = 10;
             this.btn_Book_Search.Text = "Search";
             this.btn_Book_Search.UseVisualStyleBackColor = true;
+            this.btn_Book_Search.Click += new System.EventHandler(this.btn_Book_Search_Click);
             // 
             // dtGrdVw_BookSearch
             // 
@@ -151,7 +159,6 @@ namespace LibrartDataManagementSystem
             this.dtGrdVw_BookSearch.ReadOnly = true;
             this.dtGrdVw_BookSearch.Size = new System.Drawing.Size(838, 347);
             this.dtGrdVw_BookSearch.TabIndex = 3;
-            this.dtGrdVw_BookSearch.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdVw_BookSearch_CellContentClick);
             // 
             // Column_Book_ID
             // 
@@ -229,12 +236,23 @@ namespace LibrartDataManagementSystem
             this.btn_EditBooks.Text = "Edit";
             this.btn_EditBooks.UseVisualStyleBackColor = true;
             // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.Location = new System.Drawing.Point(12, 12);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
+            this.buttonRefresh.TabIndex = 14;
+            this.buttonRefresh.Text = "Refresh";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
             // BooksSearchLayoutFormcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(874, 525);
+            this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.btn_EditBooks);
             this.Controls.Add(this.btn_DeleteBooks);
             this.Controls.Add(this.grp_Books);
@@ -250,6 +268,7 @@ namespace LibrartDataManagementSystem
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BooksSearchLayoutFormcs";
             this.Text = "BooksSearchLayoutFormcs";
+            this.Load += new System.EventHandler(this.BooksSearchLayoutFormcs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_BookSearch)).EndInit();
             this.grp_Books.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -279,5 +298,6 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.GroupBox grp_Books;
         private System.Windows.Forms.Button btn_DeleteBooks;
         private System.Windows.Forms.Button btn_EditBooks;
+        private System.Windows.Forms.Button buttonRefresh;
     }
 }

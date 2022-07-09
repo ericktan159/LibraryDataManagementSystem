@@ -7,46 +7,128 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibrartDataManagementSystem.Scripts;
 
 namespace LibrartDataManagementSystem
 {
     public partial class BooksAddLayoutForm : Form
     {
-        LDMS_DataBaseController my_LDMS_DataBaseController = new LDMS_DataBaseController();
-
+        private LDMS_DataBaseController _dabaBasecontroller = new LDMS_DataBaseController();
+        private TextBox[] _requiredInputs;
+        private BooksController _bookController = new BooksController();
 
         public BooksAddLayoutForm()
         {
             InitializeComponent();
+            // initialize require input list
+            _requiredInputs = new TextBox[5] {
+                txtBx_BookTitle_BookAdd, txtBx_BookAuthor_BookAdd, txtBx_BookGenre_BookAdd,
+                txtBx_BookPublisher_BookAdd, txtBx_NumOfQuantity_BookAdd };
         }
 
+        // Validations method
+        /// <summary>
+        /// check if the pressed key is not a digit or backspace then ignore the key
+        /// and dont put in the input
+        /// </summary>
+        private void txtBx_NumOfQuantity_BookAdd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        /// <summary>
+        /// keep the value at 99 max
+        /// </summary>
+        private void txtBx_NumOfQuantity_BookAdd_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if ((int.Parse(txtBx_NumOfQuantity_BookAdd.Text) > 99) &&
+                    txtBx_NumOfQuantity_BookAdd.Text.Length > 0)
+                {
+                    txtBx_NumOfQuantity_BookAdd.Text = "99";
+                }
+            }
+            catch
+            {
+                txtBx_NumOfQuantity_BookAdd.Text = "1";
+            }
+        }
+
+        /// <summary>
+        /// add the inputted details of book to database
+        /// </summary>
         private void btn_BookAdd_Click(object sender, EventArgs e)
         {
-            demodemolang();
+            if(_bookController.isInputComplete(_requiredInputs)) // check if input is complete
+            {
+                bool confirmedAdd = false;
+                List<string> existingBooks = _bookController.CheckIfBookExist(txtBx_BookTitle_BookAdd.Text, 
+                    txtBx_BookAuthor_BookAdd.Text, txtBx_BookGenre_BookAdd.Text, txtBx_BookPublisher_BookAdd.Text,
+                    dtp_BookYearPublishe_BookAdd.Text);
+                if (existingBooks.Count > 0) // check if any book with the inputted value existed
+                {
+                    foreach (string book in existingBooks) // iterate too all existed book
+                    {
+                        if (!confirmedAdd)
+                        {
+                            string prompt = $"{_bookController.GetBookTitle(book)} " +
+                                $"Is existing with the same Author, Genre, Publisher, & Year Published.\n" +
+                                $"Do you wish to add this book to existing one? By pressing No " +
+                                $"the inputted books will be added as a new book.";
+                            DialogResult dialog = MessageBox.Show(prompt, "Confirm",
+                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                            if (dialog == DialogResult.Yes) // update the books quantity
+                            {
+                                // update method here
+                                bool success = _bookController.AddBookQuantity(book,
+                                    int.Parse(txtBx_NumOfQuantity_BookAdd.Text));
+                                if(success)
+                                {
+                                    MessageBox.Show($"Successfully added {txtBx_BookTitle_BookAdd.Text} " +
+                                        $"to an existing book!", "Success");
+                                }
+                                confirmedAdd = true;
+                            }
+                            else if (dialog == DialogResult.Cancel)
+                            {
+                                confirmedAdd = true;
+                            }
+                        }
+                    }
+                }
+
+                // if the book does not exist or it isn't add to the existing one
+                if(!confirmedAdd)
+                {
+                    if (MessageBox.Show("Do you wish to add this book?", "Confirm",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        bool success = _bookController.AddBooks(txtBx_BookTitle_BookAdd.Text,
+                            txtBx_BookAuthor_BookAdd.Text,
+                            txtBx_BookGenre_BookAdd.Text, dtp_BookYearPublishe_BookAdd.Text,
+                            txtBx_BookPublisher_BookAdd.Text, txtBx_NumOfQuantity_BookAdd.Text);
+                        if (success)
+                        {
+                            MessageBox.Show($"{txtBx_BookTitle_BookAdd.Text} is successfully added!", "Success!");
+                            if (checkResetAfterSubmit.Checked)
+                            {
+                                _bookController.ClearInputs(_requiredInputs);
+                            }
+                        }
+                    }
+                }
+            }
         }
-        private void demodemolang()
+
+        /// <summary>
+        /// clear all the inputs
+        /// </summary>
+        private void btn_Reset_Click(object sender, EventArgs e)
         {
-            //DateTime.Parse(date).ToString("yyyy-MM-dd")
-
-
-            string Book_Tittle = "Physics";
-            string Book_Author = "Einstein"; 
-            string Book_Genre = "Scifi";
-            string Book_Year_Published = dtp_BookYearPublishe_BookAdd.Value.ToString();//DateTime.Now;//DateTime Book_Year_Published = DateTime.Now.GetDateTimeFormats();
-            string Book_Publisher = "Dr. Tan";
-            int Book_Number_Of_Quantity = 5;
-
-            //DateTime.Parse(date).ToString("yyyy-MM-dd");
-            //Book_Year_Published.
-
-            my_LDMS_DataBaseController.insert_To_tbl_book(Book_Tittle, Book_Author, Book_Genre, Book_Year_Published, Book_Publisher, Book_Number_Of_Quantity);
-            
-            MessageBox.Show("Gumana!!!");
-        }
-
-        private void BooksAddLayoutForm_Load(object sender, EventArgs e)
-        {
-
+            _bookController.ClearInputs(_requiredInputs);
         }
     }
 }

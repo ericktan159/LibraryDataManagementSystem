@@ -50,7 +50,7 @@ namespace LibrartDataManagementSystem
             this.pnl_Navigation.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_Navigation.Location = new System.Drawing.Point(0, 0);
             this.pnl_Navigation.Name = "pnl_Navigation";
-            this.pnl_Navigation.Size = new System.Drawing.Size(1495, 100);
+            this.pnl_Navigation.Size = new System.Drawing.Size(1013, 100);
             this.pnl_Navigation.TabIndex = 0;
             // 
             // btn_BorrowTransation
@@ -109,7 +109,7 @@ namespace LibrartDataManagementSystem
             this.pnl_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_Main.Location = new System.Drawing.Point(0, 100);
             this.pnl_Main.Name = "pnl_Main";
-            this.pnl_Main.Size = new System.Drawing.Size(1495, 624);
+            this.pnl_Main.Size = new System.Drawing.Size(1013, 461);
             this.pnl_Main.TabIndex = 1;
             this.pnl_Main.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_Main_Paint);
             // 
@@ -117,7 +117,7 @@ namespace LibrartDataManagementSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1495, 724);
+            this.ClientSize = new System.Drawing.Size(1013, 561);
             this.Controls.Add(this.pnl_Main);
             this.Controls.Add(this.pnl_Navigation);
             this.MinimumSize = new System.Drawing.Size(900, 600);

@@ -78,6 +78,7 @@
       <DependentUpon>BorrowersSearchLayoutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LDMS_DataBaseController.cs" />
+    <Compile Include="Scripts\BooksController.cs" />
     <Compile Include="TransactionBorrowLayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -35,6 +35,7 @@ namespace LibrartDataManagementSystem
             this.combBx_Book_Title_BorrowLayout = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtBx_Borrower_ID_BorrowLayout = new System.Windows.Forms.TextBox();
+            this.btn_Update_Personal_Info_BorrowLayout = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.dtp_Date_Borrowed_BorrowLayout = new System.Windows.Forms.DateTimePicker();
             this.combBx_NumCopies__BorrowLayout = new System.Windows.Forms.ComboBox();
@@ -96,7 +97,6 @@ namespace LibrartDataManagementSystem
             this.label22 = new System.Windows.Forms.Label();
             this.combBx_Book_Author_TransactionBorrow = new System.Windows.Forms.ComboBox();
             this.txtBx_SearchBook_TransactionBorrow = new System.Windows.Forms.TextBox();
-            this.btn_Update_Personal_Info_BorrowLayout = new System.Windows.Forms.Button();
             this.pnl_.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_Member_TransactionBorrow)).BeginInit();
@@ -186,6 +186,15 @@ namespace LibrartDataManagementSystem
             this.txtBx_Borrower_ID_BorrowLayout.Name = "txtBx_Borrower_ID_BorrowLayout";
             this.txtBx_Borrower_ID_BorrowLayout.Size = new System.Drawing.Size(100, 20);
             this.txtBx_Borrower_ID_BorrowLayout.TabIndex = 80;
+            // 
+            // btn_Update_Personal_Info_BorrowLayout
+            // 
+            this.btn_Update_Personal_Info_BorrowLayout.Location = new System.Drawing.Point(371, 262);
+            this.btn_Update_Personal_Info_BorrowLayout.Name = "btn_Update_Personal_Info_BorrowLayout";
+            this.btn_Update_Personal_Info_BorrowLayout.Size = new System.Drawing.Size(163, 23);
+            this.btn_Update_Personal_Info_BorrowLayout.TabIndex = 79;
+            this.btn_Update_Personal_Info_BorrowLayout.Text = "Update Personal Information";
+            this.btn_Update_Personal_Info_BorrowLayout.UseVisualStyleBackColor = true;
             // 
             // label14
             // 
@@ -424,7 +433,7 @@ namespace LibrartDataManagementSystem
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(599, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(889, 315);
+            this.panel1.Size = new System.Drawing.Size(787, 315);
             this.panel1.TabIndex = 54;
             // 
             // dtGrdVw_Member_TransactionBorrow
@@ -446,7 +455,7 @@ namespace LibrartDataManagementSystem
             this.dtGrdVw_Member_TransactionBorrow.Location = new System.Drawing.Point(16, 97);
             this.dtGrdVw_Member_TransactionBorrow.Name = "dtGrdVw_Member_TransactionBorrow";
             this.dtGrdVw_Member_TransactionBorrow.ReadOnly = true;
-            this.dtGrdVw_Member_TransactionBorrow.Size = new System.Drawing.Size(843, 145);
+            this.dtGrdVw_Member_TransactionBorrow.Size = new System.Drawing.Size(741, 145);
             this.dtGrdVw_Member_TransactionBorrow.TabIndex = 39;
             this.dtGrdVw_Member_TransactionBorrow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdVw_Member_TransactionBorrow_CellContentClick);
             // 
@@ -572,7 +581,7 @@ namespace LibrartDataManagementSystem
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(599, 388);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(889, 302);
+            this.panel2.Size = new System.Drawing.Size(787, 302);
             this.panel2.TabIndex = 55;
             // 
             // dtGrdVw_Book_TransactionBorrow
@@ -593,7 +602,7 @@ namespace LibrartDataManagementSystem
             this.dtGrdVw_Book_TransactionBorrow.Location = new System.Drawing.Point(54, 112);
             this.dtGrdVw_Book_TransactionBorrow.Name = "dtGrdVw_Book_TransactionBorrow";
             this.dtGrdVw_Book_TransactionBorrow.ReadOnly = true;
-            this.dtGrdVw_Book_TransactionBorrow.Size = new System.Drawing.Size(745, 132);
+            this.dtGrdVw_Book_TransactionBorrow.Size = new System.Drawing.Size(643, 132);
             this.dtGrdVw_Book_TransactionBorrow.TabIndex = 20;
             this.dtGrdVw_Book_TransactionBorrow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdVw_Book_TransactionBorrow_CellContentClick);
             // 
@@ -715,20 +724,11 @@ namespace LibrartDataManagementSystem
             this.txtBx_SearchBook_TransactionBorrow.Size = new System.Drawing.Size(260, 20);
             this.txtBx_SearchBook_TransactionBorrow.TabIndex = 11;
             // 
-            // btn_Update_Personal_Info_BorrowLayout
-            // 
-            this.btn_Update_Personal_Info_BorrowLayout.Location = new System.Drawing.Point(371, 262);
-            this.btn_Update_Personal_Info_BorrowLayout.Name = "btn_Update_Personal_Info_BorrowLayout";
-            this.btn_Update_Personal_Info_BorrowLayout.Size = new System.Drawing.Size(163, 23);
-            this.btn_Update_Personal_Info_BorrowLayout.TabIndex = 79;
-            this.btn_Update_Personal_Info_BorrowLayout.Text = "Update Personal Information";
-            this.btn_Update_Personal_Info_BorrowLayout.UseVisualStyleBackColor = true;
-            // 
             // TransactionBorrowLayoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1488, 690);
+            this.ClientSize = new System.Drawing.Size(1386, 690);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnl_);

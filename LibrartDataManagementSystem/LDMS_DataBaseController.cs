@@ -20,19 +20,21 @@ namespace LibrartDataManagementSystem
         public DataTable dt;
         int result;
         
-        //*
-
-        public void insert_DBMethod(string insert_SQL_StateMent)
+        
+        
+        /// <summary>
+        /// insert method base on the statement
+        /// </summary>
+        /// <param name="insert_SQL_StateMent">sql statement to use</param>
+        public bool insert_DBMethod(string insert_SQL_StateMent)
         {
+            bool success;
             /*
             string sqlStrCommand = "Insert into main (Name, age, address, Gender, isTraveled, isCloseContact, symptomsList, celNumber, eMailAddress) values " +
                     "('" + myCTInfo.name + "', " + myCTInfo.age + ", '" + myCTInfo.address + "', '" + myCTInfo.gender + "', '" + myCTInfo.isTraveledStr + "', '" + myCTInfo.isClosedContact +
                     "', '" + myCTInfo.symptomList + "', '" + myCTInfo.cellNumber + "', '" + myCTInfo.eMail + "')";
 
             */
-
-            string msg_false = "Failure!!!";
-            string msg_true = "Succes!!";
 
             connectDB = new MySqlConnection(ConnectString);
 
@@ -56,16 +58,19 @@ namespace LibrartDataManagementSystem
                 //*/
 
                 //MessageBox.Show("Succes!");
+                success = true;
             }
             catch (Exception e)
             {
 
                 MessageBox.Show("Failed! " + e.Message);
+                success = false;
             }
             finally
             {
                 connectDB.Close();
             }
+            return success;
 
             //sqlCommandDB(sqlStrCommand);
 
@@ -217,7 +222,6 @@ namespace LibrartDataManagementSystem
             return select_DBMethod_return_2DList_Table_Records(select_SQL_StateMent);
 
         }
-
     }
 
 }
