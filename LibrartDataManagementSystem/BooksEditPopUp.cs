@@ -14,12 +14,14 @@ namespace LibrartDataManagementSystem
     public partial class BooksEditPopUp : Form
     {
         private string _id;
+        private bool _quantityOnly;
         private BooksController _booksController = new BooksController();
         private TextBox[] _inputs;
         private BooksSearchLayoutFormcs _searchBookForm = new BooksSearchLayoutFormcs();
-        public BooksEditPopUp(string bookID)
+        public BooksEditPopUp(string bookID, bool quantityOnly = false)
         {
             _id = bookID;
+            _quantityOnly = quantityOnly;
             InitializeComponent();
 
             _inputs = new TextBox[5] {
@@ -65,6 +67,20 @@ namespace LibrartDataManagementSystem
             _booksController.FillInputs(txtBx_BookTitle_BookAdd, txtBx_BookAuthor_BookAdd,
                 txtBx_BookGenre_BookAdd, dtp_BookYearPublishe_BookAdd, txtBx_BookPublisher_BookAdd,
                 txtBx_NumOfQuantity_BookAdd, _id);
+
+            if (_quantityOnly)
+            {
+                int counter = 0;
+                foreach (TextBox textBox in _inputs)
+                {
+                    if (counter != 4)
+                    {
+                        textBox.Enabled = false;
+                    }
+                    counter++;
+                }
+                dtp_BookYearPublishe_BookAdd.Enabled = false;
+            }
         }
 
         /// <summary>

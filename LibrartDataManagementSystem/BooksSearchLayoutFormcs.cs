@@ -129,17 +129,23 @@ namespace LibrartDataManagementSystem
             int rowIndex = dtGrdVw_BookSearch.CurrentCellAddress.Y;
             string id = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_ID"].Value.ToString();
             string name = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_Title"].Value.ToString();
-            bool success = false;
+            bool successDelete = false;
 
-            string prompt = $"Do you wish to delete \"{name}\"?";
+            string prompt1 = $"Do you wish to delete \"{name}\" entirely? \n" +
+                $"By pressing \"No\" you'll just update some of it's quantity.";
 
-            if(MessageBox.Show(prompt, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+            if(MessageBox.Show(prompt1, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
                 == DialogResult.Yes)
             {
-                success = _booksController.DeleteBook(id);
+                successDelete = _booksController.DeleteBook(id);
+            }
+            else
+            {
+                BooksEditPopUp editPopup = new BooksEditPopUp(id, true);
+                editPopup.ShowDialog();
             }
 
-            if(success)
+            if(successDelete)
             {
                 MessageBox.Show($"{name} is successfully deleted!", "Success!");
             }
