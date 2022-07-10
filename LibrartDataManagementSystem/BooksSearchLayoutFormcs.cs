@@ -41,10 +41,7 @@ namespace LibrartDataManagementSystem
         //
         private void btn_Book_Search_Click(object sender, EventArgs e)
         {
-            _booksController.FillTable(
-                dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
-                combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
-            _booksController.FillQuantityColor(dtGrdVw_BookSearch);
+            GenerateTable(false);
         }
 
         private void combBx_Book_Author_SelectedIndexChanged(object sender, EventArgs e)
@@ -52,10 +49,7 @@ namespace LibrartDataManagementSystem
             if(combBx_Book_Author.SelectedItem != null && combBx_Book_Genre.SelectedItem != null &&
                 combBx_Book_Year_Published.SelectedItem != null)
             {
-                _booksController.FillTable(
-                    dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
-                    combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
-                _booksController.FillQuantityColor(dtGrdVw_BookSearch);
+                GenerateTable(false);
             }
         }
 
@@ -64,10 +58,7 @@ namespace LibrartDataManagementSystem
             if (combBx_Book_Author.SelectedItem != null && combBx_Book_Genre.SelectedItem != null &&
                 combBx_Book_Year_Published.SelectedItem != null)
             {
-                _booksController.FillTable(
-                    dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
-                    combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
-                _booksController.FillQuantityColor(dtGrdVw_BookSearch);
+                GenerateTable(false);
             }
         }
 
@@ -76,10 +67,7 @@ namespace LibrartDataManagementSystem
             if (combBx_Book_Author.SelectedItem != null && combBx_Book_Genre.SelectedItem != null &&
                 combBx_Book_Year_Published.SelectedItem != null)
             {
-                _booksController.FillTable(
-                    dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
-                    combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
-                _booksController.FillQuantityColor(dtGrdVw_BookSearch);
+                GenerateTable(false);
             }
         }
 
@@ -88,17 +76,24 @@ namespace LibrartDataManagementSystem
         /// </summary>
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            int authorIndex = combBx_Book_Author.SelectedIndex;
-            int genreIndex = combBx_Book_Genre.SelectedIndex;
-            int yearIndex = combBx_Book_Year_Published.SelectedIndex;
+            GenerateTable();
+        }
 
-            _booksController.FillDropdown(combBx_Book_Author, "Book_Author");
-            _booksController.FillDropdown(combBx_Book_Genre, "Book_Genre");
-            _booksController.FillDropdown(combBx_Book_Year_Published, "Book_Year_Published");
+        public void GenerateTable(bool withDropdown = true)
+        {
+            if (withDropdown)
+            {
+                int authorIndex = combBx_Book_Author.SelectedIndex;
+                int genreIndex = combBx_Book_Genre.SelectedIndex;
+                int yearIndex = combBx_Book_Year_Published.SelectedIndex;
+                _booksController.FillDropdown(combBx_Book_Author, "Book_Author");
+                _booksController.FillDropdown(combBx_Book_Genre, "Book_Genre");
+                _booksController.FillDropdown(combBx_Book_Year_Published, "Book_Year_Published");
 
-            combBx_Book_Author.SelectedIndex = authorIndex;
-            combBx_Book_Genre.SelectedIndex = genreIndex;
-            combBx_Book_Year_Published.SelectedIndex = yearIndex;
+                combBx_Book_Author.SelectedIndex = authorIndex;
+                combBx_Book_Genre.SelectedIndex = genreIndex;
+                combBx_Book_Year_Published.SelectedIndex = yearIndex;
+            }
 
             _booksController.FillTable(
                 dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
