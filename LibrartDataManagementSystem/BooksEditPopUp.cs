@@ -55,7 +55,7 @@ namespace LibrartDataManagementSystem
             }
             catch
             {
-                txtBx_NumOfQuantity_BookAdd.Text = "1";
+                
             }
         }
 
@@ -90,6 +90,10 @@ namespace LibrartDataManagementSystem
         {
             string prompt = "Do you wish to update the book?";
             bool success = false;
+            if (txtBx_NumOfQuantity_BookAdd.Text.Trim() == "")
+            {
+                txtBx_NumOfQuantity_BookAdd.Text = "1";
+            }
             if (_booksController.isInputComplete(_inputs))
             {
                 if(MessageBox.Show(prompt, "Confirm", MessageBoxButtons.YesNo, 
