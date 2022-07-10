@@ -101,3 +101,4 @@ E:\AdminFileFolder\AlphaSource\repos\Elective_4_repo\LibrartDataManagementSystem
 E:\AdminFileFolder\AlphaSource\repos\Elective_4_repo\LibrartDataManagementSystem\LibraryDataManagementSystem\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.csproj.CopyComplete
 E:\AdminFileFolder\AlphaSource\repos\Elective_4_repo\LibrartDataManagementSystem\LibraryDataManagementSystem\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.exe
 E:\AdminFileFolder\AlphaSource\repos\Elective_4_repo\LibrartDataManagementSystem\LibraryDataManagementSystem\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.pdb
+C:\Users\User\Desktop\Kitts Things 1-1\5-2nd sem\Elective 4\Proj\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.BooksEditPopUp.resources

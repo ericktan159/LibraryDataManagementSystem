@@ -21,7 +21,7 @@ namespace LibrartDataManagementSystem
         LogsLayoutForm logsLayoutForm = new LogsLayoutForm();
         TransactionBorrowLayoutForm transactionBorrowLayoutForm = new TransactionBorrowLayoutForm();
 
-
+        LDMS_DataBaseController dbController = new LDMS_DataBaseController();
 
         public MainLayout()
         {
@@ -30,6 +30,13 @@ namespace LibrartDataManagementSystem
 
         private void MainLayout_Load(object sender, EventArgs e)
         {
+            if(!dbController.IsDataBaseOpen())
+            {
+                MessageBox.Show("Database cannot find or " +
+                    "check if your database server is open.", "Error");
+                this.Close();
+                return;
+            }
             myLayoutController.LoadForm(booksLayoutForm, this);
         }
 

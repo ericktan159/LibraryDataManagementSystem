@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
+using System.Globalization;
 
 namespace LibrartDataManagementSystem.Scripts
 {
     class BooksController
     {
         LDMS_DataBaseController dbController = new LDMS_DataBaseController();
+        TextInfo ti = CultureInfo.CurrentCulture.TextInfo;
 
         /// <summary>
         /// Check if the input is complete
@@ -44,8 +47,10 @@ namespace LibrartDataManagementSystem.Scripts
             string query = "" +
                     "INSERT INTO `tbl_book`(`Book_Title`, `Book_Author`, `Book_Genre`, " +
                     "`Book_Year_Published`, `Book_Publisher`, `Book_Number_Of_Quantity` " +
-                    $") VALUES ('{title}','{author}','{genre}'" +
-                    $",'{yearPublished}','{publisher}','{numberOfQuantity}')";
+                    $") VALUES ('{ti.ToTitleCase(title)}','{ti.ToTitleCase(author)}'," +
+                    $"'{ti.ToTitleCase(genre)}'" +
+                    $",'{ti.ToTitleCase(yearPublished)}','{ti.ToTitleCase(publisher)}'," +
+                    $"'{numberOfQuantity}')";
             bool success = dbController.insert_DBMethod(query);
             return success;
         }
@@ -79,6 +84,32 @@ namespace LibrartDataManagementSystem.Scripts
 
             // get the correct query
             string query = QuerySelectFill(search, author, genre, yearPublished);
+
+            // get the database list
+            List<List<string>> booksDetails = dbController.select_DBMethod_return_2DList_Table_Records(query);
+
+            // fill the table
+            foreach (List<string> bookDetails in booksDetails)
+            {
+                int outerIndex = table.Rows.Add();
+                table.Rows[outerIndex].Cells["Column_Book_ID"].Value = bookDetails[0];
+                table.Rows[outerIndex].Cells["Column_Book_Title"].Value = bookDetails[1];
+                table.Rows[outerIndex].Cells["Column_Book_Author"].Value = bookDetails[2];
+                table.Rows[outerIndex].Cells["Column_Book_Genre"].Value = bookDetails[3];
+                table.Rows[outerIndex].Cells["Column_Book_Year_published"].Value = bookDetails[4];
+                table.Rows[outerIndex].Cells["Column_Book_Publisher"].Value = bookDetails[5];
+                table.Rows[outerIndex].Cells["Column_Book_Number_Of_Quantity"].Value = bookDetails[6];
+            }
+        }
+
+        /// <summary>
+        /// fill the table with no other query
+        /// </summary>
+        /// <param name="table"></param>
+        public void FillTable(DataGridView table)
+        {
+            // get the correct query
+            string query = "SELECT * FROM `tbl_book`";
 
             // get the database list
             List<List<string>> booksDetails = dbController.select_DBMethod_return_2DList_Table_Records(query);
@@ -143,8 +174,8 @@ namespace LibrartDataManagementSystem.Scripts
             if (search != "")
             {
                 whereQuery = "WHERE ";
-                searchQuery = $"`Book_Title` REGEXP \".*{search}.*\" OR `Book_Author` REGEXP \".*{search}.*\" " +
-                    $"OR `Book_Genre` REGEXP \".*{search}.*\" ";
+                searchQuery = $"(`Book_Title` REGEXP \".*{search}.*\" OR `Book_Author` REGEXP \".*{search}.*\" " +
+                    $"OR `Book_Genre` REGEXP \".*{search}.*\") ";
             }
             if (author != "All")
             {
@@ -232,6 +263,96 @@ namespace LibrartDataManagementSystem.Scripts
                 $"\"{bookID}\"")[0][0]);
             string query = $"UPDATE `tbl_book` SET `Book_Number_Of_Quantity`='{currentQuantity + quantity}' " +
                 $"WHERE `Book_ID` = \"{bookID}\"";
+            bool success = dbController.insert_DBMethod(query);
+            return success;
+        }
+
+        /// <summary>
+        /// fill the quantity of books color cell to indicate whether it's there are many quantity
+        /// low number of quantity or no quantity at all
+        /// </summary>
+        /// <param name="table"></param>
+        public void FillQuantityColor(DataGridView table)
+        {
+            foreach (DataGridViewRow row in table.Rows)
+            {
+                DataGridViewCell cell = row.Cells["Column_Book_Number_Of_Quantity"];
+                if(int.Parse(cell.Value.ToString()) > 5)
+                {
+                    cell.Style.BackColor = Color.Green;
+                }
+                else if(int.Parse(cell.Value.ToString()) > 0)
+                {
+                    cell.Style.BackColor = Color.Orange;
+                }
+                else
+                {
+                    cell.Style.BackColor = Color.Red;
+                }
+            }
+        }
+
+        public List<string> GetBookDetails(string id)
+        {
+            string query = $"SELECT * FROM `tbl_book` WHERE `Book_ID` = {id}";
+            List<List<string>> results = dbController.select_DBMethod_return_2DList_Table_Records(query);
+            return results[0];
+        }
+
+        /// <summary>
+        /// fill the inputs with the value of books by ID
+        /// </summary>
+        /// <param name="title">textbox of title</param>
+        /// <param name="author">textbox of author</param>
+        /// <param name="genre">textbox of genre</param>
+        /// <param name="yearPublished">year published input</param>
+        /// <param name="publisher">textbox of publisher</param>
+        /// <param name="quantity">textbox quantity</param>
+        /// <param name="id">the id to search book</param>
+        public void FillInputs(TextBox title, TextBox author, TextBox genre, DateTimePicker yearPublished,
+            TextBox publisher, TextBox quantity, string id)
+        {
+            List<string> results = GetBookDetails(id);
+            title.Text = results[1];
+            author.Text = results[2];
+            genre.Text = results[3];
+            yearPublished.Value = DateTime.ParseExact(results[4], "yyyy", CultureInfo.InvariantCulture);
+            publisher.Text = results[5];
+            quantity.Text = results[6];
+        }
+
+        /// <summary>
+        /// update the books
+        /// </summary>
+        /// <param name="title">textbox of title</param>
+        /// <param name="author">textbox of author</param>
+        /// <param name="genre">textbox of genre</param>
+        /// <param name="yearPublished">year published input</param>
+        /// <param name="publisher">textbox of publisher</param>
+        /// <param name="quantity">textbox quantity</param>
+        /// <param name="id">the id to search book</param>
+        /// <returns>true if the update were successful</returns>
+        public bool UpdateBooks(TextBox title, TextBox author, TextBox genre, DateTimePicker yearPublished,
+            TextBox publisher, TextBox quantity, string id)
+        {
+            string query = $"UPDATE `tbl_book` SET `Book_Title`='{ti.ToTitleCase(title.Text)}'," +
+                $"`Book_Author`='{ti.ToTitleCase(author.Text)}'" +
+                $",`Book_Genre`='{ti.ToTitleCase(genre.Text)}'," +
+                $"`Book_Year_Published`='{ti.ToTitleCase(yearPublished.Text)}'," +
+                $"`Book_Publisher`='{ti.ToTitleCase(publisher.Text)}'" +
+                $",`Book_Number_Of_Quantity`='{quantity.Text}' WHERE `Book_ID` = '{id}'";
+            bool success = dbController.insert_DBMethod(query);
+            return success;
+        }
+
+        /// <summary>
+        /// Delete book depending on id
+        /// </summary>
+        /// <param name="id">reference of id</param>
+        /// <returns>return true if delete were successful</returns>
+        public bool DeleteBook(string id)
+        {
+            string query = $"DELETE FROM `tbl_book` WHERE `Book_ID` = '{id}'";
             bool success = dbController.insert_DBMethod(query);
             return success;
         }

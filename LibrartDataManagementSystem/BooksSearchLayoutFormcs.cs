@@ -15,7 +15,6 @@ namespace LibrartDataManagementSystem
     {
         private BooksController _booksController = new BooksController();
 
-
         public BooksSearchLayoutFormcs()
         {
             InitializeComponent();
@@ -36,14 +35,13 @@ namespace LibrartDataManagementSystem
             _booksController.FillTable(
                 dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
                 combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
+            _booksController.FillQuantityColor(dtGrdVw_BookSearch);
         }
 
         //
         private void btn_Book_Search_Click(object sender, EventArgs e)
         {
-            _booksController.FillTable(
-                dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
-                combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
+            GenerateTable(false);
         }
 
         private void combBx_Book_Author_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,9 +49,7 @@ namespace LibrartDataManagementSystem
             if(combBx_Book_Author.SelectedItem != null && combBx_Book_Genre.SelectedItem != null &&
                 combBx_Book_Year_Published.SelectedItem != null)
             {
-                _booksController.FillTable(
-                    dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
-                    combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
+                GenerateTable(false);
             }
         }
 
@@ -62,9 +58,7 @@ namespace LibrartDataManagementSystem
             if (combBx_Book_Author.SelectedItem != null && combBx_Book_Genre.SelectedItem != null &&
                 combBx_Book_Year_Published.SelectedItem != null)
             {
-                _booksController.FillTable(
-                    dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
-                    combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
+                GenerateTable(false);
             }
         }
 
@@ -73,9 +67,7 @@ namespace LibrartDataManagementSystem
             if (combBx_Book_Author.SelectedItem != null && combBx_Book_Genre.SelectedItem != null &&
                 combBx_Book_Year_Published.SelectedItem != null)
             {
-                _booksController.FillTable(
-                    dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
-                    combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
+                GenerateTable(false);
             }
         }
 
@@ -84,21 +76,80 @@ namespace LibrartDataManagementSystem
         /// </summary>
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            int authorIndex = combBx_Book_Author.SelectedIndex;
-            int genreIndex = combBx_Book_Genre.SelectedIndex;
-            int yearIndex = combBx_Book_Year_Published.SelectedIndex;
+            GenerateTable();
+        }
 
-            _booksController.FillDropdown(combBx_Book_Author, "Book_Author");
-            _booksController.FillDropdown(combBx_Book_Genre, "Book_Genre");
-            _booksController.FillDropdown(combBx_Book_Year_Published, "Book_Year_Published");
+        /// <summary>
+        /// Generate table and dropdown
+        /// </summary>
+        /// <param name="withDropdown">generate dropdown list if true</param>
+        public void GenerateTable(bool withDropdown = true, bool fromOtherForm = false)
+        {
+            if (withDropdown)
+            {
+                int authorIndex = combBx_Book_Author.SelectedIndex;
+                int genreIndex = combBx_Book_Genre.SelectedIndex;
+                int yearIndex = combBx_Book_Year_Published.SelectedIndex;
+                _booksController.FillDropdown(combBx_Book_Author, "Book_Author");
+                _booksController.FillDropdown(combBx_Book_Genre, "Book_Genre");
+                _booksController.FillDropdown(combBx_Book_Year_Published, "Book_Year_Published");
 
-            combBx_Book_Author.SelectedIndex = authorIndex;
-            combBx_Book_Genre.SelectedIndex = genreIndex;
-            combBx_Book_Year_Published.SelectedIndex = yearIndex;
+                combBx_Book_Author.SelectedIndex = authorIndex;
+                combBx_Book_Genre.SelectedIndex = genreIndex;
+                combBx_Book_Year_Published.SelectedIndex = yearIndex;
+            }
 
             _booksController.FillTable(
                 dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
                 combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
+            _booksController.FillQuantityColor(dtGrdVw_BookSearch);
+        }
+
+        /// <summary>
+        /// pop up a new form that you can edit the selected book.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_EditBooks_Click(object sender, EventArgs e)
+        {
+            // check if the selected row is multiple then cancel the operation
+            int rowIndex = dtGrdVw_BookSearch.CurrentCellAddress.Y;
+            string id = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_ID"].Value.ToString();
+
+            BooksEditPopUp popUp = new BooksEditPopUp(id);
+            popUp.ShowDialog();
+            GenerateTable();
+        }
+
+        /// <summary>
+        /// deleting the books
+        /// </summary>
+        private void btn_DeleteBooks_Click(object sender, EventArgs e)
+        {
+            int rowIndex = dtGrdVw_BookSearch.CurrentCellAddress.Y;
+            string id = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_ID"].Value.ToString();
+            string name = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_Title"].Value.ToString();
+            bool successDelete = false;
+
+            string prompt1 = $"Do you wish to delete \"{name}\" entirely? \n" +
+                $"By pressing \"No\" you'll just update some of it's quantity.";
+
+            if(MessageBox.Show(prompt1, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                == DialogResult.Yes)
+            {
+                successDelete = _booksController.DeleteBook(id);
+            }
+            else
+            {
+                BooksEditPopUp editPopup = new BooksEditPopUp(id, true);
+                editPopup.ShowDialog();
+            }
+
+            if(successDelete)
+            {
+                MessageBox.Show($"{name} is successfully deleted!", "Success!");
+            }
+            GenerateTable();
         }
     }
 }

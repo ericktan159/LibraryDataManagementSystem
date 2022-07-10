@@ -155,6 +155,7 @@ namespace LibrartDataManagementSystem
             this.Column_Book_Publisher,
             this.Column_Book_Number_Of_Quantity});
             this.dtGrdVw_BookSearch.Location = new System.Drawing.Point(6, 19);
+            this.dtGrdVw_BookSearch.MultiSelect = false;
             this.dtGrdVw_BookSearch.Name = "dtGrdVw_BookSearch";
             this.dtGrdVw_BookSearch.ReadOnly = true;
             this.dtGrdVw_BookSearch.Size = new System.Drawing.Size(838, 347);
@@ -162,13 +163,15 @@ namespace LibrartDataManagementSystem
             // 
             // Column_Book_ID
             // 
-            this.Column_Book_ID.HeaderText = "Book ID";
+            this.Column_Book_ID.FillWeight = 35F;
+            this.Column_Book_ID.HeaderText = "ID";
             this.Column_Book_ID.Name = "Column_Book_ID";
             this.Column_Book_ID.ReadOnly = true;
             // 
             // Column_Book_Title
             // 
-            this.Column_Book_Title.HeaderText = "Book Title";
+            this.Column_Book_Title.FillWeight = 200F;
+            this.Column_Book_Title.HeaderText = "Title";
             this.Column_Book_Title.Name = "Column_Book_Title";
             this.Column_Book_Title.ReadOnly = true;
             // 
@@ -198,7 +201,8 @@ namespace LibrartDataManagementSystem
             // 
             // Column_Book_Number_Of_Quantity
             // 
-            this.Column_Book_Number_Of_Quantity.HeaderText = "Number of Quantity";
+            this.Column_Book_Number_Of_Quantity.FillWeight = 35F;
+            this.Column_Book_Number_Of_Quantity.HeaderText = "Quantity";
             this.Column_Book_Number_Of_Quantity.Name = "Column_Book_Number_Of_Quantity";
             this.Column_Book_Number_Of_Quantity.ReadOnly = true;
             // 
@@ -225,6 +229,7 @@ namespace LibrartDataManagementSystem
             this.btn_DeleteBooks.TabIndex = 12;
             this.btn_DeleteBooks.Text = "Delete";
             this.btn_DeleteBooks.UseVisualStyleBackColor = true;
+            this.btn_DeleteBooks.Click += new System.EventHandler(this.btn_DeleteBooks_Click);
             // 
             // btn_EditBooks
             // 
@@ -235,6 +240,7 @@ namespace LibrartDataManagementSystem
             this.btn_EditBooks.TabIndex = 13;
             this.btn_EditBooks.Text = "Edit";
             this.btn_EditBooks.UseVisualStyleBackColor = true;
+            this.btn_EditBooks.Click += new System.EventHandler(this.btn_EditBooks_Click);
             // 
             // buttonRefresh
             // 
@@ -288,6 +294,10 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.ComboBox combBx_Book_Year_Published;
         private System.Windows.Forms.Button btn_Book_Search;
         private System.Windows.Forms.DataGridView dtGrdVw_BookSearch;
+        private System.Windows.Forms.GroupBox grp_Books;
+        private System.Windows.Forms.Button btn_DeleteBooks;
+        private System.Windows.Forms.Button btn_EditBooks;
+        private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Author;
@@ -295,9 +305,5 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Year_published;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Publisher;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Number_Of_Quantity;
-        private System.Windows.Forms.GroupBox grp_Books;
-        private System.Windows.Forms.Button btn_DeleteBooks;
-        private System.Windows.Forms.Button btn_EditBooks;
-        private System.Windows.Forms.Button buttonRefresh;
     }
 }
