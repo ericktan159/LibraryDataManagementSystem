@@ -83,7 +83,7 @@ namespace LibrartDataManagementSystem
         /// Generate table and dropdown
         /// </summary>
         /// <param name="withDropdown">generate dropdown list if true</param>
-        public void GenerateTable(bool withDropdown = true)
+        public void GenerateTable(bool withDropdown = true, bool fromOtherForm = false)
         {
             if (withDropdown)
             {
@@ -118,6 +118,7 @@ namespace LibrartDataManagementSystem
 
             BooksEditPopUp popUp = new BooksEditPopUp(id);
             popUp.ShowDialog();
+            GenerateTable();
         }
     }
 }

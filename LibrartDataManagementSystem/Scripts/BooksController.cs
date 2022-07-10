@@ -99,6 +99,28 @@ namespace LibrartDataManagementSystem.Scripts
             }
         }
 
+        public void FillTable(DataGridView table)
+        {
+            // get the correct query
+            string query = "SELECT * FROM `tbl_book`";
+
+            // get the database list
+            List<List<string>> booksDetails = dbController.select_DBMethod_return_2DList_Table_Records(query);
+
+            // fill the table
+            foreach (List<string> bookDetails in booksDetails)
+            {
+                int outerIndex = table.Rows.Add();
+                table.Rows[outerIndex].Cells["Column_Book_ID"].Value = bookDetails[0];
+                table.Rows[outerIndex].Cells["Column_Book_Title"].Value = bookDetails[1];
+                table.Rows[outerIndex].Cells["Column_Book_Author"].Value = bookDetails[2];
+                table.Rows[outerIndex].Cells["Column_Book_Genre"].Value = bookDetails[3];
+                table.Rows[outerIndex].Cells["Column_Book_Year_published"].Value = bookDetails[4];
+                table.Rows[outerIndex].Cells["Column_Book_Publisher"].Value = bookDetails[5];
+                table.Rows[outerIndex].Cells["Column_Book_Number_Of_Quantity"].Value = bookDetails[6];
+            }
+        }
+
         /// <summary>
         /// fill the dropdownobject by the value of what they seachfor
         /// </summary>
@@ -290,6 +312,17 @@ namespace LibrartDataManagementSystem.Scripts
             yearPublished.Value = DateTime.ParseExact(results[4], "yyyy", CultureInfo.InvariantCulture);
             publisher.Text = results[5];
             quantity.Text = results[6];
+        }
+
+        public bool UpdateBooks(TextBox title, TextBox author, TextBox genre, DateTimePicker yearPublished,
+            TextBox publisher, TextBox quantity, string id)
+        {
+            string query = $"UPDATE `tbl_book` SET `Book_Title`='{title.Text}',`Book_Author`='{author.Text}'" +
+                $",`Book_Genre`='{genre.Text}',`Book_Year_Published`='{yearPublished.Text}'," +
+                $"`Book_Publisher`='{publisher.Text}'" +
+                $",`Book_Number_Of_Quantity`='{quantity.Text}' WHERE `Book_ID` = '{id}'";
+            bool success = dbController.insert_DBMethod(query);
+            return success;
         }
     }
 }

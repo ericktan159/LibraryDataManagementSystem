@@ -16,6 +16,7 @@ namespace LibrartDataManagementSystem
         private string _id;
         private BooksController _booksController = new BooksController();
         private TextBox[] _inputs;
+        private BooksSearchLayoutFormcs _searchBookForm = new BooksSearchLayoutFormcs();
         public BooksEditPopUp(string bookID)
         {
             _id = bookID;
@@ -57,14 +58,6 @@ namespace LibrartDataManagementSystem
         }
 
         /// <summary>
-        /// when update button is clicked check if input is complete and update the book
-        /// </summary>
-        private void buttonUpdate_Click(object sender, EventArgs e)
-        {
-            _booksController.isInputComplete(_inputs);
-        }
-
-        /// <summary>
         /// initialize values
         /// </summary>
         private void BooksEditPopUp_Load(object sender, EventArgs e)
@@ -72,6 +65,30 @@ namespace LibrartDataManagementSystem
             _booksController.FillInputs(txtBx_BookTitle_BookAdd, txtBx_BookAuthor_BookAdd,
                 txtBx_BookGenre_BookAdd, dtp_BookYearPublishe_BookAdd, txtBx_BookPublisher_BookAdd,
                 txtBx_NumOfQuantity_BookAdd, _id);
+        }
+
+        /// <summary>
+        /// when update button is clicked check if input is complete and update the book
+        /// </summary>
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            string prompt = "Do you wish to update the book?";
+            bool success = false;
+            if (_booksController.isInputComplete(_inputs))
+            {
+                if(MessageBox.Show(prompt, "Confirm", MessageBoxButtons.YesNo, 
+                    MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    success = _booksController.UpdateBooks(txtBx_BookTitle_BookAdd, txtBx_BookAuthor_BookAdd,
+                txtBx_BookGenre_BookAdd, dtp_BookYearPublishe_BookAdd, txtBx_BookPublisher_BookAdd,
+                txtBx_NumOfQuantity_BookAdd, _id);
+                }
+            }
+            if(success)
+            {
+                MessageBox.Show("Successfully Updated!", "Success!");
+            }
+            this.Close();
         }
     }
 }
