@@ -155,6 +155,7 @@ namespace LibrartDataManagementSystem
             this.Column_Book_Publisher,
             this.Column_Book_Number_Of_Quantity});
             this.dtGrdVw_BookSearch.Location = new System.Drawing.Point(6, 19);
+            this.dtGrdVw_BookSearch.MultiSelect = false;
             this.dtGrdVw_BookSearch.Name = "dtGrdVw_BookSearch";
             this.dtGrdVw_BookSearch.ReadOnly = true;
             this.dtGrdVw_BookSearch.Size = new System.Drawing.Size(838, 347);

@@ -42,6 +42,7 @@ namespace LibrartDataManagementSystem
             this.txtBx_BookAuthor_BookAdd = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBx_BookTitle_BookAdd = new System.Windows.Forms.TextBox();
+            this.buttonUpdate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label_maxBooks
@@ -63,7 +64,7 @@ namespace LibrartDataManagementSystem
             this.dtp_BookYearPublishe_BookAdd.Location = new System.Drawing.Point(127, 115);
             this.dtp_BookYearPublishe_BookAdd.Name = "dtp_BookYearPublishe_BookAdd";
             this.dtp_BookYearPublishe_BookAdd.ShowUpDown = true;
-            this.dtp_BookYearPublishe_BookAdd.Size = new System.Drawing.Size(46, 20);
+            this.dtp_BookYearPublishe_BookAdd.Size = new System.Drawing.Size(59, 20);
             this.dtp_BookYearPublishe_BookAdd.TabIndex = 21;
             // 
             // label8
@@ -79,9 +80,11 @@ namespace LibrartDataManagementSystem
             // 
             this.txtBx_NumOfQuantity_BookAdd.Location = new System.Drawing.Point(127, 188);
             this.txtBx_NumOfQuantity_BookAdd.Name = "txtBx_NumOfQuantity_BookAdd";
-            this.txtBx_NumOfQuantity_BookAdd.Size = new System.Drawing.Size(46, 20);
+            this.txtBx_NumOfQuantity_BookAdd.Size = new System.Drawing.Size(59, 20);
             this.txtBx_NumOfQuantity_BookAdd.TabIndex = 24;
             this.txtBx_NumOfQuantity_BookAdd.Text = "1";
+            this.txtBx_NumOfQuantity_BookAdd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBx_NumOfQuantity_BookAdd_KeyPress);
+            this.txtBx_NumOfQuantity_BookAdd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBx_NumOfQuantity_BookAdd_KeyUp);
             // 
             // label6
             // 
@@ -164,11 +167,22 @@ namespace LibrartDataManagementSystem
             this.txtBx_BookTitle_BookAdd.Size = new System.Drawing.Size(532, 20);
             this.txtBx_BookTitle_BookAdd.TabIndex = 17;
             // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Location = new System.Drawing.Point(319, 249);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(84, 23);
+            this.buttonUpdate.TabIndex = 30;
+            this.buttonUpdate.Text = "Update";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
             // BooksEditPopUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(671, 284);
+            this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.label_maxBooks);
             this.Controls.Add(this.dtp_BookYearPublishe_BookAdd);
             this.Controls.Add(this.label8);
@@ -209,5 +223,6 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.TextBox txtBx_BookAuthor_BookAdd;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBx_BookTitle_BookAdd;
+        private System.Windows.Forms.Button buttonUpdate;
     }
 }

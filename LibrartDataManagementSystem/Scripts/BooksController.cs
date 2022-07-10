@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Globalization;
 
 namespace LibrartDataManagementSystem.Scripts
 {
@@ -260,6 +261,35 @@ namespace LibrartDataManagementSystem.Scripts
                     cell.Style.BackColor = Color.Red;
                 }
             }
+        }
+
+        public List<string> GetBookDetails(string id)
+        {
+            string query = $"SELECT * FROM `tbl_book` WHERE `Book_ID` = {id}";
+            List<List<string>> results = dbController.select_DBMethod_return_2DList_Table_Records(query);
+            return results[0];
+        }
+
+        /// <summary>
+        /// fill the inputs with the value of books by ID
+        /// </summary>
+        /// <param name="title">textbox of title</param>
+        /// <param name="author">textbox of author</param>
+        /// <param name="genre">textbox of genre</param>
+        /// <param name="yearPublished">year published input</param>
+        /// <param name="publisher">textbox of publisher</param>
+        /// <param name="quantity">textbox quantity</param>
+        /// <param name="id">the id to search book</param>
+        public void FillInputs(TextBox title, TextBox author, TextBox genre, DateTimePicker yearPublished,
+            TextBox publisher, TextBox quantity, string id)
+        {
+            List<string> results = GetBookDetails(id);
+            title.Text = results[1];
+            author.Text = results[2];
+            genre.Text = results[3];
+            yearPublished.Value = DateTime.ParseExact(results[4], "yyyy", CultureInfo.InvariantCulture);
+            publisher.Text = results[5];
+            quantity.Text = results[6];
         }
     }
 }

@@ -79,6 +79,10 @@ namespace LibrartDataManagementSystem
             GenerateTable();
         }
 
+        /// <summary>
+        /// Generate table and dropdown
+        /// </summary>
+        /// <param name="withDropdown">generate dropdown list if true</param>
         public void GenerateTable(bool withDropdown = true)
         {
             if (withDropdown)
@@ -101,9 +105,18 @@ namespace LibrartDataManagementSystem
             _booksController.FillQuantityColor(dtGrdVw_BookSearch);
         }
 
+        /// <summary>
+        /// pop up a new form that you can edit the selected book.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_EditBooks_Click(object sender, EventArgs e)
         {
-            BooksEditPopUp popUp = new BooksEditPopUp("2");
+            // check if the selected row is multiple then cancel the operation
+            int rowIndex = dtGrdVw_BookSearch.CurrentCellAddress.Y;
+            string id = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_ID"].Value.ToString();
+
+            BooksEditPopUp popUp = new BooksEditPopUp(id);
             popUp.ShowDialog();
         }
     }
