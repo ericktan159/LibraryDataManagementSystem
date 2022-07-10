@@ -53,6 +53,12 @@
     <Compile Include="BooksAddLayoutForm.Designer.cs">
       <DependentUpon>BooksAddLayoutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BooksEditPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BooksEditPopUp.Designer.cs">
+      <DependentUpon>BooksEditPopUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="BooksLayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BooksAddLayoutForm.resx">
       <DependentUpon>BooksAddLayoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BooksEditPopUp.resx">
+      <DependentUpon>BooksEditPopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BooksLayoutForm.resx">
       <DependentUpon>BooksLayoutForm.cs</DependentUpon>

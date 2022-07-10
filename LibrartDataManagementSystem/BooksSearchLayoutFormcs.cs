@@ -15,7 +15,6 @@ namespace LibrartDataManagementSystem
     {
         private BooksController _booksController = new BooksController();
 
-
         public BooksSearchLayoutFormcs()
         {
             InitializeComponent();
@@ -105,6 +104,12 @@ namespace LibrartDataManagementSystem
                 dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
                 combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
             _booksController.FillQuantityColor(dtGrdVw_BookSearch);
+        }
+
+        private void btn_EditBooks_Click(object sender, EventArgs e)
+        {
+            BooksEditPopUp popUp = new BooksEditPopUp("2");
+            popUp.ShowDialog();
         }
     }
 }

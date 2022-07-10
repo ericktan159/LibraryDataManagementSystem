@@ -12,9 +12,16 @@ namespace LibrartDataManagementSystem
 {
     public partial class BooksEditPopUp : Form
     {
-        public BooksEditPopUp()
+        private string _id;
+        public BooksEditPopUp(string bookID)
         {
+            _id = bookID;
             InitializeComponent();
+        }
+
+        private void BooksEditPopUp_Load(object sender, EventArgs e)
+        {
+            txtBx_BookTitle_BookAdd.Text = _id;
         }
     }
 }

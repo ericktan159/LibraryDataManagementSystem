@@ -39,10 +39,6 @@ namespace LibrartDataManagementSystem
             this.combBx_Book_Year_Published = new System.Windows.Forms.ComboBox();
             this.btn_Book_Search = new System.Windows.Forms.Button();
             this.dtGrdVw_BookSearch = new System.Windows.Forms.DataGridView();
-            this.grp_Books = new System.Windows.Forms.GroupBox();
-            this.btn_DeleteBooks = new System.Windows.Forms.Button();
-            this.btn_EditBooks = new System.Windows.Forms.Button();
-            this.buttonRefresh = new System.Windows.Forms.Button();
             this.Column_Book_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Book_Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Book_Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +46,10 @@ namespace LibrartDataManagementSystem
             this.Column_Book_Year_published = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Book_Publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Book_Number_Of_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grp_Books = new System.Windows.Forms.GroupBox();
+            this.btn_DeleteBooks = new System.Windows.Forms.Button();
+            this.btn_EditBooks = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_BookSearch)).BeginInit();
             this.grp_Books.SuspendLayout();
             this.SuspendLayout();
@@ -160,50 +160,6 @@ namespace LibrartDataManagementSystem
             this.dtGrdVw_BookSearch.Size = new System.Drawing.Size(838, 347);
             this.dtGrdVw_BookSearch.TabIndex = 3;
             // 
-            // grp_Books
-            // 
-            this.grp_Books.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grp_Books.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.grp_Books.Controls.Add(this.dtGrdVw_BookSearch);
-            this.grp_Books.Location = new System.Drawing.Point(12, 112);
-            this.grp_Books.Name = "grp_Books";
-            this.grp_Books.Size = new System.Drawing.Size(850, 372);
-            this.grp_Books.TabIndex = 11;
-            this.grp_Books.TabStop = false;
-            this.grp_Books.Text = "Books List";
-            // 
-            // btn_DeleteBooks
-            // 
-            this.btn_DeleteBooks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_DeleteBooks.Location = new System.Drawing.Point(787, 490);
-            this.btn_DeleteBooks.Name = "btn_DeleteBooks";
-            this.btn_DeleteBooks.Size = new System.Drawing.Size(75, 23);
-            this.btn_DeleteBooks.TabIndex = 12;
-            this.btn_DeleteBooks.Text = "Delete";
-            this.btn_DeleteBooks.UseVisualStyleBackColor = true;
-            // 
-            // btn_EditBooks
-            // 
-            this.btn_EditBooks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_EditBooks.Location = new System.Drawing.Point(706, 490);
-            this.btn_EditBooks.Name = "btn_EditBooks";
-            this.btn_EditBooks.Size = new System.Drawing.Size(75, 23);
-            this.btn_EditBooks.TabIndex = 13;
-            this.btn_EditBooks.Text = "Edit";
-            this.btn_EditBooks.UseVisualStyleBackColor = true;
-            // 
-            // buttonRefresh
-            // 
-            this.buttonRefresh.Location = new System.Drawing.Point(12, 12);
-            this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
-            this.buttonRefresh.TabIndex = 14;
-            this.buttonRefresh.Text = "Refresh";
-            this.buttonRefresh.UseVisualStyleBackColor = true;
-            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
-            // 
             // Column_Book_ID
             // 
             this.Column_Book_ID.FillWeight = 35F;
@@ -248,6 +204,51 @@ namespace LibrartDataManagementSystem
             this.Column_Book_Number_Of_Quantity.HeaderText = "Quantity";
             this.Column_Book_Number_Of_Quantity.Name = "Column_Book_Number_Of_Quantity";
             this.Column_Book_Number_Of_Quantity.ReadOnly = true;
+            // 
+            // grp_Books
+            // 
+            this.grp_Books.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grp_Books.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.grp_Books.Controls.Add(this.dtGrdVw_BookSearch);
+            this.grp_Books.Location = new System.Drawing.Point(12, 112);
+            this.grp_Books.Name = "grp_Books";
+            this.grp_Books.Size = new System.Drawing.Size(850, 372);
+            this.grp_Books.TabIndex = 11;
+            this.grp_Books.TabStop = false;
+            this.grp_Books.Text = "Books List";
+            // 
+            // btn_DeleteBooks
+            // 
+            this.btn_DeleteBooks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_DeleteBooks.Location = new System.Drawing.Point(787, 490);
+            this.btn_DeleteBooks.Name = "btn_DeleteBooks";
+            this.btn_DeleteBooks.Size = new System.Drawing.Size(75, 23);
+            this.btn_DeleteBooks.TabIndex = 12;
+            this.btn_DeleteBooks.Text = "Delete";
+            this.btn_DeleteBooks.UseVisualStyleBackColor = true;
+            // 
+            // btn_EditBooks
+            // 
+            this.btn_EditBooks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_EditBooks.Location = new System.Drawing.Point(706, 490);
+            this.btn_EditBooks.Name = "btn_EditBooks";
+            this.btn_EditBooks.Size = new System.Drawing.Size(75, 23);
+            this.btn_EditBooks.TabIndex = 13;
+            this.btn_EditBooks.Text = "Edit";
+            this.btn_EditBooks.UseVisualStyleBackColor = true;
+            this.btn_EditBooks.Click += new System.EventHandler(this.btn_EditBooks_Click);
+            // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.Location = new System.Drawing.Point(12, 12);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
+            this.buttonRefresh.TabIndex = 14;
+            this.buttonRefresh.Text = "Refresh";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // BooksSearchLayoutFormcs
             // 
