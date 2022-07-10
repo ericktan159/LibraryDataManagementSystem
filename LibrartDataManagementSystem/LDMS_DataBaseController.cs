@@ -37,48 +37,25 @@ namespace LibrartDataManagementSystem
             }
             return success;
         }
-        
-        /// <summary>
-        /// insert method base on the statement
-        /// </summary>
-        /// <param name="insert_SQL_StateMent">sql statement to use</param>
-        public bool insert_DBMethod(string insert_SQL_StateMent)
+
+        public bool connectDB_And_ExecuteNonQuery(string execute_SQL_StateMent)
         {
             bool success;
-            /*
-            string sqlStrCommand = "Insert into main (Name, age, address, Gender, isTraveled, isCloseContact, symptomsList, celNumber, eMailAddress) values " +
-                    "('" + myCTInfo.name + "', " + myCTInfo.age + ", '" + myCTInfo.address + "', '" + myCTInfo.gender + "', '" + myCTInfo.isTraveledStr + "', '" + myCTInfo.isClosedContact +
-                    "', '" + myCTInfo.symptomList + "', '" + myCTInfo.cellNumber + "', '" + myCTInfo.eMail + "')";
-
-            */
 
             connectDB = new MySqlConnection(ConnectString);
 
             try
             {
                 connectDB.Open();
-                cmd = new MySqlCommand(insert_SQL_StateMent, connectDB);
+                cmd = new MySqlCommand(execute_SQL_StateMent, connectDB);
                 //cmd.Connection = connectDB;
                 //cmd.CommandText = sqlStrCommand;
                 result = cmd.ExecuteNonQuery();
 
-                /*
-                if (result > 0)
-                {
-                    MessageBox.Show(msg_true);
-                }
-                else
-                {
-                    MessageBox.Show(msg_false);
-                }
-                //*/
-
-                //MessageBox.Show("Succes!");
                 success = true;
             }
             catch (Exception e)
             {
-
                 MessageBox.Show("Failed! " + e.Message);
                 success = false;
             }
@@ -91,7 +68,27 @@ namespace LibrartDataManagementSystem
             //sqlCommandDB(sqlStrCommand);
 
         }
+
+
+        /// <summary>
+        /// insert method base on the statement
+        /// </summary>
+        /// <param name="insert_SQL_StateMent">sql statement to use</param>
+        public bool insert_DBMethod(string insert_SQL_StateMent)
+        {
+            return connectDB_And_ExecuteNonQuery(insert_SQL_StateMent);
+        }
         //*/    
+
+        public bool update_DBMethod(string update_SQL_StateMent)
+        {
+            return connectDB_And_ExecuteNonQuery(update_SQL_StateMent);
+        }
+
+        public bool delete_DBMethod(string delete_SQL_StateMent)
+        {
+            return connectDB_And_ExecuteNonQuery(delete_SQL_StateMent);
+        }
 
 
 
