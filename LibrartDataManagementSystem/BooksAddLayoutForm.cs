@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibrartDataManagementSystem.Scripts;
+using System.Globalization;
 
 namespace LibrartDataManagementSystem
 {
@@ -16,6 +17,7 @@ namespace LibrartDataManagementSystem
         private LDMS_DataBaseController _dabaBasecontroller = new LDMS_DataBaseController();
         private TextBox[] _requiredInputs;
         private BooksController _bookController = new BooksController();
+        TextInfo ti = CultureInfo.CurrentCulture.TextInfo;
 
         public BooksAddLayoutForm()
         {
@@ -87,7 +89,8 @@ namespace LibrartDataManagementSystem
                                     int.Parse(txtBx_NumOfQuantity_BookAdd.Text));
                                 if(success)
                                 {
-                                    MessageBox.Show($"Successfully added {txtBx_BookTitle_BookAdd.Text} " +
+                                    MessageBox.Show($"Successfully added " +
+                                        $"{ti.ToTitleCase(txtBx_BookTitle_BookAdd.Text)} " +
                                         $"to an existing book!", "Success");
                                 }
                                 confirmedAdd = true;
@@ -112,7 +115,7 @@ namespace LibrartDataManagementSystem
                             txtBx_BookPublisher_BookAdd.Text, txtBx_NumOfQuantity_BookAdd.Text);
                         if (success)
                         {
-                            MessageBox.Show($"{txtBx_BookTitle_BookAdd.Text} is successfully added!", "Success!");
+                            MessageBox.Show($"{ti.ToTitleCase(txtBx_BookTitle_BookAdd.Text)} is successfully added!", "Success!");
                             if (checkResetAfterSubmit.Checked)
                             {
                                 _bookController.ClearInputs(_requiredInputs);
