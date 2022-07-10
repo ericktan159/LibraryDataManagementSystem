@@ -47,15 +47,14 @@ namespace LibrartDataManagementSystem
         {
             try
             {
-                if ((int.Parse(txtBx_NumOfQuantity_BookAdd.Text) > 99) &&
-                    txtBx_NumOfQuantity_BookAdd.Text.Length > 0)
+                if (int.Parse(txtBx_NumOfQuantity_BookAdd.Text) > 99)
                 {
                     txtBx_NumOfQuantity_BookAdd.Text = "99";
                 }
             }
             catch
             {
-                txtBx_NumOfQuantity_BookAdd.Text = "1";
+
             }
         }
 
@@ -64,6 +63,10 @@ namespace LibrartDataManagementSystem
         /// </summary>
         private void btn_BookAdd_Click(object sender, EventArgs e)
         {
+            if(txtBx_NumOfQuantity_BookAdd.Text.Trim() == "")
+            {
+                txtBx_NumOfQuantity_BookAdd.Text = "1";
+            }
             if(_bookController.isInputComplete(_requiredInputs)) // check if input is complete
             {
                 bool confirmedAdd = false;

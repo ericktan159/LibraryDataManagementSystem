@@ -13,6 +13,7 @@ namespace LibrartDataManagementSystem
     class LDMS_DataBaseController
     {
         string ConnectString = "datasource = localhost; username = root; password=; database = library_data_management_system;";//databasesample;";
+        //string ConnectString = "datasource = sql6.freemysqlhosting.net; username = sql6505213; password=3xepDlsiuM; database = sql6505213; port = 3306";//databasesample;";
         MySqlConnection connectDB;
         MySqlCommand cmd;
         MySqlDataAdapter da;
