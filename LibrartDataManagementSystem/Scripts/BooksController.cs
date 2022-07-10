@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace LibrartDataManagementSystem.Scripts
 {
@@ -234,6 +235,26 @@ namespace LibrartDataManagementSystem.Scripts
                 $"WHERE `Book_ID` = \"{bookID}\"";
             bool success = dbController.insert_DBMethod(query);
             return success;
+        }
+
+        public void FillQuantityColor(DataGridView table)
+        {
+            foreach (DataGridViewRow row in table.Rows)
+            {
+                DataGridViewCell cell = row.Cells["Column_Book_Number_Of_Quantity"];
+                if(int.Parse(cell.Value.ToString()) > 5)
+                {
+                    cell.Style.BackColor = Color.Green;
+                }
+                else if(int.Parse(cell.Value.ToString()) > 0)
+                {
+                    cell.Style.BackColor = Color.Orange;
+                }
+                else
+                {
+                    cell.Style.BackColor = Color.Red;
+                }
+            }
         }
     }
 }

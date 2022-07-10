@@ -36,6 +36,7 @@ namespace LibrartDataManagementSystem
             _booksController.FillTable(
                 dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
                 combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
+            _booksController.FillQuantityColor(dtGrdVw_BookSearch);
         }
 
         //
@@ -44,6 +45,7 @@ namespace LibrartDataManagementSystem
             _booksController.FillTable(
                 dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
                 combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
+            _booksController.FillQuantityColor(dtGrdVw_BookSearch);
         }
 
         private void combBx_Book_Author_SelectedIndexChanged(object sender, EventArgs e)
@@ -54,6 +56,7 @@ namespace LibrartDataManagementSystem
                 _booksController.FillTable(
                     dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
                     combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
+                _booksController.FillQuantityColor(dtGrdVw_BookSearch);
             }
         }
 
@@ -65,6 +68,7 @@ namespace LibrartDataManagementSystem
                 _booksController.FillTable(
                     dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
                     combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
+                _booksController.FillQuantityColor(dtGrdVw_BookSearch);
             }
         }
 
@@ -76,6 +80,7 @@ namespace LibrartDataManagementSystem
                 _booksController.FillTable(
                     dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
                     combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
+                _booksController.FillQuantityColor(dtGrdVw_BookSearch);
             }
         }
 
@@ -99,6 +104,7 @@ namespace LibrartDataManagementSystem
             _booksController.FillTable(
                 dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
                 combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
+            _booksController.FillQuantityColor(dtGrdVw_BookSearch);
         }
     }
 }
