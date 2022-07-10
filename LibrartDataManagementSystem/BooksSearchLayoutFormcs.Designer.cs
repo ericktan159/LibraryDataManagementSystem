@@ -39,6 +39,10 @@ namespace LibrartDataManagementSystem
             this.combBx_Book_Year_Published = new System.Windows.Forms.ComboBox();
             this.btn_Book_Search = new System.Windows.Forms.Button();
             this.dtGrdVw_BookSearch = new System.Windows.Forms.DataGridView();
+            this.grp_Books = new System.Windows.Forms.GroupBox();
+            this.btn_DeleteBooks = new System.Windows.Forms.Button();
+            this.btn_EditBooks = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             this.Column_Book_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Book_Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Book_Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,10 +50,6 @@ namespace LibrartDataManagementSystem
             this.Column_Book_Year_published = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Book_Publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Book_Number_Of_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grp_Books = new System.Windows.Forms.GroupBox();
-            this.btn_DeleteBooks = new System.Windows.Forms.Button();
-            this.btn_EditBooks = new System.Windows.Forms.Button();
-            this.buttonRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_BookSearch)).BeginInit();
             this.grp_Books.SuspendLayout();
             this.SuspendLayout();
@@ -160,48 +160,6 @@ namespace LibrartDataManagementSystem
             this.dtGrdVw_BookSearch.Size = new System.Drawing.Size(838, 347);
             this.dtGrdVw_BookSearch.TabIndex = 3;
             // 
-            // Column_Book_ID
-            // 
-            this.Column_Book_ID.HeaderText = "Book ID";
-            this.Column_Book_ID.Name = "Column_Book_ID";
-            this.Column_Book_ID.ReadOnly = true;
-            // 
-            // Column_Book_Title
-            // 
-            this.Column_Book_Title.HeaderText = "Book Title";
-            this.Column_Book_Title.Name = "Column_Book_Title";
-            this.Column_Book_Title.ReadOnly = true;
-            // 
-            // Column_Book_Author
-            // 
-            this.Column_Book_Author.HeaderText = "Author";
-            this.Column_Book_Author.Name = "Column_Book_Author";
-            this.Column_Book_Author.ReadOnly = true;
-            // 
-            // Column_Book_Genre
-            // 
-            this.Column_Book_Genre.HeaderText = "Genre";
-            this.Column_Book_Genre.Name = "Column_Book_Genre";
-            this.Column_Book_Genre.ReadOnly = true;
-            // 
-            // Column_Book_Year_published
-            // 
-            this.Column_Book_Year_published.HeaderText = "Year Published";
-            this.Column_Book_Year_published.Name = "Column_Book_Year_published";
-            this.Column_Book_Year_published.ReadOnly = true;
-            // 
-            // Column_Book_Publisher
-            // 
-            this.Column_Book_Publisher.HeaderText = "Publisher";
-            this.Column_Book_Publisher.Name = "Column_Book_Publisher";
-            this.Column_Book_Publisher.ReadOnly = true;
-            // 
-            // Column_Book_Number_Of_Quantity
-            // 
-            this.Column_Book_Number_Of_Quantity.HeaderText = "Number of Quantity";
-            this.Column_Book_Number_Of_Quantity.Name = "Column_Book_Number_Of_Quantity";
-            this.Column_Book_Number_Of_Quantity.ReadOnly = true;
-            // 
             // grp_Books
             // 
             this.grp_Books.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -246,6 +204,51 @@ namespace LibrartDataManagementSystem
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
+            // Column_Book_ID
+            // 
+            this.Column_Book_ID.FillWeight = 35F;
+            this.Column_Book_ID.HeaderText = "ID";
+            this.Column_Book_ID.Name = "Column_Book_ID";
+            this.Column_Book_ID.ReadOnly = true;
+            // 
+            // Column_Book_Title
+            // 
+            this.Column_Book_Title.FillWeight = 200F;
+            this.Column_Book_Title.HeaderText = "Title";
+            this.Column_Book_Title.Name = "Column_Book_Title";
+            this.Column_Book_Title.ReadOnly = true;
+            // 
+            // Column_Book_Author
+            // 
+            this.Column_Book_Author.HeaderText = "Author";
+            this.Column_Book_Author.Name = "Column_Book_Author";
+            this.Column_Book_Author.ReadOnly = true;
+            // 
+            // Column_Book_Genre
+            // 
+            this.Column_Book_Genre.HeaderText = "Genre";
+            this.Column_Book_Genre.Name = "Column_Book_Genre";
+            this.Column_Book_Genre.ReadOnly = true;
+            // 
+            // Column_Book_Year_published
+            // 
+            this.Column_Book_Year_published.HeaderText = "Year Published";
+            this.Column_Book_Year_published.Name = "Column_Book_Year_published";
+            this.Column_Book_Year_published.ReadOnly = true;
+            // 
+            // Column_Book_Publisher
+            // 
+            this.Column_Book_Publisher.HeaderText = "Publisher";
+            this.Column_Book_Publisher.Name = "Column_Book_Publisher";
+            this.Column_Book_Publisher.ReadOnly = true;
+            // 
+            // Column_Book_Number_Of_Quantity
+            // 
+            this.Column_Book_Number_Of_Quantity.FillWeight = 35F;
+            this.Column_Book_Number_Of_Quantity.HeaderText = "Quantity";
+            this.Column_Book_Number_Of_Quantity.Name = "Column_Book_Number_Of_Quantity";
+            this.Column_Book_Number_Of_Quantity.ReadOnly = true;
+            // 
             // BooksSearchLayoutFormcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,6 +291,10 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.ComboBox combBx_Book_Year_Published;
         private System.Windows.Forms.Button btn_Book_Search;
         private System.Windows.Forms.DataGridView dtGrdVw_BookSearch;
+        private System.Windows.Forms.GroupBox grp_Books;
+        private System.Windows.Forms.Button btn_DeleteBooks;
+        private System.Windows.Forms.Button btn_EditBooks;
+        private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Author;
@@ -295,9 +302,5 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Year_published;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Publisher;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Number_Of_Quantity;
-        private System.Windows.Forms.GroupBox grp_Books;
-        private System.Windows.Forms.Button btn_DeleteBooks;
-        private System.Windows.Forms.Button btn_EditBooks;
-        private System.Windows.Forms.Button buttonRefresh;
     }
 }

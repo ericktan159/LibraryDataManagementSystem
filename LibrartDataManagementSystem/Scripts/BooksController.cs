@@ -237,6 +237,11 @@ namespace LibrartDataManagementSystem.Scripts
             return success;
         }
 
+        /// <summary>
+        /// fill the quantity of books color cell to indicate whether it's there are many quantity
+        /// low number of quantity or no quantity at all
+        /// </summary>
+        /// <param name="table"></param>
         public void FillQuantityColor(DataGridView table)
         {
             foreach (DataGridViewRow row in table.Rows)
