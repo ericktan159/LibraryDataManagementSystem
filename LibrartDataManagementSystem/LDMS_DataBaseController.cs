@@ -21,6 +21,21 @@ namespace LibrartDataManagementSystem
         int result;
         
         
+        public bool IsDataBaseOpen()
+        {
+            bool success;
+            connectDB = new MySqlConnection(ConnectString);
+            try
+            {
+                connectDB.Open();
+                success = true;
+            }
+            catch
+            {
+                success = false;
+            }
+            return success;
+        }
         
         /// <summary>
         /// insert method base on the statement
