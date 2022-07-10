@@ -120,5 +120,30 @@ namespace LibrartDataManagementSystem
             popUp.ShowDialog();
             GenerateTable();
         }
+
+        /// <summary>
+        /// deleting the books
+        /// </summary>
+        private void btn_DeleteBooks_Click(object sender, EventArgs e)
+        {
+            int rowIndex = dtGrdVw_BookSearch.CurrentCellAddress.Y;
+            string id = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_ID"].Value.ToString();
+            string name = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_Title"].Value.ToString();
+            bool success = false;
+
+            string prompt = $"Do you wish to delete \"{name}\"?";
+
+            if(MessageBox.Show(prompt, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                == DialogResult.Yes)
+            {
+                success = _booksController.DeleteBook(id);
+            }
+
+            if(success)
+            {
+                MessageBox.Show($"{name} is successfully deleted!", "Success!");
+            }
+            GenerateTable();
+        }
     }
 }

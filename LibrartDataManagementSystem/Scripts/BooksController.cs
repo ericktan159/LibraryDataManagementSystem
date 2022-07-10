@@ -99,6 +99,10 @@ namespace LibrartDataManagementSystem.Scripts
             }
         }
 
+        /// <summary>
+        /// fill the table with no other query
+        /// </summary>
+        /// <param name="table"></param>
         public void FillTable(DataGridView table)
         {
             // get the correct query
@@ -314,6 +318,17 @@ namespace LibrartDataManagementSystem.Scripts
             quantity.Text = results[6];
         }
 
+        /// <summary>
+        /// update the books
+        /// </summary>
+        /// <param name="title">textbox of title</param>
+        /// <param name="author">textbox of author</param>
+        /// <param name="genre">textbox of genre</param>
+        /// <param name="yearPublished">year published input</param>
+        /// <param name="publisher">textbox of publisher</param>
+        /// <param name="quantity">textbox quantity</param>
+        /// <param name="id">the id to search book</param>
+        /// <returns>true if the update were successful</returns>
         public bool UpdateBooks(TextBox title, TextBox author, TextBox genre, DateTimePicker yearPublished,
             TextBox publisher, TextBox quantity, string id)
         {
@@ -321,6 +336,18 @@ namespace LibrartDataManagementSystem.Scripts
                 $",`Book_Genre`='{genre.Text}',`Book_Year_Published`='{yearPublished.Text}'," +
                 $"`Book_Publisher`='{publisher.Text}'" +
                 $",`Book_Number_Of_Quantity`='{quantity.Text}' WHERE `Book_ID` = '{id}'";
+            bool success = dbController.insert_DBMethod(query);
+            return success;
+        }
+
+        /// <summary>
+        /// Delete book depending on id
+        /// </summary>
+        /// <param name="id">reference of id</param>
+        /// <returns>return true if delete were successful</returns>
+        public bool DeleteBook(string id)
+        {
+            string query = $"DELETE FROM `tbl_book` WHERE `Book_ID` = '{id}'";
             bool success = dbController.insert_DBMethod(query);
             return success;
         }

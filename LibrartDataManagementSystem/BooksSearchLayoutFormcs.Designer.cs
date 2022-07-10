@@ -229,6 +229,7 @@ namespace LibrartDataManagementSystem
             this.btn_DeleteBooks.TabIndex = 12;
             this.btn_DeleteBooks.Text = "Delete";
             this.btn_DeleteBooks.UseVisualStyleBackColor = true;
+            this.btn_DeleteBooks.Click += new System.EventHandler(this.btn_DeleteBooks_Click);
             // 
             // btn_EditBooks
             // 
