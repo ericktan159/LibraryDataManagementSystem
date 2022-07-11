@@ -24,6 +24,14 @@ namespace LibrartDataManagementSystem
             testDemolangMember();
             testDemolangBooks();
         }
+        // inayos layout
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void TransactionBorrowLayoutForm_Load(object sender, EventArgs e)
         {
@@ -205,6 +213,8 @@ namespace LibrartDataManagementSystem
         {
             if (e.RowIndex >= 0)
             {
+                MessageBox.Show("Books!!");
+
                 DataGridViewRow myRow = this.dtGrdVw_Book_TransactionBorrow.Rows[e.RowIndex];
 
                 txt_Book_ID_BorrowLayout.Text = myRow.Cells[0].Value.ToString();
