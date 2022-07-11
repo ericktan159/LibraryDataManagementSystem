@@ -213,7 +213,7 @@ namespace LibrartDataManagementSystem
         {
             if (e.RowIndex >= 0)
             {
-                MessageBox.Show("Books!!");
+                //MessageBox.Show("Books!!");
 
                 DataGridViewRow myRow = this.dtGrdVw_Book_TransactionBorrow.Rows[e.RowIndex];
 
