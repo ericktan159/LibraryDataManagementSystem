@@ -134,12 +134,14 @@ namespace LibrartDataManagementSystem
             string prompt1 = $"Do you wish to delete \"{name}\" entirely? \n" +
                 $"By pressing \"No\" you'll just update some of it's quantity.";
 
-            if(MessageBox.Show(prompt1, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-                == DialogResult.Yes)
+            DialogResult result = MessageBox.Show(prompt1, "Confirm", MessageBoxButtons.YesNoCancel, 
+                MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
             {
                 successDelete = _booksController.DeleteBook(id);
             }
-            else
+            else if (result == DialogResult.No)
             {
                 BooksEditPopUp editPopup = new BooksEditPopUp(id, true);
                 editPopup.ShowDialog();
