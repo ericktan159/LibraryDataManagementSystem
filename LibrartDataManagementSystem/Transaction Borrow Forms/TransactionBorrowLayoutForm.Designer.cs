@@ -146,7 +146,7 @@ namespace LibrartDataManagementSystem
             this.pnl_.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_.Location = new System.Drawing.Point(0, 0);
             this.pnl_.Name = "pnl_";
-            this.pnl_.Size = new System.Drawing.Size(374, 451);
+            this.pnl_.Size = new System.Drawing.Size(374, 435);
             this.pnl_.TabIndex = 53;
             // 
             // label23
@@ -439,7 +439,7 @@ namespace LibrartDataManagementSystem
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(374, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(896, 211);
+            this.panel1.Size = new System.Drawing.Size(896, 200);
             this.panel1.TabIndex = 54;
             // 
             // grpBx_MembersTable_BorrwLayout
@@ -448,9 +448,9 @@ namespace LibrartDataManagementSystem
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpBx_MembersTable_BorrwLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.grpBx_MembersTable_BorrwLayout.Controls.Add(this.dtGrdVw_Member_TransactionBorrow);
-            this.grpBx_MembersTable_BorrwLayout.Location = new System.Drawing.Point(16, 85);
+            this.grpBx_MembersTable_BorrwLayout.Location = new System.Drawing.Point(16, 52);
             this.grpBx_MembersTable_BorrwLayout.Name = "grpBx_MembersTable_BorrwLayout";
-            this.grpBx_MembersTable_BorrwLayout.Size = new System.Drawing.Size(868, 157);
+            this.grpBx_MembersTable_BorrwLayout.Size = new System.Drawing.Size(868, 131);
             this.grpBx_MembersTable_BorrwLayout.TabIndex = 40;
             this.grpBx_MembersTable_BorrwLayout.TabStop = false;
             this.grpBx_MembersTable_BorrwLayout.Text = "Members Table";
@@ -484,14 +484,14 @@ namespace LibrartDataManagementSystem
             // 
             // txtBx_SearchMember_TransactionBorrow
             // 
-            this.txtBx_SearchMember_TransactionBorrow.Location = new System.Drawing.Point(115, 22);
+            this.txtBx_SearchMember_TransactionBorrow.Location = new System.Drawing.Point(115, 12);
             this.txtBx_SearchMember_TransactionBorrow.Name = "txtBx_SearchMember_TransactionBorrow";
             this.txtBx_SearchMember_TransactionBorrow.Size = new System.Drawing.Size(260, 20);
             this.txtBx_SearchMember_TransactionBorrow.TabIndex = 32;
             // 
             // btn_Member_Search_TransactionBorrow
             // 
-            this.btn_Member_Search_TransactionBorrow.Location = new System.Drawing.Point(381, 22);
+            this.btn_Member_Search_TransactionBorrow.Location = new System.Drawing.Point(381, 10);
             this.btn_Member_Search_TransactionBorrow.Name = "btn_Member_Search_TransactionBorrow";
             this.btn_Member_Search_TransactionBorrow.Size = new System.Drawing.Size(75, 23);
             this.btn_Member_Search_TransactionBorrow.TabIndex = 38;
@@ -501,7 +501,7 @@ namespace LibrartDataManagementSystem
             // combBx_Borrower_Last_Name_Member_TransactionBorrow
             // 
             this.combBx_Borrower_Last_Name_Member_TransactionBorrow.FormattingEnabled = true;
-            this.combBx_Borrower_Last_Name_Member_TransactionBorrow.Location = new System.Drawing.Point(127, 48);
+            this.combBx_Borrower_Last_Name_Member_TransactionBorrow.Location = new System.Drawing.Point(462, 12);
             this.combBx_Borrower_Last_Name_Member_TransactionBorrow.Name = "combBx_Borrower_Last_Name_Member_TransactionBorrow";
             this.combBx_Borrower_Last_Name_Member_TransactionBorrow.Size = new System.Drawing.Size(121, 21);
             this.combBx_Borrower_Last_Name_Member_TransactionBorrow.TabIndex = 33;
@@ -509,7 +509,7 @@ namespace LibrartDataManagementSystem
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(13, 25);
+            this.label16.Location = new System.Drawing.Point(13, 15);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(96, 13);
             this.label16.TabIndex = 34;
@@ -518,7 +518,7 @@ namespace LibrartDataManagementSystem
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(157, 72);
+            this.label17.Location = new System.Drawing.Point(492, 36);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(58, 13);
             this.label17.TabIndex = 35;
@@ -527,7 +527,7 @@ namespace LibrartDataManagementSystem
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(289, 72);
+            this.label18.Location = new System.Drawing.Point(621, 34);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(57, 13);
             this.label18.TabIndex = 37;
@@ -536,7 +536,7 @@ namespace LibrartDataManagementSystem
             // combBx_Borrower_First_Name_Member_TransactionBorrow
             // 
             this.combBx_Borrower_First_Name_Member_TransactionBorrow.FormattingEnabled = true;
-            this.combBx_Borrower_First_Name_Member_TransactionBorrow.Location = new System.Drawing.Point(254, 48);
+            this.combBx_Borrower_First_Name_Member_TransactionBorrow.Location = new System.Drawing.Point(589, 12);
             this.combBx_Borrower_First_Name_Member_TransactionBorrow.Name = "combBx_Borrower_First_Name_Member_TransactionBorrow";
             this.combBx_Borrower_First_Name_Member_TransactionBorrow.Size = new System.Drawing.Size(121, 21);
             this.combBx_Borrower_First_Name_Member_TransactionBorrow.TabIndex = 36;
@@ -556,9 +556,9 @@ namespace LibrartDataManagementSystem
             this.panel2.Controls.Add(this.label22);
             this.panel2.Controls.Add(this.combBx_Book_Author_TransactionBorrow);
             this.panel2.Controls.Add(this.txtBx_SearchBook_TransactionBorrow);
-            this.panel2.Location = new System.Drawing.Point(374, 212);
+            this.panel2.Location = new System.Drawing.Point(374, 230);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(901, 239);
+            this.panel2.Size = new System.Drawing.Size(901, 205);
             this.panel2.TabIndex = 55;
             // 
             // grpBx_BooksTable_BorrwLayout
@@ -567,9 +567,9 @@ namespace LibrartDataManagementSystem
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpBx_BooksTable_BorrwLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.grpBx_BooksTable_BorrwLayout.Controls.Add(this.dtGrdVw_Book_TransactionBorrow);
-            this.grpBx_BooksTable_BorrwLayout.Location = new System.Drawing.Point(16, 78);
+            this.grpBx_BooksTable_BorrwLayout.Location = new System.Drawing.Point(16, 53);
             this.grpBx_BooksTable_BorrwLayout.Name = "grpBx_BooksTable_BorrwLayout";
-            this.grpBx_BooksTable_BorrwLayout.Size = new System.Drawing.Size(868, 157);
+            this.grpBx_BooksTable_BorrwLayout.Size = new System.Drawing.Size(868, 144);
             this.grpBx_BooksTable_BorrwLayout.TabIndex = 21;
             this.grpBx_BooksTable_BorrwLayout.TabStop = false;
             this.grpBx_BooksTable_BorrwLayout.Text = "Books Table";
@@ -593,7 +593,7 @@ namespace LibrartDataManagementSystem
             this.dtGrdVw_Book_TransactionBorrow.Location = new System.Drawing.Point(10, 19);
             this.dtGrdVw_Book_TransactionBorrow.Name = "dtGrdVw_Book_TransactionBorrow";
             this.dtGrdVw_Book_TransactionBorrow.ReadOnly = true;
-            this.dtGrdVw_Book_TransactionBorrow.Size = new System.Drawing.Size(848, 132);
+            this.dtGrdVw_Book_TransactionBorrow.Size = new System.Drawing.Size(848, 111);
             this.dtGrdVw_Book_TransactionBorrow.TabIndex = 21;
             this.dtGrdVw_Book_TransactionBorrow.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdVw_Book_TransactionBorrow_CellContentClick);
             this.dtGrdVw_Book_TransactionBorrow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdVw_Book_TransactionBorrow_CellContentClick);
@@ -654,7 +654,7 @@ namespace LibrartDataManagementSystem
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(346, 61);
+            this.label19.Location = new System.Drawing.Point(716, 40);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(78, 13);
             this.label19.TabIndex = 18;
@@ -664,7 +664,7 @@ namespace LibrartDataManagementSystem
             // 
             this.combBx_Book_Year_Published_TransactionBorrow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Book_Year_Published_TransactionBorrow.FormattingEnabled = true;
-            this.combBx_Book_Year_Published_TransactionBorrow.Location = new System.Drawing.Point(322, 37);
+            this.combBx_Book_Year_Published_TransactionBorrow.Location = new System.Drawing.Point(703, 13);
             this.combBx_Book_Year_Published_TransactionBorrow.Name = "combBx_Book_Year_Published_TransactionBorrow";
             this.combBx_Book_Year_Published_TransactionBorrow.Size = new System.Drawing.Size(121, 21);
             this.combBx_Book_Year_Published_TransactionBorrow.TabIndex = 17;
@@ -673,7 +673,7 @@ namespace LibrartDataManagementSystem
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(243, 61);
+            this.label20.Location = new System.Drawing.Point(621, 37);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(36, 13);
             this.label20.TabIndex = 16;
@@ -683,7 +683,7 @@ namespace LibrartDataManagementSystem
             // 
             this.combBx_Book_Genre_TransactionBorrow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Book_Genre_TransactionBorrow.FormattingEnabled = true;
-            this.combBx_Book_Genre_TransactionBorrow.Location = new System.Drawing.Point(195, 36);
+            this.combBx_Book_Genre_TransactionBorrow.Location = new System.Drawing.Point(576, 13);
             this.combBx_Book_Genre_TransactionBorrow.Name = "combBx_Book_Genre_TransactionBorrow";
             this.combBx_Book_Genre_TransactionBorrow.Size = new System.Drawing.Size(121, 21);
             this.combBx_Book_Genre_TransactionBorrow.TabIndex = 15;
@@ -692,7 +692,7 @@ namespace LibrartDataManagementSystem
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(110, 61);
+            this.label21.Location = new System.Drawing.Point(502, 37);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(38, 13);
             this.label21.TabIndex = 14;
@@ -711,7 +711,7 @@ namespace LibrartDataManagementSystem
             // 
             this.combBx_Book_Author_TransactionBorrow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Book_Author_TransactionBorrow.FormattingEnabled = true;
-            this.combBx_Book_Author_TransactionBorrow.Location = new System.Drawing.Point(68, 36);
+            this.combBx_Book_Author_TransactionBorrow.Location = new System.Drawing.Point(449, 13);
             this.combBx_Book_Author_TransactionBorrow.Name = "combBx_Book_Author_TransactionBorrow";
             this.combBx_Book_Author_TransactionBorrow.Size = new System.Drawing.Size(121, 21);
             this.combBx_Book_Author_TransactionBorrow.TabIndex = 12;
@@ -783,7 +783,7 @@ namespace LibrartDataManagementSystem
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1270, 451);
+            this.ClientSize = new System.Drawing.Size(1270, 435);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnl_);
