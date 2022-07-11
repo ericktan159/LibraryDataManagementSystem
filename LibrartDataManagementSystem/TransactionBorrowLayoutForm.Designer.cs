@@ -426,8 +426,6 @@ namespace LibrartDataManagementSystem
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.grpBx_MembersTable_BorrwLayout);
             this.panel1.Controls.Add(this.txtBx_SearchMember_TransactionBorrow);
             this.panel1.Controls.Add(this.btn_Member_Search_TransactionBorrow);
@@ -437,7 +435,7 @@ namespace LibrartDataManagementSystem
             this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.combBx_Borrower_First_Name_Member_TransactionBorrow);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(380, 0);
+            this.panel1.Location = new System.Drawing.Point(374, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(896, 211);
             this.panel1.TabIndex = 54;
@@ -775,6 +773,7 @@ namespace LibrartDataManagementSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1270, 451);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
