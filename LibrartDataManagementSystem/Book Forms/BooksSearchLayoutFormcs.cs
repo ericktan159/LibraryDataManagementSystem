@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibrartDataManagementSystem.Scripts;
+using LibrartDataManagementSystem.Book_Forms;
 
 namespace LibrartDataManagementSystem
 {
@@ -44,33 +45,6 @@ namespace LibrartDataManagementSystem
             GenerateTable(false);
         }
 
-        private void combBx_Book_Author_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(combBx_Book_Author.SelectedItem != null && combBx_Book_Genre.SelectedItem != null &&
-                combBx_Book_Year_Published.SelectedItem != null)
-            {
-                GenerateTable(false);
-            }
-        }
-
-        private void combBx_Book_Genre_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (combBx_Book_Author.SelectedItem != null && combBx_Book_Genre.SelectedItem != null &&
-                combBx_Book_Year_Published.SelectedItem != null)
-            {
-                GenerateTable(false);
-            }
-        }
-
-        private void combBx_Book_Year_Published_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (combBx_Book_Author.SelectedItem != null && combBx_Book_Genre.SelectedItem != null &&
-                combBx_Book_Year_Published.SelectedItem != null)
-            {
-                GenerateTable(false);
-            }
-        }
-
         /// <summary>
         /// refresh the table
         /// </summary>
@@ -104,6 +78,19 @@ namespace LibrartDataManagementSystem
                 combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
             _booksController.FillQuantityColor(dtGrdVw_BookSearch);
         }
+        /// <summary>
+        /// when any of the dropdown change index
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DropdownChange(object sender, EventArgs e)
+        {
+            if (combBx_Book_Author.SelectedItem != null && combBx_Book_Genre.SelectedItem != null &&
+                combBx_Book_Year_Published.SelectedItem != null)
+            {
+                GenerateTable(false);
+            }
+        }
 
         /// <summary>
         /// pop up a new form that you can edit the selected book.
@@ -112,7 +99,6 @@ namespace LibrartDataManagementSystem
         /// <param name="e"></param>
         private void btn_EditBooks_Click(object sender, EventArgs e)
         {
-            // check if the selected row is multiple then cancel the operation
             int rowIndex = dtGrdVw_BookSearch.CurrentCellAddress.Y;
             string id = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_ID"].Value.ToString();
 
@@ -134,12 +120,14 @@ namespace LibrartDataManagementSystem
             string prompt1 = $"Do you wish to delete \"{name}\" entirely? \n" +
                 $"By pressing \"No\" you'll just update some of it's quantity.";
 
-            if(MessageBox.Show(prompt1, "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-                == DialogResult.Yes)
+            DialogResult result = MessageBox.Show(prompt1, "Confirm", MessageBoxButtons.YesNoCancel, 
+                MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
             {
                 successDelete = _booksController.DeleteBook(id);
             }
-            else
+            else if (result == DialogResult.No)
             {
                 BooksEditPopUp editPopup = new BooksEditPopUp(id, true);
                 editPopup.ShowDialog();
@@ -150,6 +138,15 @@ namespace LibrartDataManagementSystem
                 MessageBox.Show($"{name} is successfully deleted!", "Success!");
             }
             GenerateTable();
+        }
+
+        private void dtGrdVw_BookSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = dtGrdVw_BookSearch.CurrentCellAddress.Y;
+            string id = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_ID"].Value.ToString();
+
+            BooksDetailPopUp detailPopup = new BooksDetailPopUp(id);
+            detailPopup.ShowDialog();
         }
     }
 }

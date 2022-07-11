@@ -47,28 +47,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BooksAddLayoutForm.cs">
+    <Compile Include="Book Forms\BooksAddLayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BooksAddLayoutForm.Designer.cs">
+    <Compile Include="Book Forms\BooksAddLayoutForm.Designer.cs">
       <DependentUpon>BooksAddLayoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BooksEditPopUp.cs">
+    <Compile Include="Book Forms\BooksDetailPopUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BooksEditPopUp.Designer.cs">
+    <Compile Include="Book Forms\BooksDetailPopUp.Designer.cs">
+      <DependentUpon>BooksDetailPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Book Forms\BooksEditPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Book Forms\BooksEditPopUp.Designer.cs">
       <DependentUpon>BooksEditPopUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="BooksLayoutForm.cs">
+    <Compile Include="Book Forms\BooksLayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BooksLayoutForm.Designer.cs">
+    <Compile Include="Book Forms\BooksLayoutForm.Designer.cs">
       <DependentUpon>BooksLayoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BooksSearchLayoutFormcs.cs">
+    <Compile Include="Book Forms\BooksSearchLayoutFormcs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BooksSearchLayoutFormcs.Designer.cs">
+    <Compile Include="Book Forms\BooksSearchLayoutFormcs.Designer.cs">
       <DependentUpon>BooksSearchLayoutFormcs.cs</DependentUpon>
     </Compile>
     <Compile Include="BorrowersLayOutForm.cs">
@@ -130,16 +136,19 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BooksAddLayoutForm.resx">
+    <EmbeddedResource Include="Book Forms\BooksAddLayoutForm.resx">
       <DependentUpon>BooksAddLayoutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BooksEditPopUp.resx">
+    <EmbeddedResource Include="Book Forms\BooksDetailPopUp.resx">
+      <DependentUpon>BooksDetailPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Book Forms\BooksEditPopUp.resx">
       <DependentUpon>BooksEditPopUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BooksLayoutForm.resx">
+    <EmbeddedResource Include="Book Forms\BooksLayoutForm.resx">
       <DependentUpon>BooksLayoutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BooksSearchLayoutFormcs.resx">
+    <EmbeddedResource Include="Book Forms\BooksSearchLayoutFormcs.resx">
       <DependentUpon>BooksSearchLayoutFormcs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BorrowersLayOutForm.resx">

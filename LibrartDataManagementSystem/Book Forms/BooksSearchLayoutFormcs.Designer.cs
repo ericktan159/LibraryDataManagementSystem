@@ -69,7 +69,7 @@ namespace LibrartDataManagementSystem
             this.combBx_Book_Author.Name = "combBx_Book_Author";
             this.combBx_Book_Author.Size = new System.Drawing.Size(193, 21);
             this.combBx_Book_Author.TabIndex = 1;
-            this.combBx_Book_Author.SelectedIndexChanged += new System.EventHandler(this.combBx_Book_Author_SelectedIndexChanged);
+            this.combBx_Book_Author.SelectedIndexChanged += new System.EventHandler(this.DropdownChange);
             // 
             // label1
             // 
@@ -106,7 +106,7 @@ namespace LibrartDataManagementSystem
             this.combBx_Book_Genre.Name = "combBx_Book_Genre";
             this.combBx_Book_Genre.Size = new System.Drawing.Size(130, 21);
             this.combBx_Book_Genre.TabIndex = 6;
-            this.combBx_Book_Genre.SelectedIndexChanged += new System.EventHandler(this.combBx_Book_Genre_SelectedIndexChanged);
+            this.combBx_Book_Genre.SelectedIndexChanged += new System.EventHandler(this.DropdownChange);
             // 
             // label4
             // 
@@ -125,7 +125,7 @@ namespace LibrartDataManagementSystem
             this.combBx_Book_Year_Published.Name = "combBx_Book_Year_Published";
             this.combBx_Book_Year_Published.Size = new System.Drawing.Size(86, 21);
             this.combBx_Book_Year_Published.TabIndex = 8;
-            this.combBx_Book_Year_Published.SelectedIndexChanged += new System.EventHandler(this.combBx_Book_Year_Published_SelectedIndexChanged);
+            this.combBx_Book_Year_Published.SelectedIndexChanged += new System.EventHandler(this.DropdownChange);
             // 
             // btn_Book_Search
             // 
@@ -160,6 +160,7 @@ namespace LibrartDataManagementSystem
             this.dtGrdVw_BookSearch.ReadOnly = true;
             this.dtGrdVw_BookSearch.Size = new System.Drawing.Size(838, 347);
             this.dtGrdVw_BookSearch.TabIndex = 3;
+            this.dtGrdVw_BookSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdVw_BookSearch_CellDoubleClick);
             // 
             // Column_Book_ID
             // 

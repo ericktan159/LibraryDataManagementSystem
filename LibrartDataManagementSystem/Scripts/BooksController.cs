@@ -47,10 +47,10 @@ namespace LibrartDataManagementSystem.Scripts
             string query = "" +
                     "INSERT INTO `tbl_book`(`Book_Title`, `Book_Author`, `Book_Genre`, " +
                     "`Book_Year_Published`, `Book_Publisher`, `Book_Number_Of_Quantity` " +
-                    $") VALUES ('{ti.ToTitleCase(title)}','{ti.ToTitleCase(author)}'," +
-                    $"'{ti.ToTitleCase(genre)}'" +
-                    $",'{ti.ToTitleCase(yearPublished)}','{ti.ToTitleCase(publisher)}'," +
-                    $"'{numberOfQuantity}')";
+                    $") VALUES (\"{ti.ToTitleCase(title)}\",\"{ti.ToTitleCase(author)}\"," +
+                    $"\"{ti.ToTitleCase(genre)}\"" +
+                    $",\"{ti.ToTitleCase(yearPublished)}\",\"{ti.ToTitleCase(publisher)}\"," +
+                    $"\"{numberOfQuantity}\")";
             bool success = dbController.insert_DBMethod(query);
             return success;
         }
@@ -300,6 +300,27 @@ namespace LibrartDataManagementSystem.Scripts
         }
 
         /// <summary>
+        /// fill the labels with the value of books by ID
+        /// </summary>
+        /// <param name="title">textbox of title</param>
+        /// <param name="author">textbox of author</param>
+        /// <param name="genre">textbox of genre</param>
+        /// <param name="yearPublished">year published input</param>
+        /// <param name="publisher">textbox of publisher</param>
+        /// <param name="quantity">textbox quantity</param>
+        /// <param name="id">the id to search book</param>
+        public void FillDetails(Label[] labels, string id)
+        {
+            List<string> results = GetBookDetails(id);
+            labels[0].Text = results[1];
+            labels[1].Text = results[2];
+            labels[2].Text = results[3];
+            labels[3].Text = results[4];
+            labels[4].Text = results[5];
+            labels[5].Text = results[6];
+        }
+
+        /// <summary>
         /// fill the inputs with the value of books by ID
         /// </summary>
         /// <param name="title">textbox of title</param>
@@ -335,12 +356,12 @@ namespace LibrartDataManagementSystem.Scripts
         public bool UpdateBooks(TextBox title, TextBox author, TextBox genre, DateTimePicker yearPublished,
             TextBox publisher, TextBox quantity, string id)
         {
-            string query = $"UPDATE `tbl_book` SET `Book_Title`='{ti.ToTitleCase(title.Text)}'," +
-                $"`Book_Author`='{ti.ToTitleCase(author.Text)}'" +
-                $",`Book_Genre`='{ti.ToTitleCase(genre.Text)}'," +
-                $"`Book_Year_Published`='{ti.ToTitleCase(yearPublished.Text)}'," +
-                $"`Book_Publisher`='{ti.ToTitleCase(publisher.Text)}'" +
-                $",`Book_Number_Of_Quantity`='{quantity.Text}' WHERE `Book_ID` = '{id}'";
+            string query = $"UPDATE `tbl_book` SET `Book_Title`=\"{ti.ToTitleCase(title.Text)}\"," +
+                $"`Book_Author`=\"{ti.ToTitleCase(author.Text)}\"" +
+                $",`Book_Genre`=\"{ti.ToTitleCase(genre.Text)}\"," +
+                $"`Book_Year_Published`=\"{ti.ToTitleCase(yearPublished.Text)}\"," +
+                $"`Book_Publisher`=\"{ti.ToTitleCase(publisher.Text)}\"" +
+                $",`Book_Number_Of_Quantity`=\"{quantity.Text}\" WHERE `Book_ID` = '{id}'";
             bool success = dbController.insert_DBMethod(query);
             return success;
         }

@@ -568,6 +568,7 @@ namespace LibrartDataManagementSystem
             // 
             // panel2
             // 
+            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.Controls.Add(this.dtGrdVw_Book_TransactionBorrow);
             this.panel2.Controls.Add(this.btn_Book_Search_TransactionBorrow);
             this.panel2.Controls.Add(this.label19);
@@ -656,6 +657,7 @@ namespace LibrartDataManagementSystem
             this.btn_Book_Search_TransactionBorrow.TabIndex = 19;
             this.btn_Book_Search_TransactionBorrow.Text = "Search";
             this.btn_Book_Search_TransactionBorrow.UseVisualStyleBackColor = true;
+            this.btn_Book_Search_TransactionBorrow.Click += new System.EventHandler(this.btn_Book_Search_TransactionBorrow_Click);
             // 
             // label19
             // 
@@ -668,11 +670,13 @@ namespace LibrartDataManagementSystem
             // 
             // combBx_Book_Year_Published_TransactionBorrow
             // 
+            this.combBx_Book_Year_Published_TransactionBorrow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Book_Year_Published_TransactionBorrow.FormattingEnabled = true;
             this.combBx_Book_Year_Published_TransactionBorrow.Location = new System.Drawing.Point(514, 63);
             this.combBx_Book_Year_Published_TransactionBorrow.Name = "combBx_Book_Year_Published_TransactionBorrow";
             this.combBx_Book_Year_Published_TransactionBorrow.Size = new System.Drawing.Size(121, 21);
             this.combBx_Book_Year_Published_TransactionBorrow.TabIndex = 17;
+            this.combBx_Book_Year_Published_TransactionBorrow.SelectedIndexChanged += new System.EventHandler(this.DropdownChange);
             // 
             // label20
             // 
@@ -685,11 +689,13 @@ namespace LibrartDataManagementSystem
             // 
             // combBx_Book_Genre_TransactionBorrow
             // 
+            this.combBx_Book_Genre_TransactionBorrow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Book_Genre_TransactionBorrow.FormattingEnabled = true;
             this.combBx_Book_Genre_TransactionBorrow.Location = new System.Drawing.Point(387, 62);
             this.combBx_Book_Genre_TransactionBorrow.Name = "combBx_Book_Genre_TransactionBorrow";
             this.combBx_Book_Genre_TransactionBorrow.Size = new System.Drawing.Size(121, 21);
             this.combBx_Book_Genre_TransactionBorrow.TabIndex = 15;
+            this.combBx_Book_Genre_TransactionBorrow.SelectedIndexChanged += new System.EventHandler(this.DropdownChange);
             // 
             // label21
             // 
@@ -711,11 +717,13 @@ namespace LibrartDataManagementSystem
             // 
             // combBx_Book_Author_TransactionBorrow
             // 
+            this.combBx_Book_Author_TransactionBorrow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Book_Author_TransactionBorrow.FormattingEnabled = true;
             this.combBx_Book_Author_TransactionBorrow.Location = new System.Drawing.Point(248, 63);
             this.combBx_Book_Author_TransactionBorrow.Name = "combBx_Book_Author_TransactionBorrow";
             this.combBx_Book_Author_TransactionBorrow.Size = new System.Drawing.Size(121, 21);
             this.combBx_Book_Author_TransactionBorrow.TabIndex = 12;
+            this.combBx_Book_Author_TransactionBorrow.SelectedIndexChanged += new System.EventHandler(this.DropdownChange);
             // 
             // txtBx_SearchBook_TransactionBorrow
             // 
@@ -735,7 +743,7 @@ namespace LibrartDataManagementSystem
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TransactionBorrowLayoutForm";
             this.Text = "BorrowLayoutForm";
-            this.Load += new System.EventHandler(this.TriggeredBorrowLayoutForm_Load);
+            this.Load += new System.EventHandler(this.TransactionBorrowLayoutForm_Load);
             this.pnl_.ResumeLayout(false);
             this.pnl_.PerformLayout();
             this.panel1.ResumeLayout(false);
