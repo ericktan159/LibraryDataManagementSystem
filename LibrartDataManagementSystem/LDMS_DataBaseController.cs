@@ -8,6 +8,14 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 
+
+//// Pull or clone muna kayo lagi sa master branch bago kayo gumawa sa mga branches nyo
+
+
+/// <summary>
+/// 
+/// </summary>
+
 namespace LibrartDataManagementSystem
 {
     class LDMS_DataBaseController
