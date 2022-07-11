@@ -46,6 +46,52 @@ namespace LibrartDataManagementSystem
             // end of books
         }
 
+        // Books
+        /// <summary>
+        /// Generate table and dropdown
+        /// </summary>
+        /// <param name="withDropdown">generate dropdown list if true</param>
+        public void GenerateTable(bool withDropdown = true, bool fromOtherForm = false)
+        {
+            if (withDropdown)
+            {
+                int authorIndex = combBx_Book_Author_TransactionBorrow.SelectedIndex;
+                int genreIndex = combBx_Book_Genre_TransactionBorrow.SelectedIndex;
+                int yearIndex = combBx_Book_Year_Published_TransactionBorrow.SelectedIndex;
+                _booksController.FillDropdown(combBx_Book_Author_TransactionBorrow, "Book_Author");
+                _booksController.FillDropdown(combBx_Book_Genre_TransactionBorrow, "Book_Genre");
+                _booksController.FillDropdown(combBx_Book_Year_Published_TransactionBorrow, "Book_Year_Published"); ;
+
+                combBx_Book_Author_TransactionBorrow.SelectedIndex = authorIndex;
+                combBx_Book_Genre_TransactionBorrow.SelectedIndex = genreIndex;
+                combBx_Book_Year_Published_TransactionBorrow.SelectedIndex = yearIndex;
+            }
+
+            _booksController.FillTable(
+                dtGrdVw_Book_TransactionBorrow, txtBx_SearchBook_TransactionBorrow.Text,
+                combBx_Book_Author_TransactionBorrow.SelectedItem.ToString(),
+                combBx_Book_Genre_TransactionBorrow.SelectedItem.ToString(),
+                combBx_Book_Year_Published_TransactionBorrow.SelectedItem.ToString());
+            _booksController.FillQuantityColor(dtGrdVw_Book_TransactionBorrow);
+        }
+        /// <summary>
+        /// search button is pressed for the books
+        /// </summary>
+        private void btn_Book_Search_TransactionBorrow_Click(object sender, EventArgs e)
+        {
+            GenerateTable(false);
+        }
+        private void DropdownChange(object sender, EventArgs e)
+        {
+            if (combBx_Book_Author_TransactionBorrow.SelectedItem != null &&
+                combBx_Book_Genre_TransactionBorrow.SelectedItem != null &&
+                combBx_Book_Year_Published_TransactionBorrow.SelectedItem != null)
+            {
+                GenerateTable(false);
+            }
+        }
+        // End Books
+
         private void testDemolangMember()
         {
             dtGrdVw_Member_TransactionBorrow.Rows.Clear();
