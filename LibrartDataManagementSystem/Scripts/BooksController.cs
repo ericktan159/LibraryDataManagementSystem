@@ -47,10 +47,10 @@ namespace LibrartDataManagementSystem.Scripts
             string query = "" +
                     "INSERT INTO `tbl_book`(`Book_Title`, `Book_Author`, `Book_Genre`, " +
                     "`Book_Year_Published`, `Book_Publisher`, `Book_Number_Of_Quantity` " +
-                    $") VALUES ('{ti.ToTitleCase(title)}','{ti.ToTitleCase(author)}'," +
-                    $"'{ti.ToTitleCase(genre)}'" +
-                    $",'{ti.ToTitleCase(yearPublished)}','{ti.ToTitleCase(publisher)}'," +
-                    $"'{numberOfQuantity}')";
+                    $") VALUES (\"{ti.ToTitleCase(title)}\",\"{ti.ToTitleCase(author)}\"," +
+                    $"\"{ti.ToTitleCase(genre)}\"" +
+                    $",\"{ti.ToTitleCase(yearPublished)}\",\"{ti.ToTitleCase(publisher)}\"," +
+                    $"\"{numberOfQuantity}\")";
             bool success = dbController.insert_DBMethod(query);
             return success;
         }
