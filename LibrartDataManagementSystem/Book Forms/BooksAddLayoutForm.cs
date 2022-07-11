@@ -96,7 +96,14 @@ namespace LibrartDataManagementSystem
                                         $"{ti.ToTitleCase(txtBx_BookTitle_BookAdd.Text)} " +
                                         $"to an existing book!", "Success");
                                 }
+
+                                if (checkResetAfterSubmit.Checked)
+                                {
+                                    _bookController.ClearInputs(_requiredInputs);
+                                }
+
                                 confirmedAdd = true;
+
                             }
                             else if (dialog == DialogResult.Cancel)
                             {
