@@ -356,12 +356,12 @@ namespace LibrartDataManagementSystem.Scripts
         public bool UpdateBooks(TextBox title, TextBox author, TextBox genre, DateTimePicker yearPublished,
             TextBox publisher, TextBox quantity, string id)
         {
-            string query = $"UPDATE `tbl_book` SET `Book_Title`='{ti.ToTitleCase(title.Text)}'," +
-                $"`Book_Author`='{ti.ToTitleCase(author.Text)}'" +
-                $",`Book_Genre`='{ti.ToTitleCase(genre.Text)}'," +
-                $"`Book_Year_Published`='{ti.ToTitleCase(yearPublished.Text)}'," +
-                $"`Book_Publisher`='{ti.ToTitleCase(publisher.Text)}'" +
-                $",`Book_Number_Of_Quantity`='{quantity.Text}' WHERE `Book_ID` = '{id}'";
+            string query = $"UPDATE `tbl_book` SET `Book_Title`=\"{ti.ToTitleCase(title.Text)}\"," +
+                $"`Book_Author`=\"{ti.ToTitleCase(author.Text)}\"" +
+                $",`Book_Genre`=\"{ti.ToTitleCase(genre.Text)}\"," +
+                $"`Book_Year_Published`=\"{ti.ToTitleCase(yearPublished.Text)}\"," +
+                $"`Book_Publisher`=\"{ti.ToTitleCase(publisher.Text)}\"" +
+                $",`Book_Number_Of_Quantity`=\"{quantity.Text}\" WHERE `Book_ID` = '{id}'";
             bool success = dbController.insert_DBMethod(query);
             return success;
         }
