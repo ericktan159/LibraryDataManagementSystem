@@ -92,9 +92,9 @@ namespace LibrartDataManagementSystem
 
 
 
-        public void insert_To_tbl_borrower(string Borrower_Last_Name, string Borrower_First_Name, string Borrower_Middle_Name, string Borrower_Address, string Borrower_Contact_Number, int Borrower_Age, string Borrower_Type_of_Valid_ID)
+        public void insert_To_tbl_borrower(string Borrower_First_Name, string Borrower_Middle_Name, string Borrower_Last_Name, string Borrower_Gender, string Borrower_Address, string Borrower_Contact_Number, /*Datetime*/ string Borrower_BirthDate, string Borrower_Type_of_Valid_ID)
         {
-            string Borrower_Name = Borrower_First_Name + " " + Borrower_Middle_Name + " " + Borrower_Last_Name;
+            
 
 
             /*
@@ -109,15 +109,15 @@ namespace LibrartDataManagementSystem
             string singleQuoteChar = "'";
 
             string table_Name = "tbl_borrower";
-            string table_Columns = "(Borrower_Last_Name, Borrower_First_Name, Borrower_Middle_Name, Borrower_Name, Borrower_Address, Borrower_Contact_Number, Borrower_Age, Borrower_Type_of_Valid_ID)";
+            string table_Columns = "(Borrower_First_Name, Borrower_Middle_Name, Borrower_Last_Name, Borrower_Gender, Borrower_Address, Borrower_Contact_Number, Borrower_BirthDate, Borrower_Type_of_Valid_ID)";
             string table_Column_Values = "(" +
-                singleQuoteChar + Borrower_Last_Name + singleQuoteChar + ", " +
                 singleQuoteChar + Borrower_First_Name + singleQuoteChar + ", " +
                 singleQuoteChar + Borrower_Middle_Name + singleQuoteChar + ", " +
-                singleQuoteChar + Borrower_Name + singleQuoteChar + ", " +
+                singleQuoteChar + Borrower_Last_Name + singleQuoteChar + ", " +
+                singleQuoteChar + Borrower_Gender + singleQuoteChar + ", " +
                 singleQuoteChar + Borrower_Address + singleQuoteChar + ", " +
                 singleQuoteChar + Borrower_Contact_Number + singleQuoteChar + ", " +
-                Borrower_Age + ", " +
+                singleQuoteChar + Borrower_BirthDate + singleQuoteChar + ", " +
                 singleQuoteChar + Borrower_Type_of_Valid_ID + singleQuoteChar + 
                 ")";
             
@@ -159,6 +159,83 @@ namespace LibrartDataManagementSystem
         }
 
 
+        public bool is_Book_ID_Exist(int Book_ID)
+        {
+            string query = $"SELECT Book_ID FROM `tbl_book` WHERE `Book_ID` = \"{Book_ID}\"";
+            List<List<string>> Book_ID_2D_List = select_DBMethod_return_2DList_Table_Records(query);
+            if((Book_ID_2D_List.Count != 0) && (Book_ID_2D_List[0][0].Equals(Book_ID.ToString())))
+            {
+               // MessageBox.Show("Book_ID tama");
+
+                return true;
+            }
+            else
+            {
+                //MessageBox.Show("Book_ID mali");
+
+                return false;
+            }    
+        }
+
+        public bool is_Borrower_ID_Exist(int Borrower_ID)
+        {
+            string query = $"SELECT Borrower_ID FROM `tbl_borrower` WHERE `Borrower_ID` = \"{Borrower_ID}\"";
+            List<List<string>> Borrower_ID_2D_List = select_DBMethod_return_2DList_Table_Records(query);
+            if ((Borrower_ID_2D_List.Count != 0) && (Borrower_ID_2D_List[0][0].Equals(Borrower_ID.ToString())))
+            {
+                //MessageBox.Show("Borrower_ID tama");
+
+                return true;
+            }
+            else
+            {
+                //MessageBox.Show("Borrower_ID mali");
+
+                return false;
+            }
+        }
+
+        //*
+        public bool insert_To_tbl_borrowed_book(int Book_ID, int Borrower_ID, string Borrowed_Book_Date_Borrowed, string Borrowed_Book_Due_Date, string Borrowed_Book_Due_Status, string Borrowed_Book_Date_Returned, int Borrowed_Book_Number_of_Copies)
+        {
+
+            ////////
+
+            if ((is_Book_ID_Exist(Book_ID)) && (is_Borrower_ID_Exist(Borrower_ID)))
+            {
+
+                //MessageBox.Show("Pumasok dito tama Book_ID at Borrower_ID");
+
+                string singleQuoteChar = "'";
+
+                string table_Name = "tbl_borrowed_book";
+                string table_Columns = "(Book_ID, Borrower_ID, Borrowed_Book_Date_Borrowed, Borrowed_Book_Due_Date, Borrowed_Book_Due_Status, Borrowed_Book_Date_Returned, Borrowed_Book_Number_of_Copies)";
+                //string table_Columns = "(Book_Tittle, Book_Author, Book_Genre,  Book_Publisher, Book_Number_Of_Quantity)";
+                string table_Column_Values = "(" +
+                    Book_ID + ", " +
+                    Borrower_ID + ", " +
+                    singleQuoteChar + Borrowed_Book_Date_Borrowed + singleQuoteChar + ", " +
+                    singleQuoteChar + Borrowed_Book_Due_Date + singleQuoteChar + ", " +
+                    singleQuoteChar + Borrowed_Book_Due_Status + singleQuoteChar + ", " +
+                    singleQuoteChar + Borrowed_Book_Date_Returned + singleQuoteChar + ", " +
+                    Borrowed_Book_Number_of_Copies +
+                    ")";
+
+                ///////////
+
+                string insert_SQL_StateMent = "Insert into " + table_Name + " " + table_Columns + "  values " + table_Column_Values;
+
+                return insert_DBMethod(insert_SQL_StateMent);
+            }
+            else
+            {
+                //MessageBox.Show("di Pumasok dito tama Book_ID at Borrower_ID");
+                return false;
+            }
+
+            
+        }
+        //*/
         public List<List<string>> select_DBMethod_return_2DList_Table_Records(string select_SQL_StateMent)
         {
             connectDB = new MySqlConnection(ConnectString);

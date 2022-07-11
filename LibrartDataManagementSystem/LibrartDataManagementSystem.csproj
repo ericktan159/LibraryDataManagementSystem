@@ -77,36 +77,36 @@
     <Compile Include="Book Forms\BooksSearchLayoutFormcs.Designer.cs">
       <DependentUpon>BooksSearchLayoutFormcs.cs</DependentUpon>
     </Compile>
-    <Compile Include="BorrowersLayOutForm.cs">
+    <Compile Include="Borrowers Return Book Forms\BorrowersLayOutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BorrowersLayOutForm.Designer.cs">
+    <Compile Include="Borrowers Return Book Forms\BorrowersLayOutForm.Designer.cs">
       <DependentUpon>BorrowersLayOutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BorrowersSearchLayoutForm.cs">
+    <Compile Include="Borrowers Return Book Forms\BorrowersSearchLayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BorrowersSearchLayoutForm.Designer.cs">
+    <Compile Include="Borrowers Return Book Forms\BorrowersSearchLayoutForm.Designer.cs">
       <DependentUpon>BorrowersSearchLayoutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LDMS_DataBaseController.cs" />
     <Compile Include="Scripts\BooksController.cs" />
-    <Compile Include="TransactionBorrowLayoutForm.cs">
+    <Compile Include="Transaction Borrow Forms\TransactionBorrowLayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TransactionBorrowLayoutForm.Designer.cs">
+    <Compile Include="Transaction Borrow Forms\TransactionBorrowLayoutForm.Designer.cs">
       <DependentUpon>TransactionBorrowLayoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogsLayoutForm.cs">
+    <Compile Include="Logs Forms\LogsLayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogsLayoutForm.Designer.cs">
+    <Compile Include="Logs Forms\LogsLayoutForm.Designer.cs">
       <DependentUpon>LogsLayoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogsSearchLayoutForm.cs">
+    <Compile Include="Logs Forms\LogsSearchLayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogsSearchLayoutForm.Designer.cs">
+    <Compile Include="Logs Forms\LogsSearchLayoutForm.Designer.cs">
       <DependentUpon>LogsSearchLayoutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainLayout.cs">
@@ -116,22 +116,22 @@
       <DependentUpon>MainLayout.cs</DependentUpon>
     </Compile>
     <Compile Include="MainLayoutController.cs" />
-    <Compile Include="MemberAddLayoutForm.cs">
+    <Compile Include="Members Forms\MemberAddLayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MemberAddLayoutForm.Designer.cs">
+    <Compile Include="Members Forms\MemberAddLayoutForm.Designer.cs">
       <DependentUpon>MemberAddLayoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MemberSearchLayoutForm.cs">
+    <Compile Include="Members Forms\MemberSearchLayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MemberSearchLayoutForm.Designer.cs">
+    <Compile Include="Members Forms\MemberSearchLayoutForm.Designer.cs">
       <DependentUpon>MemberSearchLayoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MembersLayoutForm.cs">
+    <Compile Include="Members Forms\MembersLayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MembersLayoutForm.Designer.cs">
+    <Compile Include="Members Forms\MembersLayoutForm.Designer.cs">
       <DependentUpon>MembersLayoutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -151,31 +151,31 @@
     <EmbeddedResource Include="Book Forms\BooksSearchLayoutFormcs.resx">
       <DependentUpon>BooksSearchLayoutFormcs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BorrowersLayOutForm.resx">
+    <EmbeddedResource Include="Borrowers Return Book Forms\BorrowersLayOutForm.resx">
       <DependentUpon>BorrowersLayOutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BorrowersSearchLayoutForm.resx">
+    <EmbeddedResource Include="Borrowers Return Book Forms\BorrowersSearchLayoutForm.resx">
       <DependentUpon>BorrowersSearchLayoutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TransactionBorrowLayoutForm.resx">
+    <EmbeddedResource Include="Transaction Borrow Forms\TransactionBorrowLayoutForm.resx">
       <DependentUpon>TransactionBorrowLayoutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogsLayoutForm.resx">
+    <EmbeddedResource Include="Logs Forms\LogsLayoutForm.resx">
       <DependentUpon>LogsLayoutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogsSearchLayoutForm.resx">
+    <EmbeddedResource Include="Logs Forms\LogsSearchLayoutForm.resx">
       <DependentUpon>LogsSearchLayoutForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainLayout.resx">
       <DependentUpon>MainLayout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MemberAddLayoutForm.resx">
+    <EmbeddedResource Include="Members Forms\MemberAddLayoutForm.resx">
       <DependentUpon>MemberAddLayoutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MemberSearchLayoutForm.resx">
+    <EmbeddedResource Include="Members Forms\MemberSearchLayoutForm.resx">
       <DependentUpon>MemberSearchLayoutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MembersLayoutForm.resx">
+    <EmbeddedResource Include="Members Forms\MembersLayoutForm.resx">
       <DependentUpon>MembersLayoutForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -200,5 +200,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

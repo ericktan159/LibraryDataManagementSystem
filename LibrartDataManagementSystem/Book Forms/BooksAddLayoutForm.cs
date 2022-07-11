@@ -143,5 +143,10 @@ namespace LibrartDataManagementSystem
         {
             _bookController.ClearInputs(_requiredInputs);
         }
+
+        private void BooksAddLayoutForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
