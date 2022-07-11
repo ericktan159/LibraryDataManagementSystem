@@ -55,6 +55,7 @@ namespace LibrartDataManagementSystem
             // 
             // btn_BorrowTransation
             // 
+            this.btn_BorrowTransation.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_BorrowTransation.Location = new System.Drawing.Point(525, 32);
             this.btn_BorrowTransation.Name = "btn_BorrowTransation";
             this.btn_BorrowTransation.Size = new System.Drawing.Size(119, 23);
@@ -65,6 +66,7 @@ namespace LibrartDataManagementSystem
             // 
             // btn_Members
             // 
+            this.btn_Members.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Members.Location = new System.Drawing.Point(444, 32);
             this.btn_Members.Name = "btn_Members";
             this.btn_Members.Size = new System.Drawing.Size(75, 23);
@@ -75,6 +77,7 @@ namespace LibrartDataManagementSystem
             // 
             // btn_Logs
             // 
+            this.btn_Logs.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Logs.Location = new System.Drawing.Point(731, 32);
             this.btn_Logs.Name = "btn_Logs";
             this.btn_Logs.Size = new System.Drawing.Size(75, 23);
@@ -85,6 +88,7 @@ namespace LibrartDataManagementSystem
             // 
             // btn_Borrowers
             // 
+            this.btn_Borrowers.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Borrowers.Location = new System.Drawing.Point(650, 32);
             this.btn_Borrowers.Name = "btn_Borrowers";
             this.btn_Borrowers.Size = new System.Drawing.Size(75, 23);
@@ -95,6 +99,7 @@ namespace LibrartDataManagementSystem
             // 
             // btn_Books
             // 
+            this.btn_Books.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_Books.Location = new System.Drawing.Point(363, 32);
             this.btn_Books.Name = "btn_Books";
             this.btn_Books.Size = new System.Drawing.Size(75, 23);
