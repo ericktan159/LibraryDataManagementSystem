@@ -568,6 +568,7 @@ namespace LibrartDataManagementSystem
             // 
             // panel2
             // 
+            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.Controls.Add(this.dtGrdVw_Book_TransactionBorrow);
             this.panel2.Controls.Add(this.btn_Book_Search_TransactionBorrow);
             this.panel2.Controls.Add(this.label19);
@@ -735,7 +736,7 @@ namespace LibrartDataManagementSystem
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TransactionBorrowLayoutForm";
             this.Text = "BorrowLayoutForm";
-            this.Load += new System.EventHandler(this.TriggeredBorrowLayoutForm_Load);
+            this.Load += new System.EventHandler(this.TransactionBorrowLayoutForm_Load);
             this.pnl_.ResumeLayout(false);
             this.pnl_.PerformLayout();
             this.panel1.ResumeLayout(false);

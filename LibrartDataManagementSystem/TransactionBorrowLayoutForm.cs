@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibrartDataManagementSystem.Scripts;
 
 namespace LibrartDataManagementSystem
 {
@@ -14,6 +15,7 @@ namespace LibrartDataManagementSystem
     {
 
         List<List<string>> demoListOfListOfString;
+        BooksController _booksController = new BooksController();
 
         public TransactionBorrowLayoutForm()
         {
@@ -21,6 +23,27 @@ namespace LibrartDataManagementSystem
 
             testDemolangMember();
             testDemolangBooks();
+        }
+
+        private void TransactionBorrowLayoutForm_Load(object sender, EventArgs e)
+        {
+            // books
+            _booksController.FillDropdown(combBx_Book_Author_TransactionBorrow, "Book_Author");
+            _booksController.FillDropdown(combBx_Book_Genre_TransactionBorrow, "Book_Genre");
+            _booksController.FillDropdown(combBx_Book_Year_Published_TransactionBorrow, "Book_Year_Published");
+
+            combBx_Book_Author_TransactionBorrow.SelectedIndex = 0;
+            combBx_Book_Genre_TransactionBorrow.SelectedIndex = 0;
+            combBx_Book_Year_Published_TransactionBorrow.SelectedIndex = 0;
+
+            // fill the table
+            _booksController.FillTable(
+                dtGrdVw_Book_TransactionBorrow, txtBx_SearchBook_TransactionBorrow.Text,
+                combBx_Book_Author_TransactionBorrow.SelectedItem.ToString(),
+                combBx_Book_Genre_TransactionBorrow.SelectedItem.ToString(),
+                combBx_Book_Year_Published_TransactionBorrow.SelectedItem.ToString());
+            _booksController.FillQuantityColor(dtGrdVw_Book_TransactionBorrow);
+            // end of books
         }
 
         private void testDemolangMember()
@@ -100,10 +123,6 @@ namespace LibrartDataManagementSystem
 
             return list2dString;
         }
-        private void TriggeredBorrowLayoutForm_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void dtGrdVw_Member_TransactionBorrow_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -126,24 +145,6 @@ namespace LibrartDataManagementSystem
 
         }
 
-        private void dtGrdVw_Book_TransactionBorrow_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow myRow = this.dtGrdVw_Book_TransactionBorrow.Rows[e.RowIndex];
-               
-                txt_Book_ID_BorrowLayout.Text = myRow.Cells[0].Value.ToString();
-                combBx_Book_Title_BorrowLayout.Text = myRow.Cells[1].Value.ToString();
-                txt_Book_Author_BorrowLayout.Text = myRow.Cells[2].Value.ToString();
-                
-                
-                //combBx_NumCopies__BorrowLayout.Text = myRow.Cells[""].Value.ToString();
-
-                //*/
-
-            }
-        }
-
         private void dtp_Date_Borrowed_BorrowLayout_ValueChanged(object sender, EventArgs e)
         {
             //dtp_Date_Borrowed_BorrowLayout
@@ -152,6 +153,24 @@ namespace LibrartDataManagementSystem
         private void dtp_Due_Date_BorrowLayout_ValueChanged(object sender, EventArgs e)
         {
             //dtp_Due_Date_BorrowLayout
+        }
+
+        private void dtGrdVw_Book_TransactionBorrow_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow myRow = this.dtGrdVw_Book_TransactionBorrow.Rows[e.RowIndex];
+
+                txt_Book_ID_BorrowLayout.Text = myRow.Cells[0].Value.ToString();
+                combBx_Book_Title_BorrowLayout.Text = myRow.Cells[1].Value.ToString();
+                txt_Book_Author_BorrowLayout.Text = myRow.Cells[2].Value.ToString();
+
+
+                //combBx_NumCopies__BorrowLayout.Text = myRow.Cells[""].Value.ToString();
+
+                //*/
+
+            }
         }
     }
 }
