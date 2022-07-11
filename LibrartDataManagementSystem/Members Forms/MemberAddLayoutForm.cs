@@ -14,6 +14,7 @@ namespace LibrartDataManagementSystem
     public partial class MemberAddLayoutForm : Form
     {
         LDMS_DataBaseController my_LDMS_DataBaseController = new LDMS_DataBaseController();
+        Info_tbl_borrower myInfo_tbl_borrower = new Info_tbl_borrower();
         public MemberAddLayoutForm()
         {
             InitializeComponent();
@@ -37,14 +38,25 @@ namespace LibrartDataManagementSystem
         private void demodemolang()
         {
 
-            string Borrower_First_Name = txtBx_FirstName_MemberAddLayout.Text; //"Frederick";
-            string Borrower_Middle_Name = txtBx_MiddleName_MemberAddLayout.Text;//"B.";
-            string Borrower_Last_Name = txtBx_LastName_MemberAddLayout.Text;//"Tan";
-            string Borrower_Gender = combBx_Gender_MemberAddLayout.SelectedItem.ToString();
-            string Borrower_Address = txtBx_Address_MemberAddLayout.Text;
-            string Borrower_Contact_Number = txtBx_ContactNumber_MemberAddLayout.Text;
-            string Borrower_BirthDate = dtp_BirthDate_MemberAddLayout.Value.ToString();//DateTime.Now.ToString();
-            string Borrower_Type_of_Valid_ID = txtBx_TypeValidID_MemberAddLayout.Text;
+            //string Borrower_First_Name
+            myInfo_tbl_borrower.Borrower_First_Name = txtBx_FirstName_MemberAddLayout.Text; //"Frederick";
+            //string Borrower_Middle_Name
+            myInfo_tbl_borrower.Borrower_Middle_Name = txtBx_MiddleName_MemberAddLayout.Text;//"B.";
+            //string Borrower_Last_Name
+            myInfo_tbl_borrower.Borrower_Last_Name = txtBx_LastName_MemberAddLayout.Text;//"Tan";
+            //string Borrower_Gender
+            myInfo_tbl_borrower.Borrower_Gender = combBx_Gender_MemberAddLayout.SelectedItem.ToString();
+            //string Borrower_Address
+            myInfo_tbl_borrower.Borrower_Address = txtBx_Address_MemberAddLayout.Text;
+            //string Borrower_Contact_Number
+            myInfo_tbl_borrower.Borrower_Contact_Number = txtBx_ContactNumber_MemberAddLayout.Text;
+            //string Borrower_BirthDate
+            myInfo_tbl_borrower.Borrower_BirthDate = dtp_BirthDate_MemberAddLayout.Value.ToString();//DateTime.Now.ToString();
+            //string Borrower_Type_of_Valid_ID
+            myInfo_tbl_borrower.Borrower_Type_of_Valid_ID = txtBx_TypeValidID_MemberAddLayout.Text;
+            
+            
+            
 
             /*
             MessageBox.Show(Borrower_First_Name + "\n" +
@@ -59,7 +71,8 @@ namespace LibrartDataManagementSystem
             );
             */
 
-            my_LDMS_DataBaseController.insert_To_tbl_borrower(Borrower_First_Name, Borrower_Middle_Name, Borrower_Last_Name, Borrower_Gender, Borrower_Address, Borrower_Contact_Number, Borrower_BirthDate , Borrower_Type_of_Valid_ID);
+            my_LDMS_DataBaseController.insert_To_tbl_borrower(myInfo_tbl_borrower);
+                //(Borrower_First_Name, Borrower_Middle_Name, Borrower_Last_Name, Borrower_Gender, Borrower_Address, Borrower_Contact_Number, Borrower_BirthDate , Borrower_Type_of_Valid_ID);
 
             MessageBox.Show("Gumana!!!");
 

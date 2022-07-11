@@ -17,18 +17,16 @@ namespace LibrartDataManagementSystem
         List<List<string>> demoListOfListOfString;
         BooksController _booksController = new BooksController();
 
+        Info_tbl_borrowed_book myInfo_tbl_borrowed_book = new Info_tbl_borrowed_book();
+
+        private int numberOfAvableBooks = 0;
+        private int numberOfCopiesTaken = 0;
+
         public TransactionBorrowLayoutForm()
         {
             InitializeComponent();
             
-            combBx_NumCopies__BorrowLayout.Items.Clear();
-            combBx_NumCopies__BorrowLayout.Items.Add(1);
-            combBx_NumCopies__BorrowLayout.Items.Add(2);
-            combBx_NumCopies__BorrowLayout.Items.Add(3);
-            combBx_NumCopies__BorrowLayout.Items.Add(4);
-            combBx_NumCopies__BorrowLayout.Items.Add(5);
-            //combBx_NumCopies__BorrowLayout.SelectedValue
-            combBx_NumCopies__BorrowLayout.SelectedIndex = 0;
+            
 
             //testDemolangMember();
             //testDemolangBooks();
@@ -253,7 +251,10 @@ namespace LibrartDataManagementSystem
                 combBx_Book_Title_BorrowLayout.Text = myRow.Cells[1].Value.ToString();
                 txt_Book_Author_BorrowLayout.Text = myRow.Cells[2].Value.ToString();
 
+                numberOfAvableBooks = int.Parse(myRow.Cells["Column_Book_Number_Of_Quantity"].Value.ToString());
+                counttheBooksavailable();
 
+                MessageBox.Show("Availble: " + numberOfAvableBooks.ToString());
                 //combBx_NumCopies__BorrowLayout.Text = myRow.Cells[""].Value.ToString();
 
                 //*/
@@ -266,19 +267,29 @@ namespace LibrartDataManagementSystem
 
             demmoInsertIssue();
         }
+        private void counttheBooksavailable()
+        {
 
+            combBx_NumCopies__BorrowLayout.Items.Clear();
+            for (int i = 1; i <= numberOfAvableBooks; i++)
+            {
+                combBx_NumCopies__BorrowLayout.Items.Add(i);
+            }
+            combBx_NumCopies__BorrowLayout.SelectedIndex = 0;
+        }
         private void demmoInsertIssue()
         {
 
-            int Book_ID = int.Parse(txt_Book_ID_BorrowLayout.Text);
-            int Borrower_ID = int.Parse(txtBx_Borrower_ID_BorrowLayout.Text);
-            string Borrowed_Book_Date_Borrowed = dtp_Date_Borrowed_BorrowLayout.Value.ToString();
-            string Borrowed_Book_Due_Date = dtp_Due_Date_BorrowLayout.Value.ToString();
-            string Borrowed_Book_Due_Status = "Not Overdue";
-            string Borrowed_Book_Date_Returned = "";
-            int Borrowed_Book_Number_of_Copies = int.Parse(combBx_NumCopies__BorrowLayout.SelectedItem.ToString());
+            myInfo_tbl_borrowed_book.Book_ID = int.Parse(txt_Book_ID_BorrowLayout.Text);
+            myInfo_tbl_borrowed_book.Borrower_ID = int.Parse(txtBx_Borrower_ID_BorrowLayout.Text);
+            myInfo_tbl_borrowed_book.Borrowed_Book_Date_Borrowed = dtp_Date_Borrowed_BorrowLayout.Value.ToString();
+            myInfo_tbl_borrowed_book.Borrowed_Book_Due_Date = dtp_Due_Date_BorrowLayout.Value.ToString();
+            myInfo_tbl_borrowed_book.Borrowed_Book_Due_Status = "Not Overdue";
+            myInfo_tbl_borrowed_book.Borrowed_Book_Date_Returned = "";
+            myInfo_tbl_borrowed_book.Borrowed_Book_Number_of_Copies = int.Parse(combBx_NumCopies__BorrowLayout.SelectedItem.ToString());
 
-            bool isSuccess =  _LDMS_DataBaseControlle.insert_To_tbl_borrowed_book(Book_ID, Borrower_ID, Borrowed_Book_Date_Borrowed, Borrowed_Book_Due_Date, Borrowed_Book_Due_Status, Borrowed_Book_Date_Returned, Borrowed_Book_Number_of_Copies);
+            bool isSuccess = _LDMS_DataBaseControlle.insert_To_tbl_borrowed_book(myInfo_tbl_borrowed_book);
+                //(Book_ID, Borrower_ID, Borrowed_Book_Date_Borrowed, Borrowed_Book_Due_Date, Borrowed_Book_Due_Status, Borrowed_Book_Date_Returned, Borrowed_Book_Number_of_Copies);
             if (isSuccess)
             {
                 MessageBox.Show("Succes Issue!!!");
