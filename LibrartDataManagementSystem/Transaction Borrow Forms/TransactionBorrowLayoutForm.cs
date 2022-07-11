@@ -216,13 +216,14 @@ namespace LibrartDataManagementSystem
                 DataGridViewRow myRow = this.dtGrdVw_Member_TransactionBorrow.Rows[e.RowIndex];
 
                 txtBx_Borrower_ID_BorrowLayout.Text = myRow.Cells[0].Value.ToString();
-                txtBx_LastName_BorrowLayout.Text = myRow.Cells[1].Value.ToString();
-                txtBx_FirstName_BorrowLayout.Text = myRow.Cells[2].Value.ToString();
-                txtBx_MiddleName_BorrowLayout.Text = myRow.Cells[3].Value.ToString();
-                txtBx_Address_BorrowLayout.Text = myRow.Cells[4].Value.ToString();
-                txtBx_ContactNumber_BorrowLayout.Text = myRow.Cells[5].Value.ToString();
-                txtBx_Age_BorrowLayout.Text = myRow.Cells[6].Value.ToString();
-                txtBx_TypeValidID_BorrowLayout.Text = myRow.Cells[7].Value.ToString();
+                txtBx_FirstName_BorrowLayout.Text = myRow.Cells[1].Value.ToString();
+                txtBx_MiddleName_BorrowLayout.Text = myRow.Cells[2].Value.ToString();
+                txtBx_LastName_BorrowLayout.Text = myRow.Cells[3].Value.ToString();
+                txtBx_Gender_BorrowLayout.Text = myRow.Cells[4].Value.ToString();
+                txtBx_Address_BorrowLayout.Text = myRow.Cells[5].Value.ToString();
+                txtBx_ContactNumber_BorrowLayout.Text = myRow.Cells[6].Value.ToString();
+                txtBx_Age_BorrowLayout.Text = myRow.Cells[7].Value.ToString();
+                txtBx_TypeValidID_BorrowLayout.Text = myRow.Cells[8].Value.ToString();
 
                 //*/
 
