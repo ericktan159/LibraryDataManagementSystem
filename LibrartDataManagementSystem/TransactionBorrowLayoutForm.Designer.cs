@@ -601,9 +601,9 @@ namespace LibrartDataManagementSystem
             this.panel2.Controls.Add(this.label22);
             this.panel2.Controls.Add(this.combBx_Book_Author_TransactionBorrow);
             this.panel2.Controls.Add(this.txtBx_SearchBook_TransactionBorrow);
-            this.panel2.Location = new System.Drawing.Point(380, 273);
+            this.panel2.Location = new System.Drawing.Point(374, 212);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(901, 247);
+            this.panel2.Size = new System.Drawing.Size(901, 239);
             this.panel2.TabIndex = 55;
             // 
             // grpBx_BooksTable_BorrwLayout
