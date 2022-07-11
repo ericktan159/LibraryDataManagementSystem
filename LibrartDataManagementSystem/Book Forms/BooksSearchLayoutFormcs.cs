@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibrartDataManagementSystem.Scripts;
+using LibrartDataManagementSystem.Book_Forms;
 
 namespace LibrartDataManagementSystem
 {
@@ -112,7 +113,6 @@ namespace LibrartDataManagementSystem
         /// <param name="e"></param>
         private void btn_EditBooks_Click(object sender, EventArgs e)
         {
-            // check if the selected row is multiple then cancel the operation
             int rowIndex = dtGrdVw_BookSearch.CurrentCellAddress.Y;
             string id = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_ID"].Value.ToString();
 
@@ -150,6 +150,15 @@ namespace LibrartDataManagementSystem
                 MessageBox.Show($"{name} is successfully deleted!", "Success!");
             }
             GenerateTable();
+        }
+
+        private void dtGrdVw_BookSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = dtGrdVw_BookSearch.CurrentCellAddress.Y;
+            string id = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_ID"].Value.ToString();
+
+            BooksDetailPopUp detailPopup = new BooksDetailPopUp(id);
+            detailPopup.ShowDialog();
         }
     }
 }

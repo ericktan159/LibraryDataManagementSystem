@@ -201,6 +201,7 @@ namespace LibrartDataManagementSystem
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(687, 323);
             this.Name = "BooksEditPopUp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit";
             this.Load += new System.EventHandler(this.BooksEditPopUp_Load);
             this.ResumeLayout(false);

@@ -122,6 +122,7 @@ namespace LibrartDataManagementSystem
             this.Controls.Add(this.pnl_Navigation);
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "MainLayout";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainLayout";
             this.Load += new System.EventHandler(this.MainLayout_Load);
             this.pnl_Navigation.ResumeLayout(false);

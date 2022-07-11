@@ -160,6 +160,7 @@ namespace LibrartDataManagementSystem
             this.dtGrdVw_BookSearch.ReadOnly = true;
             this.dtGrdVw_BookSearch.Size = new System.Drawing.Size(838, 347);
             this.dtGrdVw_BookSearch.TabIndex = 3;
+            this.dtGrdVw_BookSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdVw_BookSearch_CellDoubleClick);
             // 
             // Column_Book_ID
             // 
