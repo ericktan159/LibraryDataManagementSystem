@@ -45,33 +45,6 @@ namespace LibrartDataManagementSystem
             GenerateTable(false);
         }
 
-        private void combBx_Book_Author_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(combBx_Book_Author.SelectedItem != null && combBx_Book_Genre.SelectedItem != null &&
-                combBx_Book_Year_Published.SelectedItem != null)
-            {
-                GenerateTable(false);
-            }
-        }
-
-        private void combBx_Book_Genre_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (combBx_Book_Author.SelectedItem != null && combBx_Book_Genre.SelectedItem != null &&
-                combBx_Book_Year_Published.SelectedItem != null)
-            {
-                GenerateTable(false);
-            }
-        }
-
-        private void combBx_Book_Year_Published_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (combBx_Book_Author.SelectedItem != null && combBx_Book_Genre.SelectedItem != null &&
-                combBx_Book_Year_Published.SelectedItem != null)
-            {
-                GenerateTable(false);
-            }
-        }
-
         /// <summary>
         /// refresh the table
         /// </summary>
@@ -104,6 +77,19 @@ namespace LibrartDataManagementSystem
                 dtGrdVw_BookSearch, txtBx_BookSearch.Text, combBx_Book_Author.SelectedItem.ToString(),
                 combBx_Book_Genre.SelectedItem.ToString(), combBx_Book_Year_Published.SelectedItem.ToString());
             _booksController.FillQuantityColor(dtGrdVw_BookSearch);
+        }
+        /// <summary>
+        /// when any of the dropdown change index
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DropdownChange(object sender, EventArgs e)
+        {
+            if (combBx_Book_Author.SelectedItem != null && combBx_Book_Genre.SelectedItem != null &&
+                combBx_Book_Year_Published.SelectedItem != null)
+            {
+                GenerateTable(false);
+            }
         }
 
         /// <summary>
