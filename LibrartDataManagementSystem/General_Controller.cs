@@ -71,54 +71,59 @@ namespace LibrartDataManagementSystem
             }
         }
         //*/
-        /// <summary>
-        /// fill the table with no other query
-        /// </summary>
-        /// <param name="table"></param>
-        public void FillTable(DataGridView table)
+
+
+        public void fill_DataGridView_Books(DataGridView table, List<List<string>> books_2d_List_table)
         {
-            // get the correct query
-            string query = "SELECT * FROM `tbl_book`";
-
-            // get the database list
-            List<List<string>> booksDetails = dbController.select_DBMethod_return_2DList_Table_Records(query);
-
-            // fill the table
-            foreach (List<string> bookDetails in booksDetails)
+            foreach (List<string> book_row in books_2d_List_table)
             {
                 int outerIndex = table.Rows.Add();
-                table.Rows[outerIndex].Cells["Column_Book_ID"].Value = bookDetails[0];
-                table.Rows[outerIndex].Cells["Column_Book_Title"].Value = bookDetails[1];
-                table.Rows[outerIndex].Cells["Column_Book_Author"].Value = bookDetails[2];
-                table.Rows[outerIndex].Cells["Column_Book_Genre"].Value = bookDetails[3];
-                table.Rows[outerIndex].Cells["Column_Book_Year_published"].Value = bookDetails[4];
-                table.Rows[outerIndex].Cells["Column_Book_Publisher"].Value = bookDetails[5];
-                table.Rows[outerIndex].Cells["Column_Book_Number_Of_Quantity"].Value = bookDetails[6];
+                table.Rows[outerIndex].Cells["Column_Book_ID"].Value = book_row[0];
+                table.Rows[outerIndex].Cells["Column_Book_Title"].Value = book_row[1];
+                table.Rows[outerIndex].Cells["Column_Book_Author"].Value = book_row[2];
+                table.Rows[outerIndex].Cells["Column_Book_Genre"].Value = book_row[3];
+                table.Rows[outerIndex].Cells["Column_Book_Year_published"].Value = book_row[4];
+                table.Rows[outerIndex].Cells["Column_Book_Publisher"].Value = book_row[5];
+                table.Rows[outerIndex].Cells["Column_Book_Number_Of_Quantity"].Value = book_row[6];
             }
         }
 
-        /// <summary>
-        /// fill the dropdownobject by the value of what they seachfor
-        /// </summary>
-        /// <param name="dropDownObject">reference of dropdownobject</param>
-        /// <param name="searchFor">what to search for</param>
-        public void FillDropdown(ComboBox dropDownObject, string searchFor)
+
+
+
+        public void fill_DataGridView_Members(DataGridView table, List<List<string>> members_2d_List_table)
+        {
+            foreach (List<string> member_row in members_2d_List_table)
+            {
+                int outerIndex = table.Rows.Add();
+                table.Rows[outerIndex].Cells["Column_Borrower_ID"].Value = member_row[0];
+                table.Rows[outerIndex].Cells["Column_Borrower_First_Name"].Value = member_row[1];
+                table.Rows[outerIndex].Cells["Column_Borrower_Middle_Name"].Value = member_row[2];
+                table.Rows[outerIndex].Cells["Column_Borrower_Last_Name"].Value = member_row[3];
+                table.Rows[outerIndex].Cells["Column_Borrower_Gender"].Value = member_row[4];
+                table.Rows[outerIndex].Cells["Column_Borrower_Address"].Value = member_row[5];
+                table.Rows[outerIndex].Cells["Column_Borrower_Conatact_Number"].Value = member_row[6];
+                table.Rows[outerIndex].Cells["Column_Borrower_BirthDate"].Value = member_row[7];
+                table.Rows[outerIndex].Cells["Column_Borrower_Type_Valid_ID"].Value = member_row[8];
+                
+            }
+
+        }
+
+        
+        public void fill_ComboBox_Filter(ComboBox dropDownObject, string table_Name, string searchFor, string orderBy = "ASC")
         {
             dropDownObject.Items.Clear();
             dropDownObject.Items.Add("All");
-            string query = $"SELECT {searchFor} FROM `tbl_book` ORDER BY {searchFor} ASC";
-            List<List<string>> resultListList = dbController.select_DBMethod_return_2DList_Table_Records(query);
-            List<string> resultList = new List<string>();
-            foreach (List<string> result in resultListList)
-            {
-                resultList.Add(result[0]);
-            }
-            resultList = resultList.Distinct().ToList();
+
+            List<string> resultList = dbController.select_DBMethod_return_A_Column_Of_Distinct_Records_OrderBy(table_Name, searchFor, searchFor, orderBy);
             foreach (string result in resultList)
             {
                 dropDownObject.Items.Add(result);
             }
         }
+
+
 
         /// <summary>
         /// fill the query for searching
@@ -128,8 +133,7 @@ namespace LibrartDataManagementSystem
         /// <param name="genre">genre text</param>
         /// <param name="yearPublished">year published text</param>
         /// <returns>refine query</returns>
-        public string QuerySelectFill(string search, string author, string genre,
-            string yearPublished)
+        public string querry_Select_Where_Books(string search, string author, string genre, string yearPublished)
         {
             // initialize all needed query
             string query = "SELECT * FROM `tbl_book` ";

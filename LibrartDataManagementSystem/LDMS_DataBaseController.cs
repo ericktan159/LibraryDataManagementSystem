@@ -440,7 +440,16 @@ namespace LibrartDataManagementSystem
 
         }
 
-        public List<string> select_DBMethod_return_A_Column_Of_Distinct_Records(string table_Name, string column_Name, string column_Name_OrderBy, string orderBy = "ASC")
+        /// <summary>
+        /// 
+        /// 
+        /// </summary>
+        /// <param name="table_Name"></param>
+        /// <param name="column_Name"></param>
+        /// <param name="column_Name_OrderBy"></param>
+        /// <param name="orderBy"></param>
+        /// <returns></returns>
+        public List<string> select_DBMethod_return_A_Column_Of_Distinct_Records_OrderBy(string table_Name, string column_Name, string column_Name_OrderBy, string orderBy = "ASC")
         {
             string select_SQL_StateMent = $"SELECT {column_Name} FROM `{table_Name}` ORDER BY {column_Name_OrderBy} {orderBy}";
             List<List<string>> temp2DStrList_Column = select_DBMethod_return_2DList_Table_Records(select_SQL_StateMent);
