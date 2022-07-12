@@ -9,7 +9,7 @@ using System.Globalization;
 
 namespace LibrartDataManagementSystem
 {
-    class CRUD_Controller
+    class General_Controller // wag nyo muna kalikutin. to be continued to. inaayos ko pa
     {
 
 
