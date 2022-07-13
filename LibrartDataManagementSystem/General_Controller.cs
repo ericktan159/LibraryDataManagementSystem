@@ -43,7 +43,7 @@ namespace LibrartDataManagementSystem
         }
 
 
-        
+
         /*
         public List<List<string>> select_Search_results_From_DB(string table_name, string searchInput, List<string> searhFilterList)//string search, string author, string genre, string yearPublished)
         {
@@ -72,6 +72,81 @@ namespace LibrartDataManagementSystem
         }
         //*/
 
+
+        public void fill_ComboBox_Filter(ComboBox dropDownObject, string table_Name, string searchFor, string orderBy = "ASC")
+        {
+            dropDownObject.Items.Clear();
+            dropDownObject.Items.Add("All");
+
+            List<string> resultList = dbController.select_DBMethod_return_A_Column_Of_Distinct_Records_OrderBy(table_Name, searchFor, searchFor, orderBy);
+            foreach (string result in resultList)
+            {
+                dropDownObject.Items.Add(result);
+            }
+        }
+
+        /////////////////
+
+        public List<string> GetBookDetails(string id)
+        {
+            string query = $"SELECT * FROM `tbl_book` WHERE `Book_ID` = {id}";
+            List<List<string>> results = dbController.select_DBMethod_return_2DList_Table_Records(query);
+            return results[0];
+        }
+
+
+        public void FillDetails(Label[] labels, string id)
+        {
+            List<string> results = GetBookDetails(id);
+            labels[0].Text = results[1];
+            labels[1].Text = results[2];
+            labels[2].Text = results[3];
+            labels[3].Text = results[4];
+            labels[4].Text = results[5];
+            labels[5].Text = results[6];
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public void FillInputs(TextBox title, TextBox author, TextBox genre, DateTimePicker yearPublished,
+            TextBox publisher, TextBox quantity, string id)
+        {
+            List<string> results = GetBookDetails(id);
+            title.Text = results[1];
+            author.Text = results[2];
+            genre.Text = results[3];
+            yearPublished.Value = DateTime.ParseExact(results[4], "yyyy", CultureInfo.InvariantCulture);
+            publisher.Text = results[5];
+            quantity.Text = results[6];
+        }
+
+
+
+        public List<string> CheckIfBookExist(string bookTitle, string bookAuthor, string bookGenre,
+            string bookPublisher, string yearPublished)
+        {
+            string query = $"SELECT * FROM `tbl_book` WHERE `Book_Title` = \"{bookTitle}\" AND " +
+                $"`Book_Author` = \"{bookAuthor}\" AND `Book_Genre` = \"{bookGenre}\" AND " +
+                $"`Book_Publisher` = \"{bookPublisher}\" AND `Book_Year_Published` = \"{yearPublished}\"";
+            List<List<string>> books = dbController.select_DBMethod_return_2DList_Table_Records(query);
+            List<string> result = new List<string>();
+            foreach (List<string> book in books)
+            {
+                result.Add(book[0]);
+            }
+            return result;
+        }
 
         public void fill_DataGridView_Books(DataGridView table, List<List<string>> books_2d_List_table)
         {
@@ -111,17 +186,11 @@ namespace LibrartDataManagementSystem
         }
 
         
-        public void fill_ComboBox_Filter(ComboBox dropDownObject, string table_Name, string searchFor, string orderBy = "ASC")
-        {
-            dropDownObject.Items.Clear();
-            dropDownObject.Items.Add("All");
+        
 
-            List<string> resultList = dbController.select_DBMethod_return_A_Column_Of_Distinct_Records_OrderBy(table_Name, searchFor, searchFor, orderBy);
-            foreach (string result in resultList)
-            {
-                dropDownObject.Items.Add(result);
-            }
-        }
+
+
+
 
 
 
@@ -190,25 +259,7 @@ namespace LibrartDataManagementSystem
             return query;
         }
 
-        /// <summary>
-        /// Check if the book exist
-        /// </summary>
-        /// <param name="bookTitle">title of book</param>
-        /// <returns>return list of the existing books</returns>
-        public List<string> CheckIfBookExist(string bookTitle, string bookAuthor, string bookGenre,
-            string bookPublisher, string yearPublished)
-        {
-            string query = $"SELECT * FROM `tbl_book` WHERE `Book_Title` = \"{bookTitle}\" AND " +
-                $"`Book_Author` = \"{bookAuthor}\" AND `Book_Genre` = \"{bookGenre}\" AND " +
-                $"`Book_Publisher` = \"{bookPublisher}\" AND `Book_Year_Published` = \"{yearPublished}\"";
-            List<List<string>> books = dbController.select_DBMethod_return_2DList_Table_Records(query);
-            List<string> result = new List<string>();
-            foreach (List<string> book in books)
-            {
-                result.Add(book[0]);
-            }
-            return result;
-        }
+        
 
         /// <summary>
         /// get the title of book by using id
@@ -265,33 +316,8 @@ namespace LibrartDataManagementSystem
             }
         }
 
-        public List<string> GetBookDetails(string id)
-        {
-            string query = $"SELECT * FROM `tbl_book` WHERE `Book_ID` = {id}";
-            List<List<string>> results = dbController.select_DBMethod_return_2DList_Table_Records(query);
-            return results[0];
-        }
-
-        /// <summary>
-        /// fill the labels with the value of books by ID
-        /// </summary>
-        /// <param name="title">textbox of title</param>
-        /// <param name="author">textbox of author</param>
-        /// <param name="genre">textbox of genre</param>
-        /// <param name="yearPublished">year published input</param>
-        /// <param name="publisher">textbox of publisher</param>
-        /// <param name="quantity">textbox quantity</param>
-        /// <param name="id">the id to search book</param>
-        public void FillDetails(Label[] labels, string id)
-        {
-            List<string> results = GetBookDetails(id);
-            labels[0].Text = results[1];
-            labels[1].Text = results[2];
-            labels[2].Text = results[3];
-            labels[3].Text = results[4];
-            labels[4].Text = results[5];
-            labels[5].Text = results[6];
-        }
+      
+        
 
         /// <summary>
         /// fill the inputs with the value of books by ID
@@ -303,18 +329,7 @@ namespace LibrartDataManagementSystem
         /// <param name="publisher">textbox of publisher</param>
         /// <param name="quantity">textbox quantity</param>
         /// <param name="id">the id to search book</param>
-        public void FillInputs(TextBox title, TextBox author, TextBox genre, DateTimePicker yearPublished,
-            TextBox publisher, TextBox quantity, string id)
-        {
-            List<string> results = GetBookDetails(id);
-            title.Text = results[1];
-            author.Text = results[2];
-            genre.Text = results[3];
-            yearPublished.Value = DateTime.ParseExact(results[4], "yyyy", CultureInfo.InvariantCulture);
-            publisher.Text = results[5];
-            quantity.Text = results[6];
-        }
-
+        
         /// <summary>
         /// update the books
         /// </summary>

@@ -14,7 +14,7 @@ namespace LibrartDataManagementSystem
     public partial class MemberAddLayoutForm : Form
     {
         LDMS_DataBaseController my_LDMS_DataBaseController = new LDMS_DataBaseController();
-        Info_tbl_borrower myInfo_tbl_borrower = new Info_tbl_borrower();
+        Info_TBL_BORR0WER myInfo_tbl_borrower = new Info_TBL_BORR0WER();
         public MemberAddLayoutForm()
         {
             InitializeComponent();
@@ -71,7 +71,7 @@ namespace LibrartDataManagementSystem
             );
             */
 
-            my_LDMS_DataBaseController.insert_To_tbl_borrower(myInfo_tbl_borrower);
+            my_LDMS_DataBaseController.insert_DBMethod_BORROWER(myInfo_tbl_borrower);
                 //(Borrower_First_Name, Borrower_Middle_Name, Borrower_Last_Name, Borrower_Gender, Borrower_Address, Borrower_Contact_Number, Borrower_BirthDate , Borrower_Type_of_Valid_ID);
 
             MessageBox.Show("Gumana!!!");
@@ -81,7 +81,7 @@ namespace LibrartDataManagementSystem
 
         private void testesing()
         {
-            if (my_LDMS_DataBaseController.is_Book_ID_Exist(2))
+            if (my_LDMS_DataBaseController.is_table_ID_Exist(Info_TBL_BOOK.Const_Names.table_Name, 2))
             {
                 MessageBox.Show("Book Exist");
             }
@@ -90,7 +90,7 @@ namespace LibrartDataManagementSystem
                 MessageBox.Show("Book Not Exist");
             }
 
-            if (my_LDMS_DataBaseController.is_Borrower_ID_Exist(7))
+            if (my_LDMS_DataBaseController.is_table_ID_Exist(Info_TBL_BORR0WER.Const_Names.table_Name,7))
             {
                 MessageBox.Show("Member Exist");
             }

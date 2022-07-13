@@ -17,7 +17,7 @@ namespace LibrartDataManagementSystem
         List<List<string>> demoListOfListOfString;
         BooksController _booksController = new BooksController();
 
-        Info_tbl_borrowed_book myInfo_tbl_borrowed_book = new Info_tbl_borrowed_book();
+        Info_TBL_BORROWED_BOOK myInfo_tbl_borrowed_book = new Info_TBL_BORROWED_BOOK();
 
         private int numberOfAvableBooks = 0;
         private int numberOfCopiesTaken = 0;
@@ -288,7 +288,7 @@ namespace LibrartDataManagementSystem
             myInfo_tbl_borrowed_book.Borrowed_Book_Date_Returned = "";
             myInfo_tbl_borrowed_book.Borrowed_Book_Number_of_Copies = int.Parse(combBx_NumCopies__BorrowLayout.SelectedItem.ToString());
 
-            bool isSuccess = _LDMS_DataBaseControlle.insert_To_tbl_borrowed_book(myInfo_tbl_borrowed_book);
+            bool isSuccess = _LDMS_DataBaseControlle.insert_DBMethod_BORROWED_BOOK(myInfo_tbl_borrowed_book);
                 //(Book_ID, Borrower_ID, Borrowed_Book_Date_Borrowed, Borrowed_Book_Due_Date, Borrowed_Book_Due_Status, Borrowed_Book_Date_Returned, Borrowed_Book_Number_of_Copies);
             if (isSuccess)
             {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +13,6 @@ namespace LibrartDataManagementSystem.Scripts
     {
         LDMS_DataBaseController dbController = new LDMS_DataBaseController();
         TextInfo ti = CultureInfo.CurrentCulture.TextInfo;
-        Info_TBL_BOOK tbl_Infos = new Info_TBL_BOOK();
-
 
         /// <summary>
         /// Check if the input is complete
@@ -46,7 +44,6 @@ namespace LibrartDataManagementSystem.Scripts
         public bool AddBooks(string title, string author, string genre, string yearPublished,
             string publisher, string numberOfQuantity)
         {
-            /*
             string query = "" +
                     "INSERT INTO `tbl_book`(`Book_Title`, `Book_Author`, `Book_Genre`, " +
                     "`Book_Year_Published`, `Book_Publisher`, `Book_Number_Of_Quantity` " +
@@ -56,17 +53,6 @@ namespace LibrartDataManagementSystem.Scripts
                     $"\"{numberOfQuantity}\")";
             bool success = dbController.insert_DBMethod(query);
             return success;
-            //*/
-
-            tbl_Infos.Book_Tittle = ti.ToTitleCase(title);
-            tbl_Infos.Book_Author = ti.ToTitleCase(author);
-            tbl_Infos.Book_Genre = ti.ToTitleCase(genre);
-            tbl_Infos.Book_Year_Published = ti.ToTitleCase(yearPublished);
-            tbl_Infos.Book_Publisher = ti.ToTitleCase(publisher);
-            tbl_Infos.Book_Number_Of_Quantity = int.Parse(numberOfQuantity);
-
-
-            return dbController.insert_DBMethod_BOOKS(tbl_Infos); 
         }
 
         /// <summary>
@@ -370,7 +356,6 @@ namespace LibrartDataManagementSystem.Scripts
         public bool UpdateBooks(TextBox title, TextBox author, TextBox genre, DateTimePicker yearPublished,
             TextBox publisher, TextBox quantity, string id)
         {
-            /*
             string query = $"UPDATE `tbl_book` SET `Book_Title`=\"{ti.ToTitleCase(title.Text)}\"," +
                 $"`Book_Author`=\"{ti.ToTitleCase(author.Text)}\"" +
                 $",`Book_Genre`=\"{ti.ToTitleCase(genre.Text)}\"," +
@@ -379,17 +364,6 @@ namespace LibrartDataManagementSystem.Scripts
                 $",`Book_Number_Of_Quantity`=\"{quantity.Text}\" WHERE `Book_ID` = '{id}'";
             bool success = dbController.insert_DBMethod(query);
             return success;
-            //*/
-
-            int Book_ID = int.Parse(id);
-            tbl_Infos.Book_Tittle = ti.ToTitleCase(title.Text);
-            tbl_Infos.Book_Author = ti.ToTitleCase(author.Text);
-            tbl_Infos.Book_Genre = ti.ToTitleCase(genre.Text);
-            tbl_Infos.Book_Year_Published = ti.ToTitleCase(yearPublished.Text);
-            tbl_Infos.Book_Publisher = ti.ToTitleCase(publisher.Text);
-            tbl_Infos.Book_Number_Of_Quantity = int.Parse(quantity.Text);
-
-            return dbController.update_DBMethod_BOOKS(Book_ID, tbl_Infos);
         }
 
         /// <summary>
@@ -399,14 +373,9 @@ namespace LibrartDataManagementSystem.Scripts
         /// <returns>return true if delete were successful</returns>
         public bool DeleteBook(string id)
         {
-            /*
             string query = $"DELETE FROM `tbl_book` WHERE `Book_ID` = '{id}'";
             bool success = dbController.insert_DBMethod(query);
             return success;
-            //*/
-
-            int Book_ID = int.Parse(id);
-            return dbController.delete_DBMethod_return_Boolean(Info_TBL_BOOK.Const_Names.table_Name, Book_ID); 
         }
     }
 }
