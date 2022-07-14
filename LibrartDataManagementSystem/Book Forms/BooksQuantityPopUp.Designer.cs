@@ -117,6 +117,7 @@ namespace LibrartDataManagementSystem.Book_Forms
             this.Name = "BooksQuantityPopUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Remove Quantity";
+            this.Load += new System.EventHandler(this.BooksQuantityPopUp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -152,8 +152,8 @@ namespace LibrartDataManagementSystem
                 }
                 else if (result == DialogResult.No)
                 {
-                    BooksEditPopUp editPopup = new BooksEditPopUp(id, true);
-                    editPopup.ShowDialog();
+                    BooksQuantityPopUp quantityPopUp = new BooksQuantityPopUp(id);
+                    quantityPopUp.ShowDialog();
                 }
             }
             else
