@@ -17,6 +17,7 @@ namespace LibrartDataManagementSystem.Scripts
         LDMS_DataBaseController dbController = new LDMS_DataBaseController();
         TextInfo ti = CultureInfo.CurrentCulture.TextInfo;
         Info_TBL_BOOK tbl_Infos = new Info_TBL_BOOK();
+        LogController _logController = new LogController();
 
         Common_Controller myCommon_Controller = new Common_Controller();
 
@@ -75,8 +76,9 @@ namespace LibrartDataManagementSystem.Scripts
             tbl_Infos.Book_Publisher = ti.ToTitleCase(publisher);
             tbl_Infos.Book_Number_Of_Quantity = int.Parse(numberOfQuantity);
 
+            bool success = dbController.insert_DBMethod_BOOKS(tbl_Infos);
 
-            return dbController.insert_DBMethod_BOOKS(tbl_Infos); 
+            return success;
         }
 
         /// <summary>

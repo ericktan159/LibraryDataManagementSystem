@@ -96,6 +96,8 @@ namespace LibrartDataManagementSystem
                                     MessageBox.Show($"Successfully added " +
                                         $"{ti.ToTitleCase(txtBx_BookTitle_BookAdd.Text)} " +
                                         $"to an existing book!", "Success");
+
+                                    
                                 }
 
                                 if (checkResetAfterSubmit.Checked)
@@ -129,9 +131,9 @@ namespace LibrartDataManagementSystem
                             MessageBox.Show($"{ti.ToTitleCase(txtBx_BookTitle_BookAdd.Text)} is successfully added!"
                                 , "Success!");
 
+                            //log the event
                             string id = _bookController.GetLastBookID();
-
-                            if(!_logController.LogBook(id, 3))
+                            if (!_logController.LogBook(id, 3))
                             {
                                 MessageBox.Show($"Log didn't enter. Manually Add it");
                             }

@@ -31,6 +31,9 @@ namespace LibrartDataManagementSystem.Scripts
                 case 4:
                     description = $"Updated book with the id: {id}";
                     break;
+                case 5:
+                    description = $"Deleted book with the id: {id}";
+                    break;
                 default:
                     return false;
             }
