@@ -210,7 +210,7 @@ namespace LibrartDataManagementSystem.Scripts
             {
                 whereQuery = "WHERE ";
                 searchQuery = $"(`Book_Title` REGEXP \".*{search}.*\" OR `Book_Author` REGEXP \".*{search}.*\" " +
-                    $"OR `Book_Genre` REGEXP \".*{search}.*\") ";
+                    $"OR `Book_Genre` REGEXP \".*{search}.*\" OR `Book_ID` = {search}) ";
             }
             if (author != "All")
             {
