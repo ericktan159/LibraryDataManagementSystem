@@ -100,6 +100,7 @@
     <Compile Include="LDMS_DataBaseController.cs" />
     <Compile Include="Scripts\BooksController.cs" />
     <Compile Include="Scripts\LogController.cs" />
+    <Compile Include="Scripts\MembersController.cs" />
     <Compile Include="Transaction Borrow Forms\TransactionBorrowLayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
