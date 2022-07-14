@@ -117,6 +117,7 @@ namespace LibrartDataManagementSystem.Scripts
 
             // get the database list
             List<List<string>> booksDetails = dbController.select_DBMethod_return_2DList_Table_Records(query);
+            Console.WriteLine(query);
 
             // fill the table
             foreach (List<string> bookDetails in booksDetails)
@@ -184,72 +185,6 @@ namespace LibrartDataManagementSystem.Scripts
 
             myCommon_Controller.fill_ComboBox_Filter(dropDownObject, Info_TBL_BOOK.Const_Names.table_Name, searchFor, "ASC");
 
-        }
-
-        /// <summary>
-        /// fill the query for searching
-        /// </summary>
-        /// <param name="search">search text</param>
-        /// <param name="author">author text</param>
-        /// <param name="genre">genre text</param>
-        /// <param name="yearPublished">year published text</param>
-        /// <returns>refine query</returns>
-        public string QuerySelectFill(string search, string author, string genre,
-            string yearPublished)
-        {
-            // initialize all needed query
-            string query = "SELECT * FROM `tbl_book` ";
-            string whereQuery = "";
-            string searchQuery = "";
-            string authorQuery = "";
-            string genreQuery = "";
-            string yearPublishedQuery = "";
-
-            // fill the query
-            if (search != "")
-            {
-                whereQuery = "WHERE ";
-                searchQuery = $"(`Book_Title` REGEXP \".*{search}.*\" OR `Book_Author` REGEXP \".*{search}.*\" " +
-                    $"OR `Book_Genre` REGEXP \".*{search}.*\" OR `Book_ID` = {search}) ";
-            }
-            if (author != "All")
-            {
-                if (whereQuery != "")
-                {
-                    authorQuery = $"AND `Book_Author` = \"{author}\" ";
-                }
-                else
-                {
-                    whereQuery = "WHERE ";
-                    authorQuery = $"`Book_Author` = \"{author}\" ";
-                }
-            }
-            if (genre != "All")
-            {
-                if (whereQuery != "")
-                {
-                    genreQuery = $"AND `Book_Genre` = \"{genre}\" ";
-                }
-                else
-                {
-                    whereQuery = "WHERE ";
-                    genreQuery = $"`Book_Genre` = \"{genre}\" ";
-                }
-            }
-            if (yearPublished != "All")
-            {
-                if (whereQuery != "")
-                {
-                    yearPublishedQuery = $"AND `Book_Year_Published` = \"{yearPublished}\" ";
-                }
-                else
-                {
-                    whereQuery = "WHERE ";
-                    yearPublishedQuery = $"`Book_Year_Published` = \"{yearPublished}\" ";
-                }
-            }
-            query += whereQuery + searchQuery + authorQuery + genreQuery + yearPublishedQuery;
-            return query;
         }
 
         /// <summary>
@@ -462,11 +397,88 @@ namespace LibrartDataManagementSystem.Scripts
             return dbController.delete_DBMethod_return_Boolean(Info_TBL_BOOK.Const_Names.table_Name, Book_ID); 
         }
 
+        /// <summary>
+        /// get the latest book id
+        /// </summary>
+        /// <returns>return the id</returns>
         public string GetLastBookID()
         {
             string query = "SELECT * FROM `tbl_book` ORDER BY `Book_ID` DESC LIMIT 1";
             List<List<string>> res = dbController.select_DBMethod_return_2DList_Table_Records(query);
             return res[0][0];
+        }
+
+        public string GetQuantity(string id)
+        {
+            string query = $"SELECT * FROM `tbl_book` WHERE `Book_ID` = {id}";
+            List<List<string>> res = dbController.select_DBMethod_return_2DList_Table_Records(query);
+            return res[0][6];
+        }
+
+        /// <summary>
+        /// fill the query for searching
+        /// </summary>
+        /// <param name="search">search text</param>
+        /// <param name="author">author text</param>
+        /// <param name="genre">genre text</param>
+        /// <param name="yearPublished">year published text</param>
+        /// <returns>refine query</returns>
+        public string QuerySelectFill(string search, string author, string genre,
+            string yearPublished)
+        {
+            // initialize all needed query
+            string query = "SELECT * FROM `tbl_book` ";
+            string whereQuery = "";
+            string searchQuery = "";
+            string authorQuery = "";
+            string genreQuery = "";
+            string yearPublishedQuery = "";
+
+            // fill the query
+            if (search != "")
+            {
+                whereQuery = "WHERE ";
+                searchQuery = $"(`Book_Title` REGEXP \".*{search}.*\" OR `Book_Author` REGEXP \".*{search}.*\" " +
+                    $"OR `Book_Genre` REGEXP \".*{search}.*\" OR `Book_ID` = \"{search}\") ";
+            }
+            if (author != "All")
+            {
+                if (whereQuery != "")
+                {
+                    authorQuery = $"AND `Book_Author` = \"{author}\" ";
+                }
+                else
+                {
+                    whereQuery = "WHERE ";
+                    authorQuery = $"`Book_Author` = \"{author}\" ";
+                }
+            }
+            if (genre != "All")
+            {
+                if (whereQuery != "")
+                {
+                    genreQuery = $"AND `Book_Genre` = \"{genre}\" ";
+                }
+                else
+                {
+                    whereQuery = "WHERE ";
+                    genreQuery = $"`Book_Genre` = \"{genre}\" ";
+                }
+            }
+            if (yearPublished != "All")
+            {
+                if (whereQuery != "")
+                {
+                    yearPublishedQuery = $"AND `Book_Year_Published` = \"{yearPublished}\" ";
+                }
+                else
+                {
+                    whereQuery = "WHERE ";
+                    yearPublishedQuery = $"`Book_Year_Published` = \"{yearPublished}\" ";
+                }
+            }
+            query += whereQuery + searchQuery + authorQuery + genreQuery + yearPublishedQuery;
+            return query;
         }
     }
 }

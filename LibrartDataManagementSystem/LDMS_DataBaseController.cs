@@ -260,7 +260,17 @@ namespace LibrartDataManagementSystem
             }
             catch (Exception e)
             {
-                MessageBox.Show("Failed! " + e.Message);
+                string delProb = "Cannot delete or update a parent row: a foreign key constraint fails " +
+                    "(`library_data_management_system`.`tbl_borrowed_book`, CONSTRAINT " +
+                    "`tbl_borrowed_book_ibfk_1` FOREIGN KEY (`Book_ID`) REFERENCES `tbl_book` (`Book_ID`))";
+                if (e.Message == delProb)
+                {
+                    MessageBox.Show("The book has currently borrower.");
+                }
+                else
+                {
+                    MessageBox.Show("Failed! " + e.Message);
+                }
                 success = false;
             }
             finally

@@ -44,5 +44,10 @@ namespace LibrartDataManagementSystem
             }
             _logController.FillTable(logTable, _checkBoxes);
         }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            _logController.FillTable(logTable, _checkBoxes);
+        }
     }
 }
