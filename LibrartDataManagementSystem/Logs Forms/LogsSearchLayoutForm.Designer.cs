@@ -45,32 +45,36 @@ namespace LibrartDataManagementSystem
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(38, 62);
+            this.comboBox1.Location = new System.Drawing.Point(170, 59);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 5;
             // 
             // comboBox2
             // 
+            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(292, 62);
+            this.comboBox2.Location = new System.Drawing.Point(424, 59);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 6;
             // 
             // comboBox3
             // 
+            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(165, 62);
+            this.comboBox3.Location = new System.Drawing.Point(297, 59);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 21);
             this.comboBox3.TabIndex = 7;
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(206, 31);
+            this.label1.Location = new System.Drawing.Point(338, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 13);
             this.label1.TabIndex = 8;
@@ -78,8 +82,9 @@ namespace LibrartDataManagementSystem
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(327, 31);
+            this.label2.Location = new System.Drawing.Point(459, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 9;
@@ -87,8 +92,9 @@ namespace LibrartDataManagementSystem
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(68, 31);
+            this.label3.Location = new System.Drawing.Point(200, 28);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 10;
@@ -96,7 +102,8 @@ namespace LibrartDataManagementSystem
             // 
             // btn_Filter_LogsViews
             // 
-            this.btn_Filter_LogsViews.Location = new System.Drawing.Point(445, 62);
+            this.btn_Filter_LogsViews.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_Filter_LogsViews.Location = new System.Drawing.Point(577, 59);
             this.btn_Filter_LogsViews.Name = "btn_Filter_LogsViews";
             this.btn_Filter_LogsViews.Size = new System.Drawing.Size(75, 23);
             this.btn_Filter_LogsViews.TabIndex = 11;
@@ -105,30 +112,42 @@ namespace LibrartDataManagementSystem
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column_Logs_Description,
             this.Column_Log_Type,
             this.Column_Log_Date});
-            this.dataGridView1.Location = new System.Drawing.Point(100, 153);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 88);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(345, 150);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(776, 350);
             this.dataGridView1.TabIndex = 12;
             // 
             // Column_Logs_Description
             // 
             this.Column_Logs_Description.HeaderText = "Logs Description";
             this.Column_Logs_Description.Name = "Column_Logs_Description";
+            this.Column_Logs_Description.ReadOnly = true;
             // 
             // Column_Log_Type
             // 
+            this.Column_Log_Type.FillWeight = 50F;
             this.Column_Log_Type.HeaderText = "Log Type";
             this.Column_Log_Type.Name = "Column_Log_Type";
+            this.Column_Log_Type.ReadOnly = true;
             // 
             // Column_Log_Date
             // 
+            this.Column_Log_Date.FillWeight = 50F;
             this.Column_Log_Date.HeaderText = "Date";
             this.Column_Log_Date.Name = "Column_Log_Date";
+            this.Column_Log_Date.ReadOnly = true;
             // 
             // LogsSearchLayoutForm
             // 
