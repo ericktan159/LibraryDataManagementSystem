@@ -416,7 +416,10 @@ namespace LibrartDataManagementSystem
 
                 bool isSuccess = insert_DBMethod(insert_SQL_StateMent);
 
-                    string num_Qntty = select_DBMethod_return_a_Cell(Info_TBL_BOOK.Const_Names.table_Name, Info_TBL_BOOK.Const_Names.Primary_Key_ID_Name_CONST, tbl_Infos.get_Book_ID_Foreign_Key(), Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST);
+                    string num_Qntty = select_DBMethod_return_a_Cell(Info_TBL_BOOK.Const_Names.table_Name, 
+                                                                        tbl_Infos.get_Book_ID_Foreign_Key(), 
+                                                                        Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST);
+
                     int value = int.Parse(num_Qntty) - tbl_Infos.Borrowed_Book_Number_of_Copies;
                     if (isSuccess)
                     {
@@ -439,61 +442,7 @@ namespace LibrartDataManagementSystem
 
         //*/
         
-        /*
-        public bool insert_DBMethod_BORROWED_BOOK(Info_TBL_BORROWED_BOOK tbl_borrowed_book_Info)
-            //(int Book_ID, int Borrower_ID, string Borrowed_Book_Date_Borrowed, string Borrowed_Book_Due_Date, string Borrowed_Book_Due_Status, string Borrowed_Book_Date_Returned, int Borrowed_Book_Number_of_Copies)
-        {
-
-            ////////is_Borrower_ID_Exist
-
-            if ((is_table_ID_Exist("tbl_book", tbl_borrowed_book_Info.get_Book_ID_Foreign_Key())) && (is_table_ID_Exist("tbl_borrower", tbl_borrowed_book_Info.get_Borrower_ID_Foreign_Key())))
-            {
-
-                //MessageBox.Show("Pumasok dito tama Book_ID at Borrower_ID");
-
-                string singleQuoteChar = "'";
-
-                string table_Name = "tbl_borrowed_book";
-                string table_Columns = "(Book_ID, Borrower_ID, Borrowed_Book_Date_Borrowed, Borrowed_Book_Due_Date, Borrowed_Book_Due_Status, Borrowed_Book_Date_Returned, Borrowed_Book_Number_of_Copies)";
-                //string table_Columns = "(Book_Tittle, Book_Author, Book_Genre,  Book_Publisher, Book_Number_Of_Quantity)";
-                string table_Column_Values = "(" +
-                    tbl_borrowed_book_Info.get_Book_ID_Foreign_Key() + ", " +
-                    tbl_borrowed_book_Info.get_Borrower_ID_Foreign_Key() + ", " +
-                    singleQuoteChar + tbl_borrowed_book_Info.Borrowed_Book_Date_Borrowed + singleQuoteChar + ", " +
-                    singleQuoteChar + tbl_borrowed_book_Info.Borrowed_Book_Due_Date + singleQuoteChar + ", " +
-                    singleQuoteChar + tbl_borrowed_book_Info.Borrowed_Book_Due_Status + singleQuoteChar + ", " +
-                    singleQuoteChar + tbl_borrowed_book_Info.Borrowed_Book_Date_Returned + singleQuoteChar + ", " +
-                    tbl_borrowed_book_Info.Borrowed_Book_Number_of_Copies +
-                    ")";
-
-                ///////////
-
-                string insert_SQL_StateMent = "Insert into " + table_Name + " " + table_Columns + "  values " + table_Column_Values;
-
-                bool isSuccess = insert_DBMethod(insert_SQL_StateMent);
-
-
-                string num_Qntty = select_DBMethod_return_a_Cell("tbl_book", "Book_ID", tbl_borrowed_book_Info.get_Book_ID_Foreign_Key(), Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST);
-                int value = int.Parse(num_Qntty) - tbl_borrowed_book_Info.Borrowed_Book_Number_of_Copies;
-                if (isSuccess)
-                {
-                    string query = $"UPDATE `tbl_book` SET `Book_Number_Of_Quantity`=\"{value}\" WHERE `Book_ID` = '{tbl_borrowed_book_Info.get_Book_ID_Foreign_Key()}'";
-                    return connectDB_And_ExecuteNonQuery(query);
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                //MessageBox.Show("di Pumasok dito tama Book_ID at Borrower_ID");
-                return false;
-            }
-
-            
-        }
-        //*/
+        
 
 
         /// <summary>
@@ -585,7 +534,10 @@ namespace LibrartDataManagementSystem
 
                 bool isSuccess = connectDB_And_ExecuteNonQuery(update_SQL_StateMent);//update_DBMethod(query);
 
-                string num_Qntty = select_DBMethod_return_a_Cell(Info_TBL_BOOK.Const_Names.table_Name, Info_TBL_BOOK.Const_Names.Primary_Key_ID_Name_CONST, tbl_Infos.get_Book_ID_Foreign_Key(), Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST);
+                string num_Qntty = select_DBMethod_return_a_Cell(Info_TBL_BOOK.Const_Names.table_Name, 
+                                                                    tbl_Infos.get_Book_ID_Foreign_Key(), 
+                                                                    Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST);
+
                 int value = int.Parse(num_Qntty) - tbl_Infos.Borrowed_Book_Number_of_Copies;
                 if (isSuccess)
                 {
@@ -615,12 +567,64 @@ namespace LibrartDataManagementSystem
 
         }
 
+ 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="table_Name"></param>
+        /// <param name="table_ID"></param>
+        /// <param name="column_Name"></param>
+        /// <param name="value_INT_TYPE"></param>
+        /// <returns></returns>
+        public bool update_DBMethod_Update_A_Cell(string table_Name, int table_ID, string column_Name, int value_INT_TYPE)//int quantity)
+        {
+            if (is_table_ID_Exist(table_Name, table_ID))
+            {
+                int currentQuantity = int.Parse(select_DBMethod_return_a_Cell(table_Name, table_ID, column_Name));
+                
+                string query = $"UPDATE `{table_Name}` SET `{column_Name}`='{currentQuantity + value_INT_TYPE}' " +
+                                $"WHERE `Book_ID` = \"{table_ID}\"";
+
+                return connectDB_And_ExecuteNonQuery(query);
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="table_Name"></param>
+        /// <param name="table_ID"></param>
+        /// <param name="column_Name"></param>
+        /// <param name="value_STRING_TYPE"></param>
+        /// <returns></returns>
+        public bool update_DBMethod_Update_A_Cell(string table_Name, int table_ID, string column_Name, string value_STRING_TYPE)//int quantity)
+        {
+            if (is_table_ID_Exist(table_Name, table_ID))
+            {
+                int currentQuantity = int.Parse(select_DBMethod_return_a_Cell(table_Name, table_ID, column_Name));
+
+                string query = $"UPDATE `{table_Name}` SET `{column_Name}`='{currentQuantity + value_STRING_TYPE}' " +
+                                $"WHERE `Book_ID` = \"{table_ID}\"";
+
+                return connectDB_And_ExecuteNonQuery(query);
+            }
+            else
+            {
+                return false;
+            }
+
+        }
 
 
-
-
-
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="select_SQL_StateMent"></param>
+        /// <returns></returns>
         public List<List<string>> select_DBMethod_return_2DList_Table_Records(string select_SQL_StateMent)
         {
             connectDB = new MySqlConnection(ConnectString);
@@ -657,22 +661,25 @@ namespace LibrartDataManagementSystem
             return select_Query_Result_2D_Liist;
         }
 
+        
         /// <summary>
         /// 
         /// </summary>
         /// <param name="table_Name"></param>
-        /// <param name="ID_name"></param>
-        /// <param name="ID"></param>
+        /// <param name="table_ID"></param>
         /// <param name="column_Name"></param>
         /// <returns></returns>
-        public string select_DBMethod_return_a_Cell(string table_Name, string ID_name, int ID, string column_Name)
+        public string select_DBMethod_return_a_Cell(string table_Name, int table_ID, string column_Name)
         {
-            string select_SQL_StateMent = $"SELECT {column_Name} FROM `{table_Name}` WHERE `{ID_name}` = \"{ID}\"";
+            string select_SQL_StateMent = $"SELECT {column_Name} FROM `{table_Name}` WHERE `{LDMS_Constants.get_ID_Name_Of_Table(table_Name)}` = \"{table_ID}\"";
             List<List<string>> temp2DStrList_Row = select_DBMethod_return_2DList_Table_Records(select_SQL_StateMent);
             string select_Query_A_Cell = "";
 
             select_Query_A_Cell = temp2DStrList_Row[0][0];
-            /*
+            
+            return select_Query_A_Cell;
+        }
+        /*
             int outerIndex = 0;
             foreach (List<string> infos in temp2DStrList_Row)
             {
@@ -685,21 +692,27 @@ namespace LibrartDataManagementSystem
                 outerIndex++;
             }
             //*/
-            return select_Query_A_Cell;
-        }
+
+
+
+
+
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="table_Name"></param>
-        /// <param name="ID_name"></param>
-        /// <param name="ID"></param>
+        /// <param name="table_ID"></param>
         /// <returns></returns>
-        public List<string> select_DBMethod_return_A_Row_Of_Records(string table_Name, string ID_name, int ID)
+        public List<string> select_DBMethod_return_A_Row_Of_Records(string table_Name, int table_ID)
         {
-            string select_SQL_StateMent = $"SELECT * FROM `{table_Name}` WHERE `{ID_name}` = \"{ID}\"";
+            string select_SQL_StateMent = $"SELECT * FROM `{table_Name}` WHERE `{LDMS_Constants.get_ID_Name_Of_Table(table_Name)}` = \"{table_ID}\"";
             return select_DBMethod_return_2DList_Table_Records(select_SQL_StateMent)[0];
+     
+        }
 
-            /*
+
+        /*
             List<List<string>> temp2DStrList_Row = select_DBMethod_return_2DList_Table_Records(select_SQL_StateMent);
             List<string> select_Query_1D_StrList_Row = new List<string>();
 
@@ -717,7 +730,9 @@ namespace LibrartDataManagementSystem
 
             return select_Query_1D_StrList_Row;
             */
-        }
+
+
+
 
         /// <summary>
         /// 
@@ -739,8 +754,9 @@ namespace LibrartDataManagementSystem
 
         }
 
+
+
         /// <summary>
-        /// 
         /// 
         /// </summary>
         /// <param name="table_Name"></param>
@@ -766,14 +782,41 @@ namespace LibrartDataManagementSystem
         }
 
 
-        public List<List<string>> select_ALL_Form_tbl_borrower()
+        public List<List<string>> select_DBMethod_BORROWER()
         {
-            string table_Name = "tbl_borrower";
-            
-            string select_SQL_StateMent = "Select * From " + table_Name;
+                       
+            string select_SQL_StateMent = "Select * From " + Info_TBL_BORR0WER.Const_Names.table_Name;
 
             return select_DBMethod_return_2DList_Table_Records(select_SQL_StateMent);
         }
+
+
+
+
+
+
+
+        public List<string> select_DBMethod_Table_Details_Return_Prime_ID_Column(Info_TBL_BOOK tbl_Infos)
+            //(string bookTitle, string bookAuthor, string bookGenre, string bookPublisher, string yearPublished)
+        {
+            string query = $"SELECT * FROM `{tbl_Infos.get_Table_Name()}` WHERE " +
+                
+                $"`{Info_TBL_BOOK.Const_Names.col_1_Book_Tittle_CONST}` = \"{tbl_Infos.Book_Tittle}\" AND " +
+                $"`{Info_TBL_BOOK.Const_Names.col_2_Book_Author_CONST}` = \"{tbl_Infos.Book_Author}\" AND " +
+                $"`{Info_TBL_BOOK.Const_Names.col_3_Book_Genre_CONST}` = \"{tbl_Infos.Book_Genre}\" AND " +
+                $"`{Info_TBL_BOOK.Const_Names.col_4_Book_Year_Published_CONST}` = \"{tbl_Infos.Book_Year_Published}\" AND " +
+                $"`{Info_TBL_BOOK.Const_Names.col_5_Book_Publisher_CONST}` = \"{tbl_Infos.Book_Publisher}\" AND " +
+                $"`{Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST}` = \"{tbl_Infos.Book_Number_Of_Quantity}\"";
+
+            List<List<string>> rslts_2D = select_DBMethod_return_2DList_Table_Records(query);
+            List<string> prime_ID_Columns = new List<string>();
+            foreach (List<string> book in rslts_2D)
+            {
+                prime_ID_Columns.Add(book[0]);
+            }
+            return prime_ID_Columns;
+        }
+
 
         /// <summary>
         /// 

@@ -37,7 +37,7 @@ namespace LibrartDataManagementSystem
         private void demoTestSamembersTable()
         {
             DataGridView tableDataGrid = dtGrdVw_Member_TransactionBorrow;
-            List<List<string>> tbl_borrower_2D_List = _LDMS_DataBaseControlle.select_ALL_Form_tbl_borrower();
+            List<List<string>> tbl_borrower_2D_List = _LDMS_DataBaseControlle.select_DBMethod_BORROWER();
 
             tableDataGrid.Rows.Clear();
             foreach (List<string> tbl_borrower_row in tbl_borrower_2D_List)

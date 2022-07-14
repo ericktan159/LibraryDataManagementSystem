@@ -9,11 +9,15 @@ using System.Globalization;
 
 namespace LibrartDataManagementSystem.Scripts
 {
+    // Kitts tignan mo ginawa ko dito. Mas umiksi at gumanda di ba? maliban lang comments haha. pero resusable at pang general na yung mga methods na ginawa ko sa LDMS_DataBaseController
+    // at Common_Controller
     class BooksController
     {
         LDMS_DataBaseController dbController = new LDMS_DataBaseController();
         TextInfo ti = CultureInfo.CurrentCulture.TextInfo;
         Info_TBL_BOOK tbl_Infos = new Info_TBL_BOOK();
+
+        Common_Controller myCommon_Controller = new Common_Controller();
 
 
         /// <summary>
@@ -23,6 +27,7 @@ namespace LibrartDataManagementSystem.Scripts
         /// <returns>return true if it is complete</returns>
         public bool isInputComplete(TextBox[] inputs)
         {
+            /*
             foreach (TextBox input in inputs)
             {
                 if(input.Text.Trim().Length < 1)
@@ -32,6 +37,10 @@ namespace LibrartDataManagementSystem.Scripts
                 }
             }
             return true;
+            //*/
+
+            return myCommon_Controller.isTextBoxeSComplete(inputs);
+
         }
 
         /// <summary>
@@ -75,10 +84,14 @@ namespace LibrartDataManagementSystem.Scripts
         /// <param name="inputs">the list of inputs to clear</param>
         public void ClearInputs(TextBox[] inputs)
         {
+            /*
             foreach (TextBox input in inputs)
             {
                 input.Text = "";
             }
+            //*/
+
+            myCommon_Controller.ClearTextBoxeS(inputs);
         }
 
         /// <summary>
@@ -149,6 +162,7 @@ namespace LibrartDataManagementSystem.Scripts
         /// <param name="searchFor">what to search for</param>
         public void FillDropdown(ComboBox dropDownObject, string searchFor)
         {
+            /*
             dropDownObject.Items.Clear();
             dropDownObject.Items.Add("All");
             string query = $"SELECT {searchFor} FROM `tbl_book` ORDER BY {searchFor} ASC";
@@ -163,6 +177,10 @@ namespace LibrartDataManagementSystem.Scripts
             {
                 dropDownObject.Items.Add(result);
             }
+            //*/
+
+            myCommon_Controller.fill_ComboBox_Filter(dropDownObject, Info_TBL_BOOK.Const_Names.table_Name, searchFor, "ASC");
+
         }
 
         /// <summary>
@@ -239,6 +257,7 @@ namespace LibrartDataManagementSystem.Scripts
         public List<string> CheckIfBookExist(string bookTitle, string bookAuthor, string bookGenre,
             string bookPublisher, string yearPublished)
         {
+            /*
             string query = $"SELECT * FROM `tbl_book` WHERE `Book_Title` = \"{bookTitle}\" AND " +
                 $"`Book_Author` = \"{bookAuthor}\" AND `Book_Genre` = \"{bookGenre}\" AND " +
                 $"`Book_Publisher` = \"{bookPublisher}\" AND `Book_Year_Published` = \"{yearPublished}\"";
@@ -249,6 +268,21 @@ namespace LibrartDataManagementSystem.Scripts
                 result.Add(book[0]);
             }
             return result;
+            //*/
+
+            int nakalimutan_mo_ata_Book_Number_Of_Quantity = 1;
+
+            tbl_Infos.Book_Tittle = bookTitle;
+            tbl_Infos.Book_Author = bookAuthor;
+            tbl_Infos.Book_Genre = bookGenre;
+            tbl_Infos.Book_Year_Published = yearPublished;
+            tbl_Infos.Book_Publisher = bookPublisher;
+            tbl_Infos.Book_Number_Of_Quantity = 1;
+
+
+
+            return dbController.select_DBMethod_Table_Details_Return_Prime_ID_Column(tbl_Infos);
+
         }
 
         /// <summary>
@@ -258,9 +292,13 @@ namespace LibrartDataManagementSystem.Scripts
         /// <returns></returns>
         public string GetBookTitle(string id)
         {
+            /*
             string query = $"SELECT * FROM `tbl_book` WHERE `Book_ID` = \"{id}\"";
             List<List<string>> book = dbController.select_DBMethod_return_2DList_Table_Records(query);
             return book[0][1];
+            //*/
+
+            return dbController.select_DBMethod_return_a_Cell(Info_TBL_BOOK.Const_Names.table_Name, int.Parse(id), Info_TBL_BOOK.Const_Names.col_1_Book_Tittle_CONST);
         }
 
         /// <summary>
@@ -271,6 +309,7 @@ namespace LibrartDataManagementSystem.Scripts
         /// <returns>return true if success</returns>
         public bool AddBookQuantity(string bookID, int quantity)
         {
+            /*
             int currentQuantity =
                 int.Parse(dbController.select_DBMethod_return_2DList_Table_Records("SELECT " +
                 $"`Book_Number_Of_Quantity` FROM `tbl_book` WHERE `Book_ID` = " +
@@ -279,6 +318,13 @@ namespace LibrartDataManagementSystem.Scripts
                 $"WHERE `Book_ID` = \"{bookID}\"";
             bool success = dbController.insert_DBMethod(query);
             return success;
+            //*/
+
+            return dbController.update_DBMethod_Update_A_Cell(Info_TBL_BOOK.Const_Names.table_Name, 
+                                                                int.Parse(bookID), 
+                                                                Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST, 
+                                                                quantity);
+
         }
 
         /// <summary>
@@ -308,9 +354,14 @@ namespace LibrartDataManagementSystem.Scripts
 
         public List<string> GetBookDetails(string id)
         {
+            /*
             string query = $"SELECT * FROM `tbl_book` WHERE `Book_ID` = {id}";
             List<List<string>> results = dbController.select_DBMethod_return_2DList_Table_Records(query);
             return results[0];
+            //*/
+
+            return dbController.select_DBMethod_return_A_Row_Of_Records(Info_TBL_BOOK.Const_Names.table_Name, int.Parse(id));
+
         }
 
         /// <summary>

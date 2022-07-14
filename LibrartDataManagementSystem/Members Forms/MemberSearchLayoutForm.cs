@@ -39,7 +39,7 @@ namespace LibrartDataManagementSystem
         {
             List<List<string>> selectItems_2DList = new List<List<string>>();
 
-            selectItems_2DList = myLDMS_DataBaseController.select_ALL_Form_tbl_borrower();
+            selectItems_2DList = myLDMS_DataBaseController.select_DBMethod_BORROWER();
 
 
             dtGrdVw_MemberSearch.Rows.Clear();

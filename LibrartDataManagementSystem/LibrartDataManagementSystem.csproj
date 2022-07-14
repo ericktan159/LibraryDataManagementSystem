@@ -90,7 +90,7 @@
     <Compile Include="Borrowers Return Book Forms\BorrowersSearchLayoutForm.Designer.cs">
       <DependentUpon>BorrowersSearchLayoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="General_Controller.cs" />
+    <Compile Include="Common_Controller.cs" />
     <Compile Include="LDMS_DataBaseController.cs" />
     <Compile Include="Scripts\BooksController.cs" />
     <Compile Include="Transaction Borrow Forms\TransactionBorrowLayoutForm.cs">
