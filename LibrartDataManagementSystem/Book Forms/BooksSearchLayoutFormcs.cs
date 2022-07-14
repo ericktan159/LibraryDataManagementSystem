@@ -137,20 +137,35 @@ namespace LibrartDataManagementSystem
             string name = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_Title"].Value.ToString();
             bool successDelete = false;
 
-            string prompt1 = $"Do you wish to delete \"{name}\" entirely? \n" +
-                $"By pressing \"No\" you'll just update some of it's quantity.";
-
-            DialogResult result = MessageBox.Show(prompt1, "Confirm", MessageBoxButtons.YesNoCancel, 
-                MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
+            if (int.Parse(_booksController.GetQuantity(id)) > 1)
             {
-                successDelete = _booksController.DeleteBook(id);
+                string prompt1 = $"It looks like \"{name}\" has more than 1 quantity. \n" +
+                    $"Do you wish to delete the book entirely? (By pressing \"No\" you'll just remove " +
+                    $"some of its quantity.)";
+
+                DialogResult result = MessageBox.Show(prompt1, "Confirm", MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    successDelete = _booksController.DeleteBook(id);
+                }
+                else if (result == DialogResult.No)
+                {
+                    BooksEditPopUp editPopup = new BooksEditPopUp(id, true);
+                    editPopup.ShowDialog();
+                }
             }
-            else if (result == DialogResult.No)
+            else
             {
-                BooksEditPopUp editPopup = new BooksEditPopUp(id, true);
-                editPopup.ShowDialog();
+                string prompt2 = $"Do you wish to delete \"{name}\"?";
+
+                DialogResult result = MessageBox.Show(prompt2, "Confirm", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+                if(result == DialogResult.Yes)
+                {
+                    successDelete = _booksController.DeleteBook(id);
+                }
             }
 
             if(successDelete)
