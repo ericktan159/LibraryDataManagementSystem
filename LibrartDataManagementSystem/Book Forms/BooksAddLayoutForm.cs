@@ -79,7 +79,7 @@ namespace LibrartDataManagementSystem
                     {
                         if (!confirmedAdd)
                         {
-                            string prompt = $"{_bookController.GetBookTitle(book)} " +
+                            string prompt = $"{ti.ToTitleCase(_bookController.GetBookTitle(book))} " +
                                 $"is existing. Same with author and everything.\n\n" +
                                 $"Do you wish to add this book to existing one? By pressing No " +
                                 $"the inputted books will be added as a new book.";

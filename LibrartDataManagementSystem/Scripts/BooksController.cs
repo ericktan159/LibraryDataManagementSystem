@@ -258,7 +258,7 @@ namespace LibrartDataManagementSystem.Scripts
         public List<string> CheckIfBookExist(string bookTitle, string bookAuthor, string bookGenre,
             string bookPublisher, string yearPublished)
         {
-            /*
+            
             string query = $"SELECT * FROM `tbl_book` WHERE `Book_Title` = \"{bookTitle}\" AND " +
                 $"`Book_Author` = \"{bookAuthor}\" AND `Book_Genre` = \"{bookGenre}\" AND " +
                 $"`Book_Publisher` = \"{bookPublisher}\" AND `Book_Year_Published` = \"{yearPublished}\"";
@@ -269,20 +269,19 @@ namespace LibrartDataManagementSystem.Scripts
                 result.Add(book[0]);
             }
             return result;
-            //*/
 
-            int nakalimutan_mo_ata_Book_Number_Of_Quantity = 1;
+            //int nakalimutan_mo_ata_Book_Number_Of_Quantity = 1;
 
-            tbl_Infos.Book_Tittle = bookTitle;
-            tbl_Infos.Book_Author = bookAuthor;
-            tbl_Infos.Book_Genre = bookGenre;
-            tbl_Infos.Book_Year_Published = yearPublished;
-            tbl_Infos.Book_Publisher = bookPublisher;
-            tbl_Infos.Book_Number_Of_Quantity = 1;
-
+            //tbl_Infos.Book_Tittle = bookTitle;
+            //tbl_Infos.Book_Author = bookAuthor;
+            //tbl_Infos.Book_Genre = bookGenre;
+            //tbl_Infos.Book_Year_Published = yearPublished;
+            //tbl_Infos.Book_Publisher = bookPublisher;
+            //tbl_Infos.Book_Number_Of_Quantity = 1;
 
 
-            return dbController.select_DBMethod_Table_Details_Return_Prime_ID_Column(tbl_Infos);
+
+            //return dbController.select_DBMethod_Table_Details_Return_Prime_ID_Column(tbl_Infos);
 
         }
 
