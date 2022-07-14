@@ -276,7 +276,7 @@ namespace LibrartDataManagementSystem.Scripts
                 DataGridViewCell cell = row.Cells["Column_Book_Number_Of_Quantity"];
                 if(int.Parse(cell.Value.ToString()) > 5)
                 {
-                    cell.Style.BackColor = Color.Green;
+                    cell.Style.BackColor = Color.LightGreen;
                 }
                 else if(int.Parse(cell.Value.ToString()) > 0)
                 {
@@ -408,6 +408,11 @@ namespace LibrartDataManagementSystem.Scripts
             return res[0][0];
         }
 
+        /// <summary>
+        /// get the quantityo of the book by it's id
+        /// </summary>
+        /// <param name="id">reference of the id</param>
+        /// <returns>returns string of quantity</returns>
         public string GetQuantity(string id)
         {
             string query = $"SELECT * FROM `tbl_book` WHERE `Book_ID` = {id}";
