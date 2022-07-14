@@ -53,7 +53,7 @@ namespace LibrartDataManagementSystem
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 159);
+            this.label11.Location = new System.Drawing.Point(12, 182);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(49, 13);
             this.label11.TabIndex = 67;
@@ -62,7 +62,7 @@ namespace LibrartDataManagementSystem
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(325, 57);
+            this.label10.Location = new System.Drawing.Point(518, 57);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(58, 13);
             this.label10.TabIndex = 65;
@@ -71,7 +71,7 @@ namespace LibrartDataManagementSystem
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(84, 57);
+            this.label9.Location = new System.Drawing.Point(120, 57);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(57, 13);
             this.label9.TabIndex = 64;
@@ -80,7 +80,7 @@ namespace LibrartDataManagementSystem
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(205, 57);
+            this.label7.Location = new System.Drawing.Point(308, 57);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 13);
             this.label7.TabIndex = 63;
@@ -88,22 +88,22 @@ namespace LibrartDataManagementSystem
             // 
             // txtBx_FirstName_MemberAddLayout
             // 
-            this.txtBx_FirstName_MemberAddLayout.Location = new System.Drawing.Point(53, 34);
+            this.txtBx_FirstName_MemberAddLayout.Location = new System.Drawing.Point(60, 34);
             this.txtBx_FirstName_MemberAddLayout.Name = "txtBx_FirstName_MemberAddLayout";
-            this.txtBx_FirstName_MemberAddLayout.Size = new System.Drawing.Size(130, 20);
+            this.txtBx_FirstName_MemberAddLayout.Size = new System.Drawing.Size(201, 20);
             this.txtBx_FirstName_MemberAddLayout.TabIndex = 62;
             // 
             // txtBx_MiddleName_MemberAddLayout
             // 
-            this.txtBx_MiddleName_MemberAddLayout.Location = new System.Drawing.Point(189, 34);
+            this.txtBx_MiddleName_MemberAddLayout.Location = new System.Drawing.Point(267, 34);
             this.txtBx_MiddleName_MemberAddLayout.Name = "txtBx_MiddleName_MemberAddLayout";
-            this.txtBx_MiddleName_MemberAddLayout.Size = new System.Drawing.Size(101, 20);
+            this.txtBx_MiddleName_MemberAddLayout.Size = new System.Drawing.Size(175, 20);
             this.txtBx_MiddleName_MemberAddLayout.TabIndex = 61;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 191);
+            this.label6.Location = new System.Drawing.Point(12, 214);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 13);
             this.label6.TabIndex = 58;
@@ -111,15 +111,15 @@ namespace LibrartDataManagementSystem
             // 
             // txtBx_TypeValidID_MemberAddLayout
             // 
-            this.txtBx_TypeValidID_MemberAddLayout.Location = new System.Drawing.Point(104, 191);
+            this.txtBx_TypeValidID_MemberAddLayout.Location = new System.Drawing.Point(104, 214);
             this.txtBx_TypeValidID_MemberAddLayout.Name = "txtBx_TypeValidID_MemberAddLayout";
-            this.txtBx_TypeValidID_MemberAddLayout.Size = new System.Drawing.Size(227, 20);
+            this.txtBx_TypeValidID_MemberAddLayout.Size = new System.Drawing.Size(198, 20);
             this.txtBx_TypeValidID_MemberAddLayout.TabIndex = 57;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 126);
+            this.label4.Location = new System.Drawing.Point(12, 149);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 13);
             this.label4.TabIndex = 56;
@@ -127,15 +127,15 @@ namespace LibrartDataManagementSystem
             // 
             // txtBx_ContactNumber_MemberAddLayout
             // 
-            this.txtBx_ContactNumber_MemberAddLayout.Location = new System.Drawing.Point(102, 123);
+            this.txtBx_ContactNumber_MemberAddLayout.Location = new System.Drawing.Point(102, 146);
             this.txtBx_ContactNumber_MemberAddLayout.Name = "txtBx_ContactNumber_MemberAddLayout";
-            this.txtBx_ContactNumber_MemberAddLayout.Size = new System.Drawing.Size(227, 20);
+            this.txtBx_ContactNumber_MemberAddLayout.Size = new System.Drawing.Size(200, 20);
             this.txtBx_ContactNumber_MemberAddLayout.TabIndex = 55;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 89);
+            this.label3.Location = new System.Drawing.Point(12, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 54;
@@ -145,9 +145,9 @@ namespace LibrartDataManagementSystem
             // 
             this.txtBx_Address_MemberAddLayout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBx_Address_MemberAddLayout.Location = new System.Drawing.Point(72, 86);
+            this.txtBx_Address_MemberAddLayout.Location = new System.Drawing.Point(60, 109);
             this.txtBx_Address_MemberAddLayout.Name = "txtBx_Address_MemberAddLayout";
-            this.txtBx_Address_MemberAddLayout.Size = new System.Drawing.Size(520, 20);
+            this.txtBx_Address_MemberAddLayout.Size = new System.Drawing.Size(589, 20);
             this.txtBx_Address_MemberAddLayout.TabIndex = 53;
             // 
             // label2
@@ -170,25 +170,27 @@ namespace LibrartDataManagementSystem
             // 
             // txtBx_LastName_MemberAddLayout
             // 
-            this.txtBx_LastName_MemberAddLayout.Location = new System.Drawing.Point(296, 34);
+            this.txtBx_LastName_MemberAddLayout.Location = new System.Drawing.Point(448, 34);
             this.txtBx_LastName_MemberAddLayout.Name = "txtBx_LastName_MemberAddLayout";
-            this.txtBx_LastName_MemberAddLayout.Size = new System.Drawing.Size(121, 20);
+            this.txtBx_LastName_MemberAddLayout.Size = new System.Drawing.Size(201, 20);
             this.txtBx_LastName_MemberAddLayout.TabIndex = 50;
             // 
             // btn_MemberAdd
             // 
-            this.btn_MemberAdd.Location = new System.Drawing.Point(208, 243);
+            this.btn_MemberAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_MemberAdd.BackColor = System.Drawing.Color.Aqua;
+            this.btn_MemberAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_MemberAdd.Location = new System.Drawing.Point(267, 264);
             this.btn_MemberAdd.Name = "btn_MemberAdd";
             this.btn_MemberAdd.Size = new System.Drawing.Size(143, 23);
             this.btn_MemberAdd.TabIndex = 49;
             this.btn_MemberAdd.Text = "Add Member";
-            this.btn_MemberAdd.UseVisualStyleBackColor = true;
-            this.btn_MemberAdd.Click += new System.EventHandler(this.btn_MemberAdd_Click);
+            this.btn_MemberAdd.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(423, 41);
+            this.label5.Location = new System.Drawing.Point(12, 85);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 69;
@@ -196,15 +198,20 @@ namespace LibrartDataManagementSystem
             // 
             // combBx_Gender_MemberAddLayout
             // 
+            this.combBx_Gender_MemberAddLayout.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Gender_MemberAddLayout.FormattingEnabled = true;
-            this.combBx_Gender_MemberAddLayout.Location = new System.Drawing.Point(471, 34);
+            this.combBx_Gender_MemberAddLayout.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.combBx_Gender_MemberAddLayout.Location = new System.Drawing.Point(60, 77);
             this.combBx_Gender_MemberAddLayout.Name = "combBx_Gender_MemberAddLayout";
-            this.combBx_Gender_MemberAddLayout.Size = new System.Drawing.Size(121, 21);
+            this.combBx_Gender_MemberAddLayout.Size = new System.Drawing.Size(123, 21);
             this.combBx_Gender_MemberAddLayout.TabIndex = 70;
             // 
             // dtp_BirthDate_MemberAddLayout
             // 
-            this.dtp_BirthDate_MemberAddLayout.Location = new System.Drawing.Point(102, 159);
+            this.dtp_BirthDate_MemberAddLayout.CustomFormat = "DD/MM/yyyy";
+            this.dtp_BirthDate_MemberAddLayout.Location = new System.Drawing.Point(102, 182);
             this.dtp_BirthDate_MemberAddLayout.Name = "dtp_BirthDate_MemberAddLayout";
             this.dtp_BirthDate_MemberAddLayout.Size = new System.Drawing.Size(200, 20);
             this.dtp_BirthDate_MemberAddLayout.TabIndex = 71;
@@ -236,7 +243,6 @@ namespace LibrartDataManagementSystem
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MemberAddLayoutForm";
             this.Text = "MemberAddLayoutForm";
-            this.Load += new System.EventHandler(this.MemberAddLayoutForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
