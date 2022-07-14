@@ -26,6 +26,14 @@ namespace LibrartDataManagementSystem.Book_Forms
         {
             string bookTitle = _booksController.GetBookTitle(_id);
             labelTitle.Text = $"ID: {_id}; {bookTitle}";
+
+            int limit = int.Parse(_booksController.GetQuantity(_id));
+            quantityRemove.Maximum = limit;
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

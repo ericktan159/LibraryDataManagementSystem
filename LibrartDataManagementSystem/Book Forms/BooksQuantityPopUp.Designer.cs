@@ -30,11 +30,11 @@ namespace LibrartDataManagementSystem.Book_Forms
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.quantityRemove = new System.Windows.Forms.NumericUpDown();
             this.buttonSubmit = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityRemove)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -47,21 +47,26 @@ namespace LibrartDataManagementSystem.Book_Forms
             this.label1.TabIndex = 0;
             this.label1.Text = "Quantity to remove:";
             // 
-            // numericUpDown1
+            // quantityRemove
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(115, 102);
-            this.numericUpDown1.MaximumSize = new System.Drawing.Size(191, 0);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.quantityRemove.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantityRemove.Location = new System.Drawing.Point(115, 102);
+            this.quantityRemove.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.MinimumSize = new System.Drawing.Size(191, 0);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(191, 26);
-            this.numericUpDown1.TabIndex = 2;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.quantityRemove.MaximumSize = new System.Drawing.Size(191, 0);
+            this.quantityRemove.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.quantityRemove.MinimumSize = new System.Drawing.Size(191, 0);
+            this.quantityRemove.Name = "quantityRemove";
+            this.quantityRemove.Size = new System.Drawing.Size(191, 26);
+            this.quantityRemove.TabIndex = 2;
+            this.quantityRemove.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -90,6 +95,7 @@ namespace LibrartDataManagementSystem.Book_Forms
             this.buttonCancel.TabIndex = 4;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // labelTitle
             // 
@@ -108,7 +114,7 @@ namespace LibrartDataManagementSystem.Book_Forms
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSubmit);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.quantityRemove);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(418, 223);
@@ -118,7 +124,7 @@ namespace LibrartDataManagementSystem.Book_Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Remove Quantity";
             this.Load += new System.EventHandler(this.BooksQuantityPopUp_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityRemove)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,7 +133,7 @@ namespace LibrartDataManagementSystem.Book_Forms
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown quantityRemove;
         private System.Windows.Forms.Button buttonSubmit;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label labelTitle;

@@ -408,6 +408,11 @@ namespace LibrartDataManagementSystem.Scripts
             return res[0][0];
         }
 
+        /// <summary>
+        /// get the quantityo of the book by it's id
+        /// </summary>
+        /// <param name="id">reference of the id</param>
+        /// <returns>returns string of quantity</returns>
         public string GetQuantity(string id)
         {
             string query = $"SELECT * FROM `tbl_book` WHERE `Book_ID` = {id}";
