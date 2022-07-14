@@ -17,7 +17,7 @@ namespace LibrartDataManagementSystem
         List<List<string>> demoListOfListOfString;
         BooksController _booksController = new BooksController();
 
-        Info_TBL_BORROWED_BOOK myInfo_tbl_borrowed_book = new Info_TBL_BORROWED_BOOK();
+        Info_TBL_BORROWED_BOOK myInfo_tbl_borrowed_book; 
 
         private int numberOfAvableBooks = 0;
         private int numberOfCopiesTaken = 0;
@@ -280,8 +280,11 @@ namespace LibrartDataManagementSystem
         private void demmoInsertIssue()
         {
 
-            myInfo_tbl_borrowed_book.Book_ID = int.Parse(txt_Book_ID_BorrowLayout.Text);
-            myInfo_tbl_borrowed_book.Borrower_ID = int.Parse(txtBx_Borrower_ID_BorrowLayout.Text);
+
+
+            //myInfo_tbl_borrowed_book.Book_ID = int.Parse(txt_Book_ID_BorrowLayout.Text);
+            //myInfo_tbl_borrowed_book.Borrower_ID = int.Parse(txtBx_Borrower_ID_BorrowLayout.Text);
+            myInfo_tbl_borrowed_book = new Info_TBL_BORROWED_BOOK(int.Parse(txt_Book_ID_BorrowLayout.Text), int.Parse(txtBx_Borrower_ID_BorrowLayout.Text));
             myInfo_tbl_borrowed_book.Borrowed_Book_Date_Borrowed = dtp_Date_Borrowed_BorrowLayout.Value.ToString();
             myInfo_tbl_borrowed_book.Borrowed_Book_Due_Date = dtp_Due_Date_BorrowLayout.Value.ToString();
             myInfo_tbl_borrowed_book.Borrowed_Book_Due_Status = "Not Overdue";

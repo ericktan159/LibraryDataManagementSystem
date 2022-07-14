@@ -4,13 +4,15 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using MessageBox = System.Windows.MessageBox;
 
 
 
 //// Pull or clone muna kayo lagi sa master branch bago kayo gumawa sa mga branches nyo
-
+/// Boom 
 
 /// <summary>
 /// 
@@ -31,15 +33,15 @@ namespace LibrartDataManagementSystem
         {
             if(table_Name == Info_TBL_BOOK.Const_Names.table_Name)
             {
-                return Info_TBL_BOOK.Const_Names.Primary_Key_ID_CONST;
+                return Info_TBL_BOOK.Const_Names.Primary_Key_ID_Name_CONST;
             }
             else if (table_Name == Info_TBL_BORR0WER.Const_Names.table_Name)
             {
-                return Info_TBL_BORR0WER.Const_Names.Primary_Key_ID_CONST;
+                return Info_TBL_BORR0WER.Const_Names.Primary_Key_ID_Name_CONST;
             }
             else if (table_Name == Info_TBL_BORROWED_BOOK.Const_Names.table_Name)
             {
-                return Info_TBL_BORROWED_BOOK.Const_Names.Primary_Key_ID_CONST;
+                return Info_TBL_BORROWED_BOOK.Const_Names.Primary_Key_ID_Name_CONST;
             }
             else
             {
@@ -65,7 +67,7 @@ namespace LibrartDataManagementSystem
 
         public string get_Table_Primary_Key_ID_Name()
         {
-            return Info_TBL_BOOK.Const_Names.Primary_Key_ID_CONST;
+            return Info_TBL_BOOK.Const_Names.Primary_Key_ID_Name_CONST;
         }
 
         public static class Const_Names
@@ -73,10 +75,10 @@ namespace LibrartDataManagementSystem
             public const string table_Name = "tbl_book";
 
 
-            public const string Primary_Key_ID_CONST = "Book_ID";
+            public const string Primary_Key_ID_Name_CONST = "Book_ID";
 
 
-            public const string col_0_Book_ID_CONST = Primary_Key_ID_CONST;
+            public const string col_0_Book_ID_CONST = Primary_Key_ID_Name_CONST;
             public const string col_1_Book_Tittle_CONST = "Book_Title";
             public const string col_2_Book_Author_CONST = "Book_Author";
             public const string col_3_Book_Genre_CONST = "Book_Genre";
@@ -107,7 +109,7 @@ namespace LibrartDataManagementSystem
 
         public string get_Table_Primary_Key_ID_Name()
         {
-            return Info_TBL_BORR0WER.Const_Names.Primary_Key_ID_CONST;
+            return Info_TBL_BORR0WER.Const_Names.Primary_Key_ID_Name_CONST;
         }
 
 
@@ -117,15 +119,15 @@ namespace LibrartDataManagementSystem
             public const string table_Name = "tbl_borrower";
 
 
-            public const string Primary_Key_ID_CONST = "Borrower_ID";
+            public const string Primary_Key_ID_Name_CONST = "Borrower_ID";
 
-            public const string col_0_Borrower_ID_CONST = Primary_Key_ID_CONST;
+            public const string col_0_Borrower_ID_CONST = Primary_Key_ID_Name_CONST;
             public const string col_1_Borrower_First_Name_CONST = "Borrower_First_Name";
             public const string col_2_Borrower_Middle_Name_CONST = "Borrower_Middle_Name";
             public const string col_3_Borrower_Last_Name_CONST = "Borrower_Last_Name";
             public const string col_4_Borrower_Gender_CONST = "Borrower_Gender";
             public const string col_5_Borrower_Address_CONST = "Borrower_Address";
-            public const string col_6_Borrower_Contact_Number_CONST = "Borrower_Address";
+            public const string col_6_Borrower_Contact_Number_CONST = "Borrower_Contact_Number";
             public const string col_7_Borrower_BirthDate_CONST = "Borrower_BirthDate";
             public const string col_8_Borrower_Type_of_Valid_ID_CONST = "Borrower_Type_of_Valid_ID";
             public const string col_9_Borrower_Date_Encoded_CONST = "Borrower_Date_Encoded";
@@ -137,13 +139,33 @@ namespace LibrartDataManagementSystem
 
     class Info_TBL_BORROWED_BOOK
     {
-        public int Book_ID;
-        public int Borrower_ID;
+        private int Book_ID;
+        private int Borrower_ID;
+
         public string Borrowed_Book_Date_Borrowed;
         public string Borrowed_Book_Due_Date;
         public string Borrowed_Book_Due_Status;
         public string Borrowed_Book_Date_Returned;
         public int Borrowed_Book_Number_of_Copies;
+
+        public Info_TBL_BORROWED_BOOK(int Book_ID, int Borrower_ID)
+        {
+            LDMS_DataBaseController dbController = new LDMS_DataBaseController();
+
+            if ((dbController.is_table_ID_Exist(Info_TBL_BOOK.Const_Names.table_Name, Book_ID)) 
+                && (dbController.is_table_ID_Exist(Info_TBL_BORR0WER.Const_Names.table_Name, Borrower_ID)))
+            {
+                this.Book_ID = Book_ID;
+                this.Borrower_ID = Borrower_ID;
+            }
+            else
+            {
+                MessageBox.Show("invalid Foreign Keys");
+            }
+
+            
+        }
+
 
         public string get_Table_Name()
         {
@@ -152,21 +174,31 @@ namespace LibrartDataManagementSystem
 
         public string get_Table_Primary_Key_ID_Name()
         {
-            return Info_TBL_BORROWED_BOOK.Const_Names.Primary_Key_ID_CONST;
+            return Info_TBL_BORROWED_BOOK.Const_Names.Primary_Key_ID_Name_CONST;
+        }
+
+
+        public int get_Book_ID_Foreign_Key()
+        {
+            return Book_ID;
+        }
+        public int get_Borrower_ID_Foreign_Key()
+        {
+            return Borrower_ID;
         }
 
         public static class Const_Names
         {
             public const string table_Name = "tbl_borrowed_book";
 
-            public const string Primary_Key_ID_CONST = "Borrowed_Book_ID";
-            public const string Foreign_Key_Book_ID_CONST = "Book_ID";
-            public const string Foreign_Key_Borrower_ID_CONST = "Borrower_ID";
+            public const string Primary_Key_ID_Name_CONST = "Borrowed_Book_ID";
+            public const string Foreign_Key_Book_ID_Name_CONST = "Book_ID";
+            public const string Foreign_Key_Borrower_ID_Name_CONST = "Borrower_ID";
 
 
-            public const string col_0_Borrowed_Book_ID_CONST = Primary_Key_ID_CONST;
-            public const string col_1_Book_ID_CONST = Foreign_Key_Book_ID_CONST;
-            public const string col_2_Borrower_ID_CONST = Foreign_Key_Borrower_ID_CONST;
+            public const string col_0_Borrowed_Book_ID_CONST = Primary_Key_ID_Name_CONST;
+            public const string col_1_Book_ID_CONST = Foreign_Key_Book_ID_Name_CONST;
+            public const string col_2_Borrower_ID_CONST = Foreign_Key_Borrower_ID_Name_CONST;
             public const string col_3_Borrowed_Book_Date_Borrowed_CONST = "Borrowed_Book_Date_Borrowed";
             public const string col_4_Borrowed_Book_Due_Date_CONST = "Borrowed_Book_Due_Date";
             public const string col_5_Borrowed_Book_Due_Status_CONST = "Borrowed_Book_Due_Status";
@@ -250,94 +282,11 @@ namespace LibrartDataManagementSystem
         }
         //*/    
 
-  
-
-
-
-        public bool insert_DBMethod_BORROWER(Info_TBL_BORR0WER tbl_Infos)
-            //(string Borrower_First_Name, string Borrower_Middle_Name, string Borrower_Last_Name, string Borrower_Gender, string Borrower_Address, string Borrower_Contact_Number, /*Datetime*/ string Borrower_BirthDate, string Borrower_Type_of_Valid_ID)
-        {
-            
-            string singleQuoteChar = "'";
-
-            //string table_Name = "tbl_borrower";
-            string table_Columns = "(Borrower_First_Name, Borrower_Middle_Name, Borrower_Last_Name, Borrower_Gender, Borrower_Address, Borrower_Contact_Number, Borrower_BirthDate, Borrower_Type_of_Valid_ID)";
-            string table_Column_Values = "(" +
-                singleQuoteChar + tbl_Infos.Borrower_First_Name + singleQuoteChar + ", " +
-                singleQuoteChar + tbl_Infos.Borrower_Middle_Name + singleQuoteChar + ", " +
-                singleQuoteChar + tbl_Infos.Borrower_Last_Name + singleQuoteChar + ", " +
-                singleQuoteChar + tbl_Infos.Borrower_Gender + singleQuoteChar + ", " +
-                singleQuoteChar + tbl_Infos.Borrower_Address + singleQuoteChar + ", " +
-                singleQuoteChar + tbl_Infos.Borrower_Contact_Number + singleQuoteChar + ", " +
-                singleQuoteChar + tbl_Infos.Borrower_BirthDate + singleQuoteChar + ", " +
-                singleQuoteChar + tbl_Infos.Borrower_Type_of_Valid_ID + singleQuoteChar + 
-                ")";
-            
-            ///////////
-
-            string insert_SQL_StateMent = "Insert into "+ tbl_Infos.get_Table_Name() + " " + table_Columns +"  values " + table_Column_Values;
-
-           return insert_DBMethod(insert_SQL_StateMent);
-        }
-           
-        public bool insert_DBMethod_BOOKS(Info_TBL_BOOK tbl_Infos)
-            //(string Book_Tittle, string Book_Author, string Book_Genre, /*DateTime*/ string Book_Year_Published, string Book_Publisher, int Book_Number_Of_Quantity)
-        {
-
-            string insert_SQL_StateMent = $"INSERT INTO `{tbl_Infos.get_Table_Name()}` (" +
-            $"`{Info_TBL_BOOK.Const_Names.col_1_Book_Tittle_CONST}`" + ", " +
-            $"`{Info_TBL_BOOK.Const_Names.col_2_Book_Author_CONST}`" + ", " +
-            $"`{Info_TBL_BOOK.Const_Names.col_3_Book_Genre_CONST}`" + ", " +
-            $"`{Info_TBL_BOOK.Const_Names.col_4_Book_Year_Published_CONST}`" + ", " +
-            $"`{Info_TBL_BOOK.Const_Names.col_5_Book_Publisher_CONST}`" + ", " +
-            $"`{Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST}`" +
-            $") " +
-            $"VALUES (" +
-            $"\"{tbl_Infos.Book_Tittle}\"" + ", " +
-            $"\"{tbl_Infos.Book_Author}\"" + ", " +
-            $"\"{tbl_Infos.Book_Genre}\"" + ", " +
-            $"\"{tbl_Infos.Book_Year_Published}\"" + ", " +
-            $"\"{tbl_Infos.Book_Publisher}\"" + ", " +
-            $"\"{tbl_Infos.Book_Number_Of_Quantity}\"" +
-            $") ";
-            
-
-
-            ////////
-            /*
-            string singleQuoteChar = "'";
-
-            string table_Name = "tbl_book";
-            string table_Columns = "(Book_Tittle, Book_Author, Book_Genre, Book_Year_Published, Book_Publisher, Book_Number_Of_Quantity)";
-            //string table_Columns = "(Book_Tittle, Book_Author, Book_Genre,  Book_Publisher, Book_Number_Of_Quantity)";
-            string table_Column_Values = "(" +
-                singleQuoteChar + tbl_book_Info.Book_Tittle + singleQuoteChar + ", " +
-                singleQuoteChar + tbl_book_Info.Book_Author + singleQuoteChar + ", " +
-                singleQuoteChar + tbl_book_Info.Book_Genre + singleQuoteChar + ", " +
-                singleQuoteChar + tbl_book_Info.Book_Year_Published + singleQuoteChar + ", " +
-                singleQuoteChar + tbl_book_Info.Book_Publisher + singleQuoteChar + ", " +
-                tbl_book_Info.Book_Number_Of_Quantity +
-                ")";
-
-            ///////////
-
-
-
-            //string insert_SQL_StateMent = "Insert into " + table_Name + " " + table_Columns + "  values " + table_Column_Values;
-
-            //*/
-
-
-            return insert_DBMethod(insert_SQL_StateMent);
-
-        }
-
-
 
         public bool is_table_ID_Exist(string table_Name, int table_ID)
         {
             string table_ID_Name = LDMS_Constants.get_ID_Name_Of_Table(table_Name);
-            if(table_ID_Name != "")
+            if (table_ID_Name != "")
             {
                 string query = $"SELECT {table_ID_Name} FROM `{table_Name}` WHERE `{table_ID_Name}` = \"{table_ID}\"";
                 List<List<string>> table_ID_2D_List = select_DBMethod_return_2DList_Table_Records(query);
@@ -358,52 +307,146 @@ namespace LibrartDataManagementSystem
             }
             //*/
         }
-        /*
-        public bool is_table_ID_Exist(int Book_ID)
+
+        public bool insert_DBMethod_BOOKS(Info_TBL_BOOK tbl_Infos) //(string Book_Tittle, string Book_Author, string Book_Genre, /*DateTime*/ string Book_Year_Published, string Book_Publisher, int Book_Number_Of_Quantity)
         {
-            string query = $"SELECT Book_ID FROM `tbl_book` WHERE `Book_ID` = \"{Book_ID}\"";
-            List<List<string>> Book_ID_2D_List = select_DBMethod_return_2DList_Table_Records(query);
-            if((Book_ID_2D_List.Count != 0) && (Book_ID_2D_List[0][0].Equals(Book_ID.ToString())))
-            {
-               // MessageBox.Show("Book_ID tama");
 
-                return true;
-            }
-            else
-            {
-                //MessageBox.Show("Book_ID mali");
+            string insert_SQL_StateMent = $"INSERT INTO `{tbl_Infos.get_Table_Name()}` (" +
+            $"`{Info_TBL_BOOK.Const_Names.col_1_Book_Tittle_CONST}`" + ", " +
+            $"`{Info_TBL_BOOK.Const_Names.col_2_Book_Author_CONST}`" + ", " +
+            $"`{Info_TBL_BOOK.Const_Names.col_3_Book_Genre_CONST}`" + ", " +
+            $"`{Info_TBL_BOOK.Const_Names.col_4_Book_Year_Published_CONST}`" + ", " +
+            $"`{Info_TBL_BOOK.Const_Names.col_5_Book_Publisher_CONST}`" + ", " +
+            $"`{Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST}`" +
+            $") " +
+            $"VALUES (" +
+            $"\"{tbl_Infos.Book_Tittle}\"" + ", " +
+            $"\"{tbl_Infos.Book_Author}\"" + ", " +
+            $"\"{tbl_Infos.Book_Genre}\"" + ", " +
+            $"\"{tbl_Infos.Book_Year_Published}\"" + ", " +
+            $"\"{tbl_Infos.Book_Publisher}\"" + ", " +
+            $"\"{tbl_Infos.Book_Number_Of_Quantity}\"" +
+            $") ";
 
-                return false;
-            }    
+            return insert_DBMethod(insert_SQL_StateMent);
+
         }
 
-        public bool is_table_ID_Exist("tbl_borrower", int Borrower_ID)
+        public bool insert_DBMethod_BORROWER(Info_TBL_BORR0WER tbl_Infos)//(string Borrower_First_Name, string Borrower_Middle_Name, string Borrower_Last_Name, string Borrower_Gender, string Borrower_Address, string Borrower_Contact_Number, /*Datetime*/ string Borrower_BirthDate, string Borrower_Type_of_Valid_ID)
         {
-            string query = $"SELECT Borrower_ID FROM `tbl_borrower` WHERE `Borrower_ID` = \"{Borrower_ID}\"";
-            List<List<string>> Borrower_ID_2D_List = select_DBMethod_return_2DList_Table_Records(query);
-            if ((Borrower_ID_2D_List.Count != 0) && (Borrower_ID_2D_List[0][0].Equals(Borrower_ID.ToString())))
-            {
-                //MessageBox.Show("Borrower_ID tama");
 
-                return true;
-            }
-            else
-            {
-                //MessageBox.Show("Borrower_ID mali");
+            string insert_SQL_StateMent = $"INSERT INTO `{tbl_Infos.get_Table_Name()}` (" +
+            $"`{Info_TBL_BORR0WER.Const_Names.col_1_Borrower_First_Name_CONST}`" + ", " +
+            $"`{Info_TBL_BORR0WER.Const_Names.col_2_Borrower_Middle_Name_CONST}`" + ", " +
+            $"`{Info_TBL_BORR0WER.Const_Names.col_3_Borrower_Last_Name_CONST}`" + ", " +
+            $"`{Info_TBL_BORR0WER.Const_Names.col_4_Borrower_Gender_CONST}`" + ", " +
+            $"`{Info_TBL_BORR0WER.Const_Names.col_5_Borrower_Address_CONST}`" + ", " +
+            $"`{Info_TBL_BORR0WER.Const_Names.col_6_Borrower_Contact_Number_CONST}`" + ", " +
+            $"`{Info_TBL_BORR0WER.Const_Names.col_7_Borrower_BirthDate_CONST}`" + ", " +
+            $"`{Info_TBL_BORR0WER.Const_Names.col_8_Borrower_Type_of_Valid_ID_CONST}`" +
+            $") " +
+            $"VALUES (" +
+            $"\"{tbl_Infos.Borrower_First_Name}\"" + ", " +
+            $"\"{tbl_Infos.Borrower_Middle_Name}\"" + ", " +
+            $"\"{tbl_Infos.Borrower_Last_Name}\"" + ", " +
+            $"\"{tbl_Infos.Borrower_Gender}\"" + ", " +
+            $"\"{tbl_Infos.Borrower_Address}\"" + ", " +
+            $"\"{tbl_Infos.Borrower_Contact_Number}\"" + ", " +
+            $"\"{tbl_Infos.Borrower_BirthDate}\"" + ", " +
+            $"\"{tbl_Infos.Borrower_Type_of_Valid_ID}\"" +
+            $") ";
 
-                return false;
-            }
+            return insert_DBMethod(insert_SQL_StateMent);
+
         }
-        //*/
 
         //*
+        public bool insert_DBMethod_BORROWED_BOOK(Info_TBL_BORROWED_BOOK tbl_Infos) //(int Book_ID, int Borrower_ID, string Borrowed_Book_Date_Borrowed, string Borrowed_Book_Due_Date, string Borrowed_Book_Due_Status, string Borrowed_Book_Date_Returned, int Borrowed_Book_Number_of_Copies)
+        {
+                
+            if ((is_table_ID_Exist(Info_TBL_BOOK.Const_Names.table_Name, tbl_Infos.get_Book_ID_Foreign_Key())) && (is_table_ID_Exist(Info_TBL_BORR0WER.Const_Names.table_Name, tbl_Infos.get_Borrower_ID_Foreign_Key())))
+            {
+                /*
+                string insert_SQL_StateMent = $"INSERT INTO `{tbl_Infos.get_Table_Name()}` (" +
+                    $"`{Info_TBL_BORROWED_BOOK.Const_Names.col_1_Book_ID_CONST}`" + ", " +
+                    $"`{Info_TBL_BORROWED_BOOK.Const_Names.col_2_Borrower_ID_CONST}`" + ", " +
+                    $"`{Info_TBL_BORROWED_BOOK.Const_Names.col_3_Borrowed_Book_Date_Borrowed_CONST}`" + ", " +
+                    $"`{Info_TBL_BORROWED_BOOK.Const_Names.col_4_Borrowed_Book_Due_Date_CONST}`" + ", " +
+                    $"`{Info_TBL_BORROWED_BOOK.Const_Names.col_5_Borrowed_Book_Due_Status_CONST}`" + ", " +
+                    $"`{Info_TBL_BORROWED_BOOK.Const_Names.col_6_Borrowed_Book_Date_Returned_CONST}`" + ", " +
+                    $"`{Info_TBL_BORROWED_BOOK.Const_Names.col_7_Borrowed_Book_Number_of_Copies_CONST}`" +
+                    $") " +
+                    $"VALUES (" +
+                    $"{tbl_Infos.get_Book_ID_Foreign_Key()}" + ", " +
+                    $"{tbl_Infos.get_Borrower_ID_Foreign_Key()}" + ", " +
+                    $"\"{tbl_Infos.Borrowed_Book_Date_Borrowed}\"" + ", " +
+                    $"\"{tbl_Infos.Borrowed_Book_Due_Date}\"" + ", " +
+                    $"\"{tbl_Infos.Borrowed_Book_Due_Status}\"" + ", " +
+                    $"\"{tbl_Infos.Borrowed_Book_Date_Returned}\"" +
+                    $"{tbl_Infos.Borrowed_Book_Number_of_Copies}" +
+                    $") ";
+                //*/
+
+
+                string singleQuoteChar = "'";
+
+                string table_Name = tbl_Infos.get_Table_Name();//"tbl_borrowed_book";
+                //string table_Columns = "(Book_ID, Borrower_ID, Borrowed_Book_Date_Borrowed, Borrowed_Book_Due_Date, Borrowed_Book_Due_Status, Borrowed_Book_Date_Returned, Borrowed_Book_Number_of_Copies)";
+                string table_Columns = $"(" +
+                    $"{Info_TBL_BORROWED_BOOK.Const_Names.col_1_Book_ID_CONST}, " +
+                    $"{Info_TBL_BORROWED_BOOK.Const_Names.col_2_Borrower_ID_CONST}, " +
+                    $"{Info_TBL_BORROWED_BOOK.Const_Names.col_3_Borrowed_Book_Date_Borrowed_CONST}, " +
+                    $"{Info_TBL_BORROWED_BOOK.Const_Names.col_4_Borrowed_Book_Due_Date_CONST}, " +
+                    $"{Info_TBL_BORROWED_BOOK.Const_Names.col_5_Borrowed_Book_Due_Status_CONST}, " +
+                    $"{Info_TBL_BORROWED_BOOK.Const_Names.col_6_Borrowed_Book_Date_Returned_CONST}, " +
+                    $"{Info_TBL_BORROWED_BOOK.Const_Names.col_7_Borrowed_Book_Number_of_Copies_CONST}" +
+                    $")";
+                //string table_Columns = "(Book_Tittle, Book_Author, Book_Genre,  Book_Publisher, Book_Number_Of_Quantity)";
+                string table_Column_Values = "(" +
+                    tbl_Infos.get_Book_ID_Foreign_Key() + ", " +
+                    tbl_Infos.get_Borrower_ID_Foreign_Key() + ", " +
+                    singleQuoteChar + tbl_Infos.Borrowed_Book_Date_Borrowed + singleQuoteChar + ", " +
+                    singleQuoteChar + tbl_Infos.Borrowed_Book_Due_Date + singleQuoteChar + ", " +
+                    singleQuoteChar + tbl_Infos.Borrowed_Book_Due_Status + singleQuoteChar + ", " +
+                    singleQuoteChar + tbl_Infos.Borrowed_Book_Date_Returned + singleQuoteChar + ", " +
+                    tbl_Infos.Borrowed_Book_Number_of_Copies +
+                    ")";
+                string insert_SQL_StateMent = "Insert into " + table_Name + " " + table_Columns + "  values " + table_Column_Values;
+
+
+                bool isSuccess = insert_DBMethod(insert_SQL_StateMent);
+
+                    string num_Qntty = select_DBMethod_return_a_Cell(Info_TBL_BOOK.Const_Names.table_Name, Info_TBL_BOOK.Const_Names.Primary_Key_ID_Name_CONST, tbl_Infos.get_Book_ID_Foreign_Key(), Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST);
+                    int value = int.Parse(num_Qntty) - tbl_Infos.Borrowed_Book_Number_of_Copies;
+                    if (isSuccess)
+                    {
+                        string query = $"UPDATE `{Info_TBL_BOOK.Const_Names.table_Name}` SET "+
+                        $"`{Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST}`=\"{value}\" "+
+                        $"WHERE `{Info_TBL_BOOK.Const_Names.Primary_Key_ID_Name_CONST}` = '{tbl_Infos.get_Book_ID_Foreign_Key()}'";
+                        return connectDB_And_ExecuteNonQuery(query);
+                    }
+                    else
+                    {
+                        return false;
+                    }
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        //*/
+        
+        /*
         public bool insert_DBMethod_BORROWED_BOOK(Info_TBL_BORROWED_BOOK tbl_borrowed_book_Info)
             //(int Book_ID, int Borrower_ID, string Borrowed_Book_Date_Borrowed, string Borrowed_Book_Due_Date, string Borrowed_Book_Due_Status, string Borrowed_Book_Date_Returned, int Borrowed_Book_Number_of_Copies)
         {
 
             ////////is_Borrower_ID_Exist
 
-            if ((is_table_ID_Exist("tbl_book", tbl_borrowed_book_Info.Book_ID)) && (is_table_ID_Exist("tbl_borrower", tbl_borrowed_book_Info.Borrower_ID)))
+            if ((is_table_ID_Exist("tbl_book", tbl_borrowed_book_Info.get_Book_ID_Foreign_Key())) && (is_table_ID_Exist("tbl_borrower", tbl_borrowed_book_Info.get_Borrower_ID_Foreign_Key())))
             {
 
                 //MessageBox.Show("Pumasok dito tama Book_ID at Borrower_ID");
@@ -414,8 +457,8 @@ namespace LibrartDataManagementSystem
                 string table_Columns = "(Book_ID, Borrower_ID, Borrowed_Book_Date_Borrowed, Borrowed_Book_Due_Date, Borrowed_Book_Due_Status, Borrowed_Book_Date_Returned, Borrowed_Book_Number_of_Copies)";
                 //string table_Columns = "(Book_Tittle, Book_Author, Book_Genre,  Book_Publisher, Book_Number_Of_Quantity)";
                 string table_Column_Values = "(" +
-                    tbl_borrowed_book_Info.Book_ID + ", " +
-                    tbl_borrowed_book_Info.Borrower_ID + ", " +
+                    tbl_borrowed_book_Info.get_Book_ID_Foreign_Key() + ", " +
+                    tbl_borrowed_book_Info.get_Borrower_ID_Foreign_Key() + ", " +
                     singleQuoteChar + tbl_borrowed_book_Info.Borrowed_Book_Date_Borrowed + singleQuoteChar + ", " +
                     singleQuoteChar + tbl_borrowed_book_Info.Borrowed_Book_Due_Date + singleQuoteChar + ", " +
                     singleQuoteChar + tbl_borrowed_book_Info.Borrowed_Book_Due_Status + singleQuoteChar + ", " +
@@ -430,11 +473,11 @@ namespace LibrartDataManagementSystem
                 bool isSuccess = insert_DBMethod(insert_SQL_StateMent);
 
 
-                string num_Qntty = select_DBMethod_return_a_Cell("tbl_book", "Book_ID", tbl_borrowed_book_Info.Book_ID, Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST);
+                string num_Qntty = select_DBMethod_return_a_Cell("tbl_book", "Book_ID", tbl_borrowed_book_Info.get_Book_ID_Foreign_Key(), Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST);
                 int value = int.Parse(num_Qntty) - tbl_borrowed_book_Info.Borrowed_Book_Number_of_Copies;
                 if (isSuccess)
                 {
-                    string query = $"UPDATE `tbl_book` SET `Book_Number_Of_Quantity`=\"{value}\" WHERE `Book_ID` = '{tbl_borrowed_book_Info.Book_ID}'";
+                    string query = $"UPDATE `tbl_book` SET `Book_Number_Of_Quantity`=\"{value}\" WHERE `Book_ID` = '{tbl_borrowed_book_Info.get_Book_ID_Foreign_Key()}'";
                     return connectDB_And_ExecuteNonQuery(query);
                 }
                 else
@@ -526,12 +569,12 @@ namespace LibrartDataManagementSystem
         public bool update_DBMethod_BORROWED_BOOK(int table_ID, Info_TBL_BORROWED_BOOK tbl_Infos)
         {
 
-            if (is_table_ID_Exist(tbl_Infos.get_Table_Name(), table_ID))
+            if ((is_table_ID_Exist(Info_TBL_BOOK.Const_Names.table_Name, tbl_Infos.get_Book_ID_Foreign_Key())) && (is_table_ID_Exist(Info_TBL_BORR0WER.Const_Names.table_Name, tbl_Infos.get_Borrower_ID_Foreign_Key())))
             {
                 string update_SQL_StateMent = $"UPDATE `{tbl_Infos.get_Table_Name()}` SET " +
 
-                    $"`{Info_TBL_BORROWED_BOOK.Const_Names.col_1_Book_ID_CONST}`=\"{tbl_Infos.Book_ID}\"" + ", " +
-                    $"`{Info_TBL_BORROWED_BOOK.Const_Names.col_2_Borrower_ID_CONST}`=\"{tbl_Infos.Borrower_ID}\"" + ", " +
+                    $"`{Info_TBL_BORROWED_BOOK.Const_Names.col_1_Book_ID_CONST}`=\"{tbl_Infos.get_Book_ID_Foreign_Key()}\"" + ", " +
+                    $"`{Info_TBL_BORROWED_BOOK.Const_Names.col_2_Borrower_ID_CONST}`=\"{tbl_Infos.get_Borrower_ID_Foreign_Key()}\"" + ", " +
                     $"`{Info_TBL_BORROWED_BOOK.Const_Names.col_3_Borrowed_Book_Date_Borrowed_CONST}`=\"{tbl_Infos.Borrowed_Book_Date_Borrowed}\"" + ", " +
                     $"`{Info_TBL_BORROWED_BOOK.Const_Names.col_4_Borrowed_Book_Due_Date_CONST}`=\"{tbl_Infos.Borrowed_Book_Due_Date}\"" + ", " +
                     $"`{Info_TBL_BORROWED_BOOK.Const_Names.col_5_Borrowed_Book_Due_Status_CONST}`=\"{tbl_Infos.Borrowed_Book_Due_Status}\"" + ", " +
@@ -540,7 +583,29 @@ namespace LibrartDataManagementSystem
 
                     $" WHERE `Book_ID` = '{table_ID}'";
 
-                return connectDB_And_ExecuteNonQuery(update_SQL_StateMent);//update_DBMethod(query);
+                bool isSuccess = connectDB_And_ExecuteNonQuery(update_SQL_StateMent);//update_DBMethod(query);
+
+                string num_Qntty = select_DBMethod_return_a_Cell(Info_TBL_BOOK.Const_Names.table_Name, Info_TBL_BOOK.Const_Names.Primary_Key_ID_Name_CONST, tbl_Infos.get_Book_ID_Foreign_Key(), Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST);
+                int value = int.Parse(num_Qntty) - tbl_Infos.Borrowed_Book_Number_of_Copies;
+                if (isSuccess)
+                {
+                    string query = $"UPDATE `{Info_TBL_BOOK.Const_Names.table_Name}` SET " +
+                    $"`{Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST}`=\"{value}\" " +
+                    $"WHERE `{Info_TBL_BOOK.Const_Names.Primary_Key_ID_Name_CONST}` = '{tbl_Infos.get_Book_ID_Foreign_Key()}'";
+                    return connectDB_And_ExecuteNonQuery(query);
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+            if (is_table_ID_Exist(tbl_Infos.get_Table_Name(), table_ID))
+            {
+                
             }
             else
             {
@@ -549,6 +614,7 @@ namespace LibrartDataManagementSystem
             //return connectDB_And_ExecuteNonQuery(update_SQL_StateMent);
 
         }
+
 
 
 
