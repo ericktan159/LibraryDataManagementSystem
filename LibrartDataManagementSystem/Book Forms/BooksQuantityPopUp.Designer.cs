@@ -83,6 +83,7 @@ namespace LibrartDataManagementSystem.Book_Forms
             this.buttonSubmit.TabIndex = 3;
             this.buttonSubmit.Text = "Submit";
             this.buttonSubmit.UseVisualStyleBackColor = false;
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
             // buttonCancel
             // 

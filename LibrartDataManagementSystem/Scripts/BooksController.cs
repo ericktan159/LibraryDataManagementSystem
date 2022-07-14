@@ -276,7 +276,7 @@ namespace LibrartDataManagementSystem.Scripts
                 DataGridViewCell cell = row.Cells["Column_Book_Number_Of_Quantity"];
                 if(int.Parse(cell.Value.ToString()) > 5)
                 {
-                    cell.Style.BackColor = Color.Green;
+                    cell.Style.BackColor = Color.LightGreen;
                 }
                 else if(int.Parse(cell.Value.ToString()) > 0)
                 {

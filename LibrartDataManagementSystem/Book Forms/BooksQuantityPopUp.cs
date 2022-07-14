@@ -35,5 +35,14 @@ namespace LibrartDataManagementSystem.Book_Forms
         {
             this.Close();
         }
+
+        private void buttonSubmit_Click(object sender, EventArgs e)
+        {
+            if(_booksController.AddBookQuantity(_id, ((int)quantityRemove.Value) * -1))
+            {
+                MessageBox.Show($"Successfully removed {quantityRemove.Value} from the book.", "Success!");
+            }
+            this.Close();
+        }
     }
 }
