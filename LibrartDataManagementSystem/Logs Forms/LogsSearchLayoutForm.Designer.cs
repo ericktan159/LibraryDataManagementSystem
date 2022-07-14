@@ -30,7 +30,7 @@ namespace LibrartDataManagementSystem
         private void InitializeComponent()
         {
             this.btn_Filter_LogsViews = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.logTable = new System.Windows.Forms.DataGridView();
             this.Column_Logs_Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Log_Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Log_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,7 +44,7 @@ namespace LibrartDataManagementSystem
             this.checkReturn = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonClearCheckBox = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logTable)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,25 +59,26 @@ namespace LibrartDataManagementSystem
             this.btn_Filter_LogsViews.TabIndex = 11;
             this.btn_Filter_LogsViews.Text = "Filter";
             this.btn_Filter_LogsViews.UseVisualStyleBackColor = false;
+            this.btn_Filter_LogsViews.Click += new System.EventHandler(this.btn_Filter_LogsViews_Click);
             // 
-            // dataGridView1
+            // logTable
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.logTable.AllowUserToAddRows = false;
+            this.logTable.AllowUserToDeleteRows = false;
+            this.logTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.logTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.logTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.logTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column_Logs_Description,
             this.Column_Log_Type,
             this.Column_Log_Date});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 118);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 320);
-            this.dataGridView1.TabIndex = 12;
+            this.logTable.Location = new System.Drawing.Point(12, 118);
+            this.logTable.Name = "logTable";
+            this.logTable.ReadOnly = true;
+            this.logTable.Size = new System.Drawing.Size(776, 320);
+            this.logTable.TabIndex = 12;
             // 
             // Column_Logs_Description
             // 
@@ -212,6 +213,7 @@ namespace LibrartDataManagementSystem
             this.buttonClearCheckBox.TabIndex = 21;
             this.buttonClearCheckBox.Text = "Clear Selection";
             this.buttonClearCheckBox.UseVisualStyleBackColor = false;
+            this.buttonClearCheckBox.Click += new System.EventHandler(this.buttonClearCheckBox_Click);
             // 
             // LogsSearchLayoutForm
             // 
@@ -219,12 +221,12 @@ namespace LibrartDataManagementSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.logTable);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LogsSearchLayoutForm";
             this.Text = "LogsSearchLayoutForm";
             this.Load += new System.EventHandler(this.LogsSearchLayoutForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logTable)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -233,7 +235,7 @@ namespace LibrartDataManagementSystem
 
         #endregion
         private System.Windows.Forms.Button btn_Filter_LogsViews;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView logTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Logs_Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Log_Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Log_Date;
