@@ -222,7 +222,7 @@ namespace LibrartDataManagementSystem.Scripts
             return dbController.update_DBMethod_BORROWER(Borrower_ID, tbl_Infos);
         }
 
-        public bool DeleteBorrower(int Borrower_ID)
+        public bool deleteMember(int Borrower_ID)
         {
             return dbController.delete_DBMethod_return_Boolean(Info_TBL_BORR0WER.Const_Names.table_Name, Borrower_ID);
         }

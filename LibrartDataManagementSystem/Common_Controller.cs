@@ -10,7 +10,7 @@ using System.Globalization;
 namespace LibrartDataManagementSystem
 {
     
-    class DataGridView_BOOK
+    class DGV_BOOK
     {
         public static class Column_Names
         {
@@ -26,7 +26,7 @@ namespace LibrartDataManagementSystem
         }
     }
 
-    class DataGridView_BORROWER
+    class DGV_BORROWER
     {
         public static class Column_Names
         {
@@ -45,7 +45,7 @@ namespace LibrartDataManagementSystem
     }
 
 
-    class DataGridView_BORROW_RETURNED_BOOK
+    class DGV_BORROW_RETURNED_BOOK
     {
         public static class Column_Names
         {
@@ -84,7 +84,7 @@ namespace LibrartDataManagementSystem
     }
 
 
-    class DataGridView_LOGS
+    class DGV_LOGS
     {
         public static class Column_Names
         {
