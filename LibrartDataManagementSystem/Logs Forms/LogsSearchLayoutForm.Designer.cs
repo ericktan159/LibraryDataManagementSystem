@@ -127,7 +127,7 @@ namespace LibrartDataManagementSystem
             // 
             // Column_Log_Date
             // 
-            this.Column_Log_Date.HeaderText = "Dare";
+            this.Column_Log_Date.HeaderText = "Date";
             this.Column_Log_Date.Name = "Column_Log_Date";
             // 
             // LogsSearchLayoutForm

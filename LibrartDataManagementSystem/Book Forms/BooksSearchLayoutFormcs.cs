@@ -110,7 +110,7 @@ namespace LibrartDataManagementSystem
                 GenerateTable(false);
             }
         }
-
+        
         /// <summary>
         /// pop up a new form that you can edit the selected book.
         /// </summary>

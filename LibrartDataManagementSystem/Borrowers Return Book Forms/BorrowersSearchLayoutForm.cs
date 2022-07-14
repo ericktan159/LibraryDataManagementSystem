@@ -16,5 +16,10 @@ namespace LibrartDataManagementSystem
         {
             InitializeComponent();
         }
+
+        private void BorrowersSearchLayoutForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

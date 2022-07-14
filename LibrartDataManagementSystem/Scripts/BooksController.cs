@@ -258,7 +258,7 @@ namespace LibrartDataManagementSystem.Scripts
         public List<string> CheckIfBookExist(string bookTitle, string bookAuthor, string bookGenre,
             string bookPublisher, string yearPublished)
         {
-            /*
+            //*
             string query = $"SELECT * FROM `tbl_book` WHERE `Book_Title` = \"{bookTitle}\" AND " +
                 $"`Book_Author` = \"{bookAuthor}\" AND `Book_Genre` = \"{bookGenre}\" AND " +
                 $"`Book_Publisher` = \"{bookPublisher}\" AND `Book_Year_Published` = \"{yearPublished}\"";
@@ -271,6 +271,7 @@ namespace LibrartDataManagementSystem.Scripts
             return result;
             //*/
 
+            /*
             int nakalimutan_mo_ata_Book_Number_Of_Quantity = 1;
 
             tbl_Infos.Book_Tittle = bookTitle;
@@ -283,7 +284,7 @@ namespace LibrartDataManagementSystem.Scripts
 
 
             return dbController.select_DBMethod_Table_Details_Return_Prime_ID_Column(tbl_Infos);
-
+            //*/
         }
 
         /// <summary>
