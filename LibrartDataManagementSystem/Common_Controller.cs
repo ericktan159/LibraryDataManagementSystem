@@ -9,6 +9,101 @@ using System.Globalization;
 
 namespace LibrartDataManagementSystem
 {
+    
+    class DataGridView_BOOK
+    {
+        public static class Column_Names
+        {
+            public const string col_0_ID_CONST = "Column_Book_ID";
+            public const string col_1_Tittle_CONST = "Column_Book_Title";
+            public const string col_2_Author_CONST = "Column_Book_Author";
+            public const string col_3_Genre_CONST = "Column_Book_Genre";
+            public const string col_4_Year_Published_CONST = "Column_Book_Year_published";
+            public const string col_5_Publisher_CONST = "Column_Book_Publisher";
+            public const string col_6_Number_Of_Quantity_CONST = "Column_Book_Number_Of_Quantity";
+            //public const string col_7_Date_Encoded_CONST = ;
+            
+        }
+    }
+
+    class DataGridView_BORROWER
+    {
+        public static class Column_Names
+        {
+            public const string col_0_ID_CONST = "Column_Borrower_ID";
+            public const string col_1_First_Name_CONST = "Column_Borrower_First_Name";
+            public const string col_2_Middle_Name_CONST = "Column_Borrower_Middle_Name";
+            public const string col_3_Last_Name_CONST = "Column_Borrower_Last_Name";
+            public const string col_4_Gender_CONST = "Column_Borrower_Gender";
+            public const string col_5_Address_CONST = "Column_Borrower_Address";
+            public const string col_6_Contact_Number_CONST = "Column_Borrower_Conatact_Number";
+            public const string col_7_BirthDate_CONST = "Column_Borrower_BirthDate";
+            public const string col_8_Type_of_Valid_ID_CONST = "Column_Borrower_Type_Valid_ID";
+            //public const string col_9_Date_Encoded_CONST = ;
+
+        }
+    }
+
+
+    class DataGridView_BORROW_RETURNED_BOOK
+    {
+        public static class Column_Names
+        {
+            public const string col_0_ID_CONST = "Column_Borrowed_Book_ID";
+            
+            public const string col_1_Borrower_ID_CONST = "Column_Borrower_ID";
+            public const string col_2_Book_ID_CONST = "Column_Book_ID";
+            
+            public const string col_3_Borrower_Name_CONST = "Column_Borrower_Name";
+            public const string col_4_Due_Date_CONST = "Column_Book_Title";
+
+            public const string col_5_Date_Borrowed_CONST = "Column_Borrowed_Book_Date_Borrowed";
+            public const string col_6_Due_Date_CONST = "Column_Borrowed_Book_Due_Date";
+            public const string col_7_Due_Status_CONST = "Column_Borrowed_Book_Due_Status";
+            public const string col_8_Date_Returned_CONST = "ColumnBorrowed_Book_Date_Returned";
+            public const string col_9_Number_of_Copies_CONST = "Column_Borrowed_Book_Number_of_Copies";
+            //public const string col_8_Borrowed_Book_Date_Encoded_CONST = ;
+
+            /*
+             
+            Column_Borrowed_Book_ID
+
+            Column_Borrower_ID
+            Column_Book_ID
+            
+            Column_Borrower_Name
+            Column_Book_Title
+            
+            Column_Borrowed_Book_Date_Borrowed
+            Column_Borrowed_Book_Due_Date
+            Column_Borrowed_Book_Due_Status
+            ColumnBorrowed_Book_Date_Returned
+            Column_Borrowed_Book_Number_of_Copies
+             //*/
+        }
+    }
+
+
+    class DataGridView_LOGS
+    {
+        public static class Column_Names
+        {
+            public const string col_0_Logs_Description_CONST = "Column_Logs_Description";
+
+            public const string col_1_Log_Type_CONST = "Column_Log_Type";
+            public const string col_2_Log_Date_CONST = "Column_Log_Date";
+
+            //public const string col_8_Borrowed_Book_Date_Encoded_CONST = ;
+
+            /*
+             Column_Logs_Description
+            Column_Log_Type
+            Column_Log_Date
+             //*/
+        }
+    }
+
+
     class Common_Controller // wag nyo muna kalikutin. to be continued to. inaayos ko pa
     {
 

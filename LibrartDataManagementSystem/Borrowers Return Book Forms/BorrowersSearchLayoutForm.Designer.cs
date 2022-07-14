@@ -44,13 +44,16 @@ namespace LibrartDataManagementSystem
             this.dtGrdVw_BorrwerSearch = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.combBx_Borrowed_Book_Due_Status = new System.Windows.Forms.ComboBox();
+            this.Column_Borrowed_Book_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Borrower_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Borrower_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Book_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Borrower_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Book_Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Book_Date_Borrowed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Book_Due_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_Book_Due_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Borrowed_Book_Date_Borrowed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Borrowed_Book_Due_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Borrowed_Book_Due_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBorrowed_Book_Date_Returned = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_Borrowed_Book_Number_of_Copies = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnl_tableView_BorrowerSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_BorrwerSearch)).BeginInit();
             this.SuspendLayout();
@@ -139,7 +142,7 @@ namespace LibrartDataManagementSystem
             this.pnl_tableView_BorrowerSearch.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnl_tableView_BorrowerSearch.Location = new System.Drawing.Point(0, 237);
             this.pnl_tableView_BorrowerSearch.Name = "pnl_tableView_BorrowerSearch";
-            this.pnl_tableView_BorrowerSearch.Size = new System.Drawing.Size(800, 315);
+            this.pnl_tableView_BorrowerSearch.Size = new System.Drawing.Size(1103, 315);
             this.pnl_tableView_BorrowerSearch.TabIndex = 20;
             // 
             // btn_ReturnBook_BorrowerSearch
@@ -168,17 +171,20 @@ namespace LibrartDataManagementSystem
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtGrdVw_BorrwerSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGrdVw_BorrwerSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column_Borrowed_Book_ID,
             this.Column_Borrower_ID,
-            this.Column_Borrower_Name,
             this.Column_Book_ID,
+            this.Column_Borrower_Name,
             this.Column_Book_Title,
-            this.Column_Book_Date_Borrowed,
-            this.Column_Book_Due_Date,
-            this.Column_Book_Due_Status});
+            this.Column_Borrowed_Book_Date_Borrowed,
+            this.Column_Borrowed_Book_Due_Date,
+            this.Column_Borrowed_Book_Due_Status,
+            this.ColumnBorrowed_Book_Date_Returned,
+            this.Column_Borrowed_Book_Number_of_Copies});
             this.dtGrdVw_BorrwerSearch.Location = new System.Drawing.Point(21, 29);
             this.dtGrdVw_BorrwerSearch.Name = "dtGrdVw_BorrwerSearch";
             this.dtGrdVw_BorrwerSearch.ReadOnly = true;
-            this.dtGrdVw_BorrwerSearch.Size = new System.Drawing.Size(744, 235);
+            this.dtGrdVw_BorrwerSearch.Size = new System.Drawing.Size(1047, 235);
             this.dtGrdVw_BorrwerSearch.TabIndex = 3;
             // 
             // label5
@@ -198,17 +204,17 @@ namespace LibrartDataManagementSystem
             this.combBx_Borrowed_Book_Due_Status.Size = new System.Drawing.Size(121, 21);
             this.combBx_Borrowed_Book_Due_Status.TabIndex = 21;
             // 
+            // Column_Borrowed_Book_ID
+            // 
+            this.Column_Borrowed_Book_ID.HeaderText = "Transaction ID";
+            this.Column_Borrowed_Book_ID.Name = "Column_Borrowed_Book_ID";
+            this.Column_Borrowed_Book_ID.ReadOnly = true;
+            // 
             // Column_Borrower_ID
             // 
-            this.Column_Borrower_ID.HeaderText = "Borrower_ID";
+            this.Column_Borrower_ID.HeaderText = "Borrower ID";
             this.Column_Borrower_ID.Name = "Column_Borrower_ID";
             this.Column_Borrower_ID.ReadOnly = true;
-            // 
-            // Column_Borrower_Name
-            // 
-            this.Column_Borrower_Name.HeaderText = "Name";
-            this.Column_Borrower_Name.Name = "Column_Borrower_Name";
-            this.Column_Borrower_Name.ReadOnly = true;
             // 
             // Column_Book_ID
             // 
@@ -216,35 +222,53 @@ namespace LibrartDataManagementSystem
             this.Column_Book_ID.Name = "Column_Book_ID";
             this.Column_Book_ID.ReadOnly = true;
             // 
+            // Column_Borrower_Name
+            // 
+            this.Column_Borrower_Name.HeaderText = "Name";
+            this.Column_Borrower_Name.Name = "Column_Borrower_Name";
+            this.Column_Borrower_Name.ReadOnly = true;
+            // 
             // Column_Book_Title
             // 
             this.Column_Book_Title.HeaderText = "Book Title";
             this.Column_Book_Title.Name = "Column_Book_Title";
             this.Column_Book_Title.ReadOnly = true;
             // 
-            // Column_Book_Date_Borrowed
+            // Column_Borrowed_Book_Date_Borrowed
             // 
-            this.Column_Book_Date_Borrowed.HeaderText = "Date Borrowed";
-            this.Column_Book_Date_Borrowed.Name = "Column_Book_Date_Borrowed";
-            this.Column_Book_Date_Borrowed.ReadOnly = true;
+            this.Column_Borrowed_Book_Date_Borrowed.HeaderText = "Date Borrowed";
+            this.Column_Borrowed_Book_Date_Borrowed.Name = "Column_Borrowed_Book_Date_Borrowed";
+            this.Column_Borrowed_Book_Date_Borrowed.ReadOnly = true;
             // 
-            // Column_Book_Due_Date
+            // Column_Borrowed_Book_Due_Date
             // 
-            this.Column_Book_Due_Date.HeaderText = "Due Date";
-            this.Column_Book_Due_Date.Name = "Column_Book_Due_Date";
-            this.Column_Book_Due_Date.ReadOnly = true;
+            this.Column_Borrowed_Book_Due_Date.HeaderText = "Due Date";
+            this.Column_Borrowed_Book_Due_Date.Name = "Column_Borrowed_Book_Due_Date";
+            this.Column_Borrowed_Book_Due_Date.ReadOnly = true;
             // 
-            // Column_Book_Due_Status
+            // Column_Borrowed_Book_Due_Status
             // 
-            this.Column_Book_Due_Status.HeaderText = "Due Status";
-            this.Column_Book_Due_Status.Name = "Column_Book_Due_Status";
-            this.Column_Book_Due_Status.ReadOnly = true;
+            this.Column_Borrowed_Book_Due_Status.HeaderText = "Due Status";
+            this.Column_Borrowed_Book_Due_Status.Name = "Column_Borrowed_Book_Due_Status";
+            this.Column_Borrowed_Book_Due_Status.ReadOnly = true;
+            // 
+            // ColumnBorrowed_Book_Date_Returned
+            // 
+            this.ColumnBorrowed_Book_Date_Returned.HeaderText = "Date Returned";
+            this.ColumnBorrowed_Book_Date_Returned.Name = "ColumnBorrowed_Book_Date_Returned";
+            this.ColumnBorrowed_Book_Date_Returned.ReadOnly = true;
+            // 
+            // Column_Borrowed_Book_Number_of_Copies
+            // 
+            this.Column_Borrowed_Book_Number_of_Copies.HeaderText = "Number of Copies";
+            this.Column_Borrowed_Book_Number_of_Copies.Name = "Column_Borrowed_Book_Number_of_Copies";
+            this.Column_Borrowed_Book_Number_of_Copies.ReadOnly = true;
             // 
             // BorrowersSearchLayoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 552);
+            this.ClientSize = new System.Drawing.Size(1103, 552);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.combBx_Borrowed_Book_Due_Status);
             this.Controls.Add(this.pnl_tableView_BorrowerSearch);
@@ -260,6 +284,7 @@ namespace LibrartDataManagementSystem
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BorrowersSearchLayoutForm";
             this.Text = "BorrowersSearchLayoutForm";
+            this.Load += new System.EventHandler(this.BorrowersSearchLayoutForm_Load);
             this.pnl_tableView_BorrowerSearch.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_BorrwerSearch)).EndInit();
             this.ResumeLayout(false);
@@ -284,12 +309,15 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.DataGridView dtGrdVw_BorrwerSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox combBx_Borrowed_Book_Due_Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrowed_Book_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrower_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrower_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrower_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Date_Borrowed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Due_Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Due_Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrowed_Book_Date_Borrowed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrowed_Book_Due_Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrowed_Book_Due_Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBorrowed_Book_Date_Returned;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrowed_Book_Number_of_Copies;
     }
 }
