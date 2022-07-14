@@ -18,6 +18,7 @@ namespace LibrartDataManagementSystem
         private TextBox[] _requiredInputs;
         private BooksController _bookController = new BooksController();
         TextInfo ti = CultureInfo.CurrentCulture.TextInfo;
+        private LogController _logController = new LogController();
 
         public BooksAddLayoutForm()
         {
@@ -79,7 +80,7 @@ namespace LibrartDataManagementSystem
                     {
                         if (!confirmedAdd)
                         {
-                            string prompt = $"{_bookController.GetBookTitle(book)} " +
+                            string prompt = $"{ti.ToTitleCase(_bookController.GetBookTitle(book))} " +
                                 $"is existing. Same with author and everything.\n\n" +
                                 $"Do you wish to add this book to existing one? By pressing No " +
                                 $"the inputted books will be added as a new book.";
@@ -95,6 +96,8 @@ namespace LibrartDataManagementSystem
                                     MessageBox.Show($"Successfully added " +
                                         $"{ti.ToTitleCase(txtBx_BookTitle_BookAdd.Text)} " +
                                         $"to an existing book!", "Success");
+
+                                    
                                 }
 
                                 if (checkResetAfterSubmit.Checked)
@@ -125,11 +128,21 @@ namespace LibrartDataManagementSystem
                             txtBx_BookPublisher_BookAdd.Text, txtBx_NumOfQuantity_BookAdd.Text);
                         if (success)
                         {
-                            MessageBox.Show($"{ti.ToTitleCase(txtBx_BookTitle_BookAdd.Text)} is successfully added!", "Success!");
+                            MessageBox.Show($"{ti.ToTitleCase(txtBx_BookTitle_BookAdd.Text)} is successfully added!"
+                                , "Success!");
+
+                            //log the event
+                            string id = _bookController.GetLastBookID();
+                            if (!_logController.LogBook(id, 3))
+                            {
+                                MessageBox.Show($"Log didn't enter. Manually Add it");
+                            }
+
                             if (checkResetAfterSubmit.Checked)
                             {
                                 _bookController.ClearInputs(_requiredInputs);
                             }
+                            
                         }
                     }
                 }

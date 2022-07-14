@@ -17,6 +17,7 @@ namespace LibrartDataManagementSystem.Scripts
         LDMS_DataBaseController dbController = new LDMS_DataBaseController();
         TextInfo ti = CultureInfo.CurrentCulture.TextInfo;
         Info_TBL_BOOK tbl_Infos = new Info_TBL_BOOK();
+        LogController _logController = new LogController();
 
         Common_Controller myCommon_Controller = new Common_Controller();
 
@@ -75,8 +76,9 @@ namespace LibrartDataManagementSystem.Scripts
             tbl_Infos.Book_Publisher = ti.ToTitleCase(publisher);
             tbl_Infos.Book_Number_Of_Quantity = int.Parse(numberOfQuantity);
 
+            bool success = dbController.insert_DBMethod_BOOKS(tbl_Infos);
 
-            return dbController.insert_DBMethod_BOOKS(tbl_Infos); 
+            return success;
         }
 
         /// <summary>
@@ -208,7 +210,7 @@ namespace LibrartDataManagementSystem.Scripts
             {
                 whereQuery = "WHERE ";
                 searchQuery = $"(`Book_Title` REGEXP \".*{search}.*\" OR `Book_Author` REGEXP \".*{search}.*\" " +
-                    $"OR `Book_Genre` REGEXP \".*{search}.*\") ";
+                    $"OR `Book_Genre` REGEXP \".*{search}.*\" OR `Book_ID` = {search}) ";
             }
             if (author != "All")
             {
@@ -269,22 +271,20 @@ namespace LibrartDataManagementSystem.Scripts
                 result.Add(book[0]);
             }
             return result;
-            //*/
 
-            /*
-            int nakalimutan_mo_ata_Book_Number_Of_Quantity = 1;
+            //int nakalimutan_mo_ata_Book_Number_Of_Quantity = 1;
 
-            tbl_Infos.Book_Tittle = bookTitle;
-            tbl_Infos.Book_Author = bookAuthor;
-            tbl_Infos.Book_Genre = bookGenre;
-            tbl_Infos.Book_Year_Published = yearPublished;
-            tbl_Infos.Book_Publisher = bookPublisher;
-            tbl_Infos.Book_Number_Of_Quantity = 1;
+            //tbl_Infos.Book_Tittle = bookTitle;
+            //tbl_Infos.Book_Author = bookAuthor;
+            //tbl_Infos.Book_Genre = bookGenre;
+            //tbl_Infos.Book_Year_Published = yearPublished;
+            //tbl_Infos.Book_Publisher = bookPublisher;
+            //tbl_Infos.Book_Number_Of_Quantity = 1;
 
 
 
-            return dbController.select_DBMethod_Table_Details_Return_Prime_ID_Column(tbl_Infos);
-            //*/
+            //return dbController.select_DBMethod_Table_Details_Return_Prime_ID_Column(tbl_Infos);
+
         }
 
         /// <summary>
@@ -460,6 +460,13 @@ namespace LibrartDataManagementSystem.Scripts
 
             int Book_ID = int.Parse(id);
             return dbController.delete_DBMethod_return_Boolean(Info_TBL_BOOK.Const_Names.table_Name, Book_ID); 
+        }
+
+        public string GetLastBookID()
+        {
+            string query = "SELECT * FROM `tbl_book` ORDER BY `Book_ID` DESC LIMIT 1";
+            List<List<string>> res = dbController.select_DBMethod_return_2DList_Table_Records(query);
+            return res[0][0];
         }
     }
 }

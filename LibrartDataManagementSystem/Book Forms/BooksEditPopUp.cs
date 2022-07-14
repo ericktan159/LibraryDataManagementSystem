@@ -18,6 +18,8 @@ namespace LibrartDataManagementSystem
         private BooksController _booksController = new BooksController();
         private TextBox[] _inputs;
         private BooksSearchLayoutFormcs _searchBookForm = new BooksSearchLayoutFormcs();
+        private LogController _logController = new LogController();
+
         public BooksEditPopUp(string bookID, bool quantityOnly = false)
         {
             _id = bookID;
@@ -107,6 +109,15 @@ namespace LibrartDataManagementSystem
             if(success)
             {
                 MessageBox.Show("Successfully Updated!", "Success!");
+
+                if (!_quantityOnly)
+                {
+                    //log the event
+                    if (!_logController.LogBook(_id, 4))
+                    {
+                        MessageBox.Show($"Log didn't enter. Manually Add it");
+                    }
+                }
             }
             this.Close();
         }

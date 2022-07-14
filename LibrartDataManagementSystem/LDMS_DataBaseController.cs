@@ -26,6 +26,8 @@ namespace LibrartDataManagementSystem
         public const string tbl_book_CONST = "tbl_book";
         public const string tbl_borrower_CONST = "tbl_borrower";
         public const string tbl_borrowed_book_CONST = "tbl_borrowed_book";
+        public const string tbl_logs_type_CONST = "tbl_logs_types";
+        public const string tbl_logs_CONST = "tlb_logs";
 
 
 

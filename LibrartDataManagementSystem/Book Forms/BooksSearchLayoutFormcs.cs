@@ -15,6 +15,7 @@ namespace LibrartDataManagementSystem
     public partial class BooksSearchLayoutFormcs : Form
     {
         private BooksController _booksController = new BooksController();
+        private LogController _logController = new LogController();
 
         public BooksSearchLayoutFormcs()
         {
@@ -155,6 +156,7 @@ namespace LibrartDataManagementSystem
             if(successDelete)
             {
                 MessageBox.Show($"{name} is successfully deleted!", "Success!");
+                _logController.LogBook(id, 5);
             }
             GenerateTable();
         }

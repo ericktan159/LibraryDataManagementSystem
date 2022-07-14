@@ -50,6 +50,7 @@ namespace LibrartDataManagementSystem
             this.btn_DeleteBooks = new System.Windows.Forms.Button();
             this.btn_EditBooks = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_BookSearch)).BeginInit();
             this.grp_Books.SuspendLayout();
             this.SuspendLayout();
@@ -253,12 +254,22 @@ namespace LibrartDataManagementSystem
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(228, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(219, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "This will search by id, title, author, and genre.";
+            // 
             // BooksSearchLayoutFormcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(874, 525);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.btn_EditBooks);
             this.Controls.Add(this.btn_DeleteBooks);
@@ -306,5 +317,6 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Year_published;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Publisher;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Book_Number_Of_Quantity;
+        private System.Windows.Forms.Label label5;
     }
 }
