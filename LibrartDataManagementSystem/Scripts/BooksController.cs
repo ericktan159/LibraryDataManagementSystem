@@ -11,6 +11,7 @@ namespace LibrartDataManagementSystem.Scripts
 {
     // Kitts tignan mo ginawa ko dito. Mas umiksi at gumanda di ba? maliban lang comments haha. pero resusable at pang general na yung mga methods na ginawa ko sa LDMS_DataBaseController
     // at Common_Controller
+
     class BooksController
     {
         LDMS_DataBaseController dbController = new LDMS_DataBaseController();
