@@ -18,6 +18,7 @@ namespace LibrartDataManagementSystem
         private TextBox[] _requiredInputs;
         private BooksController _bookController = new BooksController();
         TextInfo ti = CultureInfo.CurrentCulture.TextInfo;
+        private LogController _logController = new LogController();
 
         public BooksAddLayoutForm()
         {
@@ -125,11 +126,21 @@ namespace LibrartDataManagementSystem
                             txtBx_BookPublisher_BookAdd.Text, txtBx_NumOfQuantity_BookAdd.Text);
                         if (success)
                         {
-                            MessageBox.Show($"{ti.ToTitleCase(txtBx_BookTitle_BookAdd.Text)} is successfully added!", "Success!");
+                            MessageBox.Show($"{ti.ToTitleCase(txtBx_BookTitle_BookAdd.Text)} is successfully added!"
+                                , "Success!");
+
+                            string id = _bookController.GetLastBookID();
+
+                            if(!_logController.LogBook(id, 3))
+                            {
+                                MessageBox.Show($"Log didn't enter. Manually Add it");
+                            }
+
                             if (checkResetAfterSubmit.Checked)
                             {
                                 _bookController.ClearInputs(_requiredInputs);
                             }
+                            
                         }
                     }
                 }

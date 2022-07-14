@@ -270,7 +270,7 @@ namespace LibrartDataManagementSystem.Scripts
             }
             return result;
 
-            int nakalimutan_mo_ata_Book_Number_Of_Quantity = 1;
+            //int nakalimutan_mo_ata_Book_Number_Of_Quantity = 1;
 
             //tbl_Infos.Book_Tittle = bookTitle;
             //tbl_Infos.Book_Author = bookAuthor;
@@ -281,7 +281,7 @@ namespace LibrartDataManagementSystem.Scripts
 
 
 
-            return dbController.select_DBMethod_Table_Details_Return_Prime_ID_Column(tbl_Infos);
+            //return dbController.select_DBMethod_Table_Details_Return_Prime_ID_Column(tbl_Infos);
 
         }
 
@@ -458,6 +458,13 @@ namespace LibrartDataManagementSystem.Scripts
 
             int Book_ID = int.Parse(id);
             return dbController.delete_DBMethod_return_Boolean(Info_TBL_BOOK.Const_Names.table_Name, Book_ID); 
+        }
+
+        public string GetLastBookID()
+        {
+            string query = "SELECT * FROM `tbl_book` ORDER BY `Book_ID` DESC LIMIT 1";
+            List<List<string>> res = dbController.select_DBMethod_return_2DList_Table_Records(query);
+            return res[0][0];
         }
     }
 }
