@@ -117,6 +117,7 @@ namespace LibrartDataManagementSystem.Scripts
 
             // get the database list
             List<List<string>> booksDetails = dbController.select_DBMethod_return_2DList_Table_Records(query);
+            Console.WriteLine(query);
 
             // fill the table
             foreach (List<string> bookDetails in booksDetails)
@@ -438,7 +439,7 @@ namespace LibrartDataManagementSystem.Scripts
             {
                 whereQuery = "WHERE ";
                 searchQuery = $"(`Book_Title` REGEXP \".*{search}.*\" OR `Book_Author` REGEXP \".*{search}.*\" " +
-                    $"OR `Book_Genre` REGEXP \".*{search}.*\" OR `Book_ID` = {search}) ";
+                    $"OR `Book_Genre` REGEXP \".*{search}.*\" OR `Book_ID` = \"{search}\") ";
             }
             if (author != "All")
             {
