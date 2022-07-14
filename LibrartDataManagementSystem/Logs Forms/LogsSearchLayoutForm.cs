@@ -16,5 +16,10 @@ namespace LibrartDataManagementSystem
         {
             InitializeComponent();
         }
+
+        private void LogsSearchLayoutForm_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -46,5 +46,11 @@ namespace LibrartDataManagementSystem.Scripts
             }
             return false;
         }
+
+        //public void FillTable(DataGridView table, string type, string,)
+        //{
+        //    table.Rows.Clear();
+
+        //}
     }
 }
