@@ -44,6 +44,7 @@ namespace LibrartDataManagementSystem
             this.checkReturn = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonClearCheckBox = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logTable)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -215,11 +216,25 @@ namespace LibrartDataManagementSystem
             this.buttonClearCheckBox.UseVisualStyleBackColor = false;
             this.buttonClearCheckBox.Click += new System.EventHandler(this.buttonClearCheckBox_Click);
             // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonRefresh.ForeColor = System.Drawing.Color.White;
+            this.buttonRefresh.Location = new System.Drawing.Point(12, 12);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(56, 23);
+            this.buttonRefresh.TabIndex = 22;
+            this.buttonRefresh.Text = "Refresh";
+            this.buttonRefresh.UseVisualStyleBackColor = false;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
             // LogsSearchLayoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.logTable);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -249,5 +264,6 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.CheckBox checkReturn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonClearCheckBox;
+        private System.Windows.Forms.Button buttonRefresh;
     }
 }
