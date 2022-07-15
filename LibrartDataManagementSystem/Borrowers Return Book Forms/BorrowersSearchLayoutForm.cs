@@ -100,41 +100,44 @@ namespace LibrartDataManagementSystem
         private void btn_ReturnBook_BorrowerSearch_Click(object sender, EventArgs e)
         {
             int rowIndex = dtGrdVw_BorrwerSearch.CurrentCellAddress.Y;
-            string id = dtGrdVw_BorrwerSearch.Rows[rowIndex].Cells["Column_Borrowed_Book_ID"].Value.ToString();
-            int quantity = int.Parse(dtGrdVw_BorrwerSearch.Rows[rowIndex]
-                .Cells["Column_Borrowed_Book_Number_of_Copies"].Value.ToString());
-            string status = dtGrdVw_BorrwerSearch.Rows[rowIndex]
-                .Cells["Column_Borrowed_Book_Due_Status"].Value.ToString();
-            if (status != "Returned")
+            if (rowIndex > -1)
             {
-                if (quantity > 1)
+                string id = dtGrdVw_BorrwerSearch.Rows[rowIndex].Cells["Column_Borrowed_Book_ID"].Value.ToString();
+                int quantity = int.Parse(dtGrdVw_BorrwerSearch.Rows[rowIndex]
+                    .Cells["Column_Borrowed_Book_Number_of_Copies"].Value.ToString());
+                string status = dtGrdVw_BorrwerSearch.Rows[rowIndex]
+                    .Cells["Column_Borrowed_Book_Due_Status"].Value.ToString();
+                if (status != "Returned")
                 {
-                    BorrowersReturnPopup returnPopup = new BorrowersReturnPopup(id);
-                    returnPopup.ShowDialog();
+                    if (quantity > 1)
+                    {
+                        BorrowersReturnPopup returnPopup = new BorrowersReturnPopup(id);
+                        returnPopup.ShowDialog();
+                    }
+                    else
+                    {
+                        string prompt = "Confirm Returning Books?";
+                        DialogResult dialogResult = MessageBox.Show(prompt, "Confirm", MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            _borrowersController.ChangeDueStatus(id, "Returned");
+                            _borrowersController.GenerateReturnDate(id);
+                            _booksController.AddBookQuantity(_borrowersController.GetBookID(id), 1);
+                            if (!_logController.LogReturnBorrow(id, _borrowersController.GetBookID(id),
+                                _borrowersController.GetMemberID(id), "All", 2))
+                            {
+                                MessageBox.Show("Error at making logs please input log manually", "Error");
+                            }
+                        }
+                    }
+                    buttonRefresh.PerformClick();
                 }
                 else
                 {
-                    string prompt = "Confirm Returning Books?";
-                    DialogResult dialogResult = MessageBox.Show(prompt, "Confirm", MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        _borrowersController.ChangeDueStatus(id, "Returned");
-                        _borrowersController.GenerateReturnDate(id);
-                        _booksController.AddBookQuantity(_borrowersController.GetBookID(id), 1);
-                        if (!_logController.LogReturnBorrow(id, _borrowersController.GetBookID(id),
-                            _borrowersController.GetMemberID(id), "All", 2))
-                        {
-                            MessageBox.Show("Error at making logs please input log manually", "Error");
-                        }
-                    }
+                    MessageBox.Show("You can't return a book that's already returned!", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                buttonRefresh.PerformClick();
-            }
-            else
-            {
-                MessageBox.Show("You can't return a book that's already returned!", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

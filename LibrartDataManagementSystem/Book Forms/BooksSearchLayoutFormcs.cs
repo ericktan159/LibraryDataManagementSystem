@@ -120,11 +120,14 @@ namespace LibrartDataManagementSystem
         private void btn_EditBooks_Click(object sender, EventArgs e)
         {
             int rowIndex = dtGrdVw_BookSearch.CurrentCellAddress.Y;
-            string id = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_ID"].Value.ToString();
+            if (rowIndex > -1)
+            {
+                string id = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_ID"].Value.ToString();
 
-            BooksEditPopUp popUp = new BooksEditPopUp(id);
-            popUp.ShowDialog();
-            GenerateTable();
+                BooksEditPopUp popUp = new BooksEditPopUp(id);
+                popUp.ShowDialog();
+                GenerateTable();
+            }
         }
 
         /// <summary>
