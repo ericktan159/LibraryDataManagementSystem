@@ -19,7 +19,7 @@ namespace LibrartDataManagementSystem
 
         private void BorrowersSearchLayoutForm_Load(object sender, EventArgs e)
         {
-
+            combBx_Borrowed_Book_Due_Status.SelectedIndex = 0;
         }
     }
 }
