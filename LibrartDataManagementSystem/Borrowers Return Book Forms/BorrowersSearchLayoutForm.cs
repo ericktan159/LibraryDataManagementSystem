@@ -26,6 +26,7 @@ namespace LibrartDataManagementSystem
 
         private void BorrowersSearchLayoutForm_Load(object sender, EventArgs e)
         {
+            combBx_Borrowed_Book_Due_Status.SelectedIndex = 0;
             buttonRefresh.PerformClick();
         }
 
@@ -77,7 +78,6 @@ namespace LibrartDataManagementSystem
             _borrowersController.UpdateDueStatus();
             _borrowersController.FillDropDown(combBx_Borrower_First_Name_BorrowerSearch,
                 combBx_Borrower_Last_Name_BorrowerSearch, combBx_Book_ID_BorrowerSearch);
-            combBx_Borrowed_Book_Due_Status.SelectedIndex = 0;
             TableFill();
 
             //DateTime time = DateTime.ParseExact("07-17-2022", "MM-dd-yyyy", CultureInfo.InvariantCulture);
