@@ -65,7 +65,7 @@ namespace LibrartDataManagementSystem.Scripts
             if(search != "")
             {
                 whereQuery = "WHERE ";
-                searchQuery = $"((tbl_borrower.Borrower_First_Name REGEXP \".*{search}.*\" OR " +
+                searchQuery = $"(tbl_borrower.Borrower_First_Name REGEXP \".*{search}.*\" OR " +
                     $"tbl_borrower.Borrower_Middle_Name REGEXP \".*{search}.*\" OR " +
                     $"tbl_borrower.Borrower_Last_Name REGEXP \".*{search}.*\" OR tbl_book.Book_Title " +
                     $"REGEXP \".*{search}.*\") ";

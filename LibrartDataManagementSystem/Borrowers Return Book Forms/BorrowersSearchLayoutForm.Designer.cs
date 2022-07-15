@@ -62,6 +62,7 @@ namespace LibrartDataManagementSystem
             this.btn_Borrower_Search.TabIndex = 19;
             this.btn_Borrower_Search.Text = "Search";
             this.btn_Borrower_Search.UseVisualStyleBackColor = true;
+            this.btn_Borrower_Search.Click += new System.EventHandler(this.btn_Borrower_Search_Click);
             // 
             // label4
             // 

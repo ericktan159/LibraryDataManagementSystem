@@ -59,5 +59,10 @@ namespace LibrartDataManagementSystem
                 combBx_Borrower_First_Name_BorrowerSearch.Text, combBx_Borrower_Last_Name_BorrowerSearch.Text,
                 combBx_Book_ID_BorrowerSearch.Text, checkReturned);
         }
+
+        private void btn_Borrower_Search_Click(object sender, EventArgs e)
+        {
+            TableFill();
+        }
     }
 }
