@@ -199,7 +199,11 @@ namespace LibrartDataManagementSystem.Scripts
             {
                 Console.WriteLine(res);
             }
-            return true;
+            if(result.Count > 0)
+            {
+                return true;
+            }
+            return false;
         }
 
         public List<string> GetBorrowerDetails(string id)

@@ -47,6 +47,34 @@ namespace LibrartDataManagementSystem.Scripts
             return false;
         }
 
+        public bool LogMember(string id, int type)
+        {
+            string description = "";
+            string query = "";
+            switch (type)
+            {
+                case 6:
+                    description = $"Registered New Member id: {id}";
+                    break;
+                case 7:
+                    description = $"Updated Member id: {id}";
+                    break;
+                case 8:
+                    description = $"Deleted Member id: {id}";
+                    break;
+                default:
+                    return false;
+            }
+            query = $"INSERT INTO `tbl_logs`(`log_description`, `log_type`) " +
+                $"VALUES ('{description}','{type}')";
+
+            if (_dbController.insert_DBMethod(query))
+            {
+                return true;
+            }
+            return false;
+        }
+
         /// <summary>
         /// fill the table of log form
         /// </summary>
