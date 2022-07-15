@@ -136,47 +136,50 @@ namespace LibrartDataManagementSystem
         private void btn_DeleteBooks_Click(object sender, EventArgs e)
         {
             int rowIndex = dtGrdVw_BookSearch.CurrentCellAddress.Y;
-            string id = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_ID"].Value.ToString();
-            string name = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_Title"].Value.ToString();
-            bool successDelete = false;
-
-            if (int.Parse(_booksController.GetQuantity(id)) > 1)
+            if (rowIndex > -1)
             {
-                string prompt1 = $"It looks like \"{name}\" has more than 1 quantity. \n" +
-                    $"Do you wish to delete the book entirely? (By pressing \"No\" you'll just remove " +
-                    $"some of its quantity.)";
+                string id = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_ID"].Value.ToString();
+                string name = dtGrdVw_BookSearch.Rows[rowIndex].Cells["Column_Book_Title"].Value.ToString();
+                bool successDelete = false;
 
-                DialogResult result = MessageBox.Show(prompt1, "Confirm", MessageBoxButtons.YesNoCancel,
-                    MessageBoxIcon.Warning);
-
-                if (result == DialogResult.Yes)
+                if (int.Parse(_booksController.GetQuantity(id)) > 1)
                 {
-                    successDelete = _booksController.DeleteBook(id);
-                }
-                else if (result == DialogResult.No)
-                {
-                    BooksQuantityPopUp quantityPopUp = new BooksQuantityPopUp(id);
-                    quantityPopUp.ShowDialog();
-                }
-            }
-            else
-            {
-                string prompt2 = $"Do you wish to delete \"{name}\"?";
+                    string prompt1 = $"It looks like \"{name}\" has more than 1 quantity. \n" +
+                        $"Do you wish to delete the book entirely? (By pressing \"No\" you'll just remove " +
+                        $"some of its quantity.)";
 
-                DialogResult result = MessageBox.Show(prompt2, "Confirm", MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-                if(result == DialogResult.Yes)
-                {
-                    successDelete = _booksController.DeleteBook(id);
-                }
-            }
+                    DialogResult result = MessageBox.Show(prompt1, "Confirm", MessageBoxButtons.YesNoCancel,
+                        MessageBoxIcon.Warning);
 
-            if(successDelete)
-            {
-                MessageBox.Show($"{name} is successfully deleted!", "Success!");
-                _logController.LogBook(id, 5);
+                    if (result == DialogResult.Yes)
+                    {
+                        successDelete = _booksController.DeleteBook(id);
+                    }
+                    else if (result == DialogResult.No)
+                    {
+                        BooksQuantityPopUp quantityPopUp = new BooksQuantityPopUp(id);
+                        quantityPopUp.ShowDialog();
+                    }
+                }
+                else
+                {
+                    string prompt2 = $"Do you wish to delete \"{name}\"?";
+
+                    DialogResult result = MessageBox.Show(prompt2, "Confirm", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        successDelete = _booksController.DeleteBook(id);
+                    }
+                }
+
+                if (successDelete)
+                {
+                    MessageBox.Show($"{name} is successfully deleted!", "Success!");
+                    _logController.LogBook(id, 5);
+                }
+                GenerateTable();
             }
-            GenerateTable();
         }
 
         private void dtGrdVw_BookSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
