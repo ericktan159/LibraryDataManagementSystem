@@ -58,8 +58,8 @@ namespace LibrartDataManagementSystem
             // 
             // btn_DeleteMemberSearch
             // 
-            this.btn_DeleteMemberSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_DeleteMemberSearch.Location = new System.Drawing.Point(476, 483);
+            this.btn_DeleteMemberSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_DeleteMemberSearch.Location = new System.Drawing.Point(496, 365);
             this.btn_DeleteMemberSearch.Name = "btn_DeleteMemberSearch";
             this.btn_DeleteMemberSearch.Size = new System.Drawing.Size(75, 23);
             this.btn_DeleteMemberSearch.TabIndex = 5;
@@ -69,8 +69,8 @@ namespace LibrartDataManagementSystem
             // 
             // btn_EditMemberSearch
             // 
-            this.btn_EditMemberSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_EditMemberSearch.Location = new System.Drawing.Point(315, 483);
+            this.btn_EditMemberSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_EditMemberSearch.Location = new System.Drawing.Point(335, 365);
             this.btn_EditMemberSearch.Name = "btn_EditMemberSearch";
             this.btn_EditMemberSearch.Size = new System.Drawing.Size(75, 23);
             this.btn_EditMemberSearch.TabIndex = 4;
@@ -173,10 +173,13 @@ namespace LibrartDataManagementSystem
             // 
             // grpMembers
             // 
+            this.grpMembers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grpMembers.Controls.Add(this.dtGrdVw_MemberSearch);
             this.grpMembers.Location = new System.Drawing.Point(12, 100);
             this.grpMembers.Name = "grpMembers";
-            this.grpMembers.Size = new System.Drawing.Size(903, 255);
+            this.grpMembers.Size = new System.Drawing.Size(903, 259);
             this.grpMembers.TabIndex = 37;
             this.grpMembers.TabStop = false;
             this.grpMembers.Text = "Members List";
@@ -203,7 +206,7 @@ namespace LibrartDataManagementSystem
             this.dtGrdVw_MemberSearch.Location = new System.Drawing.Point(18, 28);
             this.dtGrdVw_MemberSearch.Name = "dtGrdVw_MemberSearch";
             this.dtGrdVw_MemberSearch.ReadOnly = true;
-            this.dtGrdVw_MemberSearch.Size = new System.Drawing.Size(866, 200);
+            this.dtGrdVw_MemberSearch.Size = new System.Drawing.Size(866, 204);
             this.dtGrdVw_MemberSearch.TabIndex = 7;
             this.dtGrdVw_MemberSearch.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdVw_MemberSearch_CellContentDoubleClick);
             // 
@@ -266,7 +269,7 @@ namespace LibrartDataManagementSystem
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(927, 534);
+            this.ClientSize = new System.Drawing.Size(927, 400);
             this.Controls.Add(this.grpMembers);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.label5);

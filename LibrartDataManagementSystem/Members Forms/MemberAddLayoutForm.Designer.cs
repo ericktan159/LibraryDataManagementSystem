@@ -36,7 +36,6 @@ namespace LibrartDataManagementSystem
             this.txtBx_FirstName_MemberAddLayout = new System.Windows.Forms.TextBox();
             this.txtBx_MiddleName_MemberAddLayout = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtBx_TypeValidID_MemberAddLayout = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBx_ContactNumber_MemberAddLayout = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,6 +49,7 @@ namespace LibrartDataManagementSystem
             this.dtp_BirthDate_MemberAddLayout = new System.Windows.Forms.DateTimePicker();
             this.buttonClear = new System.Windows.Forms.Button();
             this.checkClear = new System.Windows.Forms.CheckBox();
+            this.dropdownValidID = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label11
@@ -110,13 +110,6 @@ namespace LibrartDataManagementSystem
             this.label6.Size = new System.Drawing.Size(85, 13);
             this.label6.TabIndex = 58;
             this.label6.Text = "Type Of Valid ID";
-            // 
-            // txtBx_TypeValidID_MemberAddLayout
-            // 
-            this.txtBx_TypeValidID_MemberAddLayout.Location = new System.Drawing.Point(102, 211);
-            this.txtBx_TypeValidID_MemberAddLayout.Name = "txtBx_TypeValidID_MemberAddLayout";
-            this.txtBx_TypeValidID_MemberAddLayout.Size = new System.Drawing.Size(200, 20);
-            this.txtBx_TypeValidID_MemberAddLayout.TabIndex = 57;
             // 
             // label4
             // 
@@ -216,9 +209,11 @@ namespace LibrartDataManagementSystem
             // 
             this.dtp_BirthDate_MemberAddLayout.CustomFormat = "dd-mm-yyyy";
             this.dtp_BirthDate_MemberAddLayout.Location = new System.Drawing.Point(102, 176);
+            this.dtp_BirthDate_MemberAddLayout.MaxDate = new System.DateTime(2022, 7, 15, 14, 22, 9, 0);
             this.dtp_BirthDate_MemberAddLayout.Name = "dtp_BirthDate_MemberAddLayout";
             this.dtp_BirthDate_MemberAddLayout.Size = new System.Drawing.Size(200, 20);
             this.dtp_BirthDate_MemberAddLayout.TabIndex = 71;
+            this.dtp_BirthDate_MemberAddLayout.Value = new System.DateTime(2022, 7, 15, 0, 0, 0, 0);
             // 
             // buttonClear
             // 
@@ -243,11 +238,32 @@ namespace LibrartDataManagementSystem
             this.checkClear.Text = "Clear Inputs in Submit";
             this.checkClear.UseVisualStyleBackColor = true;
             // 
+            // dropdownValidID
+            // 
+            this.dropdownValidID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dropdownValidID.FormattingEnabled = true;
+            this.dropdownValidID.Items.AddRange(new object[] {
+            "School ID with Birth Certificate",
+            "NBI Clearance/ID",
+            "Police Clearance",
+            "National ID",
+            "Driver\'s License",
+            "Postal ID",
+            "TIN ID",
+            "Voter\'s ID",
+            "Senior Citizen ID",
+            "PWD ID"});
+            this.dropdownValidID.Location = new System.Drawing.Point(103, 211);
+            this.dropdownValidID.Name = "dropdownValidID";
+            this.dropdownValidID.Size = new System.Drawing.Size(199, 21);
+            this.dropdownValidID.TabIndex = 74;
+            // 
             // MemberAddLayoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 308);
+            this.Controls.Add(this.dropdownValidID);
             this.Controls.Add(this.checkClear);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.dtp_BirthDate_MemberAddLayout);
@@ -260,7 +276,6 @@ namespace LibrartDataManagementSystem
             this.Controls.Add(this.txtBx_FirstName_MemberAddLayout);
             this.Controls.Add(this.txtBx_MiddleName_MemberAddLayout);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtBx_TypeValidID_MemberAddLayout);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtBx_ContactNumber_MemberAddLayout);
             this.Controls.Add(this.label3);
@@ -287,7 +302,6 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.TextBox txtBx_FirstName_MemberAddLayout;
         private System.Windows.Forms.TextBox txtBx_MiddleName_MemberAddLayout;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtBx_TypeValidID_MemberAddLayout;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtBx_ContactNumber_MemberAddLayout;
         private System.Windows.Forms.Label label3;
@@ -301,5 +315,6 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.DateTimePicker dtp_BirthDate_MemberAddLayout;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.CheckBox checkClear;
+        private System.Windows.Forms.ComboBox dropdownValidID;
     }
 }

@@ -26,16 +26,19 @@ namespace LibrartDataManagementSystem
             InitializeComponent();
 
             combBx_Gender_MemberAddLayout.SelectedIndex = 0;
+            dropdownValidID.SelectedIndex = 0;
         }
 
         private void MemberAddLayoutForm_Load(object sender, EventArgs e)
         {
-            inputs = new TextBox[5] {txtBx_FirstName_MemberAddLayout,
+            dtp_BirthDate_MemberAddLayout.MaxDate = DateTime.Now;
+            dtp_BirthDate_MemberAddLayout.MinDate = DateTime.Now.AddYears(-100);
+            inputs = new TextBox[4] {txtBx_FirstName_MemberAddLayout,
                 txtBx_LastName_MemberAddLayout, txtBx_Address_MemberAddLayout,
-                txtBx_ContactNumber_MemberAddLayout, txtBx_TypeValidID_MemberAddLayout};
-            inputsWMname = new TextBox[6] {txtBx_FirstName_MemberAddLayout, txtBx_MiddleName_MemberAddLayout,
+                txtBx_ContactNumber_MemberAddLayout};
+            inputsWMname = new TextBox[5] {txtBx_FirstName_MemberAddLayout, txtBx_MiddleName_MemberAddLayout,
                 txtBx_LastName_MemberAddLayout, txtBx_Address_MemberAddLayout,
-                txtBx_ContactNumber_MemberAddLayout, txtBx_TypeValidID_MemberAddLayout};
+                txtBx_ContactNumber_MemberAddLayout};
         }
 
         /// <summary>
@@ -70,12 +73,13 @@ namespace LibrartDataManagementSystem
                     myInfo_tbl_borrower.Borrower_Contact_Number = txtBx_ContactNumber_MemberAddLayout.Text;
                     myInfo_tbl_borrower.Borrower_BirthDate = dtp_BirthDate_MemberAddLayout.Value.
                         ToString("MM-dd-yyyy");
-                    myInfo_tbl_borrower.Borrower_Type_of_Valid_ID = txtBx_TypeValidID_MemberAddLayout.Text;
+                    myInfo_tbl_borrower.Borrower_Type_of_Valid_ID = dropdownValidID.Text;
                     _membersController.AddBorrowers(myInfo_tbl_borrower);
 
                     if (checkClear.Checked)
                     {
                         _membersController.ClearInputs(inputsWMname);
+                        dropdownValidID.SelectedIndex = 0;
                     }
 
                     string id = _membersController.GetLastBorrowerID();
@@ -101,6 +105,7 @@ namespace LibrartDataManagementSystem
         private void buttonClear_Click(object sender, EventArgs e)
         {
             _membersController.ClearInputs(inputsWMname);
+            dropdownValidID.SelectedIndex = 0;
         }
     }
 }
