@@ -75,6 +75,34 @@ namespace LibrartDataManagementSystem.Scripts
             return false;
         }
 
+        public bool LogReturnBorrow(string transacID, string bookID, string memberID, string count, 
+            int type)
+        {
+            string description = "";
+            string query = "";
+            switch (type)
+            {
+                case 1:
+                    description = $"Member:{memberID} borrowed {count} Book:{bookID}; " +
+                        $"transaction ID:{transacID}";
+                    break;
+                case 2:
+                    description = $"Member:{memberID} returned {count} Book:{bookID};" +
+                        $"transaction ID:{transacID}";
+                    break;
+                default:
+                    return false;
+            }
+            query = $"INSERT INTO `tbl_logs`(`log_description`, `log_type`) " +
+                $"VALUES ('{description}','{type}')";
+
+            if (_dbController.insert_DBMethod(query))
+            {
+                return true;
+            }
+            return false;
+        }
+
         /// <summary>
         /// fill the table of log form
         /// </summary>
