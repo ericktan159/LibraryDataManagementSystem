@@ -22,10 +22,9 @@ namespace LibrartDataManagementSystem
 
         private void BorrowersSearchLayoutForm_Load(object sender, EventArgs e)
         {
+            _borrowersController.FillDropDown(combBx_Borrower_First_Name_BorrowerSearch,
+                combBx_Borrower_Last_Name_BorrowerSearch, combBx_Book_ID_BorrowerSearch);
             combBx_Borrowed_Book_Due_Status.SelectedIndex = 0;
-            combBx_Book_ID_BorrowerSearch.SelectedIndex = 0;
-            combBx_Borrower_First_Name_BorrowerSearch.SelectedIndex = 0;
-            combBx_Borrower_Last_Name_BorrowerSearch.SelectedIndex = 0;
             TableFill();
         }
 
@@ -57,7 +56,7 @@ namespace LibrartDataManagementSystem
         {
             _borrowersController.FillTable(dtGrdVw_BorrwerSearch, txtBx_BorrowerSearch.Text,
                 combBx_Borrower_First_Name_BorrowerSearch.Text, combBx_Borrower_Last_Name_BorrowerSearch.Text,
-                combBx_Book_ID_BorrowerSearch.Text, checkReturned);
+                combBx_Book_ID_BorrowerSearch.Text, combBx_Borrowed_Book_Due_Status.Text, checkReturned);
         }
 
         private void btn_Borrower_Search_Click(object sender, EventArgs e)

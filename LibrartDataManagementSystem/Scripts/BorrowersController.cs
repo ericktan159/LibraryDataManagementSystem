@@ -21,13 +21,13 @@ namespace LibrartDataManagementSystem.Scripts
         /// <param name="bookID">bookid drodown text</param>
         /// <param name="returned">checkbox of to show returned</param>
         public void FillTable(DataGridView table, string search, string fName, string lName,
-            string bookID, CheckBox returned)
+            string bookID, string status, CheckBox returned)
         {
             table.Rows.Clear();
 
             search = search.Trim();
 
-            string query = FillQuery(search, fName, lName, bookID, returned);
+            string query = FillQuery(search, fName, lName, bookID, status, returned);
 
             List<List<string>> results = _dbController.select_DBMethod_return_2DList_Table_Records(query);
 
@@ -45,8 +45,38 @@ namespace LibrartDataManagementSystem.Scripts
             }
         }
 
+        public void FillDropDown(ComboBox fName, ComboBox lName, ComboBox bookID)
+        {
+            string query = "SELECT tbl_borrower.Borrower_First_Name, tbl_borrower.Borrower_Last_Name," +
+                "tbl_book.Book_ID FROM `tbl_borrowed_book` INNER JOIN `tbl_book` ON " +
+                "tbl_borrowed_book.Book_ID = tbl_book.Book_ID INNER JOIN `tbl_borrower` ON " +
+                "tbl_borrowed_book.Borrower_ID = tbl_borrower.Borrower_ID";
+
+            List<List<string>> results = _dbController.select_DBMethod_return_2DList_Table_Records(query);
+
+            fName.Items.Clear(); lName.Items.Clear(); bookID.Items.Clear();
+            fName.Items.Add("All"); lName.Items.Add("All"); bookID.Items.Add("All");
+            // fill the comboboxes
+            foreach (List<string> result in results)
+            {
+                fName.Items.Add(result[0]);
+                lName.Items.Add(result[1]);
+                bookID.Items.Add(result[2]);
+            }
+            fName.SelectedIndex = 0; lName.SelectedIndex = 0; bookID.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// fill the needed query
+        /// </summary>
+        /// <param name="search">what to search text</param>
+        /// <param name="fName">fname dropdown text</param>
+        /// <param name="lName">lname dropdown text</param>
+        /// <param name="bookID">bookid drodown text</param>
+        /// <param name="returned">checkbox of to show returned</param>
+        /// <returns>return the string query</returns>
         private string FillQuery(string search, string fName, string lName,
-            string bookID, CheckBox returned)
+            string bookID, string status, CheckBox returned)
         {
             // initialize all needed query
             string query = "SELECT tbl_borrowed_book.Borrowed_Book_ID, tbl_borrower.Borrower_First_Name, " +
@@ -60,6 +90,7 @@ namespace LibrartDataManagementSystem.Scripts
             string fNameQuery = "";
             string lNameQuery = "";
             string bookIDQuery = "";
+            string statusQuery = "";
             string returnQuery = "";
 
             if(search != "")
@@ -106,7 +137,19 @@ namespace LibrartDataManagementSystem.Scripts
                     bookIDQuery = $"tbl_borrower.Borrower_Last_Name = \"{bookID}\" ";
                 }
             }
-            if(returned.Checked)
+            if (status != "All")
+            {
+                if (whereQuery != "")
+                {
+                    statusQuery = $"AND tbl_borrowed_book.Borrowed_Book_Due_Status = \"{status}\" ";
+                }
+                else
+                {
+                    whereQuery = "WHERE ";
+                    statusQuery = $"tbl_borrowed_book.Borrowed_Book_Due_Status = \"{status}\" ";
+                }
+            }
+            if (returned.Checked)
             {
                 if(whereQuery != "")
                 {
@@ -118,7 +161,7 @@ namespace LibrartDataManagementSystem.Scripts
                     returnQuery = "NOT tbl_borrowed_book.Borrowed_Book_Due_Status = \"Returned\"";
                 }
             }
-            return query + whereQuery + searchQuery + fNameQuery + lNameQuery + bookIDQuery + returnQuery;
+            return query + whereQuery + searchQuery + fNameQuery + lNameQuery + bookIDQuery + statusQuery + returnQuery;
         }
     }
 }
