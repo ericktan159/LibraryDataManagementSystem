@@ -149,7 +149,7 @@ namespace LibrartDataManagementSystem.Scripts
                     statusQuery = $"tbl_borrowed_book.Borrowed_Book_Due_Status = \"{status}\" ";
                 }
             }
-            if (returned.Checked)
+            if (!returned.Checked)
             {
                 if(whereQuery != "")
                 {

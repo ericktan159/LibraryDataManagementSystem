@@ -50,6 +50,7 @@ namespace LibrartDataManagementSystem
             this.label5 = new System.Windows.Forms.Label();
             this.combBx_Borrowed_Book_Due_Status = new System.Windows.Forms.ComboBox();
             this.checkReturned = new System.Windows.Forms.CheckBox();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_BorrwerSearch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,6 +86,7 @@ namespace LibrartDataManagementSystem
             this.combBx_Book_ID_BorrowerSearch.Name = "combBx_Book_ID_BorrowerSearch";
             this.combBx_Book_ID_BorrowerSearch.Size = new System.Drawing.Size(121, 21);
             this.combBx_Book_ID_BorrowerSearch.TabIndex = 17;
+            this.combBx_Book_ID_BorrowerSearch.SelectedIndexChanged += new System.EventHandler(this.DropDownChange);
             // 
             // label3
             // 
@@ -107,6 +109,7 @@ namespace LibrartDataManagementSystem
             this.combBx_Borrower_First_Name_BorrowerSearch.Name = "combBx_Borrower_First_Name_BorrowerSearch";
             this.combBx_Borrower_First_Name_BorrowerSearch.Size = new System.Drawing.Size(121, 21);
             this.combBx_Borrower_First_Name_BorrowerSearch.TabIndex = 15;
+            this.combBx_Borrower_First_Name_BorrowerSearch.SelectedIndexChanged += new System.EventHandler(this.DropDownChange);
             // 
             // label2
             // 
@@ -139,6 +142,7 @@ namespace LibrartDataManagementSystem
             this.combBx_Borrower_Last_Name_BorrowerSearch.Name = "combBx_Borrower_Last_Name_BorrowerSearch";
             this.combBx_Borrower_Last_Name_BorrowerSearch.Size = new System.Drawing.Size(121, 21);
             this.combBx_Borrower_Last_Name_BorrowerSearch.TabIndex = 12;
+            this.combBx_Borrower_Last_Name_BorrowerSearch.SelectedIndexChanged += new System.EventHandler(this.DropDownChange);
             // 
             // txtBx_BorrowerSearch
             // 
@@ -264,11 +268,22 @@ namespace LibrartDataManagementSystem
             this.checkReturned.UseVisualStyleBackColor = true;
             this.checkReturned.CheckedChanged += new System.EventHandler(this.checkReturned_CheckedChanged);
             // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.Location = new System.Drawing.Point(12, 12);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
+            this.buttonRefresh.TabIndex = 24;
+            this.buttonRefresh.Text = "Refresh";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
             // BorrowersSearchLayoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(818, 428);
+            this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.checkReturned);
             this.Controls.Add(this.dtGrdVw_BorrwerSearch);
             this.Controls.Add(this.btn_ReturnBook_BorrowerSearch);
@@ -317,5 +332,6 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrowed_Book_Due_Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrowed_Book_Number_of_Copies;
         private System.Windows.Forms.CheckBox checkReturned;
+        private System.Windows.Forms.Button buttonRefresh;
     }
 }

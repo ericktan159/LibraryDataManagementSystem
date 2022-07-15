@@ -37,6 +37,7 @@ namespace LibrartDataManagementSystem
             {
                 checkReturned.Checked = true;
             }
+            TableFill();
         }
 
         /// <summary>
@@ -61,6 +62,19 @@ namespace LibrartDataManagementSystem
 
         private void btn_Borrower_Search_Click(object sender, EventArgs e)
         {
+            TableFill();
+        }
+
+        private void DropDownChange(object sender, EventArgs e)
+        {
+            TableFill();
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            _borrowersController.FillDropDown(combBx_Borrower_First_Name_BorrowerSearch,
+                combBx_Borrower_Last_Name_BorrowerSearch, combBx_Book_ID_BorrowerSearch);
+            combBx_Borrowed_Book_Due_Status.SelectedIndex = 0;
             TableFill();
         }
     }
