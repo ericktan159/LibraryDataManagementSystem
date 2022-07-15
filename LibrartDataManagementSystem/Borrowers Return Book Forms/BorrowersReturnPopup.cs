@@ -15,6 +15,7 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
     {
         private BorrowersController _borrowersController = new BorrowersController();
         private BooksController _booksController = new BooksController();
+        private LogController _logController = new LogController();
         private string _id;
         public BorrowersReturnPopup(string id)
         {
@@ -44,6 +45,11 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
                 _booksController.AddBookQuantity(_borrowersController.GetBookID(_id),
                     _borrowersController.GetQuantity(_id));
                 MessageBox.Show("Successfully returned", "Success");
+                if(!_logController.LogReturnBorrow(_id, _borrowersController.GetBookID(_id), 
+                    _borrowersController.GetMemberID(_id), "All", 2))
+                {
+                    MessageBox.Show("Error at making logs please input log manually", "Error");
+                }
                 this.Close();
             }
         }
@@ -58,6 +64,11 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
                 _booksController.AddBookQuantity(_borrowersController.GetBookID(_id),
                     _borrowersController.GetQuantity(_id));
                 MessageBox.Show("Successfully returned", "Success");
+                if (!_logController.LogReturnBorrow(_id, _borrowersController.GetBookID(_id),
+                    _borrowersController.GetMemberID(_id), "All", 2))
+                {
+                    MessageBox.Show("Error at making logs please input log manually", "Error");
+                }
                 this.Close();
             }
             else
@@ -65,6 +76,11 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
                 _booksController.AddBookQuantity(_borrowersController.GetBookID(_id), count);
                 _borrowersController.SubtractQuantity(_id, count);
                 MessageBox.Show($"Successfully returned {count} copies", "Success");
+                if (!_logController.LogReturnBorrow(_id, _borrowersController.GetBookID(_id),
+                    _borrowersController.GetMemberID(_id), count.ToString(), 2))
+                {
+                    MessageBox.Show("Error at making logs please input log manually", "Error");
+                }
                 this.Close();
             }
         }

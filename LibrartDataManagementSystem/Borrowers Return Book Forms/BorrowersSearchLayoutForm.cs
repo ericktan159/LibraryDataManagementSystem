@@ -16,6 +16,7 @@ namespace LibrartDataManagementSystem
     public partial class BorrowersSearchLayoutForm : Form
     {
         BorrowersController _borrowersController = new BorrowersController();
+        private LogController _logController = new LogController();
         BooksController _booksController = new BooksController();
 
         public BorrowersSearchLayoutForm()
@@ -121,6 +122,11 @@ namespace LibrartDataManagementSystem
                         _borrowersController.ChangeDueStatus(id, "Returned");
                         _borrowersController.GenerateReturnDate(id);
                         _booksController.AddBookQuantity(_borrowersController.GetBookID(id), 1);
+                        if (!_logController.LogReturnBorrow(id, _borrowersController.GetBookID(id),
+                            _borrowersController.GetMemberID(id), "All", 2))
+                        {
+                            MessageBox.Show("Error at making logs please input log manually", "Error");
+                        }
                     }
                 }
                 buttonRefresh.PerformClick();

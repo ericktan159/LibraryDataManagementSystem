@@ -73,6 +73,15 @@ namespace LibrartDataManagementSystem.Scripts
             return results[0][0];
         }
 
+        public string GetMemberID(string transacID)
+        {
+            string query = $"SELECT `Borrower_ID` FROM `tbl_borrowed_book` WHERE " +
+                $"`Borrowed_Book_ID` = \"{transacID}\"";
+            List<List<string>> results = _dbController.select_DBMethod_return_2DList_Table_Records(query);
+
+            return results[0][0];
+        }
+
         public bool GenerateReturnDate(string transacID)
         {
             string query = "UPDATE `tbl_borrowed_book` SET " +

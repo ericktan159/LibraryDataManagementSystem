@@ -30,7 +30,7 @@ namespace LibrartDataManagementSystem
 
             //testDemolangMember();
             //testDemolangBooks();
-            demoTestSamembersTable();
+            //demoTestSamembersTable();
         }
         // inayos layout
 
