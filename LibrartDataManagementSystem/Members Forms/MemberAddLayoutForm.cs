@@ -31,6 +31,7 @@ namespace LibrartDataManagementSystem
         private void MemberAddLayoutForm_Load(object sender, EventArgs e)
         {
             dtp_BirthDate_MemberAddLayout.MaxDate = DateTime.Now;
+            dtp_BirthDate_MemberAddLayout.MinDate = DateTime.Now.AddYears(-100);
             inputs = new TextBox[5] {txtBx_FirstName_MemberAddLayout,
                 txtBx_LastName_MemberAddLayout, txtBx_Address_MemberAddLayout,
                 txtBx_ContactNumber_MemberAddLayout, txtBx_TypeValidID_MemberAddLayout};
