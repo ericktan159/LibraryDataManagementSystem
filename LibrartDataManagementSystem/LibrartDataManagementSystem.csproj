@@ -97,7 +97,20 @@
       <DependentUpon>BorrowersSearchLayoutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Common_Controller.cs" />
+    <Compile Include="ErrorHandlingController.cs" />
     <Compile Include="LDMS_DataBaseController.cs" />
+    <Compile Include="Members Forms\MembersDetailPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Members Forms\MembersDetailPopUp.Designer.cs">
+      <DependentUpon>MembersDetailPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Members Forms\MembersEditPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Members Forms\MembersEditPopUp.Designer.cs">
+      <DependentUpon>MembersEditPopUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Scripts\BooksController.cs" />
     <Compile Include="Scripts\LogController.cs" />
     <Compile Include="Scripts\MembersController.cs" />
@@ -169,6 +182,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Borrowers Return Book Forms\BorrowersSearchLayoutForm.resx">
       <DependentUpon>BorrowersSearchLayoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Members Forms\MembersDetailPopUp.resx">
+      <DependentUpon>MembersDetailPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Members Forms\MembersEditPopUp.resx">
+      <DependentUpon>MembersEditPopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction Borrow Forms\TransactionBorrowLayoutForm.resx">
       <DependentUpon>TransactionBorrowLayoutForm.cs</DependentUpon>
