@@ -219,7 +219,7 @@ namespace LibrartDataManagementSystem.Members_Forms
             // 
             // dtp_BirthDate__MembersEdit
             // 
-            this.dtp_BirthDate__MembersEdit.CustomFormat = "dd-mm-yyyy";
+            this.dtp_BirthDate__MembersEdit.CustomFormat = "MM-dd-yyyy";
             this.dtp_BirthDate__MembersEdit.Location = new System.Drawing.Point(111, 196);
             this.dtp_BirthDate__MembersEdit.Name = "dtp_BirthDate__MembersEdit";
             this.dtp_BirthDate__MembersEdit.Size = new System.Drawing.Size(200, 20);
