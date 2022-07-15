@@ -25,12 +25,12 @@ namespace LibrartDataManagementSystem
         public TransactionBorrowLayoutForm()
         {
             InitializeComponent();
-            
-            
+
+
 
             //testDemolangMember();
             //testDemolangBooks();
-            //demoTestSamembersTable();
+            demoTestSamembersTable();
         }
         // inayos layout
 

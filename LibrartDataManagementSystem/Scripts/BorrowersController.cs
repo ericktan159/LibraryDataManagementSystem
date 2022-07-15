@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,40 @@ namespace LibrartDataManagementSystem.Scripts
     class BorrowersController
     {
         LDMS_DataBaseController _dbController = new LDMS_DataBaseController();
+
+
+        /// <summary>
+        /// update the due status
+        /// </summary>
+        public void UpdateDueStatus()
+        {
+            string query = "SELECT `Borrowed_Book_ID`, `Borrowed_Book_Due_Date` FROM `tbl_borrowed_book` " +
+                "WHERE `Borrowed_Book_Due_Status` != \"Returned\"";
+            List<List<string>> results = _dbController.select_DBMethod_return_2DList_Table_Records(query);
+
+            foreach (List<string> result in results)
+            {
+                TimeSpan timeSpanFromDue = DateTime.ParseExact(result[1], "MM-dd-yyyy", CultureInfo.InvariantCulture)
+                    .AddDays(1)
+                    .Subtract(DateTime.Now);
+                if(!(timeSpanFromDue > TimeSpan.Zero)) // check if it's already past due date
+                {
+                    ChangeDueStatus(result[0], "Overdue");
+                }
+            }
+        }
+
+        /// <summary>
+        /// change the due status
+        /// </summary>
+        /// <param name="id">reference of id</param>
+        /// <param name="due">what to change</param>
+        public void ChangeDueStatus(string id, string due)
+        {
+            string query = "UPDATE `tbl_borrowed_book` SET " +
+                $"`Borrowed_Book_Due_Status`='{due}' WHERE `Borrowed_Book_ID` = \"{id}\"";
+            _dbController.update_DBMethod(query);
+        }
 
         /// <summary>
         /// fill the table of the borrowers

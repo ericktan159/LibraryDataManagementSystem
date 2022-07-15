@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibrartDataManagementSystem.Scripts;
 using LibrartDataManagementSystem.Borrowers_Return_Book_Forms;
+using System.Globalization;
 
 namespace LibrartDataManagementSystem
 {
@@ -23,10 +24,7 @@ namespace LibrartDataManagementSystem
 
         private void BorrowersSearchLayoutForm_Load(object sender, EventArgs e)
         {
-            _borrowersController.FillDropDown(combBx_Borrower_First_Name_BorrowerSearch,
-                combBx_Borrower_Last_Name_BorrowerSearch, combBx_Book_ID_BorrowerSearch);
-            combBx_Borrowed_Book_Due_Status.SelectedIndex = 0;
-            TableFill();
+            buttonRefresh.PerformClick();
         }
 
         /// <summary>
@@ -73,10 +71,18 @@ namespace LibrartDataManagementSystem
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
+            _borrowersController.UpdateDueStatus();
             _borrowersController.FillDropDown(combBx_Borrower_First_Name_BorrowerSearch,
                 combBx_Borrower_Last_Name_BorrowerSearch, combBx_Book_ID_BorrowerSearch);
             combBx_Borrowed_Book_Due_Status.SelectedIndex = 0;
             TableFill();
+
+            //DateTime time = DateTime.ParseExact("07-17-2022", "MM-dd-yyyy", CultureInfo.InvariantCulture);
+            //Console.WriteLine(time);
+            //TimeSpan time = DateTime.ParseExact("07-14-2022", "MM-dd-yyyy", CultureInfo.InvariantCulture)
+            //    .AddDays(1)
+            //    .Subtract(DateTime.Now);
+            //Console.WriteLine((time > TimeSpan.Zero));
         }
 
         private void dtGrdVw_BorrwerSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
