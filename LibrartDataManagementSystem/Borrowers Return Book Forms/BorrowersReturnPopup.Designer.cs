@@ -93,6 +93,7 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
             this.buttonReturnAll.TabIndex = 3;
             this.buttonReturnAll.Text = "Return All";
             this.buttonReturnAll.UseVisualStyleBackColor = false;
+            this.buttonReturnAll.Click += new System.EventHandler(this.buttonReturnAll_Click);
             // 
             // buttonCancel
             // 
@@ -105,6 +106,7 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
             this.buttonCancel.TabIndex = 4;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // BorrowersReturnPopup
             // 
