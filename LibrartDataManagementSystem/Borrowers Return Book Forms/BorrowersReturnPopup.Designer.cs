@@ -81,6 +81,7 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
             this.buttonReturn.TabIndex = 2;
             this.buttonReturn.Text = "Return";
             this.buttonReturn.UseVisualStyleBackColor = false;
+            this.buttonReturn.Click += new System.EventHandler(this.buttonReturn_Click);
             // 
             // buttonReturnAll
             // 

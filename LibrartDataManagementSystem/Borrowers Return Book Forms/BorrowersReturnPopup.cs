@@ -47,5 +47,26 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
                 this.Close();
             }
         }
+
+        private void buttonReturn_Click(object sender, EventArgs e)
+        {
+            int count = int.Parse(quantityCount.Value.ToString());
+            if(count == _borrowersController.GetQuantity(_id))
+            {
+                _borrowersController.ChangeDueStatus(_id, "Returned");
+                _borrowersController.GenerateReturnDate(_id);
+                _booksController.AddBookQuantity(_borrowersController.GetBookID(_id),
+                    _borrowersController.GetQuantity(_id));
+                MessageBox.Show("Successfully returned", "Success");
+                this.Close();
+            }
+            else
+            {
+                _booksController.AddBookQuantity(_borrowersController.GetBookID(_id), count);
+                _borrowersController.SubtractQuantity(_id, count);
+                MessageBox.Show($"Successfully returned {count} copies", "Success");
+                this.Close();
+            }
+        }
     }
 }

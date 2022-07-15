@@ -34,6 +34,21 @@ namespace LibrartDataManagementSystem.Scripts
             }
         }
 
+        public bool SubtractQuantity(string transacID, int value)
+        {
+            int finalQuantity = GetQuantity(transacID) - value;
+            string query = $"UPDATE `tbl_borrowed_book` " +
+                $"SET `Borrowed_Book_Number_of_Copies`='{finalQuantity}' " +
+                $"WHERE `Borrowed_Book_ID` = {transacID}";
+
+            return _dbController.update_DBMethod(query);
+        }
+
+        /// <summary>
+        /// get the quantity
+        /// </summary>
+        /// <param name="transacID">reference of id</param>
+        /// <returns>quantity value</returns>
         public int GetQuantity(string transacID)
         {
             string query = $"SELECT `Borrowed_Book_Number_of_Copies` FROM `tbl_borrowed_book` WHERE " +
