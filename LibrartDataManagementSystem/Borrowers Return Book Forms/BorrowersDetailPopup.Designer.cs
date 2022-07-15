@@ -50,6 +50,7 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
             this.dueStatus = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.quantity = new System.Windows.Forms.Label();
+            this.dateReturned = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -261,11 +262,21 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
             this.quantity.TabIndex = 20;
             this.quantity.Text = "12";
             // 
+            // dateReturned
+            // 
+            this.dateReturned.AutoSize = true;
+            this.dateReturned.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateReturned.Location = new System.Drawing.Point(264, 368);
+            this.dateReturned.Name = "dateReturned";
+            this.dateReturned.Size = new System.Drawing.Size(0, 17);
+            this.dateReturned.TabIndex = 21;
+            // 
             // BorrowersDetailPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(515, 427);
+            this.Controls.Add(this.dateReturned);
             this.Controls.Add(this.quantity);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dueStatus);
@@ -323,5 +334,6 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
         private System.Windows.Forms.Label dueStatus;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label quantity;
+        private System.Windows.Forms.Label dateReturned;
     }
 }

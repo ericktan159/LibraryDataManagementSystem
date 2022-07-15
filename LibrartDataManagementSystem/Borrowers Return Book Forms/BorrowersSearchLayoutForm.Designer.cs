@@ -164,6 +164,7 @@ namespace LibrartDataManagementSystem
             this.btn_ReturnBook_BorrowerSearch.TabIndex = 5;
             this.btn_ReturnBook_BorrowerSearch.Text = "Return Book";
             this.btn_ReturnBook_BorrowerSearch.UseVisualStyleBackColor = false;
+            this.btn_ReturnBook_BorrowerSearch.Click += new System.EventHandler(this.btn_ReturnBook_BorrowerSearch_Click);
             // 
             // dtGrdVw_BorrwerSearch
             // 
@@ -182,6 +183,7 @@ namespace LibrartDataManagementSystem
             this.Column_Borrowed_Book_Due_Status,
             this.Column_Borrowed_Book_Number_of_Copies});
             this.dtGrdVw_BorrwerSearch.Location = new System.Drawing.Point(12, 86);
+            this.dtGrdVw_BorrwerSearch.MultiSelect = false;
             this.dtGrdVw_BorrwerSearch.Name = "dtGrdVw_BorrwerSearch";
             this.dtGrdVw_BorrwerSearch.ReadOnly = true;
             this.dtGrdVw_BorrwerSearch.Size = new System.Drawing.Size(794, 301);

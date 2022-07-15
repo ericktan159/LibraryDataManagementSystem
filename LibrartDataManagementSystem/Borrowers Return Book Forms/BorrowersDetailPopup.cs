@@ -25,7 +25,7 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
         private void BorrowersDetailPopup_Load(object sender, EventArgs e)
         {
             _borrowersController.FillDetails(_id, transacID, borrowerID, borrowerName, bookID, bookTitle,
-                dateBorrowed, dueDate, dueStatus, quantity);
+                dateBorrowed, dueDate, dueStatus, quantity, dateReturned);
         }
     }
 }

@@ -35,6 +35,28 @@ namespace LibrartDataManagementSystem.Scripts
         }
 
         /// <summary>
+        /// get the id of book
+        /// </summary>
+        /// <param name="transacID">reference of transac id</param>
+        /// <returns>return the id of book</returns>
+        public string GetBookID(string transacID)
+        {
+            string query = $"SELECT `Book_ID` FROM `tbl_borrowed_book` WHERE " +
+                $"`Borrowed_Book_ID` = \"{transacID}\"";
+            List<List<string>> results = _dbController.select_DBMethod_return_2DList_Table_Records(query);
+
+            return results[0][0];
+        }
+
+        public bool GenerateReturnDate(string transacID)
+        {
+            string query = "UPDATE `tbl_borrowed_book` SET " +
+                $"`Borrowed_Book_Date_Returned`='{DateTime.Now.ToString("MM-dd-yyyy")}' " +
+                $"WHERE `Borrowed_Book_ID` = \"{transacID}\"";
+            return _dbController.update_DBMethod(query);
+        }
+
+        /// <summary>
         /// change the due status
         /// </summary>
         /// <param name="id">reference of id</param>
@@ -113,13 +135,14 @@ namespace LibrartDataManagementSystem.Scripts
         /// </summary>
         public void FillDetails(string id, Label transacID, Label borrowerID, Label borrowerName, 
             Label bookID, Label bookTitle, Label dateBorrowed, Label dueDate, Label dueStatus, 
-            Label quantity)
+            Label quantity, Label dateReturned)
         {
             string query = "SELECT tbl_borrowed_book.Borrowed_Book_ID, tbl_borrower.Borrower_ID, " +
                 "tbl_borrower.Borrower_First_Name, tbl_borrower.Borrower_Middle_Name, " +
                 "tbl_borrower.Borrower_Last_Name, tbl_book.Book_ID, tbl_book.Book_Title, " +
                 "tbl_borrowed_book.Borrowed_Book_Date_Borrowed, tbl_borrowed_book.Borrowed_Book_Due_Date, " +
-                "tbl_borrowed_book.Borrowed_Book_Due_Status, tbl_borrowed_book.Borrowed_Book_Number_of_Copies " +
+                "tbl_borrowed_book.Borrowed_Book_Due_Status, tbl_borrowed_book.Borrowed_Book_Number_of_Copies," +
+                "tbl_borrowed_book.Borrowed_Book_Date_Returned " +
                 "FROM `tbl_borrowed_book` INNER JOIN `tbl_book` ON " +
                 "tbl_borrowed_book.Book_ID = tbl_book.Book_ID INNER JOIN `tbl_borrower` ON " +
                 $"tbl_borrowed_book.Borrower_ID = tbl_borrower.Borrower_ID WHERE `Borrowed_Book_ID` = \"{id}\"";
@@ -137,6 +160,7 @@ namespace LibrartDataManagementSystem.Scripts
             dueDate.Text = result[8];
             dueStatus.Text = result[9];
             quantity.Text = result[10];
+            dateReturned.Text = result[11];
         }
 
         /// <summary>

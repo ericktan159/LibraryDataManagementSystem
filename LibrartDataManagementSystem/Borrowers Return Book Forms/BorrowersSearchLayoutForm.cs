@@ -16,6 +16,7 @@ namespace LibrartDataManagementSystem
     public partial class BorrowersSearchLayoutForm : Form
     {
         BorrowersController _borrowersController = new BorrowersController();
+        BooksController _booksController = new BooksController();
 
         public BorrowersSearchLayoutForm()
         {
@@ -50,6 +51,7 @@ namespace LibrartDataManagementSystem
             {
                 combBx_Borrowed_Book_Due_Status.SelectedIndex = 0;
             }
+            buttonRefresh.PerformClick();
         }
 
         private void TableFill()
@@ -92,6 +94,31 @@ namespace LibrartDataManagementSystem
 
             BorrowersDetailPopup detailPopup = new BorrowersDetailPopup(id);
             detailPopup.ShowDialog();
+        }
+
+        private void btn_ReturnBook_BorrowerSearch_Click(object sender, EventArgs e)
+        {
+            int rowIndex = dtGrdVw_BorrwerSearch.CurrentCellAddress.Y;
+            string id = dtGrdVw_BorrwerSearch.Rows[rowIndex].Cells["Column_Borrowed_Book_ID"].Value.ToString();
+            int quantity = int.Parse(dtGrdVw_BorrwerSearch.Rows[rowIndex]
+                .Cells["Column_Borrowed_Book_Number_of_Copies"].Value.ToString());
+            if(quantity > 1)
+            {
+
+            }
+            else
+            {
+                string prompt = "Confirm Returning Books?";
+                DialogResult dialogResult = MessageBox.Show(prompt, "Confirm", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+                if(dialogResult == DialogResult.Yes)
+                {
+                    _borrowersController.ChangeDueStatus(id, "Returned");
+                    _borrowersController.GenerateReturnDate(id);
+                    _booksController.AddBookQuantity(_borrowersController.GetBookID(id), 1);
+                }
+            }
+            buttonRefresh.PerformClick();
         }
     }
 }
