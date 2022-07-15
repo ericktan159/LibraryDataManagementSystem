@@ -37,7 +37,6 @@ namespace LibrartDataManagementSystem.Members_Forms
             this.txtBx_FirstNamel_MembersEdit = new System.Windows.Forms.TextBox();
             this.txtBx_Middle_Name_MembersEdit = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtBx_TypeValidID__MembersEdit = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBx_ContactNumber_MembersEdit = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@ namespace LibrartDataManagementSystem.Members_Forms
             this.buttonCancel_MembersEdit = new System.Windows.Forms.Button();
             this.combBx_Gender_MembersEdit = new System.Windows.Forms.ComboBox();
             this.dtp_BirthDate__MembersEdit = new System.Windows.Forms.DateTimePicker();
+            this.combBx_TypeValidID__MembersEdit = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label5
@@ -118,13 +118,6 @@ namespace LibrartDataManagementSystem.Members_Forms
             this.label6.Size = new System.Drawing.Size(85, 13);
             this.label6.TabIndex = 83;
             this.label6.Text = "Type Of Valid ID";
-            // 
-            // txtBx_TypeValidID__MembersEdit
-            // 
-            this.txtBx_TypeValidID__MembersEdit.Location = new System.Drawing.Point(111, 231);
-            this.txtBx_TypeValidID__MembersEdit.Name = "txtBx_TypeValidID__MembersEdit";
-            this.txtBx_TypeValidID__MembersEdit.Size = new System.Drawing.Size(200, 20);
-            this.txtBx_TypeValidID__MembersEdit.TabIndex = 82;
             // 
             // label4
             // 
@@ -225,11 +218,24 @@ namespace LibrartDataManagementSystem.Members_Forms
             this.dtp_BirthDate__MembersEdit.Size = new System.Drawing.Size(200, 20);
             this.dtp_BirthDate__MembersEdit.TabIndex = 92;
             // 
+            // combBx_TypeValidID__MembersEdit
+            // 
+            this.combBx_TypeValidID__MembersEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combBx_TypeValidID__MembersEdit.FormattingEnabled = true;
+            this.combBx_TypeValidID__MembersEdit.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.combBx_TypeValidID__MembersEdit.Location = new System.Drawing.Point(112, 231);
+            this.combBx_TypeValidID__MembersEdit.Name = "combBx_TypeValidID__MembersEdit";
+            this.combBx_TypeValidID__MembersEdit.Size = new System.Drawing.Size(200, 21);
+            this.combBx_TypeValidID__MembersEdit.TabIndex = 97;
+            // 
             // MembersEditPopUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.combBx_TypeValidID__MembersEdit);
             this.Controls.Add(this.buttonCancel_MembersEdit);
             this.Controls.Add(this.buttonUpdatel_MembersEdit);
             this.Controls.Add(this.dtp_BirthDate__MembersEdit);
@@ -242,7 +248,6 @@ namespace LibrartDataManagementSystem.Members_Forms
             this.Controls.Add(this.txtBx_FirstNamel_MembersEdit);
             this.Controls.Add(this.txtBx_Middle_Name_MembersEdit);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtBx_TypeValidID__MembersEdit);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtBx_ContactNumber_MembersEdit);
             this.Controls.Add(this.label3);
@@ -269,7 +274,6 @@ namespace LibrartDataManagementSystem.Members_Forms
         private System.Windows.Forms.TextBox txtBx_FirstNamel_MembersEdit;
         private System.Windows.Forms.TextBox txtBx_Middle_Name_MembersEdit;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtBx_TypeValidID__MembersEdit;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtBx_ContactNumber_MembersEdit;
         private System.Windows.Forms.Label label3;
@@ -281,5 +285,6 @@ namespace LibrartDataManagementSystem.Members_Forms
         private System.Windows.Forms.Button buttonCancel_MembersEdit;
         private System.Windows.Forms.ComboBox combBx_Gender_MembersEdit;
         private System.Windows.Forms.DateTimePicker dtp_BirthDate__MembersEdit;
+        private System.Windows.Forms.ComboBox combBx_TypeValidID__MembersEdit;
     }
 }

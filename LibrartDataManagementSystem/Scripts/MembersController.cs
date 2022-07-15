@@ -40,7 +40,13 @@ namespace LibrartDataManagementSystem.Scripts
         public TextBox input_5_txtBx_Borrower_Address;
         public TextBox input_6_txtBx_Borrower_Contact_Number;
         public DateTimePicker input_7_dtp_Borrower_BirthDate;
-        public TextBox input_8_txtBx_Borrower_Type_of_Valid_ID;
+        public ComboBox input_8_combBx_Borrower_Type_of_Valid_ID;
+
+
+        public static class Prop_About
+        {
+            public const int n_Size = Info_TBL_BORR0WER.Prop_About.n_Size;
+        }
 
         public static Info_TBL_BORR0WER convert_Inputs_To_Info_TBL_BORR0WER(My_Inputs_Member_Info inputsFromForm)
         {
@@ -53,7 +59,7 @@ namespace LibrartDataManagementSystem.Scripts
             tbl_Infos.Borrower_Address = inputsFromForm.input_5_txtBx_Borrower_Address.Text;
             tbl_Infos.Borrower_Contact_Number = inputsFromForm.input_6_txtBx_Borrower_Contact_Number.Text;
             tbl_Infos.Borrower_BirthDate = inputsFromForm.input_7_dtp_Borrower_BirthDate.Value.ToString("MM-dd-yyyy"); 
-            tbl_Infos.Borrower_Type_of_Valid_ID = inputsFromForm.input_8_txtBx_Borrower_Type_of_Valid_ID.Text;
+            tbl_Infos.Borrower_Type_of_Valid_ID = inputsFromForm.input_8_combBx_Borrower_Type_of_Valid_ID.SelectedItem.ToString();
 
 
             return tbl_Infos;
@@ -67,7 +73,7 @@ namespace LibrartDataManagementSystem.Scripts
             TextBox input_5_txtBx_Borrower_Address,
             TextBox input_6_txtBx_Borrower_Contact_Number,
             DateTimePicker input_7_dtp_Borrower_BirthDate,
-            TextBox input_8_txtBx_Borrower_Type_of_Valid_ID)
+            ComboBox input_8_combBx_Borrower_Type_of_Valid_ID)
         {
 
             Info_TBL_BORR0WER tbl_Infos = new Info_TBL_BORR0WER();
@@ -79,7 +85,7 @@ namespace LibrartDataManagementSystem.Scripts
             tbl_Infos.Borrower_Address = input_5_txtBx_Borrower_Address.Text;
             tbl_Infos.Borrower_Contact_Number = input_6_txtBx_Borrower_Contact_Number.Text;
             tbl_Infos.Borrower_BirthDate = input_7_dtp_Borrower_BirthDate.Value.ToString("MM-dd-yyyy");
-            tbl_Infos.Borrower_Type_of_Valid_ID = input_8_txtBx_Borrower_Type_of_Valid_ID.Text;
+            tbl_Infos.Borrower_Type_of_Valid_ID = input_8_combBx_Borrower_Type_of_Valid_ID.SelectedItem.ToString();
 
 
             return tbl_Infos;
@@ -119,15 +125,15 @@ namespace LibrartDataManagementSystem.Scripts
             foreach (List<string> member_row in members_2d_List_table)
             {
                 int outerIndex = table.Rows.Add();
-                table.Rows[outerIndex].Cells["Column_Borrower_ID"].Value = member_row[0];
-                table.Rows[outerIndex].Cells["Column_Borrower_First_Name"].Value = member_row[1];
-                table.Rows[outerIndex].Cells["Column_Borrower_Middle_Name"].Value = member_row[2];
-                table.Rows[outerIndex].Cells["Column_Borrower_Last_Name"].Value = member_row[3];
-                table.Rows[outerIndex].Cells["Column_Borrower_Gender"].Value = member_row[4];
-                table.Rows[outerIndex].Cells["Column_Borrower_Address"].Value = member_row[5];
-                table.Rows[outerIndex].Cells["Column_Borrower_Conatact_Number"].Value = member_row[6];
-                table.Rows[outerIndex].Cells["Column_Borrower_BirthDate"].Value = member_row[7];
-                table.Rows[outerIndex].Cells["Column_Borrower_Type_Valid_ID"].Value = member_row[8];
+                table.Rows[outerIndex].Cells[DGV_BORROWER.Column_Names.col_0_ID_CONST].Value = member_row[0];//"Column_Borrower_ID"
+                table.Rows[outerIndex].Cells[DGV_BORROWER.Column_Names.col_1_First_Name_CONST].Value = member_row[1];//"Column_Borrower_First_Name"
+                table.Rows[outerIndex].Cells[DGV_BORROWER.Column_Names.col_2_Middle_Name_CONST].Value = member_row[2];//"Column_Borrower_Middle_Name"
+                table.Rows[outerIndex].Cells[DGV_BORROWER.Column_Names.col_3_Last_Name_CONST].Value = member_row[3];//"Column_Borrower_Last_Name"
+                table.Rows[outerIndex].Cells[DGV_BORROWER.Column_Names.col_4_Gender_CONST].Value = member_row[4];//"Column_Borrower_Gender"
+                table.Rows[outerIndex].Cells[DGV_BORROWER.Column_Names.col_5_Address_CONST].Value = member_row[5];//"Column_Borrower_Address"
+                table.Rows[outerIndex].Cells[DGV_BORROWER.Column_Names.col_6_Contact_Number_CONST].Value = member_row[6];//"Column_Borrower_Conatact_Number"
+                table.Rows[outerIndex].Cells[DGV_BORROWER.Column_Names.col_7_BirthDate_CONST].Value = member_row[7];//"Column_Borrower_BirthDate"
+                table.Rows[outerIndex].Cells[DGV_BORROWER.Column_Names.col_8_Type_of_Valid_ID_CONST].Value = member_row[8];//"Column_Borrower_Type_Valid_ID"
 
             }
 
@@ -315,7 +321,7 @@ namespace LibrartDataManagementSystem.Scripts
             inputsFromForm.input_6_txtBx_Borrower_Contact_Number.Text = results[6];
             Console.WriteLine(results[7]);
             inputsFromForm.input_7_dtp_Borrower_BirthDate.Value = DateTime.ParseExact(results[7], "MM-dd-yyyy", CultureInfo.InvariantCulture);
-            inputsFromForm.input_8_txtBx_Borrower_Type_of_Valid_ID.Text = results[8];
+            inputsFromForm.input_8_combBx_Borrower_Type_of_Valid_ID.SelectedItem = results[8];
             //*/
             ///////////////////////////////
         }
@@ -323,12 +329,15 @@ namespace LibrartDataManagementSystem.Scripts
         public void init_GenderChoice_ComboBox(ComboBox genderComboBox)
         {
 
+            Enum_CONST_Gender.set_ComboBox_Items(genderComboBox);
+            /*
             genderComboBox.Items.Clear();
 
-            genderComboBox.Items.Add(My_Enum_Gender.const_Male);
-            genderComboBox.Items.Add(My_Enum_Gender.const_Female);
+            genderComboBox.Items.Add(Enum_CONST_Gender.const_Male);
+            genderComboBox.Items.Add(Enum_CONST_Gender.const_Female);
 
             genderComboBox.SelectedIndex = 0;
+            //*/
         }
 
 

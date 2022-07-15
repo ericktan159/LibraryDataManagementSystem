@@ -52,7 +52,6 @@ namespace LibrartDataManagementSystem
             this.Column_Borrower_Conatact_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Borrower_BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Borrower_Type_Valid_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.grpMembers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_MemberSearch)).BeginInit();
             this.SuspendLayout();
@@ -265,21 +264,12 @@ namespace LibrartDataManagementSystem
             this.Column_Borrower_Type_Valid_ID.Name = "Column_Borrower_Type_Valid_ID";
             this.Column_Borrower_Type_Valid_ID.ReadOnly = true;
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "MM/DD/YYYY";
-            this.dateTimePicker1.Location = new System.Drawing.Point(657, 61);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 38;
-            // 
             // MemberSearchLayoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(927, 400);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.grpMembers);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.label5);
@@ -328,6 +318,5 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrower_Conatact_Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrower_BirthDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrower_Type_Valid_ID;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

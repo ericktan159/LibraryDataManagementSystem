@@ -123,10 +123,17 @@
     <Compile Include="Members Forms\MembersEditPopUp.Designer.cs">
       <DependentUpon>MembersEditPopUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="pangExpermentnaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pangExpermentnaForm.Designer.cs">
+      <DependentUpon>pangExpermentnaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Scripts\BooksController.cs" />
     <Compile Include="Scripts\BorrowersController.cs" />
     <Compile Include="Scripts\LogController.cs" />
     <Compile Include="Scripts\MembersController.cs" />
+    <Compile Include="Scripts\Member_Search_Controller.cs" />
     <Compile Include="Transaction Borrow Forms\TransactionBorrowLayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Members Forms\MembersEditPopUp.resx">
       <DependentUpon>MembersEditPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pangExpermentnaForm.resx">
+      <DependentUpon>pangExpermentnaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transaction Borrow Forms\TransactionBorrowLayoutForm.resx">
       <DependentUpon>TransactionBorrowLayoutForm.cs</DependentUpon>

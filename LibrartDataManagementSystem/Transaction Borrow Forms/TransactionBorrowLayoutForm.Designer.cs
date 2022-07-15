@@ -30,6 +30,8 @@ namespace LibrartDataManagementSystem
         private void InitializeComponent()
         {
             this.pnl_ = new System.Windows.Forms.Panel();
+            this.txtBx_Gender_BorrowLayout = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.txt_Book_Author_BorrowLayout = new System.Windows.Forms.TextBox();
             this.combBx_Book_Title_BorrowLayout = new System.Windows.Forms.ComboBox();
@@ -76,11 +78,7 @@ namespace LibrartDataManagementSystem
             this.Column_Borrower_Type_Valid_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBx_SearchMember_TransactionBorrow = new System.Windows.Forms.TextBox();
             this.btn_Member_Search_TransactionBorrow = new System.Windows.Forms.Button();
-            this.combBx_Borrower_Last_Name_Member_TransactionBorrow = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.combBx_Borrower_First_Name_Member_TransactionBorrow = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.grpBx_BooksTable_BorrwLayout = new System.Windows.Forms.GroupBox();
             this.dtGrdVw_Book_TransactionBorrow = new System.Windows.Forms.DataGridView();
@@ -100,8 +98,12 @@ namespace LibrartDataManagementSystem
             this.label22 = new System.Windows.Forms.Label();
             this.combBx_Book_Author_TransactionBorrow = new System.Windows.Forms.ComboBox();
             this.txtBx_SearchBook_TransactionBorrow = new System.Windows.Forms.TextBox();
-            this.txtBx_Gender_BorrowLayout = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.combBx_Borrower_First_Name_TransactionBorrow = new System.Windows.Forms.ComboBox();
+            this.combBx_Borrower_Gender_TransactionBorrow = new System.Windows.Forms.ComboBox();
+            this.combBx_Borrower_Last_Name_TransactionBorrow = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.pnl_.SuspendLayout();
             this.panel1.SuspendLayout();
             this.grpBx_MembersTable_BorrwLayout.SuspendLayout();
@@ -152,6 +154,23 @@ namespace LibrartDataManagementSystem
             this.pnl_.Name = "pnl_";
             this.pnl_.Size = new System.Drawing.Size(374, 435);
             this.pnl_.TabIndex = 53;
+            // 
+            // txtBx_Gender_BorrowLayout
+            // 
+            this.txtBx_Gender_BorrowLayout.Enabled = false;
+            this.txtBx_Gender_BorrowLayout.Location = new System.Drawing.Point(61, 99);
+            this.txtBx_Gender_BorrowLayout.Name = "txtBx_Gender_BorrowLayout";
+            this.txtBx_Gender_BorrowLayout.Size = new System.Drawing.Size(111, 20);
+            this.txtBx_Gender_BorrowLayout.TabIndex = 86;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(9, 102);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(42, 13);
+            this.label24.TabIndex = 85;
+            this.label24.Text = "Gender";
             // 
             // label23
             // 
@@ -432,14 +451,16 @@ namespace LibrartDataManagementSystem
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.combBx_Borrower_First_Name_TransactionBorrow);
+            this.panel1.Controls.Add(this.combBx_Borrower_Gender_TransactionBorrow);
+            this.panel1.Controls.Add(this.combBx_Borrower_Last_Name_TransactionBorrow);
+            this.panel1.Controls.Add(this.label25);
             this.panel1.Controls.Add(this.grpBx_MembersTable_BorrwLayout);
             this.panel1.Controls.Add(this.txtBx_SearchMember_TransactionBorrow);
             this.panel1.Controls.Add(this.btn_Member_Search_TransactionBorrow);
-            this.panel1.Controls.Add(this.combBx_Borrower_Last_Name_Member_TransactionBorrow);
             this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.combBx_Borrower_First_Name_Member_TransactionBorrow);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(374, 0);
             this.panel1.Name = "panel1";
@@ -555,14 +576,7 @@ namespace LibrartDataManagementSystem
             this.btn_Member_Search_TransactionBorrow.TabIndex = 38;
             this.btn_Member_Search_TransactionBorrow.Text = "Search";
             this.btn_Member_Search_TransactionBorrow.UseVisualStyleBackColor = true;
-            // 
-            // combBx_Borrower_Last_Name_Member_TransactionBorrow
-            // 
-            this.combBx_Borrower_Last_Name_Member_TransactionBorrow.FormattingEnabled = true;
-            this.combBx_Borrower_Last_Name_Member_TransactionBorrow.Location = new System.Drawing.Point(462, 12);
-            this.combBx_Borrower_Last_Name_Member_TransactionBorrow.Name = "combBx_Borrower_Last_Name_Member_TransactionBorrow";
-            this.combBx_Borrower_Last_Name_Member_TransactionBorrow.Size = new System.Drawing.Size(121, 21);
-            this.combBx_Borrower_Last_Name_Member_TransactionBorrow.TabIndex = 33;
+            this.btn_Member_Search_TransactionBorrow.Click += new System.EventHandler(this.btn_Member_Search_TransactionBorrow_Click);
             // 
             // label16
             // 
@@ -572,32 +586,6 @@ namespace LibrartDataManagementSystem
             this.label16.Size = new System.Drawing.Size(96, 13);
             this.label16.TabIndex = 34;
             this.label16.Text = "Search Member ID";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(492, 36);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(58, 13);
-            this.label17.TabIndex = 35;
-            this.label17.Text = "Last Name";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(621, 34);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(57, 13);
-            this.label18.TabIndex = 37;
-            this.label18.Text = "First Name";
-            // 
-            // combBx_Borrower_First_Name_Member_TransactionBorrow
-            // 
-            this.combBx_Borrower_First_Name_Member_TransactionBorrow.FormattingEnabled = true;
-            this.combBx_Borrower_First_Name_Member_TransactionBorrow.Location = new System.Drawing.Point(589, 12);
-            this.combBx_Borrower_First_Name_Member_TransactionBorrow.Name = "combBx_Borrower_First_Name_Member_TransactionBorrow";
-            this.combBx_Borrower_First_Name_Member_TransactionBorrow.Size = new System.Drawing.Size(121, 21);
-            this.combBx_Borrower_First_Name_Member_TransactionBorrow.TabIndex = 36;
             // 
             // panel2
             // 
@@ -782,22 +770,62 @@ namespace LibrartDataManagementSystem
             this.txtBx_SearchBook_TransactionBorrow.Size = new System.Drawing.Size(260, 20);
             this.txtBx_SearchBook_TransactionBorrow.TabIndex = 11;
             // 
-            // txtBx_Gender_BorrowLayout
+            // label17
             // 
-            this.txtBx_Gender_BorrowLayout.Enabled = false;
-            this.txtBx_Gender_BorrowLayout.Location = new System.Drawing.Point(61, 99);
-            this.txtBx_Gender_BorrowLayout.Name = "txtBx_Gender_BorrowLayout";
-            this.txtBx_Gender_BorrowLayout.Size = new System.Drawing.Size(111, 20);
-            this.txtBx_Gender_BorrowLayout.TabIndex = 86;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(502, 37);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(57, 13);
+            this.label17.TabIndex = 46;
+            this.label17.Text = "First Name";
             // 
-            // label24
+            // label18
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(9, 102);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(42, 13);
-            this.label24.TabIndex = 85;
-            this.label24.Text = "Gender";
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(725, 37);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(42, 13);
+            this.label18.TabIndex = 45;
+            this.label18.Text = "Gender";
+            // 
+            // combBx_Borrower_First_Name_TransactionBorrow
+            // 
+            this.combBx_Borrower_First_Name_TransactionBorrow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combBx_Borrower_First_Name_TransactionBorrow.FormattingEnabled = true;
+            this.combBx_Borrower_First_Name_TransactionBorrow.Location = new System.Drawing.Point(462, 12);
+            this.combBx_Borrower_First_Name_TransactionBorrow.Name = "combBx_Borrower_First_Name_TransactionBorrow";
+            this.combBx_Borrower_First_Name_TransactionBorrow.Size = new System.Drawing.Size(119, 21);
+            this.combBx_Borrower_First_Name_TransactionBorrow.TabIndex = 44;
+            this.combBx_Borrower_First_Name_TransactionBorrow.SelectedIndexChanged += new System.EventHandler(this.combx_Search_Filters_Change);
+            // 
+            // combBx_Borrower_Gender_TransactionBorrow
+            // 
+            this.combBx_Borrower_Gender_TransactionBorrow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combBx_Borrower_Gender_TransactionBorrow.FormattingEnabled = true;
+            this.combBx_Borrower_Gender_TransactionBorrow.Location = new System.Drawing.Point(712, 12);
+            this.combBx_Borrower_Gender_TransactionBorrow.Name = "combBx_Borrower_Gender_TransactionBorrow";
+            this.combBx_Borrower_Gender_TransactionBorrow.Size = new System.Drawing.Size(66, 21);
+            this.combBx_Borrower_Gender_TransactionBorrow.TabIndex = 43;
+            this.combBx_Borrower_Gender_TransactionBorrow.SelectedIndexChanged += new System.EventHandler(this.combx_Search_Filters_Change);
+            // 
+            // combBx_Borrower_Last_Name_TransactionBorrow
+            // 
+            this.combBx_Borrower_Last_Name_TransactionBorrow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combBx_Borrower_Last_Name_TransactionBorrow.FormattingEnabled = true;
+            this.combBx_Borrower_Last_Name_TransactionBorrow.Location = new System.Drawing.Point(587, 12);
+            this.combBx_Borrower_Last_Name_TransactionBorrow.Name = "combBx_Borrower_Last_Name_TransactionBorrow";
+            this.combBx_Borrower_Last_Name_TransactionBorrow.Size = new System.Drawing.Size(119, 21);
+            this.combBx_Borrower_Last_Name_TransactionBorrow.TabIndex = 41;
+            this.combBx_Borrower_Last_Name_TransactionBorrow.SelectedIndexChanged += new System.EventHandler(this.combx_Search_Filters_Change);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(621, 36);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(58, 13);
+            this.label25.TabIndex = 42;
+            this.label25.Text = "Last Name";
             // 
             // TransactionBorrowLayoutForm
             // 
@@ -862,11 +890,7 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtBx_SearchMember_TransactionBorrow;
         private System.Windows.Forms.Button btn_Member_Search_TransactionBorrow;
-        private System.Windows.Forms.ComboBox combBx_Borrower_Last_Name_Member_TransactionBorrow;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox combBx_Borrower_First_Name_Member_TransactionBorrow;
         private System.Windows.Forms.Button btn_Book_Search_TransactionBorrow;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox combBx_Book_Year_Published_TransactionBorrow;
@@ -901,5 +925,11 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrower_Type_Valid_ID;
         private System.Windows.Forms.TextBox txtBx_Gender_BorrowLayout;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox combBx_Borrower_First_Name_TransactionBorrow;
+        private System.Windows.Forms.ComboBox combBx_Borrower_Gender_TransactionBorrow;
+        private System.Windows.Forms.ComboBox combBx_Borrower_Last_Name_TransactionBorrow;
+        private System.Windows.Forms.Label label25;
     }
 }
