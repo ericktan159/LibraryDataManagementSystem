@@ -57,7 +57,7 @@ namespace LibrartDataManagementSystem
             // 
             // txtBx_BookSearch
             // 
-            this.txtBx_BookSearch.Location = new System.Drawing.Point(206, 41);
+            this.txtBx_BookSearch.Location = new System.Drawing.Point(276, 41);
             this.txtBx_BookSearch.Name = "txtBx_BookSearch";
             this.txtBx_BookSearch.Size = new System.Drawing.Size(260, 20);
             this.txtBx_BookSearch.TabIndex = 0;
@@ -66,7 +66,7 @@ namespace LibrartDataManagementSystem
             // 
             this.combBx_Book_Author.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Book_Author.FormattingEnabled = true;
-            this.combBx_Book_Author.Location = new System.Drawing.Point(95, 85);
+            this.combBx_Book_Author.Location = new System.Drawing.Point(165, 85);
             this.combBx_Book_Author.Name = "combBx_Book_Author";
             this.combBx_Book_Author.Size = new System.Drawing.Size(193, 21);
             this.combBx_Book_Author.TabIndex = 1;
@@ -75,7 +75,7 @@ namespace LibrartDataManagementSystem
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(165, 44);
+            this.label1.Location = new System.Drawing.Point(235, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 2;
@@ -84,7 +84,7 @@ namespace LibrartDataManagementSystem
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(179, 68);
+            this.label2.Location = new System.Drawing.Point(249, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 5;
@@ -93,7 +93,7 @@ namespace LibrartDataManagementSystem
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(393, 68);
+            this.label3.Location = new System.Drawing.Point(463, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 13);
             this.label3.TabIndex = 7;
@@ -103,7 +103,7 @@ namespace LibrartDataManagementSystem
             // 
             this.combBx_Book_Genre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Book_Genre.FormattingEnabled = true;
-            this.combBx_Book_Genre.Location = new System.Drawing.Point(345, 85);
+            this.combBx_Book_Genre.Location = new System.Drawing.Point(415, 85);
             this.combBx_Book_Genre.Name = "combBx_Book_Genre";
             this.combBx_Book_Genre.Size = new System.Drawing.Size(130, 21);
             this.combBx_Book_Genre.TabIndex = 6;
@@ -112,7 +112,7 @@ namespace LibrartDataManagementSystem
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(565, 68);
+            this.label4.Location = new System.Drawing.Point(635, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 13);
             this.label4.TabIndex = 9;
@@ -122,7 +122,7 @@ namespace LibrartDataManagementSystem
             // 
             this.combBx_Book_Year_Published.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Book_Year_Published.FormattingEnabled = true;
-            this.combBx_Book_Year_Published.Location = new System.Drawing.Point(557, 85);
+            this.combBx_Book_Year_Published.Location = new System.Drawing.Point(627, 85);
             this.combBx_Book_Year_Published.Name = "combBx_Book_Year_Published";
             this.combBx_Book_Year_Published.Size = new System.Drawing.Size(86, 21);
             this.combBx_Book_Year_Published.TabIndex = 8;
@@ -130,7 +130,7 @@ namespace LibrartDataManagementSystem
             // 
             // btn_Book_Search
             // 
-            this.btn_Book_Search.Location = new System.Drawing.Point(472, 38);
+            this.btn_Book_Search.Location = new System.Drawing.Point(542, 38);
             this.btn_Book_Search.Name = "btn_Book_Search";
             this.btn_Book_Search.Size = new System.Drawing.Size(75, 23);
             this.btn_Book_Search.TabIndex = 10;
@@ -257,7 +257,7 @@ namespace LibrartDataManagementSystem
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(228, 25);
+            this.label5.Location = new System.Drawing.Point(298, 25);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(219, 13);
             this.label5.TabIndex = 15;

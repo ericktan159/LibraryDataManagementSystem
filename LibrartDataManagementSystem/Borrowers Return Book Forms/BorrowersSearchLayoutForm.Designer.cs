@@ -41,14 +41,14 @@ namespace LibrartDataManagementSystem
             this.btn_ReturnBook_BorrowerSearch = new System.Windows.Forms.Button();
             this.btn_ViewDeatails_BorrowerSearch = new System.Windows.Forms.Button();
             this.dtGrdVw_BorrwerSearch = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.combBx_Borrowed_Book_Due_Status = new System.Windows.Forms.ComboBox();
             this.Column_Borrowed_Book_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Borrower_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Book_Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Borrowed_Book_Due_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Borrowed_Book_Due_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Borrowed_Book_Number_of_Copies = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.combBx_Borrowed_Book_Due_Status = new System.Windows.Forms.ComboBox();
             this.checkReturned = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_BorrwerSearch)).BeginInit();
             this.SuspendLayout();
@@ -78,6 +78,8 @@ namespace LibrartDataManagementSystem
             this.combBx_Book_ID_BorrowerSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.combBx_Book_ID_BorrowerSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Book_ID_BorrowerSearch.FormattingEnabled = true;
+            this.combBx_Book_ID_BorrowerSearch.Items.AddRange(new object[] {
+            "All"});
             this.combBx_Book_ID_BorrowerSearch.Location = new System.Drawing.Point(399, 56);
             this.combBx_Book_ID_BorrowerSearch.Name = "combBx_Book_ID_BorrowerSearch";
             this.combBx_Book_ID_BorrowerSearch.Size = new System.Drawing.Size(121, 21);
@@ -98,6 +100,8 @@ namespace LibrartDataManagementSystem
             this.combBx_Borrower_First_Name_BorrowerSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.combBx_Borrower_First_Name_BorrowerSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Borrower_First_Name_BorrowerSearch.FormattingEnabled = true;
+            this.combBx_Borrower_First_Name_BorrowerSearch.Items.AddRange(new object[] {
+            "All"});
             this.combBx_Borrower_First_Name_BorrowerSearch.Location = new System.Drawing.Point(272, 56);
             this.combBx_Borrower_First_Name_BorrowerSearch.Name = "combBx_Borrower_First_Name_BorrowerSearch";
             this.combBx_Borrower_First_Name_BorrowerSearch.Size = new System.Drawing.Size(121, 21);
@@ -128,6 +132,8 @@ namespace LibrartDataManagementSystem
             this.combBx_Borrower_Last_Name_BorrowerSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.combBx_Borrower_Last_Name_BorrowerSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Borrower_Last_Name_BorrowerSearch.FormattingEnabled = true;
+            this.combBx_Borrower_Last_Name_BorrowerSearch.Items.AddRange(new object[] {
+            "All"});
             this.combBx_Borrower_Last_Name_BorrowerSearch.Location = new System.Drawing.Point(134, 56);
             this.combBx_Borrower_Last_Name_BorrowerSearch.Name = "combBx_Borrower_Last_Name_BorrowerSearch";
             this.combBx_Borrower_Last_Name_BorrowerSearch.Size = new System.Drawing.Size(121, 21);
@@ -183,31 +189,6 @@ namespace LibrartDataManagementSystem
             this.dtGrdVw_BorrwerSearch.Size = new System.Drawing.Size(794, 301);
             this.dtGrdVw_BorrwerSearch.TabIndex = 3;
             // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(529, 40);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 13);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Due Status";
-            // 
-            // combBx_Borrowed_Book_Due_Status
-            // 
-            this.combBx_Borrowed_Book_Due_Status.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.combBx_Borrowed_Book_Due_Status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combBx_Borrowed_Book_Due_Status.FormattingEnabled = true;
-            this.combBx_Borrowed_Book_Due_Status.Items.AddRange(new object[] {
-            "All",
-            "Not Overdue",
-            "Overdue",
-            "Returned"});
-            this.combBx_Borrowed_Book_Due_Status.Location = new System.Drawing.Point(526, 56);
-            this.combBx_Borrowed_Book_Due_Status.Name = "combBx_Borrowed_Book_Due_Status";
-            this.combBx_Borrowed_Book_Due_Status.Size = new System.Drawing.Size(121, 21);
-            this.combBx_Borrowed_Book_Due_Status.TabIndex = 21;
-            // 
             // Column_Borrowed_Book_ID
             // 
             this.Column_Borrowed_Book_ID.HeaderText = "Transaction ID";
@@ -244,6 +225,32 @@ namespace LibrartDataManagementSystem
             this.Column_Borrowed_Book_Number_of_Copies.Name = "Column_Borrowed_Book_Number_of_Copies";
             this.Column_Borrowed_Book_Number_of_Copies.ReadOnly = true;
             // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(529, 40);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 13);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Due Status";
+            // 
+            // combBx_Borrowed_Book_Due_Status
+            // 
+            this.combBx_Borrowed_Book_Due_Status.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.combBx_Borrowed_Book_Due_Status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combBx_Borrowed_Book_Due_Status.FormattingEnabled = true;
+            this.combBx_Borrowed_Book_Due_Status.Items.AddRange(new object[] {
+            "All",
+            "Not Overdue",
+            "Overdue",
+            "Returned"});
+            this.combBx_Borrowed_Book_Due_Status.Location = new System.Drawing.Point(526, 56);
+            this.combBx_Borrowed_Book_Due_Status.Name = "combBx_Borrowed_Book_Due_Status";
+            this.combBx_Borrowed_Book_Due_Status.Size = new System.Drawing.Size(121, 21);
+            this.combBx_Borrowed_Book_Due_Status.TabIndex = 21;
+            this.combBx_Borrowed_Book_Due_Status.SelectedIndexChanged += new System.EventHandler(this.combBx_Borrowed_Book_Due_Status_SelectedIndexChanged);
+            // 
             // checkReturned
             // 
             this.checkReturned.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -254,6 +261,7 @@ namespace LibrartDataManagementSystem
             this.checkReturned.TabIndex = 23;
             this.checkReturned.Text = "Show Returned";
             this.checkReturned.UseVisualStyleBackColor = true;
+            this.checkReturned.CheckedChanged += new System.EventHandler(this.checkReturned_CheckedChanged);
             // 
             // BorrowersSearchLayoutForm
             // 
