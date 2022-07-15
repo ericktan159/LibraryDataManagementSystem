@@ -108,6 +108,7 @@ namespace LibrartDataManagementSystem
             // 
             // combBx_Borrower_Last_Name_MemberSearch
             // 
+            this.combBx_Borrower_Last_Name_MemberSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Borrower_Last_Name_MemberSearch.FormattingEnabled = true;
             this.combBx_Borrower_Last_Name_MemberSearch.Location = new System.Drawing.Point(302, 61);
             this.combBx_Borrower_Last_Name_MemberSearch.Name = "combBx_Borrower_Last_Name_MemberSearch";
@@ -124,6 +125,7 @@ namespace LibrartDataManagementSystem
             // 
             // combBx_Borrower_Gender_MemberSearch
             // 
+            this.combBx_Borrower_Gender_MemberSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Borrower_Gender_MemberSearch.FormattingEnabled = true;
             this.combBx_Borrower_Gender_MemberSearch.Location = new System.Drawing.Point(429, 61);
             this.combBx_Borrower_Gender_MemberSearch.Name = "combBx_Borrower_Gender_MemberSearch";
@@ -133,6 +135,7 @@ namespace LibrartDataManagementSystem
             // 
             // combBx_Borrower_BirthDate_MemberSearch
             // 
+            this.combBx_Borrower_BirthDate_MemberSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Borrower_BirthDate_MemberSearch.FormattingEnabled = true;
             this.combBx_Borrower_BirthDate_MemberSearch.Location = new System.Drawing.Point(503, 61);
             this.combBx_Borrower_BirthDate_MemberSearch.Name = "combBx_Borrower_BirthDate_MemberSearch";
