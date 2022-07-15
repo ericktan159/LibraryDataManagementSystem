@@ -28,6 +28,7 @@ namespace LibrartDataManagementSystem
         private void btn_BrowseMembers_Click(object sender, EventArgs e)
         {
             myLayoutController.LoadForm(memberSearchLayoutForm, this);
+            memberSearchLayoutForm.event_refresh();
         }
 
         private void btn_AddMembers_Click(object sender, EventArgs e)

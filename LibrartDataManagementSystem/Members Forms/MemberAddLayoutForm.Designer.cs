@@ -220,7 +220,7 @@ namespace LibrartDataManagementSystem
             this.buttonClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClear.BackColor = System.Drawing.Color.Red;
             this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonClear.Location = new System.Drawing.Point(595, 264);
+            this.buttonClear.Location = new System.Drawing.Point(595, 273);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(54, 23);
             this.buttonClear.TabIndex = 72;
