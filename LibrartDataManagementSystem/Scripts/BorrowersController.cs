@@ -45,6 +45,13 @@ namespace LibrartDataManagementSystem.Scripts
             }
         }
 
+
+        /// <summary>
+        /// fill the dropdown
+        /// </summary>
+        /// <param name="fName">reference of first name dropdown</param>
+        /// <param name="lName">reference of last name dropdown</param>
+        /// <param name="bookID">reference of bookid name dropdown</param>
         public void FillDropDown(ComboBox fName, ComboBox lName, ComboBox bookID)
         {
             string query = "SELECT tbl_borrower.Borrower_First_Name, tbl_borrower.Borrower_Last_Name," +
@@ -64,6 +71,37 @@ namespace LibrartDataManagementSystem.Scripts
                 bookID.Items.Add(result[2]);
             }
             fName.SelectedIndex = 0; lName.SelectedIndex = 0; bookID.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// fill the details
+        /// </summary>
+        public void FillDetails(string id, Label transacID, Label borrowerID, Label borrowerName, 
+            Label bookID, Label bookTitle, Label dateBorrowed, Label dueDate, Label dueStatus, 
+            Label quantity)
+        {
+            string query = "SELECT tbl_borrowed_book.Borrowed_Book_ID, tbl_borrower.Borrower_ID, " +
+                "tbl_borrower.Borrower_First_Name, tbl_borrower.Borrower_Middle_Name, " +
+                "tbl_borrower.Borrower_Last_Name, tbl_book.Book_ID, tbl_book.Book_Title, " +
+                "tbl_borrowed_book.Borrowed_Book_Date_Borrowed, tbl_borrowed_book.Borrowed_Book_Due_Date, " +
+                "tbl_borrowed_book.Borrowed_Book_Due_Status, tbl_borrowed_book.Borrowed_Book_Number_of_Copies " +
+                "FROM `tbl_borrowed_book` INNER JOIN `tbl_book` ON " +
+                "tbl_borrowed_book.Book_ID = tbl_book.Book_ID INNER JOIN `tbl_borrower` ON " +
+                $"tbl_borrowed_book.Borrower_ID = tbl_borrower.Borrower_ID WHERE `Borrowed_Book_ID` = \"{id}\"";
+
+            List<List<string>> results = _dbController.select_DBMethod_return_2DList_Table_Records(query);
+
+            List<string> result = results[0];
+
+            transacID.Text = result[0];
+            borrowerID.Text = result[1];
+            borrowerName.Text = $"{result[4]}, {result[2]} {result[3]}";
+            bookID.Text = result[5];
+            bookTitle.Text = result[6];
+            dateBorrowed.Text = result[7];
+            dueDate.Text = result[8];
+            dueStatus.Text = result[9];
+            quantity.Text = result[10];
         }
 
         /// <summary>

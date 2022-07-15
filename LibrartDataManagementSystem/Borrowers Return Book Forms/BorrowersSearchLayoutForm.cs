@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibrartDataManagementSystem.Scripts;
+using LibrartDataManagementSystem.Borrowers_Return_Book_Forms;
 
 namespace LibrartDataManagementSystem
 {
@@ -76,6 +77,15 @@ namespace LibrartDataManagementSystem
                 combBx_Borrower_Last_Name_BorrowerSearch, combBx_Book_ID_BorrowerSearch);
             combBx_Borrowed_Book_Due_Status.SelectedIndex = 0;
             TableFill();
+        }
+
+        private void dtGrdVw_BorrwerSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = dtGrdVw_BorrwerSearch.CurrentCellAddress.Y;
+            string id = dtGrdVw_BorrwerSearch.Rows[rowIndex].Cells["Column_Borrowed_Book_ID"].Value.ToString();
+
+            BorrowersDetailPopup detailPopup = new BorrowersDetailPopup(id);
+            detailPopup.ShowDialog();
         }
     }
 }

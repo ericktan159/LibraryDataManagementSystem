@@ -245,7 +245,7 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(16, 398);
+            this.label10.Location = new System.Drawing.Point(16, 396);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(170, 17);
             this.label10.TabIndex = 19;
@@ -255,7 +255,7 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
             // 
             this.quantity.AutoSize = true;
             this.quantity.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantity.Location = new System.Drawing.Point(192, 398);
+            this.quantity.Location = new System.Drawing.Point(192, 396);
             this.quantity.Name = "quantity";
             this.quantity.Size = new System.Drawing.Size(26, 17);
             this.quantity.TabIndex = 20;
@@ -293,6 +293,7 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
             this.MinimumSize = new System.Drawing.Size(531, 466);
             this.Name = "BorrowersDetailPopup";
             this.Text = "Details";
+            this.Load += new System.EventHandler(this.BorrowersDetailPopup_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

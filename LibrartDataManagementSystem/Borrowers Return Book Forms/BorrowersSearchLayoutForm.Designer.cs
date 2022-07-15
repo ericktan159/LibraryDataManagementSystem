@@ -186,6 +186,7 @@ namespace LibrartDataManagementSystem
             this.dtGrdVw_BorrwerSearch.ReadOnly = true;
             this.dtGrdVw_BorrwerSearch.Size = new System.Drawing.Size(794, 301);
             this.dtGrdVw_BorrwerSearch.TabIndex = 3;
+            this.dtGrdVw_BorrwerSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdVw_BorrwerSearch_CellDoubleClick);
             // 
             // Column_Borrowed_Book_ID
             // 
