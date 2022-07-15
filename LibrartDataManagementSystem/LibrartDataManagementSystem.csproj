@@ -84,6 +84,12 @@
     <Compile Include="Book Forms\BooksSearchLayoutFormcs.Designer.cs">
       <DependentUpon>BooksSearchLayoutFormcs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Borrowers Return Book Forms\BorrowersDetailPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Borrowers Return Book Forms\BorrowersDetailPopup.Designer.cs">
+      <DependentUpon>BorrowersDetailPopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Borrowers Return Book Forms\BorrowersLayOutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Book Forms\BooksSearchLayoutFormcs.resx">
       <DependentUpon>BooksSearchLayoutFormcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Borrowers Return Book Forms\BorrowersDetailPopup.resx">
+      <DependentUpon>BorrowersDetailPopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Borrowers Return Book Forms\BorrowersLayOutForm.resx">
       <DependentUpon>BorrowersLayOutForm.cs</DependentUpon>
