@@ -48,6 +48,8 @@ namespace LibrartDataManagementSystem
             this.label5 = new System.Windows.Forms.Label();
             this.combBx_Gender_MemberAddLayout = new System.Windows.Forms.ComboBox();
             this.dtp_BirthDate_MemberAddLayout = new System.Windows.Forms.DateTimePicker();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.checkClear = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label11
@@ -218,11 +220,36 @@ namespace LibrartDataManagementSystem
             this.dtp_BirthDate_MemberAddLayout.Size = new System.Drawing.Size(200, 20);
             this.dtp_BirthDate_MemberAddLayout.TabIndex = 71;
             // 
+            // buttonClear
+            // 
+            this.buttonClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClear.BackColor = System.Drawing.Color.Red;
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonClear.Location = new System.Drawing.Point(595, 264);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(54, 23);
+            this.buttonClear.TabIndex = 72;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
+            // checkClear
+            // 
+            this.checkClear.AutoSize = true;
+            this.checkClear.Location = new System.Drawing.Point(15, 248);
+            this.checkClear.Name = "checkClear";
+            this.checkClear.Size = new System.Drawing.Size(128, 17);
+            this.checkClear.TabIndex = 73;
+            this.checkClear.Text = "Clear Inputs in Submit";
+            this.checkClear.UseVisualStyleBackColor = true;
+            // 
             // MemberAddLayoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 308);
+            this.Controls.Add(this.checkClear);
+            this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.dtp_BirthDate_MemberAddLayout);
             this.Controls.Add(this.combBx_Gender_MemberAddLayout);
             this.Controls.Add(this.label5);
@@ -272,5 +299,7 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox combBx_Gender_MemberAddLayout;
         private System.Windows.Forms.DateTimePicker dtp_BirthDate_MemberAddLayout;
+        private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.CheckBox checkClear;
     }
 }

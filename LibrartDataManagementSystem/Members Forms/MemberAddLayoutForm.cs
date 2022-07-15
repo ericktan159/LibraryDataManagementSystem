@@ -18,6 +18,7 @@ namespace LibrartDataManagementSystem
         Info_TBL_BORR0WER myInfo_tbl_borrower = new Info_TBL_BORR0WER();
         private MembersController _membersController = new MembersController();
         private TextBox[] inputs;
+        private TextBox[] inputsWMname;
         
         public MemberAddLayoutForm()
         {
@@ -28,7 +29,10 @@ namespace LibrartDataManagementSystem
 
         private void MemberAddLayoutForm_Load(object sender, EventArgs e)
         {
-            inputs = new TextBox[6] {txtBx_FirstName_MemberAddLayout, txtBx_MiddleName_MemberAddLayout,
+            inputs = new TextBox[5] {txtBx_FirstName_MemberAddLayout,
+                txtBx_LastName_MemberAddLayout, txtBx_Address_MemberAddLayout,
+                txtBx_ContactNumber_MemberAddLayout, txtBx_TypeValidID_MemberAddLayout};
+            inputsWMname = new TextBox[6] {txtBx_FirstName_MemberAddLayout, txtBx_MiddleName_MemberAddLayout,
                 txtBx_LastName_MemberAddLayout, txtBx_Address_MemberAddLayout,
                 txtBx_ContactNumber_MemberAddLayout, txtBx_TypeValidID_MemberAddLayout};
         }
@@ -68,6 +72,10 @@ namespace LibrartDataManagementSystem
                     myInfo_tbl_borrower.Borrower_Type_of_Valid_ID = txtBx_TypeValidID_MemberAddLayout.Text;
                     _membersController.AddBorrowers(myInfo_tbl_borrower);
                 }
+                if(checkClear.Checked)
+                {
+                    _membersController.ClearInputs(inputsWMname);
+                }
             }
         }
 
@@ -80,6 +88,11 @@ namespace LibrartDataManagementSystem
             {
                 e.Handled = true;
             }
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            _membersController.ClearInputs(inputsWMname);
         }
     }
 }
