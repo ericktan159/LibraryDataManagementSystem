@@ -111,9 +111,9 @@ namespace LibrartDataManagementSystem
             // 
             // txtBx_TypeValidID_MemberAddLayout
             // 
-            this.txtBx_TypeValidID_MemberAddLayout.Location = new System.Drawing.Point(104, 214);
+            this.txtBx_TypeValidID_MemberAddLayout.Location = new System.Drawing.Point(102, 211);
             this.txtBx_TypeValidID_MemberAddLayout.Name = "txtBx_TypeValidID_MemberAddLayout";
-            this.txtBx_TypeValidID_MemberAddLayout.Size = new System.Drawing.Size(198, 20);
+            this.txtBx_TypeValidID_MemberAddLayout.Size = new System.Drawing.Size(200, 20);
             this.txtBx_TypeValidID_MemberAddLayout.TabIndex = 57;
             // 
             // label4
@@ -131,6 +131,7 @@ namespace LibrartDataManagementSystem
             this.txtBx_ContactNumber_MemberAddLayout.Name = "txtBx_ContactNumber_MemberAddLayout";
             this.txtBx_ContactNumber_MemberAddLayout.Size = new System.Drawing.Size(200, 20);
             this.txtBx_ContactNumber_MemberAddLayout.TabIndex = 55;
+            this.txtBx_ContactNumber_MemberAddLayout.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBx_ContactNumber_MemberAddLayout_KeyPress);
             // 
             // label3
             // 
@@ -186,6 +187,7 @@ namespace LibrartDataManagementSystem
             this.btn_MemberAdd.TabIndex = 49;
             this.btn_MemberAdd.Text = "Add Member";
             this.btn_MemberAdd.UseVisualStyleBackColor = false;
+            this.btn_MemberAdd.Click += new System.EventHandler(this.btn_MemberAdd_Click);
             // 
             // label5
             // 
@@ -210,8 +212,8 @@ namespace LibrartDataManagementSystem
             // 
             // dtp_BirthDate_MemberAddLayout
             // 
-            this.dtp_BirthDate_MemberAddLayout.CustomFormat = "DD/MM/yyyy";
-            this.dtp_BirthDate_MemberAddLayout.Location = new System.Drawing.Point(102, 182);
+            this.dtp_BirthDate_MemberAddLayout.CustomFormat = "dd-mm-yyyy";
+            this.dtp_BirthDate_MemberAddLayout.Location = new System.Drawing.Point(102, 176);
             this.dtp_BirthDate_MemberAddLayout.Name = "dtp_BirthDate_MemberAddLayout";
             this.dtp_BirthDate_MemberAddLayout.Size = new System.Drawing.Size(200, 20);
             this.dtp_BirthDate_MemberAddLayout.TabIndex = 71;
@@ -243,6 +245,7 @@ namespace LibrartDataManagementSystem
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MemberAddLayoutForm";
             this.Text = "MemberAddLayoutForm";
+            this.Load += new System.EventHandler(this.MemberAddLayoutForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

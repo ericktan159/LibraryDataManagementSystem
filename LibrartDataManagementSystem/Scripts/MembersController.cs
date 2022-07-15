@@ -49,7 +49,7 @@ namespace LibrartDataManagementSystem.Scripts
 
         public bool AddBorrowers(Info_TBL_BORR0WER tbl_Info)
         {
-            return dbController.insert_DBMethod_BORROWER(tbl_Infos);
+            return dbController.insert_DBMethod_BORROWER(tbl_Info);
         }
 
         public void ClearInputs(TextBox[] inputs)
