@@ -16,8 +16,12 @@ namespace LibrartDataManagementSystem
         LDMS_DataBaseController _LDMS_DataBaseControlle = new LDMS_DataBaseController();
         List<List<string>> demoListOfListOfString;
         BooksController _booksController = new BooksController();
+        MembersController _MembersController = new MembersController();
 
-        Info_TBL_BORROWED_BOOK myInfo_tbl_borrowed_book; 
+
+        Member_Search_Controller searchMemberForm;
+
+        Info_TBL_BORROWED_BOOK tbl_Infos; 
 
         private int numberOfAvableBooks = 0;
         private int numberOfCopiesTaken = 0;
@@ -26,7 +30,12 @@ namespace LibrartDataManagementSystem
         {
             InitializeComponent();
 
-
+            searchMemberForm = new Member_Search_Controller(
+            combBx_Borrower_First_Name_TransactionBorrow,
+            combBx_Borrower_Last_Name_TransactionBorrow,
+            combBx_Borrower_Gender_TransactionBorrow,
+            dtGrdVw_Member_TransactionBorrow,
+            txtBx_SearchMember_TransactionBorrow);
 
             //testDemolangMember();
             //testDemolangBooks();
@@ -64,6 +73,13 @@ namespace LibrartDataManagementSystem
 
         private void TransactionBorrowLayoutForm_Load(object sender, EventArgs e)
         {
+            
+
+            ///////////
+            searchMemberForm.event_FormLoad();
+            ///////////////
+            ///
+
             // books
             _booksController.FillDropdown(combBx_Book_Author_TransactionBorrow, "Book_Author");
             _booksController.FillDropdown(combBx_Book_Genre_TransactionBorrow, "Book_Genre");
@@ -81,6 +97,7 @@ namespace LibrartDataManagementSystem
                 combBx_Book_Year_Published_TransactionBorrow.SelectedItem.ToString());
             _booksController.FillQuantityColor(dtGrdVw_Book_TransactionBorrow);
             // end of books
+            GenerateTable();
         }
 
         // Books
@@ -241,6 +258,8 @@ namespace LibrartDataManagementSystem
 
         private void dtGrdVw_Book_TransactionBorrow_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            searchMemberForm.event_dtGrdVw_BorrwerSearch_CellDoubleClick();
+
             if (e.RowIndex >= 0)
             {
                 //MessageBox.Show("Books!!");
@@ -264,7 +283,10 @@ namespace LibrartDataManagementSystem
 
         private void btn_IssueBorrowBook_Click(object sender, EventArgs e)
         {
-            demmoInsertIssue();
+            //demmoInsertIssue();
+            insert_Borrowed_Book();
+            searchMemberForm.event_refresh();
+            GenerateTable();
         }
         private void counttheBooksavailable()
         {
@@ -278,20 +300,44 @@ namespace LibrartDataManagementSystem
         }
         private void demmoInsertIssue()
         {
+            insert_Borrowed_Book();            
+        }
+
+        private void insert_Borrowed_Book()
+        {
+            //tbl_Infos.Book_ID = int.Parse(txt_Book_ID_BorrowLayout.Text);
+            //tbl_Infos.Borrower_ID = int.Parse(txtBx_Borrower_ID_BorrowLayout.Text);
+            tbl_Infos = new Info_TBL_BORROWED_BOOK(int.Parse(txt_Book_ID_BorrowLayout.Text), int.Parse(txtBx_Borrower_ID_BorrowLayout.Text));
+            tbl_Infos.Borrowed_Book_Date_Borrowed = dtp_Date_Borrowed_BorrowLayout.Value.ToString("MM-dd-yyyy");
+            tbl_Infos.Borrowed_Book_Due_Date = dtp_Due_Date_BorrowLayout.Value.ToString("MM-dd-yyyy");
+            tbl_Infos.Borrowed_Book_Due_Status = "Not Overdue";
+            tbl_Infos.Borrowed_Book_Date_Returned = "";
+            tbl_Infos.Borrowed_Book_Number_of_Copies = int.Parse(combBx_NumCopies__BorrowLayout.SelectedItem.ToString());
+
+
+            int num_Qntty = int.Parse(_LDMS_DataBaseControlle.select_DBMethod_return_a_Cell(Info_TBL_BOOK.Const_Names.table_Name,
+                                                                tbl_Infos.get_Foreign_Key_Book_ID(),
+                                                                Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST));
+
+            int number_of_Books_Left = num_Qntty - tbl_Infos.Borrowed_Book_Number_of_Copies;
+
+            bool isSuccess;
 
 
 
-            //myInfo_tbl_borrowed_book.Book_ID = int.Parse(txt_Book_ID_BorrowLayout.Text);
-            //myInfo_tbl_borrowed_book.Borrower_ID = int.Parse(txtBx_Borrower_ID_BorrowLayout.Text);
-            myInfo_tbl_borrowed_book = new Info_TBL_BORROWED_BOOK(int.Parse(txt_Book_ID_BorrowLayout.Text), int.Parse(txtBx_Borrower_ID_BorrowLayout.Text));
-            myInfo_tbl_borrowed_book.Borrowed_Book_Date_Borrowed = dtp_Date_Borrowed_BorrowLayout.Value.ToString("MM-dd-yyyy");
-            myInfo_tbl_borrowed_book.Borrowed_Book_Due_Date = dtp_Due_Date_BorrowLayout.Value.ToString("MM-dd-yyyy");
-            myInfo_tbl_borrowed_book.Borrowed_Book_Due_Status = "Not Overdue";
-            myInfo_tbl_borrowed_book.Borrowed_Book_Date_Returned = "";
-            myInfo_tbl_borrowed_book.Borrowed_Book_Number_of_Copies = int.Parse(combBx_NumCopies__BorrowLayout.SelectedItem.ToString());
+            if ((number_of_Books_Left >= 0))
+            {
+                isSuccess = _LDMS_DataBaseControlle.insert_DBMethod_BORROWED_BOOK(tbl_Infos);
+            }
+            else
+            {
+                isSuccess = false;
 
-            bool isSuccess = _LDMS_DataBaseControlle.insert_DBMethod_BORROWED_BOOK(myInfo_tbl_borrowed_book);
-                //(Book_ID, Borrower_ID, Borrowed_Book_Date_Borrowed, Borrowed_Book_Due_Date, Borrowed_Book_Due_Status, Borrowed_Book_Date_Returned, Borrowed_Book_Number_of_Copies);
+                MessageBox.Show("Cannot Borrow the book!!! No Avalable copies");
+            }
+
+
+            //(Book_ID, Borrower_ID, Borrowed_Book_Date_Borrowed, Borrowed_Book_Due_Date, Borrowed_Book_Due_Status, Borrowed_Book_Date_Returned, Borrowed_Book_Number_of_Copies);
             if (isSuccess)
             {
                 MessageBox.Show("Succes Issue!!!");
@@ -300,6 +346,16 @@ namespace LibrartDataManagementSystem
             {
                 MessageBox.Show("Not Succes Issue!!!");
             }
+        }
+
+        private void btn_Member_Search_TransactionBorrow_Click(object sender, EventArgs e)
+        {
+            searchMemberForm.event_Click_Searh();
+        }
+
+        private void combx_Search_Filters_Change(object sender, EventArgs e)
+        {
+            searchMemberForm.event_DropdownChange();
         }
     }
 }

@@ -30,7 +30,22 @@ namespace LibrartDataManagementSystem
 
         private void MainLayout_Load(object sender, EventArgs e)
         {
-            if(!dbController.IsDataBaseOpen())
+            event_Load_Form();
+
+            mga_testing_lang();
+        }
+
+        public void mga_testing_lang()
+        {
+            //Enum_CONST_Type_Valid_ID.print_this();
+
+            pangExpermentnaForm demodemo = new pangExpermentnaForm();
+            demodemo.ShowDialog();
+        }
+
+        public void event_Load_Form()
+        {
+            if (!dbController.IsDataBaseOpen())
             {
                 MessageBox.Show("Database cannot find or " +
                     "check if your database server is open.", "Error");

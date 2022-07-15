@@ -27,7 +27,7 @@ namespace LibrartDataManagementSystem.Members_Forms
 
         private string _id;
         private int Borrower_ID;
-        private int n_TxtBx = 6;
+        private int n_TxtBx = 5;
 
         public MembersEditPopUp(string _Borrower_ID)
         {
@@ -37,13 +37,13 @@ namespace LibrartDataManagementSystem.Members_Forms
             Borrower_ID = int.Parse(_Borrower_ID);
  
             //n_TxtB
-            _inputs = new TextBox[6] {
+            _inputs = new TextBox[5] {
                     txtBx_FirstNamel_MembersEdit,
                     txtBx_Middle_Name_MembersEdit,
                     txtBx_LastNamel_MembersEdit,
                     txtBx_Address_MembersEdit,
-                    txtBx_ContactNumber_MembersEdit,
-                    txtBx_TypeValidID__MembersEdit
+                    txtBx_ContactNumber_MembersEdit
+                    
             };
         }
 
@@ -59,7 +59,9 @@ namespace LibrartDataManagementSystem.Members_Forms
 
         private void event_FormLoad()
         {
-            myMembersController.init_GenderChoice_ComboBox(combBx_Gender_MembersEdit);
+            //myMembersController.init_GenderChoice_ComboBox(combBx_Gender_MembersEdit);
+            Enum_CONST_Gender.set_ComboBox_Items(combBx_Gender_MembersEdit);
+            Enum_CONST_Type_Valid_ID.set_ComboBox_Items(combBx_TypeValidID__MembersEdit);
 
             myInputMemberInfo.input_1_txtBx_Borrower_First_Name = txtBx_FirstNamel_MembersEdit;
             myInputMemberInfo.input_2_txtBx_Borrower_Middle_Name = txtBx_Middle_Name_MembersEdit;
@@ -68,7 +70,7 @@ namespace LibrartDataManagementSystem.Members_Forms
             myInputMemberInfo.input_5_txtBx_Borrower_Address = txtBx_Address_MembersEdit;
             myInputMemberInfo.input_6_txtBx_Borrower_Contact_Number = txtBx_ContactNumber_MembersEdit;
             myInputMemberInfo.input_7_dtp_Borrower_BirthDate = dtp_BirthDate__MembersEdit;
-            myInputMemberInfo.input_8_txtBx_Borrower_Type_of_Valid_ID = txtBx_TypeValidID__MembersEdit;
+            myInputMemberInfo.input_8_combBx_Borrower_Type_of_Valid_ID = combBx_TypeValidID__MembersEdit;
 
             myMembersController.fill_Inputs_TableDeatails(Borrower_ID.ToString(), myInputMemberInfo);
         }
@@ -105,7 +107,7 @@ namespace LibrartDataManagementSystem.Members_Forms
                                                                                 txtBx_Address_MembersEdit,
                                                                                 txtBx_ContactNumber_MembersEdit,
                                                                                 dtp_BirthDate__MembersEdit,
-                                                                                txtBx_TypeValidID__MembersEdit);
+                                                                                combBx_TypeValidID__MembersEdit);
 
                     success = myMembersController.UpdateBorrowers(Borrower_ID, tbl_Infos);
                     if (success)
