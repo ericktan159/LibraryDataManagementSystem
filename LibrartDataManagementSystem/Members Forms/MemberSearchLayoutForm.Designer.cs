@@ -37,7 +37,7 @@ namespace LibrartDataManagementSystem
             this.combBx_Borrower_Last_Name_MemberSearch = new System.Windows.Forms.ComboBox();
             this.txtBx_MemberSearch = new System.Windows.Forms.TextBox();
             this.combBx_Borrower_Gender_MemberSearch = new System.Windows.Forms.ComboBox();
-            this.combBx_Borrower_BirthDate_MemberSearch = new System.Windows.Forms.ComboBox();
+            this.combBx_Borrower_First_Name_MemberSearch = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonRefresh = new System.Windows.Forms.Button();
@@ -52,6 +52,7 @@ namespace LibrartDataManagementSystem
             this.Column_Borrower_Conatact_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Borrower_BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Borrower_Type_Valid_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.grpMembers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrdVw_MemberSearch)).BeginInit();
             this.SuspendLayout();
@@ -91,7 +92,7 @@ namespace LibrartDataManagementSystem
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(332, 45);
+            this.label2.Location = new System.Drawing.Point(435, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 26;
@@ -110,7 +111,7 @@ namespace LibrartDataManagementSystem
             // 
             this.combBx_Borrower_Last_Name_MemberSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Borrower_Last_Name_MemberSearch.FormattingEnabled = true;
-            this.combBx_Borrower_Last_Name_MemberSearch.Location = new System.Drawing.Point(302, 61);
+            this.combBx_Borrower_Last_Name_MemberSearch.Location = new System.Drawing.Point(404, 61);
             this.combBx_Borrower_Last_Name_MemberSearch.Name = "combBx_Borrower_Last_Name_MemberSearch";
             this.combBx_Borrower_Last_Name_MemberSearch.Size = new System.Drawing.Size(119, 21);
             this.combBx_Borrower_Last_Name_MemberSearch.TabIndex = 24;
@@ -127,26 +128,26 @@ namespace LibrartDataManagementSystem
             // 
             this.combBx_Borrower_Gender_MemberSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combBx_Borrower_Gender_MemberSearch.FormattingEnabled = true;
-            this.combBx_Borrower_Gender_MemberSearch.Location = new System.Drawing.Point(429, 61);
+            this.combBx_Borrower_Gender_MemberSearch.Location = new System.Drawing.Point(529, 61);
             this.combBx_Borrower_Gender_MemberSearch.Name = "combBx_Borrower_Gender_MemberSearch";
             this.combBx_Borrower_Gender_MemberSearch.Size = new System.Drawing.Size(66, 21);
             this.combBx_Borrower_Gender_MemberSearch.TabIndex = 32;
             this.combBx_Borrower_Gender_MemberSearch.SelectedIndexChanged += new System.EventHandler(this.combBx_Borrower_Last_Name_MemberSearch_SelectedIndexChanged);
             // 
-            // combBx_Borrower_BirthDate_MemberSearch
+            // combBx_Borrower_First_Name_MemberSearch
             // 
-            this.combBx_Borrower_BirthDate_MemberSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combBx_Borrower_BirthDate_MemberSearch.FormattingEnabled = true;
-            this.combBx_Borrower_BirthDate_MemberSearch.Location = new System.Drawing.Point(503, 61);
-            this.combBx_Borrower_BirthDate_MemberSearch.Name = "combBx_Borrower_BirthDate_MemberSearch";
-            this.combBx_Borrower_BirthDate_MemberSearch.Size = new System.Drawing.Size(119, 21);
-            this.combBx_Borrower_BirthDate_MemberSearch.TabIndex = 33;
-            this.combBx_Borrower_BirthDate_MemberSearch.SelectedIndexChanged += new System.EventHandler(this.combBx_Borrower_Last_Name_MemberSearch_SelectedIndexChanged);
+            this.combBx_Borrower_First_Name_MemberSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combBx_Borrower_First_Name_MemberSearch.FormattingEnabled = true;
+            this.combBx_Borrower_First_Name_MemberSearch.Location = new System.Drawing.Point(279, 61);
+            this.combBx_Borrower_First_Name_MemberSearch.Name = "combBx_Borrower_First_Name_MemberSearch";
+            this.combBx_Borrower_First_Name_MemberSearch.Size = new System.Drawing.Size(119, 21);
+            this.combBx_Borrower_First_Name_MemberSearch.TabIndex = 33;
+            this.combBx_Borrower_First_Name_MemberSearch.SelectedIndexChanged += new System.EventHandler(this.combBx_Borrower_Last_Name_MemberSearch_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(443, 45);
+            this.label4.Location = new System.Drawing.Point(536, 45);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 34;
@@ -155,11 +156,11 @@ namespace LibrartDataManagementSystem
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(539, 45);
+            this.label5.Location = new System.Drawing.Point(326, 45);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 35;
-            this.label5.Text = "Bithdate";
+            this.label5.Text = "First Name";
             // 
             // buttonRefresh
             // 
@@ -264,17 +265,27 @@ namespace LibrartDataManagementSystem
             this.Column_Borrower_Type_Valid_ID.Name = "Column_Borrower_Type_Valid_ID";
             this.Column_Borrower_Type_Valid_ID.ReadOnly = true;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "MM/DD/YYYY";
+            this.dateTimePicker1.Location = new System.Drawing.Point(657, 61);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 38;
+            // 
             // MemberSearchLayoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(927, 534);
+            this.Controls.Add(this.dateTimePicker1);
             this.ClientSize = new System.Drawing.Size(927, 400);
             this.Controls.Add(this.grpMembers);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.combBx_Borrower_BirthDate_MemberSearch);
+            this.Controls.Add(this.combBx_Borrower_First_Name_MemberSearch);
             this.Controls.Add(this.combBx_Borrower_Gender_MemberSearch);
             this.Controls.Add(this.btn_DeleteMemberSearch);
             this.Controls.Add(this.btn_EditMemberSearch);
@@ -303,7 +314,7 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.ComboBox combBx_Borrower_Last_Name_MemberSearch;
         private System.Windows.Forms.TextBox txtBx_MemberSearch;
         private System.Windows.Forms.ComboBox combBx_Borrower_Gender_MemberSearch;
-        private System.Windows.Forms.ComboBox combBx_Borrower_BirthDate_MemberSearch;
+        private System.Windows.Forms.ComboBox combBx_Borrower_First_Name_MemberSearch;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button buttonRefresh;
@@ -318,5 +329,6 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrower_Conatact_Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrower_BirthDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Borrower_Type_Valid_ID;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

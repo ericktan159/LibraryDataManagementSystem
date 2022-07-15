@@ -210,6 +210,11 @@ namespace LibrartDataManagementSystem
         }
     }
 
+    class My_Enum_Gender
+    {
+        public const string const_Male = "Male";
+        public const string const_Female = "Female";
+    }
 
 
     class LDMS_DataBaseController
@@ -477,7 +482,7 @@ namespace LibrartDataManagementSystem
                     $"`{Info_TBL_BOOK.Const_Names.col_5_Book_Publisher_CONST}`=\"{tbl_Infos.Book_Publisher}\"" + ", " +
                     $"`{Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST}`=\"{tbl_Infos.Book_Number_Of_Quantity}\"" +
 
-                    $" WHERE `Book_ID` = '{table_ID}'";
+                    $" WHERE `{tbl_Infos.get_Table_Primary_Key_ID_Name()}` = '{table_ID}'";
 
                 return connectDB_And_ExecuteNonQuery(update_SQL_StateMent);//update_DBMethod(query);
             }
@@ -510,8 +515,8 @@ namespace LibrartDataManagementSystem
                     $"`{Info_TBL_BORR0WER.Const_Names.col_6_Borrower_Contact_Number_CONST}`=\"{tbl_Infos.Borrower_Contact_Number}\"" + ", " +
                     $"`{Info_TBL_BORR0WER.Const_Names.col_7_Borrower_BirthDate_CONST}`=\"{tbl_Infos.Borrower_BirthDate}\"" + ", " +
                     $"`{Info_TBL_BORR0WER.Const_Names.col_8_Borrower_Type_of_Valid_ID_CONST}`=\"{tbl_Infos.Borrower_Type_of_Valid_ID}\"" +
-
-                    $" WHERE `Book_ID` = '{table_ID}'";
+              
+                    $" WHERE `{tbl_Infos.get_Table_Primary_Key_ID_Name()}` = '{table_ID}'";
                 return connectDB_And_ExecuteNonQuery(update_SQL_StateMent);//update_DBMethod(query);
             }
             else
@@ -542,7 +547,7 @@ namespace LibrartDataManagementSystem
                     $"`{Info_TBL_BORROWED_BOOK.Const_Names.col_6_Borrowed_Book_Date_Returned_CONST}`=\"{tbl_Infos.Borrowed_Book_Date_Returned}\"" + ", " +
                     $"`{Info_TBL_BORROWED_BOOK.Const_Names.col_7_Borrowed_Book_Number_of_Copies_CONST}`=\"{tbl_Infos.Borrowed_Book_Number_of_Copies}\"" +
 
-                    $" WHERE `Book_ID` = '{table_ID}'";
+                    $" WHERE `{tbl_Infos.get_Table_Primary_Key_ID_Name()}` = '{table_ID}'";
 
                 bool isSuccess = connectDB_And_ExecuteNonQuery(update_SQL_StateMent);//update_DBMethod(query);
 
@@ -819,6 +824,29 @@ namespace LibrartDataManagementSystem
                 $"`{Info_TBL_BOOK.Const_Names.col_4_Book_Year_Published_CONST}` = \"{tbl_Infos.Book_Year_Published}\" AND " +
                 $"`{Info_TBL_BOOK.Const_Names.col_5_Book_Publisher_CONST}` = \"{tbl_Infos.Book_Publisher}\" AND " +
                 $"`{Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST}` = \"{tbl_Infos.Book_Number_Of_Quantity}\"";
+
+            List<List<string>> rslts_2D = select_DBMethod_return_2DList_Table_Records(query);
+            List<string> prime_ID_Columns = new List<string>();
+            foreach (List<string> book in rslts_2D)
+            {
+                prime_ID_Columns.Add(book[0]);
+            }
+            return prime_ID_Columns;
+        }
+
+        public List<string> select_DBMethod_Table_Details_Return_Prime_ID_Column(Info_TBL_BORR0WER tbl_Infos)
+        //(string bookTitle, string bookAuthor, string bookGenre, string bookPublisher, string yearPublished)
+        {
+            string query = $"SELECT * FROM `{tbl_Infos.get_Table_Name()}` WHERE " +
+
+                $"`{Info_TBL_BORR0WER.Const_Names.col_1_Borrower_First_Name_CONST}` = \"{tbl_Infos.Borrower_First_Name}\" AND " +
+                $"`{Info_TBL_BORR0WER.Const_Names.col_2_Borrower_Middle_Name_CONST}` = \"{tbl_Infos.Borrower_Middle_Name}\" AND " +
+                $"`{Info_TBL_BORR0WER.Const_Names.col_3_Borrower_Last_Name_CONST}` = \"{tbl_Infos.Borrower_Middle_Name}\" AND " +
+                $"`{Info_TBL_BORR0WER.Const_Names.col_4_Borrower_Gender_CONST}` = \"{tbl_Infos.Borrower_Gender}\" AND " +
+                $"`{Info_TBL_BORR0WER.Const_Names.col_5_Borrower_Address_CONST}` = \"{tbl_Infos.Borrower_Address}\" AND " +
+                $"`{Info_TBL_BORR0WER.Const_Names.col_6_Borrower_Contact_Number_CONST}` = \"{tbl_Infos.Borrower_Contact_Number}\" AND " +
+                $"`{Info_TBL_BORR0WER.Const_Names.col_7_Borrower_BirthDate_CONST}` = \"{tbl_Infos.Borrower_BirthDate}\" AND " +
+                $"`{Info_TBL_BORR0WER.Const_Names.col_8_Borrower_Type_of_Valid_ID_CONST}` = \"{tbl_Infos.Borrower_Type_of_Valid_ID}\"";
 
             List<List<string>> rslts_2D = select_DBMethod_return_2DList_Table_Records(query);
             List<string> prime_ID_Columns = new List<string>();

@@ -141,5 +141,13 @@ E:\AdminFileFolder\AlphaSource\repos\Elective_4_repo\LibraryDataManagementSystem
 E:\AdminFileFolder\AlphaSource\repos\Elective_4_repo\LibraryDataManagementSystem\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.pdb
 C:\Users\User\Desktop\Kitts Things 1-1\5-2nd sem\Elective 4\Proj\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.Book_Forms.BooksQuantityPopUp.resources
 E:\AdminFileFolder\AlphaSource\repos\Elective_4_repo\LibraryDataManagementSystem\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.Book_Forms.BooksQuantityPopUp.resources
+<<<<<<< HEAD
 C:\Users\User\Desktop\Kitts Things 1-1\5-2nd sem\Elective 4\Proj\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.Borrowers_Return_Book_Forms.BorrowersDetailPopup.resources
 C:\Users\User\Desktop\Kitts Things 1-1\5-2nd sem\Elective 4\Proj\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.Borrowers_Return_Book_Forms.BorrowersReturnPopup.resources
+=======
+E:\AdminFileFolder\AlphaSource\repos\Elective_4_repo\LibraryDataManagementSystem\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.Members_Forms.MembersDetailPopUp.resources
+E:\AdminFileFolder\AlphaSource\repos\Elective_4_repo\LibraryDataManagementSystem\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.Members_Forms.MembersEditPopUp.resources
+>>>>>>> master
+C:\Users\User\Desktop\Kitts Things 1-1\5-2nd sem\Elective 4\Proj\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.Members_Forms.MembersDetailPopUp.resources
+C:\Users\User\Desktop\Kitts Things 1-1\5-2nd sem\Elective 4\Proj\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.Members_Forms.MembersEditPopUp.resources
+C:\Users\User\Desktop\Kitts Things 1-1\5-2nd sem\Elective 4\Proj\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.csproj.CopyComplete

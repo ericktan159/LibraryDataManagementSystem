@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibrartDataManagementSystem.Scripts;
 using LibrartDataManagementSystem;
+using System.Globalization;
+using LibrartDataManagementSystem.Members_Forms;
 
 namespace LibrartDataManagementSystem
 {
@@ -32,15 +34,16 @@ namespace LibrartDataManagementSystem
         }
 
         
-        private void fillBorrwerSearchFilters(int lastNameIndex, int genderIndex, int birthDateIndex)
+        private void fillBorrwerSearchFilters(int firstNameIndex, int lastNameIndex, int genderIndex)
         {
-            _MembersController.FillDropdown(combBx_Borrower_Last_Name_MemberSearch, SearchFilterMember.FilterNames.f_1_Last_Name);
-            _MembersController.FillDropdown(combBx_Borrower_Gender_MemberSearch, SearchFilterMember.FilterNames.f_2_Gender);
-            _MembersController.FillDropdown(combBx_Borrower_BirthDate_MemberSearch, SearchFilterMember.FilterNames.f_3_BirthDate);
+            _MembersController.FillDropdown(combBx_Borrower_First_Name_MemberSearch, SearchFilterMember.FilterNames.f_1_First_Name);
+            _MembersController.FillDropdown(combBx_Borrower_Last_Name_MemberSearch, SearchFilterMember.FilterNames.f_2_Last_Name);
+            _MembersController.FillDropdown(combBx_Borrower_Gender_MemberSearch, SearchFilterMember.FilterNames.f_3_Gender);
 
+            combBx_Borrower_First_Name_MemberSearch.SelectedIndex = firstNameIndex;
             combBx_Borrower_Last_Name_MemberSearch.SelectedIndex = lastNameIndex;
             combBx_Borrower_Gender_MemberSearch.SelectedIndex = genderIndex;
-            combBx_Borrower_BirthDate_MemberSearch.SelectedIndex = birthDateIndex;
+            
         }
 
         private void event_FormLoad()// Here_EVENT
@@ -48,37 +51,38 @@ namespace LibrartDataManagementSystem
             fillBorrwerSearchFilters(0, 0, 0);
 
 
-            myComboBoxFilters.v_1_Borrower_Last_Name = combBx_Borrower_Last_Name_MemberSearch.SelectedItem.ToString();
-            myComboBoxFilters.v_2_Borrower_Gender = combBx_Borrower_Gender_MemberSearch.SelectedItem.ToString();
-            myComboBoxFilters.v_3_Borrower_BirthDate = combBx_Borrower_BirthDate_MemberSearch.SelectedItem.ToString();
+            myComboBoxFilters.v_1_Borrower_First_Name = combBx_Borrower_First_Name_MemberSearch.SelectedItem.ToString();
+            myComboBoxFilters.v_2_Borrower_Last_Name = combBx_Borrower_Last_Name_MemberSearch.SelectedItem.ToString();
+            myComboBoxFilters.v_3_Borrower_Gender = combBx_Borrower_Gender_MemberSearch.SelectedItem.ToString();
 
 
             _MembersController.FillTable(dtGrdVw_MemberSearch, txtBx_MemberSearch.Text, myComboBoxFilters);
-            
-            
+
+
             //_BorrwersController.FillQuantityColor(dtGrdVw_BorrwerSearch);
+            event_refresh();
         }
 
 
-        //btn_Search/btn_refresh CLICK - GenerateTable
+        //btn_Search/btn_refresh CLICK - GenerateMembersTable
 
         
         
-        public void GenerateTable(bool withDropdown = true, bool fromOtherForm = false)
+        public void GenerateMembersTable(bool withDropdown = true, bool fromOtherForm = false)
         {
             if (withDropdown)
             {
+                int firstNameIndex = combBx_Borrower_First_Name_MemberSearch.SelectedIndex;
                 int lastNameIndex = combBx_Borrower_Last_Name_MemberSearch.SelectedIndex;
                 int genderIndex = combBx_Borrower_Gender_MemberSearch.SelectedIndex;
-                int birthDateIndex = combBx_Borrower_BirthDate_MemberSearch.SelectedIndex;
-
-                fillBorrwerSearchFilters(lastNameIndex, genderIndex, birthDateIndex);              
+                
+                fillBorrwerSearchFilters(firstNameIndex,lastNameIndex, genderIndex);              
             }
 
 
-            myComboBoxFilters.v_1_Borrower_Last_Name = combBx_Borrower_Last_Name_MemberSearch.SelectedItem.ToString();
-            myComboBoxFilters.v_2_Borrower_Gender = combBx_Borrower_Gender_MemberSearch.SelectedItem.ToString();
-            myComboBoxFilters.v_3_Borrower_BirthDate = combBx_Borrower_BirthDate_MemberSearch.SelectedItem.ToString();
+            myComboBoxFilters.v_1_Borrower_First_Name = combBx_Borrower_First_Name_MemberSearch.SelectedItem.ToString();
+            myComboBoxFilters.v_2_Borrower_Last_Name = combBx_Borrower_Last_Name_MemberSearch.SelectedItem.ToString();
+            myComboBoxFilters.v_3_Borrower_Gender = combBx_Borrower_Gender_MemberSearch.SelectedItem.ToString();
 
 
             _MembersController.FillTable(dtGrdVw_MemberSearch, txtBx_MemberSearch.Text, myComboBoxFilters);
@@ -91,10 +95,21 @@ namespace LibrartDataManagementSystem
         {
             if (combBx_Borrower_Last_Name_MemberSearch.SelectedItem != null && 
                 combBx_Borrower_Gender_MemberSearch.SelectedItem != null &&
-                combBx_Borrower_BirthDate_MemberSearch.SelectedItem != null)
+                combBx_Borrower_First_Name_MemberSearch.SelectedItem != null)
             {
-                GenerateTable(false);
+                GenerateMembersTable(false);
             }
+        }
+
+        //
+        private void event_Click_Searh()
+        {
+            GenerateMembersTable(false);
+        }
+
+        public void event_refresh()
+        {
+            GenerateMembersTable();
         }
 
 
@@ -103,8 +118,8 @@ namespace LibrartDataManagementSystem
         {
             int rowIndex = dtGrdVw_MemberSearch.CurrentCellAddress.Y;
             string id = dtGrdVw_MemberSearch.Rows[rowIndex].Cells[DGV_BORROWER.Column_Names.col_0_ID_CONST].Value.ToString();
-            detailPopUp(id);
-            GenerateTable();
+            updateMemberPopUP(id);
+            event_refresh();
         }
 
 
@@ -143,7 +158,7 @@ namespace LibrartDataManagementSystem
                 MessageBox.Show($"Deletion of {name} is cancelled...");
             }
 
-            GenerateTable();
+            event_refresh();
         }
 
 
@@ -153,14 +168,20 @@ namespace LibrartDataManagementSystem
             int rowIndex = dtGrdVw_MemberSearch.CurrentCellAddress.Y;
             string id = dtGrdVw_MemberSearch.Rows[rowIndex].Cells[DGV_BORROWER.Column_Names.col_0_ID_CONST].Value.ToString();//"Column_Borrwer_ID"].Value.ToString();
 
-            detailPopUp(id);
+            viewDetailsMembers(id);
         }
 
 
-        private void detailPopUp(string id)
+        private void viewDetailsMembers(string id)
         {
-            //BorrwersDetailPopUp detailPopup = new BorrwersDetailPopUp(id);
-            //detailPopup.ShowDialog();
+            MembersDetailPopUp detailPopup = new MembersDetailPopUp(id);
+            detailPopup.ShowDialog();
+        }
+
+        private void updateMemberPopUP(string id)
+        {
+            MembersEditPopUp updateDetailPopUp = new MembersEditPopUp(id);
+            updateDetailPopUp.ShowDialog();
         }
 
 
@@ -191,9 +212,20 @@ namespace LibrartDataManagementSystem
 
         private void MemberSearchLayoutForm_Load(object sender, EventArgs e)
         {
+            //demoDate();
+
             //demoLang_select_ALL_Form_tbl_borrower();
             //testDemolang();
             event_FormLoad();
+        }
+
+        private void demoDate()
+        {
+            string strDate = "12/12/2020 7:27:38 PM";
+            IFormatProvider cul = new CultureInfo("en-us", true);
+            dateTimePicker1.Value = DateTime.Parse(strDate);//Exact(strDate,"MM/dd/yyyy hh:mm:ss tt, fff", CultureInfo.InvariantCulture);//cul, DateTimeStyles.AssumeLocal);//
+            //dateTimePicker1.Value = Convert.ToDateTime(strDate);//DateTime.ParseExact(strDate, "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+
         }
 
 
@@ -299,12 +331,12 @@ namespace LibrartDataManagementSystem
 
         private void btn_Member_Search_Click(object sender, EventArgs e)
         {
-            GenerateTable(false);
+            event_Click_Searh();   
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            GenerateTable();
+            event_refresh();
         }
 
         private void btn_EditMemberSearch_Click(object sender, EventArgs e)
