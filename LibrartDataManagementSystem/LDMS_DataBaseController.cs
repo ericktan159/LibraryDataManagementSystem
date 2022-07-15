@@ -101,7 +101,7 @@ namespace LibrartDataManagementSystem
         public string Borrower_Gender;
         public string Borrower_Address;
         public string Borrower_Contact_Number;
-        public /*Datetime*/ string Borrower_BirthDate;
+        public string Borrower_BirthDate;
         public string Borrower_Type_of_Valid_ID;
 
         public string get_Table_Name()
@@ -346,7 +346,7 @@ namespace LibrartDataManagementSystem
 
         public bool insert_DBMethod_BORROWER(Info_TBL_BORR0WER tbl_Infos)//(string Borrower_First_Name, string Borrower_Middle_Name, string Borrower_Last_Name, string Borrower_Gender, string Borrower_Address, string Borrower_Contact_Number, /*Datetime*/ string Borrower_BirthDate, string Borrower_Type_of_Valid_ID)
         {
-
+            Console.WriteLine(tbl_Infos.Borrower_First_Name);
             string insert_SQL_StateMent = $"INSERT INTO `{tbl_Infos.get_Table_Name()}` (" +
             $"`{Info_TBL_BORR0WER.Const_Names.col_1_Borrower_First_Name_CONST}`" + ", " +
             $"`{Info_TBL_BORR0WER.Const_Names.col_2_Borrower_Middle_Name_CONST}`" + ", " +
@@ -367,7 +367,7 @@ namespace LibrartDataManagementSystem
             $"\"{tbl_Infos.Borrower_BirthDate}\"" + ", " +
             $"\"{tbl_Infos.Borrower_Type_of_Valid_ID}\"" +
             $") ";
-
+            //return false;
             return insert_DBMethod(insert_SQL_StateMent);
 
         }

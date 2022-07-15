@@ -49,7 +49,7 @@ namespace LibrartDataManagementSystem.Scripts
 
         public bool AddBorrowers(Info_TBL_BORR0WER tbl_Info)
         {
-            return dbController.insert_DBMethod_BORROWER(tbl_Infos);
+            return dbController.insert_DBMethod_BORROWER(tbl_Info);
         }
 
         public void ClearInputs(TextBox[] inputs)
@@ -179,6 +179,28 @@ namespace LibrartDataManagementSystem.Scripts
             }
         }               
         //*/
+
+        /// <summary>
+        /// check if the user exist
+        /// </summary>
+        /// <param name="fName">first name to check</param>
+        /// <param name="mName">middle name to check</param>
+        /// <param name="lName">last name to check</param>
+        /// <param name="bDay">birthday to check</param>
+        /// <returns>return true if exist</returns>
+        public bool CheckIfUserExist(string fName, string mName, string lName, string bDay)
+        {
+            string query = $"SELECT * FROM `tbl_borrower` WHERE `Borrower_First_Name` = \"{fName}\" " +
+                $"AND `Borrower_Middle_Name` = \"{mName}\" AND `Borrower_Last_Name` = \"{lName}\" " +
+                $"AND `Borrower_BirthDate` = \"{bDay}\"";
+            List<List<string>> result = dbController.select_DBMethod_return_2DList_Table_Records(query);
+            Console.WriteLine(result.Count);
+            foreach (List<string> res in result)
+            {
+                Console.WriteLine(res);
+            }
+            return true;
+        }
 
         public List<string> GetBorrowerDetails(string id)
         {
