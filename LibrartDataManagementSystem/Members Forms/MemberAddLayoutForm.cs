@@ -38,9 +38,20 @@ namespace LibrartDataManagementSystem
         /// </summary>
         private void btn_MemberAdd_Click(object sender, EventArgs e)
         {
+            Console.WriteLine(dtp_BirthDate_MemberAddLayout.Value.ToString("MM-dd-yyyy"));
             if (_membersController.isInputComplete(inputs))
             {
-                string prompt1 = "Do you wish to register this member?";
+                string prompt1;
+                if (_membersController.CheckIfUserExist(txtBx_FirstName_MemberAddLayout.Text,
+                    txtBx_MiddleName_MemberAddLayout.Text, txtBx_LastName_MemberAddLayout.Text,
+                    dtp_BirthDate_MemberAddLayout.Value.ToString("MM-dd-yyyy")))
+                {
+                    prompt1 = "The account is Existing do you still wish to add this account?";
+                }
+                else
+                {
+                    prompt1 = "Do you wish to register this member?";
+                }
                 DialogResult dialogResult = MessageBox.Show(prompt1, "Confirm", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
