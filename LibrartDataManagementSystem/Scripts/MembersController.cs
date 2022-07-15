@@ -313,7 +313,8 @@ namespace LibrartDataManagementSystem.Scripts
             inputsFromForm.input_4_combBx_Borrower_Gender.SelectedItem = results[4];
             inputsFromForm.input_5_txtBx_Borrower_Address.Text = results[5];
             inputsFromForm.input_6_txtBx_Borrower_Contact_Number.Text = results[6];
-            inputsFromForm.input_7_dtp_Borrower_BirthDate.Value = DateTime.Parse(results[7]);
+            Console.WriteLine(results[7]);
+            inputsFromForm.input_7_dtp_Borrower_BirthDate.Value = DateTime.ParseExact(results[7], "MM-dd-yyyy", CultureInfo.InvariantCulture);
             inputsFromForm.input_8_txtBx_Borrower_Type_of_Valid_ID.Text = results[8];
             //*/
             ///////////////////////////////

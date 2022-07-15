@@ -209,7 +209,7 @@ namespace LibrartDataManagementSystem
             this.dtGrdVw_MemberSearch.ReadOnly = true;
             this.dtGrdVw_MemberSearch.Size = new System.Drawing.Size(866, 204);
             this.dtGrdVw_MemberSearch.TabIndex = 7;
-            this.dtGrdVw_MemberSearch.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdVw_MemberSearch_CellContentDoubleClick);
+            this.dtGrdVw_MemberSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGrdVw_MemberSearch_CellDoubleClick);
             // 
             // Column_Borrower_ID
             // 
@@ -278,7 +278,8 @@ namespace LibrartDataManagementSystem
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(927, 534);
+            this.ClientSize = new System.Drawing.Size(927, 400);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.grpMembers);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.label5);

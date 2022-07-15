@@ -349,14 +349,14 @@ namespace LibrartDataManagementSystem
             event_btn_Delete_Click();
         }
 
-        private void dtGrdVw_MemberSearch_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            event_dtGrdVw_BorrwerSearch_CellDoubleClick();
-        }
-
         private void combBx_Borrower_Last_Name_MemberSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
             event_DropdownChange();
+        }
+
+        private void dtGrdVw_MemberSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            event_dtGrdVw_BorrwerSearch_CellDoubleClick();
         }
     }
 }
