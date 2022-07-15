@@ -216,9 +216,11 @@ namespace LibrartDataManagementSystem
             // 
             this.dtp_BirthDate_MemberAddLayout.CustomFormat = "dd-mm-yyyy";
             this.dtp_BirthDate_MemberAddLayout.Location = new System.Drawing.Point(102, 176);
+            this.dtp_BirthDate_MemberAddLayout.MaxDate = new System.DateTime(2022, 7, 15, 14, 22, 9, 0);
             this.dtp_BirthDate_MemberAddLayout.Name = "dtp_BirthDate_MemberAddLayout";
             this.dtp_BirthDate_MemberAddLayout.Size = new System.Drawing.Size(200, 20);
             this.dtp_BirthDate_MemberAddLayout.TabIndex = 71;
+            this.dtp_BirthDate_MemberAddLayout.Value = new System.DateTime(2022, 7, 15, 0, 0, 0, 0);
             // 
             // buttonClear
             // 
