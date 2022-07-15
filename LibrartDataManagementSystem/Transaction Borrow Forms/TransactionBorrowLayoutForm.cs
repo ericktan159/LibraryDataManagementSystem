@@ -264,7 +264,6 @@ namespace LibrartDataManagementSystem
 
         private void btn_IssueBorrowBook_Click(object sender, EventArgs e)
         {
-
             demmoInsertIssue();
         }
         private void counttheBooksavailable()
@@ -285,8 +284,8 @@ namespace LibrartDataManagementSystem
             //myInfo_tbl_borrowed_book.Book_ID = int.Parse(txt_Book_ID_BorrowLayout.Text);
             //myInfo_tbl_borrowed_book.Borrower_ID = int.Parse(txtBx_Borrower_ID_BorrowLayout.Text);
             myInfo_tbl_borrowed_book = new Info_TBL_BORROWED_BOOK(int.Parse(txt_Book_ID_BorrowLayout.Text), int.Parse(txtBx_Borrower_ID_BorrowLayout.Text));
-            myInfo_tbl_borrowed_book.Borrowed_Book_Date_Borrowed = dtp_Date_Borrowed_BorrowLayout.Value.ToString();
-            myInfo_tbl_borrowed_book.Borrowed_Book_Due_Date = dtp_Due_Date_BorrowLayout.Value.ToString();
+            myInfo_tbl_borrowed_book.Borrowed_Book_Date_Borrowed = dtp_Date_Borrowed_BorrowLayout.Value.ToString("MM-dd-yyyy");
+            myInfo_tbl_borrowed_book.Borrowed_Book_Due_Date = dtp_Due_Date_BorrowLayout.Value.ToString("MM-dd-yyyy");
             myInfo_tbl_borrowed_book.Borrowed_Book_Due_Status = "Not Overdue";
             myInfo_tbl_borrowed_book.Borrowed_Book_Date_Returned = "";
             myInfo_tbl_borrowed_book.Borrowed_Book_Number_of_Copies = int.Parse(combBx_NumCopies__BorrowLayout.SelectedItem.ToString());
