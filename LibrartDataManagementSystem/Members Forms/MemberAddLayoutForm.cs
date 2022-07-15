@@ -16,6 +16,7 @@ namespace LibrartDataManagementSystem
     {
         LDMS_DataBaseController my_LDMS_DataBaseController = new LDMS_DataBaseController();
         Info_TBL_BORR0WER myInfo_tbl_borrower = new Info_TBL_BORR0WER();
+        LogController logController = new LogController();
         private MembersController _membersController = new MembersController();
         private TextBox[] inputs;
         private TextBox[] inputsWMname;
@@ -71,10 +72,17 @@ namespace LibrartDataManagementSystem
                         ToString("MM-dd-yyyy");
                     myInfo_tbl_borrower.Borrower_Type_of_Valid_ID = txtBx_TypeValidID_MemberAddLayout.Text;
                     _membersController.AddBorrowers(myInfo_tbl_borrower);
-                }
-                if(checkClear.Checked)
-                {
-                    _membersController.ClearInputs(inputsWMname);
+
+                    if (checkClear.Checked)
+                    {
+                        _membersController.ClearInputs(inputsWMname);
+                    }
+
+                    string id = _membersController.GetLastBorrowerID();
+                    if (!logController.LogMember(id, 6))
+                    {
+                        MessageBox.Show("Can't log automatically, please log manually.");
+                    }
                 }
             }
         }
