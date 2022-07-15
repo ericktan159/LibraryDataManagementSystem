@@ -117,9 +117,13 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
             this.Controls.Add(this.label1);
             this.Controls.Add(this.quantityCount);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(314, 254);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(314, 254);
             this.Name = "BorrowersReturnPopup";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Return";
+            this.Load += new System.EventHandler(this.BorrowersReturnPopup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.quantityCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -104,7 +104,8 @@ namespace LibrartDataManagementSystem
                 .Cells["Column_Borrowed_Book_Number_of_Copies"].Value.ToString());
             if(quantity > 1)
             {
-
+                BorrowersReturnPopup returnPopup = new BorrowersReturnPopup(id);
+                returnPopup.ShowDialog();
             }
             else
             {

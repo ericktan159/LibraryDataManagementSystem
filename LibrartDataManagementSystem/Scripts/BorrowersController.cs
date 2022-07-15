@@ -34,6 +34,16 @@ namespace LibrartDataManagementSystem.Scripts
             }
         }
 
+        public int GetQuantity(string transacID)
+        {
+            string query = $"SELECT `Borrowed_Book_Number_of_Copies` FROM `tbl_borrowed_book` WHERE " +
+                $"`Borrowed_Book_ID` = \"{transacID}\"";
+
+            List<List<string>> results = _dbController.select_DBMethod_return_2DList_Table_Records(query);
+
+            return int.Parse(results[0][0]);
+        }
+
         /// <summary>
         /// get the id of book
         /// </summary>
