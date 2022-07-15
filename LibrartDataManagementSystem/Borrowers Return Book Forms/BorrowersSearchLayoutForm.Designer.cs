@@ -39,7 +39,6 @@ namespace LibrartDataManagementSystem
             this.combBx_Borrower_Last_Name_BorrowerSearch = new System.Windows.Forms.ComboBox();
             this.txtBx_BorrowerSearch = new System.Windows.Forms.TextBox();
             this.btn_ReturnBook_BorrowerSearch = new System.Windows.Forms.Button();
-            this.btn_ViewDeatails_BorrowerSearch = new System.Windows.Forms.Button();
             this.dtGrdVw_BorrwerSearch = new System.Windows.Forms.DataGridView();
             this.Column_Borrowed_Book_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Borrower_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,12 +56,14 @@ namespace LibrartDataManagementSystem
             // btn_Borrower_Search
             // 
             this.btn_Borrower_Search.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_Borrower_Search.BackColor = System.Drawing.Color.Aqua;
+            this.btn_Borrower_Search.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Borrower_Search.Location = new System.Drawing.Point(507, 9);
             this.btn_Borrower_Search.Name = "btn_Borrower_Search";
             this.btn_Borrower_Search.Size = new System.Drawing.Size(75, 23);
             this.btn_Borrower_Search.TabIndex = 19;
             this.btn_Borrower_Search.Text = "Search";
-            this.btn_Borrower_Search.UseVisualStyleBackColor = true;
+            this.btn_Borrower_Search.UseVisualStyleBackColor = false;
             this.btn_Borrower_Search.Click += new System.EventHandler(this.btn_Borrower_Search_Click);
             // 
             // label4
@@ -155,22 +156,14 @@ namespace LibrartDataManagementSystem
             // btn_ReturnBook_BorrowerSearch
             // 
             this.btn_ReturnBook_BorrowerSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_ReturnBook_BorrowerSearch.Location = new System.Drawing.Point(478, 393);
+            this.btn_ReturnBook_BorrowerSearch.BackColor = System.Drawing.Color.Yellow;
+            this.btn_ReturnBook_BorrowerSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_ReturnBook_BorrowerSearch.Location = new System.Drawing.Point(731, 393);
             this.btn_ReturnBook_BorrowerSearch.Name = "btn_ReturnBook_BorrowerSearch";
             this.btn_ReturnBook_BorrowerSearch.Size = new System.Drawing.Size(75, 23);
             this.btn_ReturnBook_BorrowerSearch.TabIndex = 5;
             this.btn_ReturnBook_BorrowerSearch.Text = "Return Book";
-            this.btn_ReturnBook_BorrowerSearch.UseVisualStyleBackColor = true;
-            // 
-            // btn_ViewDeatails_BorrowerSearch
-            // 
-            this.btn_ViewDeatails_BorrowerSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_ViewDeatails_BorrowerSearch.Location = new System.Drawing.Point(270, 393);
-            this.btn_ViewDeatails_BorrowerSearch.Name = "btn_ViewDeatails_BorrowerSearch";
-            this.btn_ViewDeatails_BorrowerSearch.Size = new System.Drawing.Size(75, 23);
-            this.btn_ViewDeatails_BorrowerSearch.TabIndex = 4;
-            this.btn_ViewDeatails_BorrowerSearch.Text = "View Details";
-            this.btn_ViewDeatails_BorrowerSearch.UseVisualStyleBackColor = true;
+            this.btn_ReturnBook_BorrowerSearch.UseVisualStyleBackColor = false;
             // 
             // dtGrdVw_BorrwerSearch
             // 
@@ -270,12 +263,14 @@ namespace LibrartDataManagementSystem
             // 
             // buttonRefresh
             // 
+            this.buttonRefresh.BackColor = System.Drawing.Color.Silver;
+            this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonRefresh.Location = new System.Drawing.Point(12, 12);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
             this.buttonRefresh.TabIndex = 24;
             this.buttonRefresh.Text = "Refresh";
-            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.UseVisualStyleBackColor = false;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // BorrowersSearchLayoutForm
@@ -287,7 +282,6 @@ namespace LibrartDataManagementSystem
             this.Controls.Add(this.checkReturned);
             this.Controls.Add(this.dtGrdVw_BorrwerSearch);
             this.Controls.Add(this.btn_ReturnBook_BorrowerSearch);
-            this.Controls.Add(this.btn_ViewDeatails_BorrowerSearch);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.combBx_Borrowed_Book_Due_Status);
             this.Controls.Add(this.btn_Borrower_Search);
@@ -321,7 +315,6 @@ namespace LibrartDataManagementSystem
         private System.Windows.Forms.ComboBox combBx_Borrower_Last_Name_BorrowerSearch;
         private System.Windows.Forms.TextBox txtBx_BorrowerSearch;
         private System.Windows.Forms.Button btn_ReturnBook_BorrowerSearch;
-        private System.Windows.Forms.Button btn_ViewDeatails_BorrowerSearch;
         private System.Windows.Forms.DataGridView dtGrdVw_BorrwerSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox combBx_Borrowed_Book_Due_Status;
