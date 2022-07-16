@@ -272,13 +272,16 @@ namespace LibrartDataManagementSystem
                 $"Book ID: {txt_Book_ID_BorrowLayout.Text}\n" +
                 $"Book Title: \"{combBx_Book_Title_BorrowLayout.Text}\" with {quantityCount.Value} copies\n" +
                 $"Is this the correct details?";
-            DialogResult dialogResult = MessageBox.Show(prompt, "Confirm", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.Yes)
+            if (txtBx_Borrower_ID_BorrowLayout.Text.Trim() != "" && txt_Book_ID_BorrowLayout.Text.Trim() != "")
             {
-                insert_Borrowed_Book();
-                searchMemberForm.event_refresh();
-                GenerateTable();
+                DialogResult dialogResult = MessageBox.Show(prompt, "Confirm", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    insert_Borrowed_Book();
+                    searchMemberForm.event_refresh();
+                    GenerateTable();
+                }
             }
         }
         private void demmoInsertIssue()
