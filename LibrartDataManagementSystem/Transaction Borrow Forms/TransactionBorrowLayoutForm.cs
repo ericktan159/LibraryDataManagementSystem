@@ -19,6 +19,8 @@ namespace LibrartDataManagementSystem
         MembersController _MembersController = new MembersController();
         Common_Controller _Common_Controller = new Common_Controller();
 
+        LogController _LogController = new LogController();
+
 
         Member_Search_Controller searchMemberForm;
 
@@ -445,6 +447,10 @@ namespace LibrartDataManagementSystem
             if (isSuccess)
             {
                 MessageBox.Show("Succes Issue!!!");
+                if (!_LogController.LogReturnBorrow())//LogMember(id, 6))
+                {
+                    MessageBox.Show("Can't log automatically, please log manually.");
+                }
             }
             else
             {
