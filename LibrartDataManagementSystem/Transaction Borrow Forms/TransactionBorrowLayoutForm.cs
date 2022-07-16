@@ -369,7 +369,7 @@ namespace LibrartDataManagementSystem
                 //MessageBox.Show("numberOfAvableBooks = 0... Invalid Input!!");
             }
         }
-
+            
         private void subokTemporary()
         {
             if (numberOfAvableBooks == 0)
