@@ -48,84 +48,58 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Book Forms\BooksAddLayoutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Book Forms\BooksAddLayoutForm.cs" />
     <Compile Include="Book Forms\BooksAddLayoutForm.Designer.cs">
       <DependentUpon>BooksAddLayoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Book Forms\BooksDetailPopUp.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Book Forms\BooksDetailPopUp.cs" />
     <Compile Include="Book Forms\BooksDetailPopUp.Designer.cs">
       <DependentUpon>BooksDetailPopUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Book Forms\BooksEditPopUp.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Book Forms\BooksEditPopUp.cs" />
     <Compile Include="Book Forms\BooksEditPopUp.Designer.cs">
       <DependentUpon>BooksEditPopUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Book Forms\BooksLayoutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Book Forms\BooksLayoutForm.cs" />
     <Compile Include="Book Forms\BooksLayoutForm.Designer.cs">
       <DependentUpon>BooksLayoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Book Forms\BooksQuantityPopUp.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Book Forms\BooksQuantityPopUp.cs" />
     <Compile Include="Book Forms\BooksQuantityPopUp.Designer.cs">
       <DependentUpon>BooksQuantityPopUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Book Forms\BooksSearchLayoutFormcs.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Book Forms\BooksSearchLayoutFormcs.cs" />
     <Compile Include="Book Forms\BooksSearchLayoutFormcs.Designer.cs">
       <DependentUpon>BooksSearchLayoutFormcs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Borrowers Return Book Forms\BorrowersDetailPopup.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Borrowers Return Book Forms\BorrowersDetailPopup.cs" />
     <Compile Include="Borrowers Return Book Forms\BorrowersDetailPopup.Designer.cs">
       <DependentUpon>BorrowersDetailPopup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Borrowers Return Book Forms\BorrowersLayOutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Borrowers Return Book Forms\BorrowersLayOutForm.cs" />
     <Compile Include="Borrowers Return Book Forms\BorrowersLayOutForm.Designer.cs">
       <DependentUpon>BorrowersLayOutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Borrowers Return Book Forms\BorrowersReturnPopup.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Borrowers Return Book Forms\BorrowersReturnPopup.cs" />
     <Compile Include="Borrowers Return Book Forms\BorrowersReturnPopup.Designer.cs">
       <DependentUpon>BorrowersReturnPopup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Borrowers Return Book Forms\BorrowersSearchLayoutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Borrowers Return Book Forms\BorrowersSearchLayoutForm.cs" />
     <Compile Include="Borrowers Return Book Forms\BorrowersSearchLayoutForm.Designer.cs">
       <DependentUpon>BorrowersSearchLayoutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Scripts\Common_Controller.cs" />
     <Compile Include="Scripts\ErrorHandlingController.cs" />
     <Compile Include="Scripts\LDMS_DataBaseController.cs" />
-    <Compile Include="Members Forms\MembersDetailPopUp.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Members Forms\MembersDetailPopUp.cs" />
     <Compile Include="Members Forms\MembersDetailPopUp.Designer.cs">
       <DependentUpon>MembersDetailPopUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Members Forms\MembersEditPopUp.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Members Forms\MembersEditPopUp.cs" />
     <Compile Include="Members Forms\MembersEditPopUp.Designer.cs">
       <DependentUpon>MembersEditPopUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="pangExpermentnaForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="pangExpermentnaForm.cs" />
     <Compile Include="pangExpermentnaForm.Designer.cs">
       <DependentUpon>pangExpermentnaForm.cs</DependentUpon>
     </Compile>
@@ -140,40 +114,28 @@
     <Compile Include="Transaction Borrow Forms\TransactionBorrowLayoutForm.Designer.cs">
       <DependentUpon>TransactionBorrowLayoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Logs Forms\LogsLayoutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Logs Forms\LogsLayoutForm.cs" />
     <Compile Include="Logs Forms\LogsLayoutForm.Designer.cs">
       <DependentUpon>LogsLayoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Logs Forms\LogsSearchLayoutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Logs Forms\LogsSearchLayoutForm.cs" />
     <Compile Include="Logs Forms\LogsSearchLayoutForm.Designer.cs">
       <DependentUpon>LogsSearchLayoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainLayout.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="MainLayout.cs" />
     <Compile Include="MainLayout.Designer.cs">
       <DependentUpon>MainLayout.cs</DependentUpon>
     </Compile>
     <Compile Include="Scripts\MainLayoutController.cs" />
-    <Compile Include="Members Forms\MemberAddLayoutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Members Forms\MemberAddLayoutForm.cs" />
     <Compile Include="Members Forms\MemberAddLayoutForm.Designer.cs">
       <DependentUpon>MemberAddLayoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Members Forms\MemberSearchLayoutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Members Forms\MemberSearchLayoutForm.cs" />
     <Compile Include="Members Forms\MemberSearchLayoutForm.Designer.cs">
       <DependentUpon>MemberSearchLayoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Members Forms\MembersLayoutForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Members Forms\MembersLayoutForm.cs" />
     <Compile Include="Members Forms\MembersLayoutForm.Designer.cs">
       <DependentUpon>MembersLayoutForm.cs</DependentUpon>
     </Compile>
