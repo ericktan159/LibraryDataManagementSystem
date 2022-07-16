@@ -110,6 +110,7 @@ namespace LibrartDataManagementSystem
 
     class Info_TBL_BORR0WER
     {
+        
         public string Borrower_First_Name;
         public string Borrower_Middle_Name;
         public string Borrower_Last_Name;
@@ -161,6 +162,8 @@ namespace LibrartDataManagementSystem
 
     class Info_TBL_BORROWED_BOOK
     {
+        private int Borrowed_Book_ID;
+
         private int Book_ID;
         private int Borrower_ID;
 
@@ -212,6 +215,16 @@ namespace LibrartDataManagementSystem
             
         }
 
+        public bool set_Primary_Key_Borrowed_Book_ID(int Borrowed_Book_ID)
+        {
+            this.Borrowed_Book_ID = Borrowed_Book_ID;
+            return true;
+        }
+
+        public int get_Primary_Key_Borrowed_Book_ID()
+        {
+            return Borrowed_Book_ID;
+        }
 
         public string get_Table_Name()
         {
@@ -632,29 +645,31 @@ namespace LibrartDataManagementSystem
                     {
                         //debugMessage("Pumasok sa (isSuccess) : LDMS");
 
+
+
                         if ((number_of_Books_Left > 0))
                         {
                             //debugMessage("Pumasok sa (number_of_Books_Left > 0) : LDMS");
 
-                            string query = $"UPDATE `{Info_TBL_BOOK.Const_Names.table_Name}` SET " +
+                            string update_Book_Query = $"UPDATE `{Info_TBL_BOOK.Const_Names.table_Name}` SET " +
                             $"`{Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST}`=\"{number_of_Books_Left}\" " +
                             $"WHERE `{Info_TBL_BOOK.Const_Names.Primary_Key_ID_Name_CONST}` = '{tbl_Infos.get_Foreign_Key_Book_ID()}'";
 
                             isDeleteBooksInTransactionSucces = delete_DBMethod_return_Boolean(Info_TBL_BOOK.Const_Names.table_Name, tbl_Infos.get_Foreign_Key_Book_ID());
 
-                            return connectDB_And_ExecuteNonQuery(query);
+                            return connectDB_And_ExecuteNonQuery(update_Book_Query);
                         }
                         else if ((number_of_Books_Left == 0))
                         {
                             //debugMessage("Pumasok sa (number_of_Books_Left == 0) : LDMS");
 
-                            string query = $"UPDATE `{Info_TBL_BOOK.Const_Names.table_Name}` SET " +
+                            string update_Book_Query = $"UPDATE `{Info_TBL_BOOK.Const_Names.table_Name}` SET " +
                             $"`{Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST}`=\"{number_of_Books_Left}\" " +
                             $"WHERE `{Info_TBL_BOOK.Const_Names.Primary_Key_ID_Name_CONST}` = '{tbl_Infos.get_Foreign_Key_Book_ID()}'";
                            
                             isDeleteBooksInTransactionSucces = delete_DBMethod_return_Boolean(Info_TBL_BOOK.Const_Names.table_Name, tbl_Infos.get_Foreign_Key_Book_ID());
 
-                            return connectDB_And_ExecuteNonQuery(query);
+                            return connectDB_And_ExecuteNonQuery(update_Book_Query);
 
 
                         }

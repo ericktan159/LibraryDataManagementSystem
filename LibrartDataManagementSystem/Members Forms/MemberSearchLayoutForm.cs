@@ -146,7 +146,10 @@ namespace LibrartDataManagementSystem
                 if (successDelete)
                 {
                     MessageBox.Show($"{name} is successfully deleted!", "Success!");
-                    //_logController. //---//
+                    if (!_logController.LogMember(id, 8))//LogMember(id, 6))
+                    {
+                        MessageBox.Show("Can't log automatically, please log manually.");
+                    }
                 }
                 else
                 {

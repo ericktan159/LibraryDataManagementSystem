@@ -113,6 +113,10 @@ namespace LibrartDataManagementSystem.Members_Forms
                     if (success)
                     {
                         MessageBox.Show("Successfully Updated!", "Success!");
+                        if (!_logController.LogMember(Borrower_ID.ToString(), 7))//LogMember(id, 6))
+                        {
+                            MessageBox.Show("Can't log automatically, please log manually.");
+                        }
                     }
                     else
                     {
