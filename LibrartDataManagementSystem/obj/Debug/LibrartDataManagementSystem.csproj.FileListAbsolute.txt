@@ -81,3 +81,4 @@ E:\AdminFileFolder\AlphaSource\repos\Elective_4_repo\LibraryDataManagementSystem
 E:\AdminFileFolder\AlphaSource\repos\Elective_4_repo\LibraryDataManagementSystem\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.exe
 E:\AdminFileFolder\AlphaSource\repos\Elective_4_repo\LibraryDataManagementSystem\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.pdb
 E:\AdminFileFolder\AlphaSource\repos\Elective_4_repo\LibraryDataManagementSystem\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.pangExpermentnaForm.resources
+C:\Users\User\Desktop\Kitts Things 1-1\5-2nd sem\Elective 4\Proj\LibrartDataManagementSystem\obj\Debug\LibrartDataManagementSystem.pangExpermentnaForm.resources

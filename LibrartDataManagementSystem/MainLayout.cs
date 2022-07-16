@@ -31,16 +31,11 @@ namespace LibrartDataManagementSystem
         private void MainLayout_Load(object sender, EventArgs e)
         {
             event_Load_Form();
-
-            mga_testing_lang();
         }
 
         public void mga_testing_lang()
         {
             //Enum_CONST_Type_Valid_ID.print_this();
-
-            pangExpermentnaForm demodemo = new pangExpermentnaForm();
-            demodemo.ShowDialog();
         }
 
         public void event_Load_Form()

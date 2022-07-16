@@ -98,6 +98,11 @@ namespace LibrartDataManagementSystem
             _booksController.FillQuantityColor(dtGrdVw_Book_TransactionBorrow);
             // end of books
             GenerateTable();
+
+            dtp_Date_Borrowed_BorrowLayout.MinDate = DateTime.Now;
+            dtp_Due_Date_BorrowLayout.MinDate = DateTime.Now;
+            dtp_Date_Borrowed_BorrowLayout.MaxDate = DateTime.Now;
+            dtp_Due_Date_BorrowLayout.MaxDate = DateTime.Now.AddDays(7);
         }
 
         // Books
@@ -256,47 +261,25 @@ namespace LibrartDataManagementSystem
             //dtp_Due_Date_BorrowLayout
         }
 
-        private void dtGrdVw_Book_TransactionBorrow_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            searchMemberForm.event_dtGrdVw_BorrwerSearch_CellDoubleClick();
-
-            if (e.RowIndex >= 0)
-            {
-                //MessageBox.Show("Books!!");
-
-                DataGridViewRow myRow = this.dtGrdVw_Book_TransactionBorrow.Rows[e.RowIndex];
-
-                txt_Book_ID_BorrowLayout.Text = myRow.Cells[0].Value.ToString();
-                combBx_Book_Title_BorrowLayout.Text = myRow.Cells[1].Value.ToString();
-                txt_Book_Author_BorrowLayout.Text = myRow.Cells[2].Value.ToString();
-
-                numberOfAvableBooks = int.Parse(myRow.Cells["Column_Book_Number_Of_Quantity"].Value.ToString());
-                counttheBooksavailable();
-
-                MessageBox.Show("Availble: " + numberOfAvableBooks.ToString());
-                //combBx_NumCopies__BorrowLayout.Text = myRow.Cells[""].Value.ToString();
-
-                //*/
-
-            }
-        }
-
         private void btn_IssueBorrowBook_Click(object sender, EventArgs e)
         {
             //demmoInsertIssue();
-            insert_Borrowed_Book();
-            searchMemberForm.event_refresh();
-            GenerateTable();
-        }
-        private void counttheBooksavailable()
-        {
-
-            combBx_NumCopies__BorrowLayout.Items.Clear();
-            for (int i = 1; i <= numberOfAvableBooks; i++)
+            string prompt = "Confirm Details:\n" +
+                $"Member ID: {txtBx_Borrower_ID_BorrowLayout.Text}\n" +
+                $"Member Name: \"{txtBx_LastName_BorrowLayout.Text}, {txtBx_FirstName_BorrowLayout.Text} " +
+                $"{txtBx_MiddleName_BorrowLayout.Text}\"\n" +
+                $"Borrowing a book:\n" +
+                $"Book ID: {txt_Book_ID_BorrowLayout.Text}\n" +
+                $"Book Title: \"{combBx_Book_Title_BorrowLayout.Text}\" with {quantityCount.Value} copies\n" +
+                $"Is this the correct details?";
+            DialogResult dialogResult = MessageBox.Show(prompt, "Confirm", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
             {
-                combBx_NumCopies__BorrowLayout.Items.Add(i);
+                insert_Borrowed_Book();
+                searchMemberForm.event_refresh();
+                GenerateTable();
             }
-            combBx_NumCopies__BorrowLayout.SelectedIndex = 0;
         }
         private void demmoInsertIssue()
         {
@@ -312,7 +295,7 @@ namespace LibrartDataManagementSystem
             tbl_Infos.Borrowed_Book_Due_Date = dtp_Due_Date_BorrowLayout.Value.ToString("MM-dd-yyyy");
             tbl_Infos.Borrowed_Book_Due_Status = "Not Overdue";
             tbl_Infos.Borrowed_Book_Date_Returned = "";
-            tbl_Infos.Borrowed_Book_Number_of_Copies = int.Parse(combBx_NumCopies__BorrowLayout.SelectedItem.ToString());
+            tbl_Infos.Borrowed_Book_Number_of_Copies = int.Parse(quantityCount.Value.ToString());
 
 
             int num_Qntty = int.Parse(_LDMS_DataBaseControlle.select_DBMethod_return_a_Cell(Info_TBL_BOOK.Const_Names.table_Name,
@@ -356,6 +339,36 @@ namespace LibrartDataManagementSystem
         private void combx_Search_Filters_Change(object sender, EventArgs e)
         {
             searchMemberForm.event_DropdownChange();
+        }
+
+        private void dtGrdVw_Book_TransactionBorrow_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = dtGrdVw_Book_TransactionBorrow.CurrentCellAddress.Y;
+            if (row > -1)
+            {
+                //MessageBox.Show("Books!!");
+                int quantity = int.Parse(dtGrdVw_Book_TransactionBorrow.Rows[row]
+                    .Cells["Column_Book_Number_Of_Quantity"]
+                    .Value
+                    .ToString());
+
+                if (quantity > 0)
+                {
+                    quantityCount.Maximum = quantity;
+                    DataGridViewRow myRow = dtGrdVw_Book_TransactionBorrow.Rows[row];
+
+                    txt_Book_ID_BorrowLayout.Text = myRow.Cells[0].Value.ToString();
+                    combBx_Book_Title_BorrowLayout.Text = myRow.Cells[1].Value.ToString();
+                    txt_Book_Author_BorrowLayout.Text = myRow.Cells[2].Value.ToString();
+
+                    numberOfAvableBooks = int.Parse(myRow
+                        .Cells["Column_Book_Number_Of_Quantity"].Value.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("This book is out of stock");
+                }
+            }
         }
     }
 }
