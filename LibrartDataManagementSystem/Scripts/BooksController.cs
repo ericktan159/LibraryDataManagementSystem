@@ -437,6 +437,9 @@ namespace LibrartDataManagementSystem.Scripts
             string authorQuery = "";
             string genreQuery = "";
             string yearPublishedQuery = "";
+            int num_of_Books = 0;
+            string availableBooksQuery = $"'{Info_TBL_BOOK.Const_Names.col_6_Book_Number_Of_Quantity_CONST}' <> \"{num_of_Books}\"";
+            string lastquery = "";
 
             // fill the query
             if (search != "")
@@ -481,7 +484,22 @@ namespace LibrartDataManagementSystem.Scripts
                     yearPublishedQuery = $"`Book_Year_Published` = \"{yearPublished}\" ";
                 }
             }
-            query += whereQuery + searchQuery + authorQuery + genreQuery + yearPublishedQuery;
+
+
+            /*
+            if (whereQuery != "")
+            {
+                lastquery = $"AND " + availableBooksQuery;
+            }
+            else
+            {
+                whereQuery = "WHERE ";
+                lastquery = $" " + availableBooksQuery;
+            }
+            //*/
+            //query += whereQuery + searchQuery + authorQuery + genreQuery + yearPublishedQuery;
+            query += whereQuery + searchQuery + authorQuery + genreQuery + yearPublishedQuery;// + lastquery;
+            //LDMS_DataBaseController.printDebugMessage(query);
             return query;
         }
     }
