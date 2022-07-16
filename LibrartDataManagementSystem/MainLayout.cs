@@ -87,6 +87,8 @@ namespace LibrartDataManagementSystem
         private void btn_BorrowTransation_Click(object sender, EventArgs e)
         {
             myLayoutController.LoadForm(transactionBorrowLayoutForm, this);
+            transactionBorrowLayoutForm.trans_Refresh_Book();
+            transactionBorrowLayoutForm.trans_Refresh_Member();
         }
     }
 }
