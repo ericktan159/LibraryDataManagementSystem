@@ -52,8 +52,10 @@ namespace LibrartDataManagementSystem
             // btn_Filter_LogsViews
             // 
             this.btn_Filter_LogsViews.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_Filter_LogsViews.BackColor = System.Drawing.Color.Lime;
+            this.btn_Filter_LogsViews.BackColor = System.Drawing.Color.Firebrick;
             this.btn_Filter_LogsViews.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Filter_LogsViews.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Filter_LogsViews.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Filter_LogsViews.Location = new System.Drawing.Point(207, 65);
             this.btn_Filter_LogsViews.Name = "btn_Filter_LogsViews";
             this.btn_Filter_LogsViews.Size = new System.Drawing.Size(75, 23);
@@ -206,7 +208,7 @@ namespace LibrartDataManagementSystem
             // buttonClearCheckBox
             // 
             this.buttonClearCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonClearCheckBox.BackColor = System.Drawing.Color.Red;
+            this.buttonClearCheckBox.BackColor = System.Drawing.Color.Silver;
             this.buttonClearCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonClearCheckBox.Location = new System.Drawing.Point(389, 65);
             this.buttonClearCheckBox.Name = "buttonClearCheckBox";
@@ -218,9 +220,9 @@ namespace LibrartDataManagementSystem
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonRefresh.BackColor = System.Drawing.Color.Silver;
             this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonRefresh.ForeColor = System.Drawing.Color.White;
+            this.buttonRefresh.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonRefresh.Location = new System.Drawing.Point(12, 12);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(56, 23);

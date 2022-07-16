@@ -51,11 +51,12 @@ namespace LibrartDataManagementSystem
             // btn_BookAdd
             // 
             this.btn_BookAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_BookAdd.BackColor = System.Drawing.Color.Aqua;
+            this.btn_BookAdd.BackColor = System.Drawing.Color.Firebrick;
             this.btn_BookAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_BookAdd.Location = new System.Drawing.Point(374, 426);
+            this.btn_BookAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_BookAdd.Location = new System.Drawing.Point(367, 409);
             this.btn_BookAdd.Name = "btn_BookAdd";
-            this.btn_BookAdd.Size = new System.Drawing.Size(141, 23);
+            this.btn_BookAdd.Size = new System.Drawing.Size(143, 31);
             this.btn_BookAdd.TabIndex = 7;
             this.btn_BookAdd.Text = "Add Book";
             this.btn_BookAdd.UseVisualStyleBackColor = false;
@@ -205,9 +206,9 @@ namespace LibrartDataManagementSystem
             // btn_Reset
             // 
             this.btn_Reset.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_Reset.BackColor = System.Drawing.Color.Red;
+            this.btn_Reset.BackColor = System.Drawing.Color.Silver;
             this.btn_Reset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Reset.Location = new System.Drawing.Point(24, 426);
+            this.btn_Reset.Location = new System.Drawing.Point(38, 417);
             this.btn_Reset.Name = "btn_Reset";
             this.btn_Reset.Size = new System.Drawing.Size(95, 23);
             this.btn_Reset.TabIndex = 18;

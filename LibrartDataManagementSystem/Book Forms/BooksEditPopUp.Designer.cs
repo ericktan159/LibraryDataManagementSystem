@@ -169,12 +169,15 @@ namespace LibrartDataManagementSystem
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(319, 249);
+            this.buttonUpdate.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonUpdate.Location = new System.Drawing.Point(309, 239);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(84, 23);
+            this.buttonUpdate.Size = new System.Drawing.Size(94, 33);
             this.buttonUpdate.TabIndex = 30;
             this.buttonUpdate.Text = "Update";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.UseVisualStyleBackColor = false;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // BooksEditPopUp

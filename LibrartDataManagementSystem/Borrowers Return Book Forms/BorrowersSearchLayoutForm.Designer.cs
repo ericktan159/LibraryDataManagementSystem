@@ -56,8 +56,9 @@ namespace LibrartDataManagementSystem
             // btn_Borrower_Search
             // 
             this.btn_Borrower_Search.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_Borrower_Search.BackColor = System.Drawing.Color.Aqua;
+            this.btn_Borrower_Search.BackColor = System.Drawing.Color.Firebrick;
             this.btn_Borrower_Search.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Borrower_Search.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Borrower_Search.Location = new System.Drawing.Point(507, 9);
             this.btn_Borrower_Search.Name = "btn_Borrower_Search";
             this.btn_Borrower_Search.Size = new System.Drawing.Size(75, 23);
@@ -158,9 +159,9 @@ namespace LibrartDataManagementSystem
             this.btn_ReturnBook_BorrowerSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_ReturnBook_BorrowerSearch.BackColor = System.Drawing.Color.Yellow;
             this.btn_ReturnBook_BorrowerSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_ReturnBook_BorrowerSearch.Location = new System.Drawing.Point(731, 393);
+            this.btn_ReturnBook_BorrowerSearch.Location = new System.Drawing.Point(687, 393);
             this.btn_ReturnBook_BorrowerSearch.Name = "btn_ReturnBook_BorrowerSearch";
-            this.btn_ReturnBook_BorrowerSearch.Size = new System.Drawing.Size(75, 23);
+            this.btn_ReturnBook_BorrowerSearch.Size = new System.Drawing.Size(94, 23);
             this.btn_ReturnBook_BorrowerSearch.TabIndex = 5;
             this.btn_ReturnBook_BorrowerSearch.Text = "Return Book";
             this.btn_ReturnBook_BorrowerSearch.UseVisualStyleBackColor = false;

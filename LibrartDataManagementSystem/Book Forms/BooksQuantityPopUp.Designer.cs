@@ -74,9 +74,10 @@ namespace LibrartDataManagementSystem.Book_Forms
             // 
             // buttonSubmit
             // 
-            this.buttonSubmit.BackColor = System.Drawing.Color.Aqua;
+            this.buttonSubmit.BackColor = System.Drawing.Color.Firebrick;
             this.buttonSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSubmit.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSubmit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonSubmit.Location = new System.Drawing.Point(115, 147);
             this.buttonSubmit.Name = "buttonSubmit";
             this.buttonSubmit.Size = new System.Drawing.Size(80, 25);
@@ -87,7 +88,7 @@ namespace LibrartDataManagementSystem.Book_Forms
             // 
             // buttonCancel
             // 
-            this.buttonCancel.BackColor = System.Drawing.Color.Red;
+            this.buttonCancel.BackColor = System.Drawing.Color.Silver;
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCancel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.Location = new System.Drawing.Point(226, 147);

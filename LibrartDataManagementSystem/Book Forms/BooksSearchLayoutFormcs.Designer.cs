@@ -130,12 +130,15 @@ namespace LibrartDataManagementSystem
             // 
             // btn_Book_Search
             // 
+            this.btn_Book_Search.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_Book_Search.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Book_Search.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Book_Search.Location = new System.Drawing.Point(542, 38);
             this.btn_Book_Search.Name = "btn_Book_Search";
             this.btn_Book_Search.Size = new System.Drawing.Size(75, 23);
             this.btn_Book_Search.TabIndex = 10;
             this.btn_Book_Search.Text = "Search";
-            this.btn_Book_Search.UseVisualStyleBackColor = true;
+            this.btn_Book_Search.UseVisualStyleBackColor = false;
             this.btn_Book_Search.Click += new System.EventHandler(this.btn_Book_Search_Click);
             // 
             // dtGrdVw_BookSearch
@@ -246,12 +249,14 @@ namespace LibrartDataManagementSystem
             // 
             // buttonRefresh
             // 
+            this.buttonRefresh.BackColor = System.Drawing.Color.Silver;
+            this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonRefresh.Location = new System.Drawing.Point(12, 12);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
             this.buttonRefresh.TabIndex = 14;
             this.buttonRefresh.Text = "Refresh";
-            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.UseVisualStyleBackColor = false;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // label5

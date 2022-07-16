@@ -40,7 +40,7 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
             // quantityCount
             // 
             this.quantityCount.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantityCount.Location = new System.Drawing.Point(87, 39);
+            this.quantityCount.Location = new System.Drawing.Point(95, 64);
             this.quantityCount.Maximum = new decimal(new int[] {
             1,
             0,
@@ -64,7 +64,7 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 18);
+            this.label1.Location = new System.Drawing.Point(20, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(258, 18);
             this.label1.TabIndex = 1;
@@ -72,10 +72,11 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
             // 
             // buttonReturn
             // 
-            this.buttonReturn.BackColor = System.Drawing.Color.Lime;
+            this.buttonReturn.BackColor = System.Drawing.Color.IndianRed;
             this.buttonReturn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonReturn.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReturn.Location = new System.Drawing.Point(112, 71);
+            this.buttonReturn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonReturn.Location = new System.Drawing.Point(117, 96);
             this.buttonReturn.Name = "buttonReturn";
             this.buttonReturn.Size = new System.Drawing.Size(75, 23);
             this.buttonReturn.TabIndex = 2;
@@ -85,10 +86,11 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
             // 
             // buttonReturnAll
             // 
-            this.buttonReturnAll.BackColor = System.Drawing.Color.Aqua;
+            this.buttonReturnAll.BackColor = System.Drawing.Color.Firebrick;
             this.buttonReturnAll.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonReturnAll.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReturnAll.Location = new System.Drawing.Point(96, 117);
+            this.buttonReturnAll.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonReturnAll.Location = new System.Drawing.Point(25, 165);
             this.buttonReturnAll.Name = "buttonReturnAll";
             this.buttonReturnAll.Size = new System.Drawing.Size(107, 23);
             this.buttonReturnAll.TabIndex = 3;
@@ -101,7 +103,7 @@ namespace LibrartDataManagementSystem.Borrowers_Return_Book_Forms
             this.buttonCancel.BackColor = System.Drawing.Color.Silver;
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCancel.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.Location = new System.Drawing.Point(96, 180);
+            this.buttonCancel.Location = new System.Drawing.Point(173, 165);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(107, 23);
             this.buttonCancel.TabIndex = 4;

@@ -83,5 +83,10 @@ namespace LibrartDataManagementSystem
         {
             myLayoutController.LoadForm(transactionBorrowLayoutForm, this);
         }
+
+        private void pnl_Navigation_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

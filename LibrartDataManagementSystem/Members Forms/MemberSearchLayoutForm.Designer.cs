@@ -59,33 +59,40 @@ namespace LibrartDataManagementSystem
             // btn_DeleteMemberSearch
             // 
             this.btn_DeleteMemberSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_DeleteMemberSearch.Location = new System.Drawing.Point(496, 365);
+            this.btn_DeleteMemberSearch.BackColor = System.Drawing.Color.Silver;
+            this.btn_DeleteMemberSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_DeleteMemberSearch.Location = new System.Drawing.Point(786, 365);
             this.btn_DeleteMemberSearch.Name = "btn_DeleteMemberSearch";
             this.btn_DeleteMemberSearch.Size = new System.Drawing.Size(75, 23);
             this.btn_DeleteMemberSearch.TabIndex = 5;
             this.btn_DeleteMemberSearch.Text = "Delete";
-            this.btn_DeleteMemberSearch.UseVisualStyleBackColor = true;
+            this.btn_DeleteMemberSearch.UseVisualStyleBackColor = false;
             this.btn_DeleteMemberSearch.Click += new System.EventHandler(this.btn_DeleteMemberSearch_Click);
             // 
             // btn_EditMemberSearch
             // 
             this.btn_EditMemberSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_EditMemberSearch.Location = new System.Drawing.Point(335, 365);
+            this.btn_EditMemberSearch.BackColor = System.Drawing.Color.Yellow;
+            this.btn_EditMemberSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_EditMemberSearch.Location = new System.Drawing.Point(676, 365);
             this.btn_EditMemberSearch.Name = "btn_EditMemberSearch";
             this.btn_EditMemberSearch.Size = new System.Drawing.Size(75, 23);
             this.btn_EditMemberSearch.TabIndex = 4;
             this.btn_EditMemberSearch.Text = "Edit";
-            this.btn_EditMemberSearch.UseVisualStyleBackColor = true;
+            this.btn_EditMemberSearch.UseVisualStyleBackColor = false;
             this.btn_EditMemberSearch.Click += new System.EventHandler(this.btn_EditMemberSearch_Click);
             // 
             // btn_Member_Search
             // 
+            this.btn_Member_Search.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_Member_Search.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Member_Search.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Member_Search.Location = new System.Drawing.Point(572, 14);
             this.btn_Member_Search.Name = "btn_Member_Search";
             this.btn_Member_Search.Size = new System.Drawing.Size(75, 23);
             this.btn_Member_Search.TabIndex = 31;
             this.btn_Member_Search.Text = "Search";
-            this.btn_Member_Search.UseVisualStyleBackColor = true;
+            this.btn_Member_Search.UseVisualStyleBackColor = false;
             this.btn_Member_Search.Click += new System.EventHandler(this.btn_Member_Search_Click);
             // 
             // label2
@@ -163,12 +170,14 @@ namespace LibrartDataManagementSystem
             // 
             // buttonRefresh
             // 
+            this.buttonRefresh.BackColor = System.Drawing.Color.Silver;
+            this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonRefresh.Location = new System.Drawing.Point(12, 20);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
             this.buttonRefresh.TabIndex = 36;
             this.buttonRefresh.Text = "Refresh";
-            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.UseVisualStyleBackColor = false;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // grpMembers
