@@ -23,6 +23,9 @@ namespace LibrartDataManagementSystem
 
 
         Member_Search_Controller searchMemberForm;
+        TextBox[] txtBxs;
+
+
 
         Info_TBL_BORROWED_BOOK tbl_Infos; 
 
@@ -41,6 +44,23 @@ namespace LibrartDataManagementSystem
             combBx_Borrower_Gender_TransactionBorrow,
             dtGrdVw_Member_TransactionBorrow,
             txtBx_SearchMember_TransactionBorrow);
+
+            txtBxs = new TextBox[] {
+                txtBx_Borrower_ID_BorrowLayout,
+                txtBx_FirstName_BorrowLayout,
+                txtBx_MiddleName_BorrowLayout,
+                txtBx_LastName_BorrowLayout,
+                txtBx_Gender_BorrowLayout,
+                txtBx_Address_BorrowLayout,
+                txtBx_ContactNumber_BorrowLayout,
+                txtBx_Age_BorrowLayout,
+                txtBx_TypeValidID_BorrowLayout,
+
+                txt_Book_ID_BorrowLayout,
+                txtBx_Book_Title_BorrowLayout,
+                txt_Book_Author_BorrowLayout
+            };
+
 
             //testDemolangMember();
             //testDemolangBooks();
@@ -100,7 +120,9 @@ namespace LibrartDataManagementSystem
             dtp_Due_Date_BorrowLayout.MinDate = DateTime.Now;
             /// 
             ///
-            
+            enebleAllTeaxtBoxes();
+
+
             // books
             _booksController.FillDropdown(combBx_Book_Author_TransactionBorrow, "Book_Author");
             _booksController.FillDropdown(combBx_Book_Genre_TransactionBorrow, "Book_Genre");
@@ -383,28 +405,32 @@ namespace LibrartDataManagementSystem
 
         private bool isAllInputTransactionComplete()
         {
-            TextBox[] txtBxs = new TextBox[] {
-                txtBx_Borrower_ID_BorrowLayout,
-                txtBx_FirstName_BorrowLayout,
-                txtBx_MiddleName_BorrowLayout,
-                txtBx_LastName_BorrowLayout,
-                txtBx_Gender_BorrowLayout,
-                txtBx_Address_BorrowLayout,
-                txtBx_ContactNumber_BorrowLayout,
-                txtBx_Age_BorrowLayout,
-                txtBx_TypeValidID_BorrowLayout,
-
-                txt_Book_ID_BorrowLayout,
-                txtBx_Book_Title_BorrowLayout,
-                txt_Book_Author_BorrowLayout
-            };
-
-
             bool istxt = _Common_Controller.isTextBoxeSComplete(txtBxs);
             //bool isnumqtty = (combBx_NumCopies__BorrowLayout.SelectedItem.ToString().Equals("0"));
 
             return (istxt);
         }
+
+        private bool enebleAllTeaxtBoxes()//TextBox )
+        {
+            foreach (TextBox txTbx_item in txtBxs)
+            {
+                txTbx_item.Enabled = true;
+            }
+            return true;
+     
+        }
+
+        private void event_Key_Handling_TxtBx(KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void event_Key_Handling_TxtBx(KeyEventArgs e)
+        {
+            e.Handled = true;
+        }
+
 
         private void do_Insert_Book()
         {
@@ -431,12 +457,12 @@ namespace LibrartDataManagementSystem
             if ((number_of_Books_Left >= 0))
             {
 
-                _LDMS_DataBaseControlle.debugMessage("Pumasok sa (number_of_Books_Left >= 0) : Transaction");
+                //_LDMS_DataBaseControlle.debugMessage("Pumasok sa (number_of_Books_Left >= 0) : Transaction");
                 isSuccess = _LDMS_DataBaseControlle.insert_DBMethod_BORROWED_BOOK(tbl_Infos);
             }
             else
             {
-                _LDMS_DataBaseControlle.debugMessage("DI Pumasok sa (number_of_Books_Left >= 0) : Transaction");
+                //_LDMS_DataBaseControlle.debugMessage("DI Pumasok sa (number_of_Books_Left >= 0) : Transaction");
                 isSuccess = false;
 
                 MessageBox.Show("Cannot Borrow the book!!! No Avalable copies");
@@ -447,10 +473,16 @@ namespace LibrartDataManagementSystem
             if (isSuccess)
             {
                 MessageBox.Show("Succes Issue!!!");
-                if (!_LogController.LogReturnBorrow())//LogMember(id, 6))
+                //*
+                 if (!_LogController.LogReturnBorrow(_LDMS_DataBaseControlle.get_Last_ID_Of_Table(Info_TBL_BORROWED_BOOK.Const_Names.table_Name),
+                                                                                                    tbl_Infos.get_Foreign_Key_Book_ID().ToString(),
+                                                                                                    tbl_Infos.get_Foreign_Key_Borrower_ID().ToString(),
+                                                                                                    tbl_Infos.Borrowed_Book_Number_of_Copies.ToString(),
+                                                                                                    1))
                 {
                     MessageBox.Show("Can't log automatically, please log manually.");
                 }
+                //*/
             }
             else
             {
@@ -471,6 +503,24 @@ namespace LibrartDataManagementSystem
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void event_Key_Handling_TxtBx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            event_Key_Handling_TxtBx(e);
+            //e.Handled = true;
+        }
+
+        private void event_Key_Handling_TxtBx_KeyDown(object sender, KeyEventArgs e)
+        {
+            event_Key_Handling_TxtBx(e);
+            //e.Handled = true;
+        }
+
+        private void event_Key_Handling_TxtBx_KeyUp(object sender, KeyEventArgs e)
+        {
+            event_Key_Handling_TxtBx(e);
+            //e.Handled = true;
         }
     }
 }

@@ -30,6 +30,7 @@ namespace LibrartDataManagementSystem
         private void InitializeComponent()
         {
             this.pnl_ = new System.Windows.Forms.Panel();
+            this.txtBx_Book_Title_BorrowLayout = new System.Windows.Forms.TextBox();
             this.txtBx_Gender_BorrowLayout = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -64,6 +65,12 @@ namespace LibrartDataManagementSystem
             this.txtBx_LastName_BorrowLayout = new System.Windows.Forms.TextBox();
             this.btn_IssueBorrowBook = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.combBx_Borrower_First_Name_TransactionBorrow = new System.Windows.Forms.ComboBox();
+            this.combBx_Borrower_Gender_TransactionBorrow = new System.Windows.Forms.ComboBox();
+            this.combBx_Borrower_Last_Name_TransactionBorrow = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.grpBx_MembersTable_BorrwLayout = new System.Windows.Forms.GroupBox();
             this.dtGrdVw_Member_TransactionBorrow = new System.Windows.Forms.DataGridView();
             this.Column_Borrower_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,13 +104,6 @@ namespace LibrartDataManagementSystem
             this.label22 = new System.Windows.Forms.Label();
             this.combBx_Book_Author_TransactionBorrow = new System.Windows.Forms.ComboBox();
             this.txtBx_SearchBook_TransactionBorrow = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.combBx_Borrower_First_Name_TransactionBorrow = new System.Windows.Forms.ComboBox();
-            this.combBx_Borrower_Gender_TransactionBorrow = new System.Windows.Forms.ComboBox();
-            this.combBx_Borrower_Last_Name_TransactionBorrow = new System.Windows.Forms.ComboBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.txtBx_Book_Title_BorrowLayout = new System.Windows.Forms.TextBox();
             this.pnl_.SuspendLayout();
             this.panel1.SuspendLayout();
             this.grpBx_MembersTable_BorrwLayout.SuspendLayout();
@@ -155,6 +155,17 @@ namespace LibrartDataManagementSystem
             this.pnl_.Size = new System.Drawing.Size(374, 435);
             this.pnl_.TabIndex = 53;
             // 
+            // txtBx_Book_Title_BorrowLayout
+            // 
+            this.txtBx_Book_Title_BorrowLayout.Enabled = false;
+            this.txtBx_Book_Title_BorrowLayout.Location = new System.Drawing.Point(70, 268);
+            this.txtBx_Book_Title_BorrowLayout.Name = "txtBx_Book_Title_BorrowLayout";
+            this.txtBx_Book_Title_BorrowLayout.Size = new System.Drawing.Size(298, 20);
+            this.txtBx_Book_Title_BorrowLayout.TabIndex = 87;
+            this.txtBx_Book_Title_BorrowLayout.KeyDown += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyDown);
+            this.txtBx_Book_Title_BorrowLayout.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.event_Key_Handling_TxtBx_KeyPress);
+            this.txtBx_Book_Title_BorrowLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyUp);
+            // 
             // txtBx_Gender_BorrowLayout
             // 
             this.txtBx_Gender_BorrowLayout.Enabled = false;
@@ -162,6 +173,9 @@ namespace LibrartDataManagementSystem
             this.txtBx_Gender_BorrowLayout.Name = "txtBx_Gender_BorrowLayout";
             this.txtBx_Gender_BorrowLayout.Size = new System.Drawing.Size(111, 20);
             this.txtBx_Gender_BorrowLayout.TabIndex = 86;
+            this.txtBx_Gender_BorrowLayout.KeyDown += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyDown);
+            this.txtBx_Gender_BorrowLayout.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.event_Key_Handling_TxtBx_KeyPress);
+            this.txtBx_Gender_BorrowLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyUp);
             // 
             // label24
             // 
@@ -188,6 +202,9 @@ namespace LibrartDataManagementSystem
             this.txt_Book_Author_BorrowLayout.Name = "txt_Book_Author_BorrowLayout";
             this.txt_Book_Author_BorrowLayout.Size = new System.Drawing.Size(158, 20);
             this.txt_Book_Author_BorrowLayout.TabIndex = 83;
+            this.txt_Book_Author_BorrowLayout.KeyDown += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyDown);
+            this.txt_Book_Author_BorrowLayout.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.event_Key_Handling_TxtBx_KeyPress);
+            this.txt_Book_Author_BorrowLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyUp);
             // 
             // label15
             // 
@@ -205,6 +222,9 @@ namespace LibrartDataManagementSystem
             this.txtBx_Borrower_ID_BorrowLayout.Name = "txtBx_Borrower_ID_BorrowLayout";
             this.txtBx_Borrower_ID_BorrowLayout.Size = new System.Drawing.Size(100, 20);
             this.txtBx_Borrower_ID_BorrowLayout.TabIndex = 80;
+            this.txtBx_Borrower_ID_BorrowLayout.KeyDown += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyDown);
+            this.txtBx_Borrower_ID_BorrowLayout.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.event_Key_Handling_TxtBx_KeyPress);
+            this.txtBx_Borrower_ID_BorrowLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyUp);
             // 
             // btn_Update_Personal_Info_BorrowLayout
             // 
@@ -294,6 +314,9 @@ namespace LibrartDataManagementSystem
             this.txtBx_Age_BorrowLayout.Name = "txtBx_Age_BorrowLayout";
             this.txtBx_Age_BorrowLayout.Size = new System.Drawing.Size(175, 20);
             this.txtBx_Age_BorrowLayout.TabIndex = 70;
+            this.txtBx_Age_BorrowLayout.KeyDown += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyDown);
+            this.txtBx_Age_BorrowLayout.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.event_Key_Handling_TxtBx_KeyPress);
+            this.txtBx_Age_BorrowLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyUp);
             // 
             // label10
             // 
@@ -329,6 +352,9 @@ namespace LibrartDataManagementSystem
             this.txtBx_FirstName_BorrowLayout.Name = "txtBx_FirstName_BorrowLayout";
             this.txtBx_FirstName_BorrowLayout.Size = new System.Drawing.Size(111, 20);
             this.txtBx_FirstName_BorrowLayout.TabIndex = 66;
+            this.txtBx_FirstName_BorrowLayout.KeyDown += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyDown);
+            this.txtBx_FirstName_BorrowLayout.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.event_Key_Handling_TxtBx_KeyPress);
+            this.txtBx_FirstName_BorrowLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyUp);
             // 
             // txtBx_MiddleName_BorrowLayout
             // 
@@ -337,6 +363,9 @@ namespace LibrartDataManagementSystem
             this.txtBx_MiddleName_BorrowLayout.Name = "txtBx_MiddleName_BorrowLayout";
             this.txtBx_MiddleName_BorrowLayout.Size = new System.Drawing.Size(100, 20);
             this.txtBx_MiddleName_BorrowLayout.TabIndex = 65;
+            this.txtBx_MiddleName_BorrowLayout.KeyDown += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyDown);
+            this.txtBx_MiddleName_BorrowLayout.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.event_Key_Handling_TxtBx_KeyPress);
+            this.txtBx_MiddleName_BorrowLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyUp);
             // 
             // label8
             // 
@@ -354,6 +383,9 @@ namespace LibrartDataManagementSystem
             this.txt_Book_ID_BorrowLayout.Name = "txt_Book_ID_BorrowLayout";
             this.txt_Book_ID_BorrowLayout.Size = new System.Drawing.Size(122, 20);
             this.txt_Book_ID_BorrowLayout.TabIndex = 63;
+            this.txt_Book_ID_BorrowLayout.KeyDown += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyDown);
+            this.txt_Book_ID_BorrowLayout.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.event_Key_Handling_TxtBx_KeyPress);
+            this.txt_Book_ID_BorrowLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyUp);
             // 
             // label6
             // 
@@ -371,6 +403,9 @@ namespace LibrartDataManagementSystem
             this.txtBx_TypeValidID_BorrowLayout.Name = "txtBx_TypeValidID_BorrowLayout";
             this.txtBx_TypeValidID_BorrowLayout.Size = new System.Drawing.Size(98, 20);
             this.txtBx_TypeValidID_BorrowLayout.TabIndex = 61;
+            this.txtBx_TypeValidID_BorrowLayout.KeyDown += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyDown);
+            this.txtBx_TypeValidID_BorrowLayout.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.event_Key_Handling_TxtBx_KeyPress);
+            this.txtBx_TypeValidID_BorrowLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyUp);
             // 
             // label4
             // 
@@ -388,6 +423,9 @@ namespace LibrartDataManagementSystem
             this.txtBx_ContactNumber_BorrowLayout.Name = "txtBx_ContactNumber_BorrowLayout";
             this.txtBx_ContactNumber_BorrowLayout.Size = new System.Drawing.Size(161, 20);
             this.txtBx_ContactNumber_BorrowLayout.TabIndex = 59;
+            this.txtBx_ContactNumber_BorrowLayout.KeyDown += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyDown);
+            this.txtBx_ContactNumber_BorrowLayout.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.event_Key_Handling_TxtBx_KeyPress);
+            this.txtBx_ContactNumber_BorrowLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyUp);
             // 
             // label3
             // 
@@ -405,6 +443,9 @@ namespace LibrartDataManagementSystem
             this.txtBx_Address_BorrowLayout.Name = "txtBx_Address_BorrowLayout";
             this.txtBx_Address_BorrowLayout.Size = new System.Drawing.Size(314, 20);
             this.txtBx_Address_BorrowLayout.TabIndex = 57;
+            this.txtBx_Address_BorrowLayout.KeyDown += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyDown);
+            this.txtBx_Address_BorrowLayout.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.event_Key_Handling_TxtBx_KeyPress);
+            this.txtBx_Address_BorrowLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyUp);
             // 
             // label2
             // 
@@ -431,6 +472,9 @@ namespace LibrartDataManagementSystem
             this.txtBx_LastName_BorrowLayout.Name = "txtBx_LastName_BorrowLayout";
             this.txtBx_LastName_BorrowLayout.Size = new System.Drawing.Size(98, 20);
             this.txtBx_LastName_BorrowLayout.TabIndex = 54;
+            this.txtBx_LastName_BorrowLayout.KeyDown += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyDown);
+            this.txtBx_LastName_BorrowLayout.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.event_Key_Handling_TxtBx_KeyPress);
+            this.txtBx_LastName_BorrowLayout.KeyUp += new System.Windows.Forms.KeyEventHandler(this.event_Key_Handling_TxtBx_KeyUp);
             // 
             // btn_IssueBorrowBook
             // 
@@ -460,6 +504,63 @@ namespace LibrartDataManagementSystem
             this.panel1.Size = new System.Drawing.Size(896, 200);
             this.panel1.TabIndex = 54;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(502, 37);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(57, 13);
+            this.label17.TabIndex = 46;
+            this.label17.Text = "First Name";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(725, 37);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(42, 13);
+            this.label18.TabIndex = 45;
+            this.label18.Text = "Gender";
+            // 
+            // combBx_Borrower_First_Name_TransactionBorrow
+            // 
+            this.combBx_Borrower_First_Name_TransactionBorrow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combBx_Borrower_First_Name_TransactionBorrow.FormattingEnabled = true;
+            this.combBx_Borrower_First_Name_TransactionBorrow.Location = new System.Drawing.Point(462, 12);
+            this.combBx_Borrower_First_Name_TransactionBorrow.Name = "combBx_Borrower_First_Name_TransactionBorrow";
+            this.combBx_Borrower_First_Name_TransactionBorrow.Size = new System.Drawing.Size(119, 21);
+            this.combBx_Borrower_First_Name_TransactionBorrow.TabIndex = 44;
+            this.combBx_Borrower_First_Name_TransactionBorrow.SelectedIndexChanged += new System.EventHandler(this.combx_Search_Filters_Change);
+            // 
+            // combBx_Borrower_Gender_TransactionBorrow
+            // 
+            this.combBx_Borrower_Gender_TransactionBorrow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combBx_Borrower_Gender_TransactionBorrow.FormattingEnabled = true;
+            this.combBx_Borrower_Gender_TransactionBorrow.Location = new System.Drawing.Point(712, 12);
+            this.combBx_Borrower_Gender_TransactionBorrow.Name = "combBx_Borrower_Gender_TransactionBorrow";
+            this.combBx_Borrower_Gender_TransactionBorrow.Size = new System.Drawing.Size(66, 21);
+            this.combBx_Borrower_Gender_TransactionBorrow.TabIndex = 43;
+            this.combBx_Borrower_Gender_TransactionBorrow.SelectedIndexChanged += new System.EventHandler(this.combx_Search_Filters_Change);
+            // 
+            // combBx_Borrower_Last_Name_TransactionBorrow
+            // 
+            this.combBx_Borrower_Last_Name_TransactionBorrow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combBx_Borrower_Last_Name_TransactionBorrow.FormattingEnabled = true;
+            this.combBx_Borrower_Last_Name_TransactionBorrow.Location = new System.Drawing.Point(587, 12);
+            this.combBx_Borrower_Last_Name_TransactionBorrow.Name = "combBx_Borrower_Last_Name_TransactionBorrow";
+            this.combBx_Borrower_Last_Name_TransactionBorrow.Size = new System.Drawing.Size(119, 21);
+            this.combBx_Borrower_Last_Name_TransactionBorrow.TabIndex = 41;
+            this.combBx_Borrower_Last_Name_TransactionBorrow.SelectedIndexChanged += new System.EventHandler(this.combx_Search_Filters_Change);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(621, 36);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(58, 13);
+            this.label25.TabIndex = 42;
+            this.label25.Text = "Last Name";
             // 
             // grpBx_MembersTable_BorrwLayout
             // 
@@ -763,71 +864,6 @@ namespace LibrartDataManagementSystem
             this.txtBx_SearchBook_TransactionBorrow.Name = "txtBx_SearchBook_TransactionBorrow";
             this.txtBx_SearchBook_TransactionBorrow.Size = new System.Drawing.Size(260, 20);
             this.txtBx_SearchBook_TransactionBorrow.TabIndex = 11;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(502, 37);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(57, 13);
-            this.label17.TabIndex = 46;
-            this.label17.Text = "First Name";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(725, 37);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(42, 13);
-            this.label18.TabIndex = 45;
-            this.label18.Text = "Gender";
-            // 
-            // combBx_Borrower_First_Name_TransactionBorrow
-            // 
-            this.combBx_Borrower_First_Name_TransactionBorrow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combBx_Borrower_First_Name_TransactionBorrow.FormattingEnabled = true;
-            this.combBx_Borrower_First_Name_TransactionBorrow.Location = new System.Drawing.Point(462, 12);
-            this.combBx_Borrower_First_Name_TransactionBorrow.Name = "combBx_Borrower_First_Name_TransactionBorrow";
-            this.combBx_Borrower_First_Name_TransactionBorrow.Size = new System.Drawing.Size(119, 21);
-            this.combBx_Borrower_First_Name_TransactionBorrow.TabIndex = 44;
-            this.combBx_Borrower_First_Name_TransactionBorrow.SelectedIndexChanged += new System.EventHandler(this.combx_Search_Filters_Change);
-            // 
-            // combBx_Borrower_Gender_TransactionBorrow
-            // 
-            this.combBx_Borrower_Gender_TransactionBorrow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combBx_Borrower_Gender_TransactionBorrow.FormattingEnabled = true;
-            this.combBx_Borrower_Gender_TransactionBorrow.Location = new System.Drawing.Point(712, 12);
-            this.combBx_Borrower_Gender_TransactionBorrow.Name = "combBx_Borrower_Gender_TransactionBorrow";
-            this.combBx_Borrower_Gender_TransactionBorrow.Size = new System.Drawing.Size(66, 21);
-            this.combBx_Borrower_Gender_TransactionBorrow.TabIndex = 43;
-            this.combBx_Borrower_Gender_TransactionBorrow.SelectedIndexChanged += new System.EventHandler(this.combx_Search_Filters_Change);
-            // 
-            // combBx_Borrower_Last_Name_TransactionBorrow
-            // 
-            this.combBx_Borrower_Last_Name_TransactionBorrow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combBx_Borrower_Last_Name_TransactionBorrow.FormattingEnabled = true;
-            this.combBx_Borrower_Last_Name_TransactionBorrow.Location = new System.Drawing.Point(587, 12);
-            this.combBx_Borrower_Last_Name_TransactionBorrow.Name = "combBx_Borrower_Last_Name_TransactionBorrow";
-            this.combBx_Borrower_Last_Name_TransactionBorrow.Size = new System.Drawing.Size(119, 21);
-            this.combBx_Borrower_Last_Name_TransactionBorrow.TabIndex = 41;
-            this.combBx_Borrower_Last_Name_TransactionBorrow.SelectedIndexChanged += new System.EventHandler(this.combx_Search_Filters_Change);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(621, 36);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(58, 13);
-            this.label25.TabIndex = 42;
-            this.label25.Text = "Last Name";
-            // 
-            // txtBx_Book_Title_BorrowLayout
-            // 
-            this.txtBx_Book_Title_BorrowLayout.Enabled = false;
-            this.txtBx_Book_Title_BorrowLayout.Location = new System.Drawing.Point(70, 268);
-            this.txtBx_Book_Title_BorrowLayout.Name = "txtBx_Book_Title_BorrowLayout";
-            this.txtBx_Book_Title_BorrowLayout.Size = new System.Drawing.Size(298, 20);
-            this.txtBx_Book_Title_BorrowLayout.TabIndex = 87;
             // 
             // TransactionBorrowLayoutForm
             // 

@@ -162,7 +162,7 @@ namespace LibrartDataManagementSystem
 
     class Info_TBL_BORROWED_BOOK
     {
-        private int Borrowed_Book_ID;
+        //private int Borrowed_Book_ID;
 
         private int Book_ID;
         private int Borrower_ID;
@@ -214,7 +214,7 @@ namespace LibrartDataManagementSystem
 
             
         }
-
+        /*
         public bool set_Primary_Key_Borrowed_Book_ID(int Borrowed_Book_ID)
         {
             this.Borrowed_Book_ID = Borrowed_Book_ID;
@@ -225,6 +225,7 @@ namespace LibrartDataManagementSystem
         {
             return Borrowed_Book_ID;
         }
+        //*/
 
         public string get_Table_Name()
         {
@@ -546,6 +547,33 @@ namespace LibrartDataManagementSystem
 
         }
 
+        public string get_Last_ID_Of_Table(string table_Name)
+        {
+            string table_ID_Name = "";
+
+            if (table_Name == Info_TBL_BOOK.Const_Names.table_Name)
+            {
+                table_ID_Name = Info_TBL_BOOK.Const_Names.Primary_Key_ID_Name_CONST;
+            }
+            else if (table_Name == Info_TBL_BORR0WER.Const_Names.table_Name)
+            {
+                table_ID_Name = Info_TBL_BORR0WER.Const_Names.Primary_Key_ID_Name_CONST;
+            }
+            else if (table_Name == Info_TBL_BORROWED_BOOK.Const_Names.table_Name)
+            {
+                table_ID_Name = Info_TBL_BORROWED_BOOK.Const_Names.Primary_Key_ID_Name_CONST;
+            }
+            else
+            {
+                return "";
+            }
+
+
+            string query = $"SELECT * FROM `{table_Name}` ORDER BY `{table_ID_Name}` DESC LIMIT 1";
+            List<List<string>> res = select_DBMethod_return_2DList_Table_Records(query);
+            return res[0][0];
+        }
+
         public bool isBookAvailble(int Book_ID)
         {
 
@@ -645,7 +673,7 @@ namespace LibrartDataManagementSystem
                     {
                         //debugMessage("Pumasok sa (isSuccess) : LDMS");
 
-
+                        //tbl_Infos.set_Primary_Key_Borrowed_Book_ID();
 
                         if ((number_of_Books_Left > 0))
                         {
