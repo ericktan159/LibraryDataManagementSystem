@@ -108,9 +108,9 @@
     <Compile Include="Borrowers Return Book Forms\BorrowersSearchLayoutForm.Designer.cs">
       <DependentUpon>BorrowersSearchLayoutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Common_Controller.cs" />
-    <Compile Include="ErrorHandlingController.cs" />
-    <Compile Include="LDMS_DataBaseController.cs" />
+    <Compile Include="Scripts\Common_Controller.cs" />
+    <Compile Include="Scripts\ErrorHandlingController.cs" />
+    <Compile Include="Scripts\LDMS_DataBaseController.cs" />
     <Compile Include="Members Forms\MembersDetailPopUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,7 +158,7 @@
     <Compile Include="MainLayout.Designer.cs">
       <DependentUpon>MainLayout.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainLayoutController.cs" />
+    <Compile Include="Scripts\MainLayoutController.cs" />
     <Compile Include="Members Forms\MemberAddLayoutForm.cs">
       <SubType>Form</SubType>
     </Compile>

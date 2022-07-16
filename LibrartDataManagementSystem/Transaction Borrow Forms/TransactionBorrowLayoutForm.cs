@@ -390,6 +390,7 @@ namespace LibrartDataManagementSystem
                 if (DialogResult.Yes == MessageBox.Show("Are you sre you want to  continue and save the inputs?", "INssert Borrow Book Transaction", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) 
                 {
                     do_Insert_Book();
+                    resetAllTeaxtBoxes();
                 }
 
             }
@@ -419,6 +420,16 @@ namespace LibrartDataManagementSystem
             }
             return true;
      
+        }
+
+        private bool resetAllTeaxtBoxes()//TextBox )
+        {
+            foreach (TextBox txTbx_item in txtBxs)
+            {
+                txTbx_item.Text = "";
+            }
+            return true;
+
         }
 
         private void event_Key_Handling_TxtBx(KeyPressEventArgs e)
@@ -465,28 +476,33 @@ namespace LibrartDataManagementSystem
                 //_LDMS_DataBaseControlle.debugMessage("DI Pumasok sa (number_of_Books_Left >= 0) : Transaction");
                 isSuccess = false;
 
-                MessageBox.Show("Cannot Borrow the book!!! No Avalable copies");
+                //MessageBox.Show("Cannot Borrow the book!!! No Avalable copies");
+                LDMS_DataBaseController.message_Warning_OK_Button("Warning, No Avalable copies! Cannot Borrow the book!!!", "Warning!");
+
             }
 
 
             //(Book_ID, Borrower_ID, Borrowed_Book_Date_Borrowed, Borrowed_Book_Due_Date, Borrowed_Book_Due_Status, Borrowed_Book_Date_Returned, Borrowed_Book_Number_of_Copies);
             if (isSuccess)
             {
-                MessageBox.Show("Succes Issue!!!");
+                //MessageBox.Show("Succes Issue!!!");
+                LDMS_DataBaseController.message_Information_OK_Button("Insert borrow Transaction Succesfull", "Insert borrow Transaction");
                 //*
-                 if (!_LogController.LogReturnBorrow(_LDMS_DataBaseControlle.get_Last_ID_Of_Table(Info_TBL_BORROWED_BOOK.Const_Names.table_Name),
+                if (!_LogController.LogReturnBorrow(_LDMS_DataBaseControlle.get_Last_ID_Of_Table(Info_TBL_BORROWED_BOOK.Const_Names.table_Name),
                                                                                                     tbl_Infos.get_Foreign_Key_Book_ID().ToString(),
                                                                                                     tbl_Infos.get_Foreign_Key_Borrower_ID().ToString(),
                                                                                                     tbl_Infos.Borrowed_Book_Number_of_Copies.ToString(),
                                                                                                     1))
                 {
                     MessageBox.Show("Can't log automatically, please log manually.");
+                    
                 }
                 //*/
             }
             else
             {
-                MessageBox.Show("Not Succes Issue!!!");
+                LDMS_DataBaseController.message_Information_OK_Button("Insert borrow Transaction NOT Succesfull", "Insert borrow Transaction");
+                //MessageBox.Show("Not Succes Issue!!!");
             }
         }
 
