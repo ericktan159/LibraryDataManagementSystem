@@ -125,7 +125,7 @@ namespace LibrartDataManagementSystem
             this.ClientSize = new System.Drawing.Size(1264, 561);
             this.Controls.Add(this.pnl_Main);
             this.Controls.Add(this.pnl_Navigation);
-            this.MinimumSize = new System.Drawing.Size(900, 600);
+            this.MinimumSize = new System.Drawing.Size(1280, 600);
             this.Name = "MainLayout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Library Book";
