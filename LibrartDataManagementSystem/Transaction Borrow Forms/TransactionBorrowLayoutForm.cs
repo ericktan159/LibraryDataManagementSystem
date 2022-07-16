@@ -17,6 +17,7 @@ namespace LibrartDataManagementSystem
         List<List<string>> demoListOfListOfString;
         BooksController _booksController = new BooksController();
         MembersController _MembersController = new MembersController();
+        Common_Controller _Common_Controller = new Common_Controller();
 
 
         Member_Search_Controller searchMemberForm;
@@ -25,6 +26,8 @@ namespace LibrartDataManagementSystem
 
         private int numberOfAvableBooks = 0;
         private int numberOfCopiesTaken = 0;
+
+        private bool Num_Go = false;
 
         public TransactionBorrowLayoutForm()
         {
@@ -43,6 +46,15 @@ namespace LibrartDataManagementSystem
         }
         // inayos layout
 
+        public void trans_Refresh_Book()
+        {
+            GenerateTable();
+        }
+
+        public void trans_Refresh_Member()
+        {
+            searchMemberForm.event_refresh();
+        }
         private void demoTestSamembersTable()
         {
             DataGridView tableDataGrid = dtGrdVw_Member_TransactionBorrow;
@@ -80,6 +92,13 @@ namespace LibrartDataManagementSystem
             ///////////////
             ///
 
+            dtp_Date_Borrowed_BorrowLayout.MinDate = DateTime.Now;
+            dtp_Date_Borrowed_BorrowLayout.MaxDate = DateTime.Now;
+
+            dtp_Due_Date_BorrowLayout.MinDate = DateTime.Now;
+            /// 
+            ///
+            
             // books
             _booksController.FillDropdown(combBx_Book_Author_TransactionBorrow, "Book_Author");
             _booksController.FillDropdown(combBx_Book_Genre_TransactionBorrow, "Book_Genre");
@@ -226,6 +245,8 @@ namespace LibrartDataManagementSystem
 
         private void dtGrdVw_Member_TransactionBorrow_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            searchMemberForm.event_dtGrdVw_BorrwerSearch_CellDoubleClick();
+
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow myRow = this.dtGrdVw_Member_TransactionBorrow.Rows[e.RowIndex];
@@ -258,22 +279,25 @@ namespace LibrartDataManagementSystem
 
         private void dtGrdVw_Book_TransactionBorrow_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            searchMemberForm.event_dtGrdVw_BorrwerSearch_CellDoubleClick();
-
+            
             if (e.RowIndex >= 0)
             {
                 //MessageBox.Show("Books!!");
-
                 DataGridViewRow myRow = this.dtGrdVw_Book_TransactionBorrow.Rows[e.RowIndex];
 
-                txt_Book_ID_BorrowLayout.Text = myRow.Cells[0].Value.ToString();
-                combBx_Book_Title_BorrowLayout.Text = myRow.Cells[1].Value.ToString();
-                txt_Book_Author_BorrowLayout.Text = myRow.Cells[2].Value.ToString();
+                if (int.Parse(myRow.Cells["Column_Book_Number_Of_Quantity"].Value.ToString()) != 0)
+                {
+                    fill_Books_Inputs(myRow.Cells[0].Value.ToString(), myRow.Cells[1].Value.ToString(), myRow.Cells[2].Value.ToString(),
+                                        int.Parse(myRow.Cells["Column_Book_Number_Of_Quantity"].Value.ToString()));
+                }
+                else
+                {
+                    fill_Books_Inputs("","","", 0);
+                    //MessageBox.Show(, , MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    LDMS_DataBaseController.message_Warning_OK_Button("The book is NOT Avalable. Please Choose another Book", "Invalid input!");
+                }
 
-                numberOfAvableBooks = int.Parse(myRow.Cells["Column_Book_Number_Of_Quantity"].Value.ToString());
-                counttheBooksavailable();
-
-                MessageBox.Show("Availble: " + numberOfAvableBooks.ToString());
+                //MessageBox.Show("Availble: " + numberOfAvableBooks.ToString());
                 //combBx_NumCopies__BorrowLayout.Text = myRow.Cells[""].Value.ToString();
 
                 //*/
@@ -281,29 +305,106 @@ namespace LibrartDataManagementSystem
             }
         }
 
+        private void fill_Books_Inputs(string str_Book_ID_BorrowLayout, string str_Book_Title_BorrowLayout, string str_Book_Author_BorrowLayout, int numberOfAvableBooks)
+        {
+            txt_Book_ID_BorrowLayout.Text = str_Book_ID_BorrowLayout;
+            txtBx_Book_Title_BorrowLayout.Text = str_Book_Title_BorrowLayout;
+            txt_Book_Author_BorrowLayout.Text = str_Book_Author_BorrowLayout;
+
+            this.numberOfAvableBooks = numberOfAvableBooks;
+            counttheBooksavailable();
+        }
+
         private void btn_IssueBorrowBook_Click(object sender, EventArgs e)
         {
             //demmoInsertIssue();
-            insert_Borrowed_Book();
+            insert_Borrowed_Book_Transaction();
             searchMemberForm.event_refresh();
             GenerateTable();
         }
         private void counttheBooksavailable()
         {
 
-            combBx_NumCopies__BorrowLayout.Items.Clear();
-            for (int i = 1; i <= numberOfAvableBooks; i++)
+            //subokTemporary();
+
+            if (numberOfAvableBooks > 0)
             {
-                combBx_NumCopies__BorrowLayout.Items.Add(i);
+                combBx_NumCopies__BorrowLayout.Items.Clear();
+                for (int i = 1; i <= numberOfAvableBooks; i++)
+                {
+                    combBx_NumCopies__BorrowLayout.Items.Add(i);
+                }
+                combBx_NumCopies__BorrowLayout.SelectedIndex = 0;
+
+                Num_Go = true;
             }
-            combBx_NumCopies__BorrowLayout.SelectedIndex = 0;
-        }
-        private void demmoInsertIssue()
-        {
-            insert_Borrowed_Book();            
+            else
+            {
+                Num_Go = false;
+                
+                //MessageBox.Show("numberOfAvableBooks = 0... Invalid Input!!");
+            }
         }
 
-        private void insert_Borrowed_Book()
+        private void subokTemporary()
+        {
+            if (numberOfAvableBooks == 0)
+            {
+                numberOfAvableBooks = 1;
+            }
+        }
+
+        private void demmoInsertIssue()
+        {
+            insert_Borrowed_Book_Transaction();            
+        }
+
+        private void insert_Borrowed_Book_Transaction()
+        {
+            if (isAllInputTransactionComplete())
+            {
+                if (DialogResult.Yes == MessageBox.Show("Are you sre you want to  continue and save the inputs?", "INssert Borrow Book Transaction", MessageBoxButtons.YesNo, MessageBoxIcon.Question)) 
+                {
+                    do_Insert_Book();
+                }
+
+            }
+            else
+            {
+                LDMS_DataBaseController.message_Warning_OK_Button("Please complete the inputs", "Inomplete Inputs");
+            }
+            
+
+
+
+        }
+
+        private bool isAllInputTransactionComplete()
+        {
+            TextBox[] txtBxs = new TextBox[] {
+                txtBx_Borrower_ID_BorrowLayout,
+                txtBx_FirstName_BorrowLayout,
+                txtBx_MiddleName_BorrowLayout,
+                txtBx_LastName_BorrowLayout,
+                txtBx_Gender_BorrowLayout,
+                txtBx_Address_BorrowLayout,
+                txtBx_ContactNumber_BorrowLayout,
+                txtBx_Age_BorrowLayout,
+                txtBx_TypeValidID_BorrowLayout,
+
+                txt_Book_ID_BorrowLayout,
+                txtBx_Book_Title_BorrowLayout,
+                txt_Book_Author_BorrowLayout
+            };
+
+
+            bool istxt = _Common_Controller.isTextBoxeSComplete(txtBxs);
+            //bool isnumqtty = (combBx_NumCopies__BorrowLayout.SelectedItem.ToString().Equals("0"));
+
+            return (istxt);
+        }
+
+        private void do_Insert_Book()
         {
             //tbl_Infos.Book_ID = int.Parse(txt_Book_ID_BorrowLayout.Text);
             //tbl_Infos.Borrower_ID = int.Parse(txtBx_Borrower_ID_BorrowLayout.Text);
@@ -327,10 +428,13 @@ namespace LibrartDataManagementSystem
 
             if ((number_of_Books_Left >= 0))
             {
+
+                _LDMS_DataBaseControlle.debugMessage("Pumasok sa (number_of_Books_Left >= 0) : Transaction");
                 isSuccess = _LDMS_DataBaseControlle.insert_DBMethod_BORROWED_BOOK(tbl_Infos);
             }
             else
             {
+                _LDMS_DataBaseControlle.debugMessage("DI Pumasok sa (number_of_Books_Left >= 0) : Transaction");
                 isSuccess = false;
 
                 MessageBox.Show("Cannot Borrow the book!!! No Avalable copies");
@@ -356,6 +460,11 @@ namespace LibrartDataManagementSystem
         private void combx_Search_Filters_Change(object sender, EventArgs e)
         {
             searchMemberForm.event_DropdownChange();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

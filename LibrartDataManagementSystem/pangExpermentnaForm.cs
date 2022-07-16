@@ -30,7 +30,7 @@ namespace LibrartDataManagementSystem
         {
             Enum_CONST_Type_Valid_ID.set_ComboBox_Items(comboBox1);
 
-            //exitAgad();
+            exitAgad();
         }
     }
 }
